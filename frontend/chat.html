@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聊天找番 · AnimeFinder</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="logo-icon">アニ</span>
+      <div><h1>AnimeFinder</h1><p>能听懂人话的找番系统</p></div>
+    </div>
+    <nav>
+      <a class="nav-btn" data-page="home" href="/">🏠 主页推荐</a>
+      <a class="nav-btn" data-page="explore" href="/static/explore.html">🔍 浏览全部</a>
+      <a class="nav-btn" data-page="chat" href="/static/chat.html">💬 聊天找番</a>
+    </nav>
+    <div class="user-box">
+      <label>当前用户</label>
+      <select id="userSelect">
+        <option value="1">demo（收藏：心理/智斗系）</option>
+        <option value="2">visitor（收藏：热血战斗系）</option>
+      </select>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="page-head">
+      <h2>名场面聊天机器人</h2>
+      <p class="sub">描述模糊需求 / 名场面台词，甚至只记得一个画面都可以（RAG + 自然语言交互）</p>
+    </div>
+    <div id="chatBox" class="chat-box"></div>
+    <div class="chat-suggest">
+      <button data-q="L和夜神月隔着玻璃对峙是哪一集？">L 和夜神月对峙是哪一集？</button>
+      <button data-q="想找一部类似进击的巨人，但是不要太长，最好有角色成长和大量战斗">类似进击的巨人但短一点</button>
+      <button data-q="男主站在屋顶上和一个拿镰刀的人打架，是哪部动漫">屋顶拿镰刀的人打架</button>
+      <button data-q="评分9分以上，20集以内的心理战动漫">9分以上20集内心理战</button>
+    </div>
+    <div class="chat-input-bar">
+      <input id="chatInput" placeholder="说说你想看的，或者描述一个记得的名场面…">
+      <button id="chatSend">发送</button>
+    </div>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-card"><button class="modal-close" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/chat.js"></script>
+</body>
+</html>

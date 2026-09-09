@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浏览全部 · AnimeFinder</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="logo-icon">アニ</span>
+      <div><h1>AnimeFinder</h1><p>能听懂人话的找番系统</p></div>
+    </div>
+    <nav>
+      <a class="nav-btn" data-page="home" href="/">🏠 主页推荐</a>
+      <a class="nav-btn" data-page="explore" href="/static/explore.html">🔍 浏览全部</a>
+      <a class="nav-btn" data-page="chat" href="/static/chat.html">💬 聊天找番</a>
+    </nav>
+    <div class="user-box">
+      <label>当前用户</label>
+      <select id="userSelect">
+        <option value="1">demo（收藏：心理/智斗系）</option>
+        <option value="2">visitor（收藏：热血战斗系）</option>
+      </select>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="page-head">
+      <h2>浏览全部</h2>
+      <div class="toolbar">
+        <input id="searchInput" placeholder="搜索标题 / 角色名…">
+        <select id="genreFilter"><option value="">全部类型</option></select>
+        <button id="searchBtn">搜索</button>
+      </div>
+    </div>
+    <div id="exploreList" class="grid"></div>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-card"><button class="modal-close" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/explore.js"></script>
+</body>
+</html>

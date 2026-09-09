@@ -1,0 +1,26 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# === SQLite 数据库（可运行 database.py 自动重建，勿上传） ===
+*.db
+*.sqlite
+*.sqlite3
+
+# === Jikan 补全临时数据 ===
+*.jsonl
+/tmp_*.json
+
+# === 系统/编辑器 ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# === 环境变量（含密钥，勿上传） ===
+.env

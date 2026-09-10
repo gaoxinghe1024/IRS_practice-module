@@ -232,3 +232,9 @@ def index():
 
 
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
+
+
+if __name__ == "__&#8203;main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+

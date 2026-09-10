@@ -13,40 +13,33 @@
 | 遗传算法 | 纯 Python 手写，Fitness=0.4R+0.3P+0.2D+0.1N（`services/ga.py`） |
 | RAG 聊天 | 检索 + 模板生成（离线可用），可切换 LLM API（`services/rag.py`） |
 
+## 环境准备（推荐使用独立 conda 环境）
+
+本项目使用**专用 conda 环境 `animedev`**，与科研/其他环境隔离，互不影响。
+
+```bash
+# 首次：创建环境（已创建过可跳过）
+conda create -n animedev python=3.12 -y
+
+# 激活环境
+conda activate animedev
+
+# 安装依赖
+pip install -r requirements.txt
+```
+
 ## 启动
 
-### 方式一：服务管理脚本（推荐）
-
-**Windows** — 双击或命令行执行：
-
-```bat
-service.bat start      :: 启动服务(后台)
-service.bat stop       :: 停止服务
-service.bat restart    :: 重启服务
-service.bat status     :: 查看运行状态
-```
-
-**Linux / macOS / Git Bash**：
-
 ```bash
-./service.sh start     # 启动服务(后台)
-./service.sh stop      # 停止服务
-./service.sh restart   # 重启服务
-./service.sh status    # 查看运行状态
-```
-
-脚本会自动挑选可用 Python、缺依赖时自动安装、写 PID 与日志（`backend/server.pid`、`backend/server.log`）。
-
-### 方式二：手动启动
-
-```bash
-pip install -r requirements.txt
+conda activate animedev
 cd backend
 uvicorn main:app --reload --port 8000
 ```
 
 打开 http://localhost:8000 即可使用。
 接口文档（Swagger）在 http://localhost:8000/docs。
+
+> 也可在 PyCharm 中把解释器指向 `E:\anaconda3\envs\animedev\python.exe`，然后直接运行 `main.py`。
 
 ## 演示账号
 

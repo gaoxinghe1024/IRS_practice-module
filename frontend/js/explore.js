@@ -18,6 +18,8 @@ async function initGenres() {
 
 window.addEventListener("DOMContentLoaded", async () => {
   initPage("explore");
+  if (!requireAuth()) return;
+  if (!(await checkAuth())) { location.reload(); return; }
   $("#searchBtn").onclick = () => loadExplore($("#searchInput").value, $("#genreFilter").value);
   $("#searchInput").onkeydown = e => { if (e.key === "Enter") loadExplore($("#searchInput").value, $("#genreFilter").value); };
   $("#genreFilter").onchange = () => loadExplore($("#searchInput").value, $("#genreFilter").value);

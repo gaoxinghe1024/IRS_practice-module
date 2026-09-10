@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-模块一：Decision Automation / Knowledge-Based Reasoning
-基于知识的属性匹配推荐 + 轻量知识图谱。
+算法①：Knowledge-Based Reasoning（基于知识的推理推荐）
+=======================================================
+对应界面：动漫详情页「相似推荐」（每个作品页的小推荐位）。
 
 相似度公式（与项目文档一致）：
     Similarity(i,j) = w1*GenreSim + w2*ThemeSim + w3*DemographicSim
                     + w4*StudioSim + w5*LengthSim
+附：轻量知识图谱（Anime/Character/Studio/Franchise 四类节点）。
 """
 from database import get_conn
 

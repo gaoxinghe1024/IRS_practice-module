@@ -13,10 +13,30 @@
 | 遗传算法 | 纯 Python 手写，Fitness=0.4R+0.3P+0.2D+0.1N（`services/ga.py`） |
 | RAG 聊天 | 检索 + 模板生成（离线可用），可切换 LLM API（`services/rag.py`） |
 
-## 启动
+## 环境准备（专用 conda 环境）
+
+本项目使用**独立 conda 环境 `animedev`**，与科研/其他环境隔离，互不影响。
 
 ```bash
+# 首次：创建环境（已创建过可跳过）
+conda create -n animedev python=3.12 -y
+
+# 激活环境
+conda activate animedev
+
+# 安装依赖
 pip install -r requirements.txt
+```
+
+## 启动
+
+**方式一：PyCharm 直接运行（推荐）**
+在 PyCharm 中把解释器指向 `E:\anaconda3\envs\animedev\python.exe`，然后右键 `backend/main.py` → Run 即可。
+
+**方式二：命令行**
+
+```bash
+conda activate animedev
 cd backend
 uvicorn main:app --reload --port 8000
 ```

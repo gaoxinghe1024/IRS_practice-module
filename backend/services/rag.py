@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-模块四：Cognitive Techniques → RAG + Natural Language Interface（名场面聊天机器人）
+算法④：Cognitive LLM + Knowledge Base + RAG（语言感知搜索 + 聊天系统）
+=======================================================================
+对应界面：聊天找番页 —— 名场面回忆 / 自然语言找番（突出对话属性）。
 
 当前为『纯检索 + 模板生成』的离线可用版本：
     - 检索层：对动漫知识库（synopsis+标签）与名场面库做词面匹配打分（TF-IDF 思想）；
     - 生成层：模板回复，保证无外网/无 API Key 时演示不挂。
+    - 命中名场面时返回结构化 scene_focus，前端以「回忆片段」对话气泡渲染，
+      与推荐位卡片形式刻意区分，突出聊天属性。
 
 升级接口（保持函数签名即可替换）：
     - SemanticRetriever：换成 sentence-transformers(BGE) + ChromaDB 语义检索；
@@ -108,6 +112,7 @@ def retrieve(message: str) -> dict:
     intent = "scene" if scene_hits and scene_hits[0]["score"] >= 0.34 else "recommend"
 
     constraints = _extract_constraints(message)
+    near_miss: list[dict] = []
     if intent == "recommend" and (constraints.get("max_episodes") or constraints.get("min_score")):
         def _apply(hits):
             out = hits
@@ -120,9 +125,31 @@ def retrieve(message: str) -> dict:
         if not filtered:
             # 纯硬条件查询（如“评分8.8以上 20集以内”）：检索命中被硬条件淘汰时，用全目录兜底
             filtered = _apply([{**a, "ret_score": 0.0} for a in anime_rows])
+        if not filtered:
+            # 硬条件组合把目录筛空（如“9分以上 且 20集以内”）→ 找「最接近」的候选，
+            # 而不是回一句“没理解”：恰好满足其中一个条件的作品，按另一条件的差距排序
+            ms, me = constraints.get("min_score"), constraints.get("max_episodes")
+            for a in anime_rows:
+                ok_score = ms is None or a["score"] >= ms
+                ok_ep = me is None or (not a["episodes"] or a["episodes"] <= me)
+                if ok_score != ok_ep:
+                    gap = (ms - a["score"]) if not ok_score else (a["episodes"] - (me or 0))
+                    near_miss.append((max(0.0, gap), {**a, "ret_score": 0.0}))
+            near_miss.sort(key=lambda t: t[0])
+            filtered = [a for _, a in near_miss[:3]]
         anime_hits = filtered
 
-    return {"intent": intent, "anime": anime_hits[:5],
+    # “类似X”类查询：把消息里点名的作品本身挪到候选末尾（用户要的是"类似"，不是它）
+    def _mentioned(a):
+        return (a["title"] and a["title"].lower() in message.lower()) or \
+               (a["title_cn"] and a["title_cn"] in message)
+    if intent == "recommend" and len(anime_hits) > 1:
+        mentioned = [a for a in anime_hits if _mentioned(a)]
+        others = [a for a in anime_hits if not _mentioned(a)]
+        if mentioned and others:
+            anime_hits = others + mentioned
+
+    return {"intent": intent, "anime": anime_hits[:5], "near_miss": near_miss[:3],
             "scenes": scene_hits[:3], "constraints": constraints, "tokens": tokens}
 
 
@@ -137,34 +164,41 @@ def _build_context(retrieved: dict) -> str:
 
 
 def _template_reply(retrieved: dict) -> str:
-    """无 LLM 时的模板生成，保证离线可演示。"""
+    """无 LLM 时的模板生成，保证离线可演示。口吻偏聊天，区别于推荐位卡片。"""
     if retrieved["intent"] == "scene" and retrieved["scenes"]:
         s = retrieved["scenes"][0]
-        extra = ""
-        if len(retrieved["scenes"]) > 1:
-            s2 = retrieved["scenes"][1]
-            extra = f"\n\n另外你可能想到的是：《{s2['anime_title']}》第{s2['episode']}集——{s2['description']}"
-        return (f"这是《{s['anime_title']}》第 {s['episode']} 集的名场面：\n{s['description']}"
-                f"\n（在详情页可以查看这部作品的更多信息哦）{extra}")
+        return ("让我翻翻名场面库……找到啦！你说的应该是这一幕 👇")
 
     if not retrieved["anime"]:
-        return ("我没太理解你的描述，换个说法试试？比如：\n"
+        return ("这段描述我还没对上号，换个说法试试？比如：\n"
                 "· “想找类似进击的巨人但不要太长的”\n"
                 "· “L和夜神月对峙是哪一集”\n"
-                "· “评分9分以上 20集以内 的心理战动漫”")
+                "· “评分8.8以上 20集以内的心理战动漫”")
+
+    cons = retrieved["constraints"]
+    near = bool(retrieved.get("near_miss"))
+    con_text = ""
+    if cons.get("max_episodes"):
+        con_text += f"「{cons['max_episodes']} 集以内」"
+    if cons.get("min_score"):
+        con_text += (" 且 " if con_text else "") + f"「评分 ≥ {cons['min_score']}」"
+
+    if near:
+        a = retrieved["anime"][0]
+        reason = (f"它评分 {a['score']}" if cons.get("min_score") and a["score"] < cons["min_score"]
+                  else f"它有 {a['episodes']} 集")
+        names = [f"《{x['title_cn'] or x['title']}》" for x in retrieved["anime"][:3]]
+        return (f"严格同时满足 {con_text} 的，知识库里暂时没有。\n"
+                f"不过有很接近的：最推荐 **{names[0]}**——{reason}，就差一点点，"
+                f"故事气质和你描述的很像。其他接近的还有 {'、'.join(names[1:])}。"
+                f"\n要不要放宽一个条件再试试？")
 
     a = retrieved["anime"][0]
     names = [f"《{x['title_cn'] or x['title']}》" for x in retrieved["anime"][:3]]
-    cons = retrieved["constraints"]
-    con_text = ""
-    if cons.get("max_episodes"):
-        con_text += f"，篇幅控制在 {cons['max_episodes']} 集以内"
-    if cons.get("min_score"):
-        con_text += f"，评分不低于 {cons['min_score']}"
-    return (f"按你的描述{con_text}，我最推荐 **{names[0]}**："
-            f"{a['synopsis'][:60]}……评分 {a['score']}，{a['episodes']} 集，标签是「{a['genres']}」「{a['themes']}」。"
+    return (f"按你说的条件 {con_text}，我聊下来最想推给你的是 **{names[0]}**："
+            f"{a['synopsis'][:60]}……评分 {a['score']}，{a['episodes']} 集。"
             + (f"\n\n其他候选：{'、'.join(names[1:])}" if len(names) > 1 else "")
-            + "\n\n点开作品卡片可以看到详情和相似推荐～")
+            + "\n\n感兴趣的话，点下面的卡片就能看详情～")
 
 
 def _llm_reply(retrieved: dict, message: str) -> str | None:
@@ -195,13 +229,34 @@ def _llm_reply(retrieved: dict, message: str) -> str | None:
 
 
 def chat(message: str) -> dict:
-    """RAG 主流程：检索 → 上下文拼装 → 生成（LLM 或模板）。"""
+    """RAG 主流程：检索 → 上下文拼装 → 生成（LLM 或模板）。
+
+    命中名场面时额外返回 scene_focus（结构化「回忆片段」），
+    前端用它渲染对话式的场景气泡，与推荐位卡片刻意区分。
+    """
     retrieved = retrieve(message)
     reply = _llm_reply(retrieved, message) or _template_reply(retrieved)
-    src = "llm" if (LLM_API_BASE and LLM_API_KEY and reply and not reply.startswith("我没太理解")) else "template"
+    src = "llm" if (LLM_API_BASE and LLM_API_KEY and reply) else "template"
+
+    scene_focus = None
+    if retrieved["intent"] == "scene" and retrieved["scenes"]:
+        s = retrieved["scenes"][0]
+        conn = get_conn()
+        row = conn.execute("SELECT id, title, title_cn, image_url FROM anime WHERE title LIKE ?",
+                           (f"%{s['anime_title']}%",)).fetchone()
+        conn.close()
+        scene_focus = {"anime_id": row["id"] if row else None,
+                       "title": s["anime_title"],
+                       "title_cn": (row["title_cn"] if row else ""),
+                       "image_url": (row["image_url"] if row else ""),
+                       "episode": s["episode"],
+                       "description": s["description"],
+                       "keywords": [k for k in s["keywords"].split(",") if k]}
+
     return {
         "reply": reply,
         "source": src,
+        "scene_focus": scene_focus,
         "retrieved": {
             "anime": [{k: v for k, v in a.items() if k in ("id", "title", "title_cn", "genres", "themes", "episodes", "score")}
                       for a in retrieved["anime"]],

@@ -1,16 +1,23 @@
-/* home.js — 主页推荐页 + 观看计划优化面板 */
+/* home.js — 主页：算法③核心推荐（ICF+GA Fusion） + 新剧速递（DB直读） + 观看计划（GA附加应用） */
 
 async function loadHome() {
   const data = await api(`/api/recommend/home?user_id=${getUserId()}&top_k=5`);
   const g = data.ga;
   $("#gaInfo").innerHTML =
-    `<span>ICF 召回候选：<b>20 部</b></span>` +
-    `<span>GA 最优适应度：<b>${g.best_fitness}</b></span>` +
+    `<span>算法② ICF 召回候选：<b>20 部</b></span>` +
+    `<span>算法③ GA 最优适应度：<b>${g.best_fitness}</b></span>` +
     `<span>贪心基线：<b>${g.baseline_fitness}</b></span>` +
     `<span>提升：<b>+${g.improved}</b></span>` +
     `<span>权重 R/P/D/N = 0.4 / 0.3 / 0.2 / 0.1</span>`;
   $("#homeList").innerHTML = data.items.map(cardHTML).join("");
   bindCards();
+}
+
+/* 新剧速递：数据库直读 */
+async function loadNew() {
+  const data = await api("/api/recommend/new?limit=6");
+  $("#newList").innerHTML = data.items.map(cardHTML).join("");
+  $$("#newList .card").forEach(c => c.onclick = () => openModal(Number(c.dataset.id)));
 }
 
 /* ---------- 观看计划 ---------- */
@@ -48,7 +55,18 @@ async function makePlan() {
 
 window.addEventListener("DOMContentLoaded", async () => {
   initPage("home");
+  if (!requireAuth()) return;                    // 主界面：未登录 → 登录/注册窗口
+  if (!(await checkAuth())) { location.reload(); return; }  // token 过期 → 刷新出登录门
   document.addEventListener("userchange", loadHome);
   $("#planBtn").onclick = makePlan;
-  try { await loadHome(); } catch (e) { toast("后端未启动：请运行 uvicorn main:app"); }
+  /* 偏好关键词下拉：数据库标签，选择而非输入 */
+  try {
+    const tags = await api("/api/tags");
+    $("#planKeywords").innerHTML = `<option value="">不限</option>` +
+      [...tags.genres, ...tags.themes].map(t => `<option value="${escapeHTML(t)}">${escapeHTML(t)}</option>`).join("");
+  } catch (_) { /* 下拉留空不影响其他功能 */ }
+  try {
+    await loadHome();
+    await loadNew();
+  } catch (e) { toast("后端未启动：请运行 uvicorn main:app"); }
 });

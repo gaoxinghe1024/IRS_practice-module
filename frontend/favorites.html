@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的收藏 · AnimeFinder</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="logo-icon">アニ</span>
+      <div><h1>AnimeFinder</h1><p>能听懂人话的找番系统</p></div>
+    </div>
+    <nav>
+      <a class="nav-btn" data-page="home" href="/">🏠 主页推荐</a>
+      <a class="nav-btn" data-page="explore" href="/static/explore.html">🔍 浏览全部</a>
+      <a class="nav-btn" data-page="chat" href="/static/chat.html">💬 聊天找番</a>
+      <a class="nav-btn" data-page="favorites" href="/static/favorites.html">⭐ 我的收藏</a>
+      <a class="nav-btn" data-page="profile" href="/static/profile.html">👤 个人中心</a>
+    </nav>
+    <div class="user-box" id="userBox"></div>
+  </aside>
+
+  <main class="main">
+    <!-- 视图 A：收藏夹列表 -->
+    <div id="folderListView">
+      <div class="page-head">
+        <h2>我的收藏夹</h2>
+        <p class="sub">点击收藏夹进入详情，查看内含作品与「基于此收藏夹的混合推荐」</p>
+      </div>
+      <div class="folder-actions">
+        <button id="newFolderBtn" class="btn primary">＋ 新建收藏夹</button>
+      </div>
+      <div id="folderGrid" class="folder-grid"></div>
+    </div>
+
+    <!-- 视图 B：收藏夹详情（点击收藏夹进入） -->
+    <div id="folderDetailView" class="hidden">
+      <div class="folder-detail-head">
+        <button id="backToFolders" class="btn ghost">← 返回收藏夹列表</button>
+        <div>
+          <h2 id="folderTitle">收藏夹</h2>
+          <p class="sub" id="folderSub"></p>
+        </div>
+        <button id="delFolderBtn" class="btn ghost danger hidden" style="margin-left:auto">删除收藏夹</button>
+      </div>
+
+      <div class="section-title">收藏的作品</div>
+      <div id="folderItems" class="grid"></div>
+
+      <div class="section-title">基于此收藏夹的推荐
+        <span class="algo-tag">算法② · Rule × Knowledge 混合推理</span>
+        <span style="font-weight:400;color:var(--muted);font-size:12px">
+          规则层（关键词/评分/集数硬筛选） × 知识层（收藏夹画像标签匹配排序）
+        </span>
+      </div>
+      <div class="fusion-bar">
+        <select id="fusionKeywords" title="按标签筛选（选择而非输入）"></select>
+        <input id="fusionMinScore" type="number" step="0.1" min="0" max="10" placeholder="最低评分">
+        <input id="fusionMaxEp" type="number" min="0" placeholder="集数上限">
+        <button id="fusionBtn" class="btn primary">筛选并推荐</button>
+      </div>
+      <div id="hybridInfo" class="ga-info"></div>
+      <div id="hybridList" class="grid"></div>
+    </div>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-card"><button class="modal-close" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/favorites.js"></script>
+</body>
+</html>

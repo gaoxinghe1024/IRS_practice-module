@@ -17,27 +17,23 @@
       <a class="nav-btn" data-page="home" href="/">🏠 主页推荐</a>
       <a class="nav-btn" data-page="explore" href="/static/explore.html">🔍 浏览全部</a>
       <a class="nav-btn" data-page="chat" href="/static/chat.html">💬 聊天找番</a>
+      <a class="nav-btn" data-page="favorites" href="/static/favorites.html">⭐ 我的收藏</a>
+      <a class="nav-btn" data-page="profile" href="/static/profile.html">👤 个人中心</a>
     </nav>
-    <div class="user-box">
-      <label>当前用户</label>
-      <select id="userSelect">
-        <option value="1">demo（收藏：心理/智斗系）</option>
-        <option value="2">visitor（收藏：热血战斗系）</option>
-      </select>
-    </div>
+    <div class="user-box" id="userBox"></div>
   </aside>
 
   <main class="main">
     <div class="page-head">
-      <h2>名场面聊天机器人</h2>
-      <p class="sub">描述模糊需求 / 名场面台词，甚至只记得一个画面都可以（RAG + 自然语言交互）</p>
+      <h2>聊天找番 <span class="algo-tag">算法④ · Cognitive LLM + KB + RAG</span></h2>
+      <p class="sub">语言感知搜索 + 聊天系统：名场面回忆 / 模糊需求 / 硬条件筛选，都是对话式交互（RAG 检索 → 生成）</p>
     </div>
     <div id="chatBox" class="chat-box"></div>
     <div class="chat-suggest">
       <button data-q="L和夜神月隔着玻璃对峙是哪一集？">L 和夜神月对峙是哪一集？</button>
-      <button data-q="想找一部类似进击的巨人，但是不要太长，最好有角色成长和大量战斗">类似进击的巨人但短一点</button>
       <button data-q="男主站在屋顶上和一个拿镰刀的人打架，是哪部动漫">屋顶拿镰刀的人打架</button>
-      <button data-q="评分9分以上，20集以内的心理战动漫">9分以上20集内心理战</button>
+      <button data-q="想找一部类似进击的巨人，但是不要太长，最好有角色成长和大量战斗">类似进击的巨人但短一点</button>
+      <button data-q="评分8.8以上 20集以内的心理战动漫">8.8分以上20集内心理战</button>
     </div>
     <div class="chat-input-bar">
       <input id="chatInput" placeholder="说说你想看的，或者描述一个记得的名场面…">

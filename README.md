@@ -13,16 +13,18 @@
 | 遗传算法 | 纯 Python 手写，Fitness=0.4R+0.3P+0.2D+0.1N（`services/ga.py`） |
 | RAG 聊天 | 检索 + 模板生成（离线可用），可切换 LLM API（`services/rag.py`） |
 
-## 启动
+
 
 ```bash
-pip install -r requirements.txt
+conda activate animedev
 cd backend
 uvicorn main:app --reload --port 8000
 ```
 
 打开 http://localhost:8000 即可使用。
 接口文档（Swagger）在 http://localhost:8000/docs。
+
+> 也可在 PyCharm 中把解释器指向 `E:\anaconda3\envs\animedev\python.exe`，然后直接运行 `main.py`。
 
 ## 演示账号
 

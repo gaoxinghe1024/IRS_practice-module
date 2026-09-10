@@ -109,11 +109,15 @@
 - 远程仓库：`https://github.com/gaoxinghe1024/IRS_practice-module.git`。
 - 远程建仓时自带一个占位 README 初始提交，与本地无共同历史，已通过 `git pull --allow-unrelated-histories` 合并并解决 `README.md` 冲突（保留本地完整文档），随后推送成功。
 
-### 2. 环境修复记录（重要）
+### 2. 环境说明（重要）
 
-- 受管 venv（`~/.workbuddy/.../envs/default`）中的 fastapi/uvicorn/sklearn/pandas 曾被中断的 pip 安装损坏。
-- **当前可用环境为系统 Python `E:\anaconda3\python.exe`（3.12.13）**，已补装 `fastapi`（0.141.1）与 `python-multipart`，`uvicorn 0.40.0 / pandas 2.2.2 / sklearn 1.5.1 / requests / networkx` 均正常。
-- **后续协作者请优先使用 `E:\anaconda3\python.exe` 运行本项目。**
+- 受管 venv（`~/.workbuddy/.../envs/default`）曾被中断的 pip 安装损坏，已弃用。
+- **本项目使用专用 conda 环境 `animedev`（Python 3.12），与科研环境（base/new_env）完全隔离。**
+  - 解释器路径：`E:\anaconda3\envs\animedev\python.exe`
+  - 激活方式：`conda activate animedev`
+  - 已安装：fastapi / uvicorn[standard] / pandas / scikit-learn / requests / networkx / python-multipart
+- `requirements.txt` 已补全为项目实际依赖（含可选的 sentence-transformers / chromadb 注释项）。
+- **后续协作者请统一使用 `animedev` 环境**，不要再往 base 或其他科研环境安装本项目依赖。
 
 **交接待办（更新）：**
 - [ ] 重跑 `python jikan_enrich.py` 补齐剩余 9 部（上游恢复后即可）。

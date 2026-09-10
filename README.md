@@ -15,6 +15,30 @@
 
 ## 启动
 
+### 方式一：服务管理脚本（推荐）
+
+**Windows** — 双击或命令行执行：
+
+```bat
+service.bat start      :: 启动服务(后台)
+service.bat stop       :: 停止服务
+service.bat restart    :: 重启服务
+service.bat status     :: 查看运行状态
+```
+
+**Linux / macOS / Git Bash**：
+
+```bash
+./service.sh start     # 启动服务(后台)
+./service.sh stop      # 停止服务
+./service.sh restart   # 重启服务
+./service.sh status    # 查看运行状态
+```
+
+脚本会自动挑选可用 Python、缺依赖时自动安装、写 PID 与日志（`backend/server.pid`、`backend/server.log`）。
+
+### 方式二：手动启动
+
 ```bash
 pip install -r requirements.txt
 cd backend

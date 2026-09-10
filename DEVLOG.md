@@ -97,3 +97,34 @@
 - [ ] 实现 `load_mal_dataset()` 接入 Kaggle 真实数据（过滤无评分/成人内容，分块读取）。
 - [ ] RAG 检索升级为 BGE embedding + ChromaDB（替换 `rag.py` 的 `_tokenize/_score` 即可）。
 - [ ] 截图识番、冷启动问卷、推荐解释等附加功能。
+
+## [2026-09-10] 新增服务启动/停止脚本 + Git 仓库初始化
+
+**涉及文件：** 新增 `service.bat`、`service.sh`；修改 `.gitignore`。
+
+### 1. 服务管理脚本（响应团队需求）
+
+- 新增 `service.bat`（Windows 双击/命令行可用）与 `service.sh`（Linux/macOS/Git Bash）。
+- 支持四个子命令：`start`（后台启动，写 PID 与日志）、`stop`（按 PID/端口停止）、`restart`、`status`；不带参数默认 `start`。
+- 内置能力：自动挑选可用 Python 解释器（优先 `E:\anaconda3`，其次受管 venv，再 PATH）；启动前自动检测依赖缺失并 `pip install -r requirements.txt`；重复启动有保护提示；停止后自动清理 PID 文件。
+- 运行时文件：`backend/server.pid`、`backend/server.log`，已加入 `.gitignore` 排除。
+- **验证（`service.sh` 全流程实测通过）：** status(未运行) → start(成功，PID 写入) → HTTP 200 + `/api/anime/1` 正常 → status(运行中) → 重复 start(正确提示已运行) → stop(端口释放) → 重复 stop(提示未运行) → restart(成功，HTTP 200)。
+
+### 2. Git 仓库初始化（准备推送 GitHub）
+
+- `git init`，主分支命名 `main`，完成首次提交。
+- 新增 `.gitignore`：排除 `*.db`（SQLite 可重建）、`__pycache__`、虚拟环境、PID/日志、`.env` 等。
+- 远程仓库：`https://github.com/gaoxinghe1024/IRS_practice-module.git`。
+- **注意：** 远程仓库建仓时自带一个初始提交（README 占位），与本地无共同历史，首次推送需 `git push -u origin main --force`（若远程无他人提交）；如远程已有他人内容，改用 `git pull origin main --allow-unrelated-histories` 后再推。
+
+### 3. 环境修复记录（重要）
+
+- 上一轮被中断的 `pip install` 曾损坏受管 venv（`~/.workbuddy/.../envs/default`）中的 fastapi/uvicorn/sklearn/pandas。
+- **当前可用环境为系统 Python `E:\anaconda3\python.exe`（3.12.13）**，已补装 `fastapi`（0.141.1）与 `python-multipart`，`uvicorn 0.40.0 / pandas 2.2.2 / sklearn 1.5.1 / requests / networkx` 均正常。
+- **后续协作者请优先使用 `E:\anaconda3\python.exe` 运行本项目**，脚本已自动优先选用它。
+
+**交接待办（更新）：**
+- [ ] 重跑 `python jikan_enrich.py` 补齐剩余 9 部（上游恢复后即可）。
+- [ ] 实现 `load_mal_dataset()` 接入 Kaggle 真实数据（过滤无评分/成人内容，分块读取）。
+- [ ] RAG 检索升级为 BGE embedding + ChromaDB（替换 `rag.py` 的 `_tokenize/_score` 即可）。
+- [ ] 截图识番、冷启动问卷、推荐解释等附加功能。

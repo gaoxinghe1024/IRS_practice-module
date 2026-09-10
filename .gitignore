@@ -11,6 +11,13 @@ env/
 *.sqlite
 *.sqlite3
 
+# === 服务运行时文件（PID / 日志，勿上传） ===
+server.pid
+server.log
+server.err
+*.pid
+*.log
+
 # === Jikan 补全临时数据 ===
 *.jsonl
 /tmp_*.json

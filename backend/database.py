@@ -251,20 +251,35 @@ def init_db():
             id INTEGER PRIMARY KEY,
             username TEXT UNIQUE,
             gender TEXT DEFAULT 'Unknown',
-            mean_score REAL DEFAULT 0
+            mean_score REAL DEFAULT 0,
+            password_hash TEXT DEFAULT '',   -- PBKDF2 哈希；空 = 演示用户（无密码）
+            created_at TEXT DEFAULT ''       -- 注册时间
         );
         CREATE TABLE IF NOT EXISTS ratings (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
             anime_id INTEGER NOT NULL,
             rating REAL NOT NULL,
+            created_at TEXT DEFAULT '',      -- 评分时间（历史记录展示用）
             UNIQUE(user_id, anime_id)
         );
         CREATE TABLE IF NOT EXISTS favorites (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
             anime_id INTEGER NOT NULL,
+            folder_id INTEGER DEFAULT 0,     -- 0 = 默认收藏夹
             UNIQUE(user_id, anime_id)
+        );
+        CREATE TABLE IF NOT EXISTS fav_folders (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            name TEXT NOT NULL,
+            created_at TEXT DEFAULT ''
+        );
+        CREATE TABLE IF NOT EXISTS sessions (
+            token TEXT PRIMARY KEY,
+            user_id INTEGER NOT NULL,
+            created_at TEXT DEFAULT ''
         );
         CREATE TABLE IF NOT EXISTS scenes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -279,11 +294,25 @@ def init_db():
     )
 
     # 旧库平滑迁移：补充新增列（幂等）
-    for col, typ in [("mal_id", "INTEGER DEFAULT 0"), ("image_url", "TEXT DEFAULT ''")]:
+    for tbl, col, typ in [
+        ("anime", "mal_id", "INTEGER DEFAULT 0"),
+        ("anime", "image_url", "TEXT DEFAULT ''"),
+        ("users", "password_hash", "TEXT DEFAULT ''"),
+        ("users", "created_at", "TEXT DEFAULT ''"),
+        ("ratings", "created_at", "TEXT DEFAULT ''"),
+        ("favorites", "folder_id", "INTEGER DEFAULT 0"),
+    ]:
         try:
-            conn.execute(f"ALTER TABLE anime ADD COLUMN {col} {typ}")
+            conn.execute(f"ALTER TABLE {tbl} ADD COLUMN {col} {typ}")
         except sqlite3.OperationalError:
             pass  # 列已存在
+
+    # 给无时间戳的种子评分回填演示时间（幂等，评分历史页展示用）
+    blank = conn.execute("SELECT COUNT(*) FROM ratings WHERE created_at=''").fetchone()[0]
+    if blank:
+        conn.execute(
+            """UPDATE ratings SET created_at = datetime('2026-08-01 12:00:00', '+' || (id * 7) || ' hours')
+               WHERE created_at=''""")
 
     if conn.execute("SELECT COUNT(*) FROM anime").fetchone()[0] == 0:
         for i, a in enumerate(ANIME_SEED, start=1):

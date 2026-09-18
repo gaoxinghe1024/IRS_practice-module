@@ -1,4 +1,5 @@
 # AnimeFinder 项目依赖
+# 使用专用 conda 环境（不要污染科研/其他环境）：
 # 建议使用独立 conda 环境（不要污染科研/其他环境）：
 #   conda create -n animedev python=3.12 -y
 #   conda activate animedev

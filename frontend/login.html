@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>注册 / 登录 · AnimeFinder</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="auth-body">
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <span class="logo-icon">アニ</span>
+      <div><h1>AnimeFinder</h1><p>登录后，收藏 / 评分 / 推荐全部与你绑定</p></div>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">登录</button>
+      <button class="auth-tab" data-tab="register">注册</button>
+    </div>
+
+    <form id="authForm">
+      <label class="auth-field">
+        <span>用户名</span>
+        <input id="username" autocomplete="username" placeholder="2-20 个字符" required>
+      </label>
+      <label class="auth-field">
+        <span>密码</span>
+        <input id="password" type="password" autocomplete="current-password" placeholder="至少 6 位" required>
+      </label>
+      <div id="authError" class="auth-error hidden"></div>
+      <button type="submit" id="submitBtn" class="btn primary auth-submit">登录</button>
+    </form>
+
+    <div class="auth-demo">
+      <a href="/">先逛逛（演示模式，以 demo 用户身份体验）→</a>
+    </div>
+  </div>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/login.js"></script>
+</body>
+</html>

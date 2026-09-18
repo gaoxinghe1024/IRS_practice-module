@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-模块二：Business Resource Optimization → Evolutionary Computing → Genetic Algorithm
-对 ICF 召回的候选集做列表级重排优化。
+算法③（组件）：Evolutionary Computing → Genetic Algorithm（遗传算法）
+======================================================================
+对应界面：主页「为你推荐」的重排层（由 services/icf_ga_fusion.py 与 ICF 融合编排）；
+另有一个附加应用：观看计划优化（services/watchplan.py，GA 组合优化）。
 
 Fitness = w1*Relevance + w2*Personalization + w3*Diversity + w4*Novelty
 默认权重 0.4 / 0.3 / 0.2 / 0.1（与项目文档一致）。

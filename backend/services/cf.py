@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-模块三：Knowledge Discovery & Data Mining
-Item-based Collaborative Filtering（ICF）候选召回。
+算法②（组件）：Knowledge Discovery & Data Mining
+Item-based Collaborative Filtering（ICF）—— 基于用户真实评分的协同过滤召回。
+对应界面：主页「为你推荐」的召回层（由 services/icf_ga_fusion.py 与 GA 融合编排）。
 
 当前实现：内存中的 item-item 余弦相似度（评分中心化）。
 真实数据接入后，750 万行评分建议：
@@ -27,10 +28,14 @@ def _load_matrix():
     conn.close()
 
     # item -> {user: centered_rating}
+    # 中心化：减去该用户的均分（消除“手松/手紧”偏差，教科书式 mean-centered ICF）
+    user_means: dict[int, float] = {}
+    for r in rows:
+        user_means.setdefault(r["user_id"], []).append(r["rating"])
+    user_means = {u: sum(v) / len(v) for u, v in user_means.items()}
     item_users: dict[int, dict[int, float]] = {}
     for r in rows:
-        centered = r["rating"] - (r["global_score"] or 7.0)
-        item_users.setdefault(r["anime_id"], {})[r["user_id"]] = centered
+        item_users.setdefault(r["anime_id"], {})[r["user_id"]] = r["rating"] - user_means[r["user_id"]]
     return item_users
 
 
@@ -71,6 +76,11 @@ def invalidate_cache():
     """用户新增评分后调用，让相似度矩阵在下次请求时重建。"""
     global _sim_cache
     _sim_cache = None
+
+
+def item_neighbors(anime_id: int, top_n: int = 20) -> list[tuple[int, float]]:
+    """公开接口：某作品在 ICF 矩阵中的近邻 [(anime_id, sim)]，供混合推荐等模块复用。"""
+    return _build_sim().get(anime_id, [])[:top_n]
 
 
 def cf_candidates(user_id: int, top_n: int = 20) -> list[dict]:

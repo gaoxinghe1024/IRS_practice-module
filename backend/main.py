@@ -465,6 +465,7 @@ def index():
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
 
+
 # ---------------------------------------------------------------------------
 # 本地开发入口：在 PyCharm 中直接运行本文件即可启动服务
 #   等价于命令行: uvicorn main:app --reload --port 8000
@@ -473,3 +474,7 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+if __name__ == "__&#8203;main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+

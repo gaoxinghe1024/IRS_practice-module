@@ -65,23 +65,7 @@
 | 认证 | PBKDF2-HMAC-SHA256 密码哈希 + 随机 token 会话（`services/auth.py`） |
 | 数据 | MyAnimeList 风格种子库 + 86 用户 / 1012 条评分（含 24 个强对比口味聚类用户） |
 
-## 四、环境准备与启动
 
-本项目使用**独立 conda 环境 `animedev`**，与科研/其他环境隔离，互不影响。
-
-```bash
-# 首次：创建环境（已创建过可跳过）
-conda create -n animedev python=3.12 -y
-
-# 激活环境并安装依赖
-conda activate animedev
-pip install -r requirements.txt
-```
-
-**方式一：PyCharm 直接运行（推荐）**
-把解释器指向 `E:\anaconda3\envs\animedev\python.exe`，右键 `backend/main.py` → Run。
-
-**方式二：命令行**
 
 ```bash
 conda activate animedev
@@ -93,7 +77,9 @@ uvicorn main:app --reload --port 8000
 
 > 注意：前端是静态 JS，浏览器可能缓存旧版 —— 更新后请 **Ctrl+F5 强制刷新**。
 
-## 五、演示账号（密码均为 `123456`）
+> 也可在 PyCharm 中把解释器指向 `E:\anaconda3\envs\animedev\python.exe`，然后直接运行 `main.py`。
+
+## 演示账号
 
 每个账号 10-11 条评分 + 4~6 部收藏，**刻意留了同口味作品不评分**，作为验证「算法能否猜中你喜欢什么」的金标准（四个账号实测全部命中）：
 

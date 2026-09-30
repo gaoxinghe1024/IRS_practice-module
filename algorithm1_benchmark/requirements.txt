@@ -1,0 +1,6 @@
+numpy>=2.0,<3
+scipy>=1.13,<2
+scikit-learn>=1.5,<2
+onnxruntime>=1.19,<2
+tokenizers>=0.20,<1
+matplotlib>=3.9,<4

@@ -1,0 +1,2 @@
+{"query_id": "rq-0001", "query": "a suspense anime with at most 40 episodes and no romance", "intent": "preference_recommendation", "relevant_item_keys": ["mal:1535"], "answerable": true, "hard_constraints": {"max_episodes": 40, "include_genres": ["Suspense"], "exclude_genres": ["Romance"]}, "annotator_id": "a1"}
+{"query_id": "rq-0002", "query": "which episode of Monster has the scene in the library?", "intent": "scene_lookup", "relevant_item_keys": [], "answerable": false, "annotator_id": "a1"}

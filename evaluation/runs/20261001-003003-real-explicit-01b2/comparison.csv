@@ -1,0 +1,9 @@
+method,mae,rmse,mae_on_icf_supported
+global_mean,1.30356,1.64438,1.3052
+user_mean,1.09962,1.43543,1.0986
+item_mean,1.15898,1.5032,1.14165
+icf_with_fallback,0.96562,1.3474,0.93691
+icf_served_with_fallback,1.03369,1.35934,1.01905
+mf,0.87192,1.16834,0.8481
+ncf_explicit,0.91976,1.24111,0.89994
+icf_supported_only,0.93691,1.31719,0.93691

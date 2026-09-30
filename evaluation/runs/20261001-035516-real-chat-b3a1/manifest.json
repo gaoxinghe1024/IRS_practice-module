@@ -1,0 +1,47 @@
+{
+  "run_id": "20261001-035516-real-chat-b3a1",
+  "experiment": "chat",
+  "status": "completed",
+  "dataset_mode": "real",
+  "dataset_version": "real-89bfdea00b",
+  "artifact_manifest_sha256": "5b8290b04c4678e158d7dac88bbd025c673a4e89842bc234e7234a414d539226",
+  "split_fingerprints": {
+    "ranking": "68311d2b7d552b98",
+    "explicit": "2d66b01a8ddeb159"
+  },
+  "params": {
+    "tag": null
+  },
+  "started_at": "2026-10-01T03:55:16",
+  "finished_at": "2026-09-30T19:55:37Z",
+  "seconds": 20.6,
+  "peak_rss_mb": 799.2,
+  "git_commit": "44c42cf",
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 8,
+    "python": "3.12.14"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.1",
+    "fastapi": "0.142.1",
+    "sqlalchemy": "2.1.1",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.1.0"
+  },
+  "data": {
+    "sets": {
+      "auto_titles": 312,
+      "auto_constraints": 38,
+      "auto_relations": 17,
+      "auto_no_episode": 30
+    }
+  },
+  "notes": []
+}

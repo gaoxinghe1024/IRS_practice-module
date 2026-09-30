@@ -1,0 +1,97 @@
+{
+  "run_id": "20260930-225651-synthetic-planner-f61c",
+  "experiment": "planner",
+  "status": "completed",
+  "dataset_mode": "synthetic",
+  "dataset_version": "synthetic-7a7d5d6a74",
+  "artifact_manifest_sha256": "8960f76aa7caba37a7d7fe31215b94ef796f43d95075ca8120530bdcb0d6c317",
+  "split_fingerprints": {
+    "ranking": "8c7fc0a940c29669",
+    "explicit": "c61dce88397817ab"
+  },
+  "params": {
+    "sample_users": 60,
+    "grid": [
+      [
+        300,
+        2,
+        "normal"
+      ],
+      [
+        600,
+        3,
+        "normal"
+      ],
+      [
+        900,
+        3,
+        "high"
+      ],
+      [
+        1500,
+        5,
+        "normal"
+      ],
+      [
+        900,
+        5,
+        "low"
+      ]
+    ],
+    "seeds": 3,
+    "tag": null
+  },
+  "started_at": "2026-09-30T22:56:51",
+  "finished_at": "2026-09-30T14:59:52Z",
+  "seconds": 181.8,
+  "peak_rss_mb": 567.8,
+  "git_commit": "44c42cf",
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 8,
+    "python": "3.12.14"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.1",
+    "fastapi": "0.142.1",
+    "sqlalchemy": "2.1.1",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.1.0"
+  },
+  "data": {
+    "grid": [
+      [
+        300,
+        2,
+        "normal"
+      ],
+      [
+        600,
+        3,
+        "normal"
+      ],
+      [
+        900,
+        3,
+        "high"
+      ],
+      [
+        1500,
+        5,
+        "normal"
+      ],
+      [
+        900,
+        5,
+        "low"
+      ]
+    ]
+  },
+  "notes": []
+}

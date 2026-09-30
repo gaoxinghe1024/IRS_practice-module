@@ -94,8 +94,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
         return not_found_page(request)
 
-    from app.api.v1 import anime, auth, chat, collections, images, me, plans, recommendations, scenes, system
     from app.api.v1 import admin as admin_api
+    from app.api.v1 import anime, auth, chat, collections, images, me, plans, recommendations, scenes, system
 
     for r in (auth, me, anime, collections, recommendations, chat, plans, scenes, images, system):
         app.include_router(r.router, prefix="/api/v1")

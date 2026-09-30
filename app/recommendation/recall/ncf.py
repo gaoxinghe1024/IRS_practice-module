@@ -115,7 +115,7 @@ def fit_ncf(u, i, r, n_users: int, n_items: int, val=None, embedding_dim: int = 
     opt = torch.optim.Adam(net.parameters(), lr=learning_rate, weight_decay=weight_decay)
     crit = nn.HuberLoss(delta=1.0) if loss == "huber" else nn.MSELoss()
     U = torch.as_tensor(np.asarray(u, dtype=np.int64))
-    I = torch.as_tensor(np.asarray(i, dtype=np.int64))
+    It = torch.as_tensor(np.asarray(i, dtype=np.int64))
     R = torch.as_tensor(np.asarray(r, dtype=np.float32))
     n = len(R)
     best_state, best_rmse, bad = None, np.inf, 0
@@ -131,7 +131,7 @@ def fit_ncf(u, i, r, n_users: int, n_items: int, val=None, embedding_dim: int = 
         tot = 0.0
         for s in range(0, n, batch_size):
             idx = perm[s:s + batch_size]
-            pred = net(U[idx], I[idx])
+            pred = net(U[idx], It[idx])
             lossv = crit(pred, R[idx])
             opt.zero_grad()
             lossv.backward()

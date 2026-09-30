@@ -187,6 +187,11 @@ def similar(state: ServingState, db: Session, user: User | None, item_key: str, 
                       "constraints_passed": True})
     if len(items) < k:
         warnings.append(f"Only {len(items)} titles have comparable metadata and pass your filters.")
+    target_missing = [X.DIM_LABEL[d] for d in ("theme", "demographic", "studio", "length")
+                      if not X.target_has(snap, target, d)]
+    if target_missing:
+        warnings.append(f"This title has no {', '.join(target_missing)} data, so those attributes could not be "
+                        "compared.")
     if res.coverage[order].size and float(res.coverage[order].mean()) < low_cov:
         warnings.append("Metadata for this title is sparse; similarity is based on few attributes.")
     request_id = new_request_id()
@@ -238,8 +243,7 @@ def collection(state: ServingState, db: Session, user: User, collection_id: int,
         fallback = fallback or f"{requested} unavailable"
         fallback += " -> collection_profile_v1"
         scorer = state.collection_scorers["collection_profile_v1"]
-    profile = build_collection_profile(snap, items, us.ratings, us.rating_mean, us.excluded_items,
-                                       float(cfg.get("min_positive_rating_margin", 0.0)))
+    profile = build_collection_profile(snap, items, us.ratings, us.rating_mean, us.excluded_items)
     request_id = new_request_id()
     base_meta = {"collection": {"id": coll.id, "name": coll.name, "size": len(items)},
                  "profile": _profile_summary(snap, profile), "filters": filters.public(),
@@ -343,6 +347,21 @@ def popular_quality(snap: CatalogSnapshot, cand: np.ndarray) -> np.ndarray:
     return 0.5 * pop + 0.5 * q
 
 
+def home_content_scores(snap: CatalogSnapshot, prof, pool: np.ndarray, popularity_weight: float) -> np.ndarray:
+    """Content-profile score for the home feed's cold / partial modes, shared with the evaluation.
+
+    (1 - g) * profile match + g * popular_quality. Pure tag matching tends to surface obscure titles; g > 0
+    keeps the list quality-controlled (the brief's cold-start rule) and is tuned on validation.
+    """
+    from app.recommendation.collection.manual import CollectionProfileScorer
+
+    scores, _ = CollectionProfileScorer(alpha=0.7).score(snap, prof, pool)
+    g = float(popularity_weight)
+    if g > 0 and len(pool):
+        scores = (1.0 - g) * np.asarray(scores) + g * popular_quality(snap, pool)
+    return np.asarray(scores)
+
+
 def home(state: ServingState, db: Session, user: User, k: int | None = None, engine: str | None = None,
          reranker: str | None = None, candidate_k: int | None = None) -> dict:
     t0 = time.perf_counter()
@@ -402,10 +421,9 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
     prof = content_profile(snap, us)
     pool = np.flatnonzero(elig_mask)
     content_scores = None
+    content_pop_w = float(cfg.get("content_popularity_weight", 0.0))
     if prof is not None and len(pool):
-        from app.recommendation.collection.manual import CollectionProfileScorer
-
-        content_scores, _ = CollectionProfileScorer(alpha=0.7).score(snap, prof, pool)
+        content_scores = home_content_scores(snap, prof, pool, content_pop_w)
     rel = {}
     cf_ids = sorted(cands, key=lambda i: (-cands[i]["raw"], -cands[i]["support"], snap.keys[i]))[:candidate_k]
     if mode == "warm":
@@ -486,6 +504,8 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
     base_fit = float(obj.fitness(sel[None, :])[0])
     items = []
     user_mean = us.rating_mean or 0.0
+    if state.icf is not None and us.rating_mean is not None:     # the same reference level as the prediction
+        user_mean = state.icf.reference_mean(us.rating_mean, len(us.ratings))
     top_rel_unused = [p for p in np.argsort(-relevance, kind="stable") if p not in set(sel.tolist())]
     for pos in sel.tolist():
         i = int(chosen[pos])
@@ -493,12 +513,12 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
         reasons = []
         if c["source"].startswith("icf") and state.icf is not None:
             exp = state.icf.explain(int(state.cat_to_cf[i]), np.array([state.cat_to_cf[j] for j in rated_cf]),
-                                    np.array([us.ratings[j] for j in rated_cf]), user_mean, top=2)
+                                    np.array([us.ratings[j] for j in rated_cf]), user_mean, top=1)
             for e in exp:
                 if e["contribution"] > 0:
                     j = int(state.cf_items[e["item"]])
                     reasons.append(X.reason("icf_support", title=snap.titles[j], rating=int(us.ratings[j]),
-                                            sim=e["similarity"], co=e["co_rated_users"]))
+                                            sim=round(float(e["similarity"]), 2), co=e["co_rated_users"]))
         elif c["source"].startswith("mf"):
             reasons.append(X.reason("mf_support"))
         if c["source"] in ("content", "content_fill") or c["source"].endswith("+content"):
@@ -507,6 +527,8 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
                 if pr:
                     tags = pr[0]["params"].get("tags", "")
                     reasons.append(X.reason("content_profile", tags=tags))
+            if content_pop_w > 0 and not c["source"].startswith(("icf", "mf")):
+                reasons.append(X.reason("content_popular", weight=round(content_pop_w, 2)))
         if c["source"] in ("popular_quality", "popular_fill"):
             reasons.append(X.reason("popular_quality"))
         comps = {"relevance": round(float(relevance[pos]), 4), "candidate_raw": round(float(c["raw"]), 4)}
@@ -564,7 +586,7 @@ def _recall(state: ServingState, engine: str, us: UserState, rated_cf: list[int]
     if engine == "icf":
         if state.icf is None:
             return None
-        pred = state.icf.predict(cf_rated, vals, user_mean=us.rating_mean)
+        pred = state.icf.predict(cf_rated, vals, user_mean=us.rating_mean, n_ratings=len(us.ratings))
         ids = state.cf_items[pred.items]
         keep = elig_mask[ids]
         ids, p, s = ids[keep], pred.predicted[keep], pred.support[keep]

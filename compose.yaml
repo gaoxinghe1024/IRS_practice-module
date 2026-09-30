@@ -1,0 +1,26 @@
+# docker compose up --build            -> synthetic demo (first run builds the synthetic world)
+# ANILOGIC_DATASET_MODE=real docker compose up --build   -> real mode (run the real pipeline first, see README)
+services:
+  setup:
+    build: .
+    command: ["python", "-m", "pipelines.cli", "build-all", "--mode", "synthetic"]
+    environment:
+      - ANILOGIC_DATASET_MODE=synthetic
+    volumes: [anilogic-data:/srv/anilogic/data, anilogic-artifacts:/srv/anilogic/artifacts, anilogic-var:/srv/anilogic/var,
+              hf-cache:/home/anilogic/.cache/huggingface]
+    profiles: ["setup"]
+  app:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      - ANILOGIC_DATASET_MODE=${ANILOGIC_DATASET_MODE:-synthetic}
+      - ANILOGIC_LLM__PROVIDER=${ANILOGIC_LLM__PROVIDER:-none}
+      - ANILOGIC_LLM_API_KEY=${ANILOGIC_LLM_API_KEY:-}
+    volumes: [anilogic-data:/srv/anilogic/data, anilogic-artifacts:/srv/anilogic/artifacts, anilogic-var:/srv/anilogic/var,
+              hf-cache:/home/anilogic/.cache/huggingface, ./data/raw:/srv/anilogic/data/raw:ro]
+    restart: unless-stopped
+volumes:
+  anilogic-data: {}
+  anilogic-artifacts: {}
+  anilogic-var: {}
+  hf-cache: {}

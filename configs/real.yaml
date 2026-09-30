@@ -17,3 +17,21 @@ pipeline:
   # Chosen for laptop-scale training; the before/after distribution is
   # written to the split report.
   sample_users_fraction: null
+
+recommendation:
+  home:
+    content_popularity_weight: 0.9  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+  icf:
+    user_mean_prior_weight: 5.0  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+    prediction_damping: 20.0  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+  mf:
+    batch_size: 65536
+    epochs: 25
+    learning_rate: 0.005
+    patience: 3
+  ncf:
+    batch_size: 32768
+    learning_rate: 0.003
+    epochs: 12
+    patience: 2
+    max_train_seconds: 2400

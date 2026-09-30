@@ -44,12 +44,14 @@ recommendation:
     low_coverage_warning: 0.5
     hybrid_tag_weight: 0.6
     hide_watched_default: false
+    logistic_min_train_queries: 20   # below this the supervised scorer is limited_by_data
+    logistic_min_val_queries: 5
+    replacement_min_val_queries: 20  # the default-replacement rule decides only with >= this many validation queries
   collection:
     k: 8
     scorer: collection_profile_v1
     alpha: 0.7
     exclude_statuses: ["completed"]
-    min_positive_rating_margin: 0.0  # rated items below the user's mean are not positive seeds
   home:
     k: 10
     candidate_k: 20
@@ -58,11 +60,13 @@ recommendation:
     warm_gate: 8
     exclude_statuses: ["completed"]
     exploration_k: 10
+    content_popularity_weight: 0.0   # g in (1-g)*profile match + g*popular_quality; mode files set the tuned value
   icf:
     min_co_rated: 3
     shrinkage: 10.0
     neighbors: 150
-    prediction_damping: 0.0          # 0 = exact normalised formula
+    prediction_damping: 0.0          # 0 = exact normalised formula; mode files set the validation-tuned value
+    user_mean_prior_weight: 0.0      # k: shrink a short history's mean towards the global train mean (0 = exact)
     block_size: 1024
   mf:
     latent_dim: 32
@@ -158,7 +162,8 @@ jikan:
   base_url: "https://api.jikan.moe/v4"
   min_interval_s: 1.1                # stricter than the documented 3 req/s, 60 req/min
   timeout_s: 20
-  max_retries: 4
+  max_retries: 4                     # for 429 (Retry-After honoured)
+  server_error_retries: 0            # 5xx are collected by the next resumable pass instead
 
 pipeline:
   chunk_rows: 100000

@@ -15,7 +15,11 @@ synthetic:
   n_scene_images: 12
 
 recommendation:
+  home:
+    content_popularity_weight: 0.75  # validation-tuned, evaluation run 20261001-033754-synthetic-homepage-e57f
   icf:
+    user_mean_prior_weight: 10.0  # validation-tuned, evaluation run 20261001-033754-synthetic-homepage-e57f
+    prediction_damping: 5.0  # validation-tuned, evaluation run 20261001-033754-synthetic-homepage-e57f
     neighbors: 60
     shrinkage: 5.0
   mf:

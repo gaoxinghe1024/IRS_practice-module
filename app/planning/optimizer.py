@@ -111,7 +111,7 @@ class PlanProblem:
                 return None
             base = self.cost_items(items)
 
-            def density(u):
+            def density(u, bits=bits, base=base):
                 b2 = bits.copy()
                 b2[u] = 0
                 saved = base - self.cost_items(self.decode_bits(b2))

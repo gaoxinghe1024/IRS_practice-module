@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CONFIG_DIR = PROJECT_ROOT / "configs"
@@ -93,6 +93,9 @@ class Settings(BaseModel):
     pipeline: dict[str, Any] = Field(default_factory=dict)
     synthetic: dict[str, Any] = Field(default_factory=dict)
     real: dict[str, Any] = Field(default_factory=dict)
+    # secrets / per-process overrides captured from the environment at load time (never dumped)
+    _llm_api_key: str = PrivateAttr(default="")
+    _db_path_override: str | None = PrivateAttr(default=None)
 
     # ------------------------------------------------------------------ paths
     @property
@@ -121,8 +124,7 @@ class Settings(BaseModel):
 
     @property
     def db_path(self) -> Path:
-        override = os.environ.get(ENV_PREFIX + "DB_PATH")
-        return Path(override) if override else self.var_dir / "anilogic.sqlite3"
+        return Path(self._db_path_override) if self._db_path_override else self.var_dir / "anilogic.sqlite3"
 
     @property
     def db_url(self) -> str:
@@ -139,7 +141,7 @@ class Settings(BaseModel):
 
     @property
     def llm_api_key(self) -> str:
-        return os.environ.get(ENV_PREFIX + "LLM_API_KEY", "")
+        return self._llm_api_key
 
     def section(self, *keys: str) -> dict[str, Any]:
         node: Any = self.model_dump()
@@ -206,7 +208,10 @@ def load_settings(mode: str | None = None, environ: dict[str, str] | None = None
         merged = _deep_merge(merged, _read_yaml(Path(config_file)))
     merged = _deep_merge(merged, _env_overrides(environ))
     merged.setdefault("dataset", {})["mode"] = mode
-    return Settings.model_validate(merged)
+    settings = Settings.model_validate(merged)
+    settings._llm_api_key = environ.get(ENV_PREFIX + "LLM_API_KEY", "")
+    settings._db_path_override = environ.get(ENV_PREFIX + "DB_PATH") or None
+    return settings
 
 
 @lru_cache(maxsize=1)

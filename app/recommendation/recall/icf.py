@@ -13,8 +13,16 @@ Computed per item block with sparse products:
     denominator(i,j) = sqrt(P[i,j] * P[j,i])
 
 Prediction (online or offline):
-    r_hat(u,i) = mu_u + sum_{j in R_u & N(i)} s(i,j)(r_uj - mu_u) / (sum |s(i,j)| + damping)
+    r_hat(u,i) = m_u + sum_{j in R_u & N(i)} s(i,j)(r_uj - m_u) / (sum |s(i,j)| + damping)
     clipped to [1, 10]; items without neighbour support get no ICF prediction.
+
+    m_u = (n_u * mean_u + k * global_train_mean) / (n_u + k)       (k = user_mean_prior_weight)
+
+With k = 0 this is exactly mu_u, the formula of the brief. k > 0 shrinks the reference level of a
+short history towards the global train mean: a new user who rated eight titles 9/10 would otherwise
+have every centred rating equal to 0 (no preference signal at all), and a 9 among 10s would count
+as negative evidence. For long offline histories the effect is small. k and the damping are chosen
+on validation positives only (evaluation/experiments/homepage.py).
 """
 
 from __future__ import annotations
@@ -26,7 +34,7 @@ import numpy as np
 import scipy.sparse as sp
 
 ENGINE_ID = "icf_adjusted_cosine"
-ENGINE_VERSION = "1.0"
+ENGINE_VERSION = "1.1"
 
 
 @dataclass
@@ -77,6 +85,7 @@ def fit_icf(users: np.ndarray, items: np.ndarray, ratings: np.ndarray, n_users: 
             log=None) -> ICFModel:
     t0 = time.time()
     A, M, _mu = build_matrices(users, items, ratings, n_users, n_items)
+    global_mean = float(np.mean(ratings)) if len(ratings) else None
     A2 = A.multiply(A).tocsr().astype(np.float32)
     A_csc, M_csc, A2_csc = A.tocsc(), M.tocsc(), A2.tocsc()
     rows_out, cols_out, vals_out, cnt_out = [], [], [], []
@@ -127,7 +136,7 @@ def fit_icf(users: np.ndarray, items: np.ndarray, ratings: np.ndarray, n_users: 
     S.sort_indices()
     Cm.sort_indices()
     params = {"min_co_rated": min_co_rated, "shrinkage": shrinkage, "top_n": top_n,
-              "definition": "exact adjusted cosine over co-rated users"}
+              "definition": "exact adjusted cosine over co-rated users", "global_train_mean": global_mean}
     if log:
         log(f"[icf] done: nnz={S.nnz} in {time.time() - t0:.1f}s")
     return ICFModel(S=S, S_T=S.T.tocsr(), co_counts=Cm, n_items=n_items, params=params)
@@ -171,18 +180,29 @@ class ICFScorer:
     engine_id = ENGINE_ID
     version = ENGINE_VERSION
 
-    def __init__(self, model: ICFModel, damping: float = 0.0):
+    def __init__(self, model: ICFModel, damping: float = 0.0, prior_weight: float = 0.0):
         self.model = model
         self.damping = float(damping)
+        self.prior_weight = float(prior_weight)
 
-    def predict(self, rated_items: np.ndarray, rated_values: np.ndarray, user_mean: float | None = None
-                ) -> ICFPrediction:
+    def reference_mean(self, user_mean: float, n_ratings: int) -> float:
+        """m_u: the user's mean, shrunk towards the global train mean when prior_weight > 0."""
+        g = self.model.params.get("global_train_mean")
+        k = self.prior_weight
+        if k <= 0 or g is None or n_ratings <= 0:
+            return float(user_mean)
+        return (n_ratings * float(user_mean) + k * float(g)) / (n_ratings + k)
+
+    def predict(self, rated_items: np.ndarray, rated_values: np.ndarray, user_mean: float | None = None,
+                n_ratings: int | None = None) -> ICFPrediction:
+        """`user_mean` / `n_ratings` describe the history the mean was taken over (default: rated_values)."""
         rated_items = np.asarray(rated_items, dtype=np.int64)
         rated_values = np.asarray(rated_values, dtype=np.float64)
         if rated_items.size == 0:
             z = np.zeros(0)
             return ICFPrediction(np.zeros(0, dtype=np.int64), z, z, z)
-        mu = float(rated_values.mean()) if user_mean is None else float(user_mean)
+        raw_mean = float(rated_values.mean()) if user_mean is None else float(user_mean)
+        mu = self.reference_mean(raw_mean, len(rated_values) if n_ratings is None else int(n_ratings))
         centred = rated_values - mu
         sub = self.model.S_T[rated_items]              # rows j in R_u; columns = target items i
         num = np.asarray(sub.T @ centred).ravel()

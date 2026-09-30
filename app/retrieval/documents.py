@@ -173,9 +173,18 @@ def build_documents(catalog: pd.DataFrame, tags: pd.DataFrame, relations: pd.Dat
                 elif r.get("to_name"):
                     lines.append(f"{title_of[key]} has {rt} ({r['to_entity_type']}): {r['to_name']}.")
             if lines:
-                refs = sorted(set(grp["source_ref"].astype(str)))
-                docs.append(Doc(f"{key}#rel", key, "relations", title_of[key], " ".join(lines), "relation_facts",
-                                "; ".join(refs), locator={"relations": len(lines)}))
+                refs = "; ".join(sorted(set(grp["source_ref"].astype(str))))
+                # pack whole facts into chunks of at most chunk_max_tokens (a long franchise list would
+                # otherwise be silently truncated by the encoder); a fact is never split
+                packs: list[list[str]] = [[]]
+                for line in lines:
+                    if packs[-1] and count_tokens(" ".join(packs[-1] + [line])) > mx:
+                        packs.append([])
+                    packs[-1].append(line)
+                for n, pack in enumerate(packs):
+                    docs.append(Doc(f"{key}#rel-{n}", key, "relations", title_of[key], " ".join(pack),
+                                    "relation_facts", refs,
+                                    locator={"parent": f"{key}#relations", "chunk": n, "relations": len(pack)}))
     if len(characters):
         for key, grp in characters.groupby("item_key"):
             if key not in served_keys:
@@ -200,7 +209,7 @@ def build_documents(catalog: pd.DataFrame, tags: pd.DataFrame, relations: pd.Dat
     for rv in reviews or []:
         key = rv.get("item_key")
         if key in served_keys and rv.get("text"):
-            for n, (st, en, chunk) in enumerate(chunk_text(rv["text"], count_tokens, mn, mx, ov)):
+            for n, (_st, _en, chunk) in enumerate(chunk_text(rv["text"], count_tokens, mn, mx, ov)):
                 docs.append(Doc(f"review:{rv['review_id']}#{n}", key, "review", title_of[key], chunk,
                                 "user_review_weak", rv.get("source_ref", "reviews.jsonl"), spoiler_level="major",
                                 locator={"review_id": rv["review_id"], "chunk": n}))

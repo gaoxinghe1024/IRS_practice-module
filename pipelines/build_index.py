@@ -23,7 +23,15 @@ from app.core.config import Settings
 from app.core.text import approx_tokens, sha256_text
 from app.retrieval.documents import build_documents
 from app.retrieval.embeddings import BGEEncoder, LSAEncoder, choose_provider
-from pipelines.common import latest_dataset_version, read_json, read_jsonl, rel, sha256_file, utc_now_iso, write_json
+from pipelines.common import (
+    latest_dataset_version,
+    read_json,
+    read_jsonl,
+    rel,
+    sha256_file,
+    utc_now_iso,
+    write_json,
+)
 from pipelines.fit import _device, artifact_dir
 from pipelines.processed_io import ProcessedDataset
 

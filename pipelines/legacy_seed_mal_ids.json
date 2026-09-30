@@ -1,0 +1,28 @@
+{
+  "_provenance": "Verbatim copy of SEED_MAL_IDS from the legacy template (backend/jikan_enrich.py, lines 62-76, commit 426db20). Kept only so the legacy account migration can map the 24-title seed catalogue. Values are NOT trusted: pipelines/legacy_migration.py re-checks every id against the title of that MAL id in the target catalogue. Known issue: 'Hataraku Saibou' -> 35860 is wrong (35860 is 'Karakai Jouzu no Takagi-san'); the migration resolves it by unique exact title to mal:37141 and reports the correction. 'L: Change the World' is a live-action film with no MAL anime id and stays unmapped.",
+  "seed_mal_ids": {
+    "Death Note": 1535,
+    "Shingeki no Kyojin": 16498,
+    "Fullmetal Alchemist: Brotherhood": 5114,
+    "Steins;Gate": 9253,
+    "Code Geass: Hangyaku no Lelouch": 1575,
+    "Monster": 19,
+    "Hunter x Hunter (2011)": 11061,
+    "Kimetsu no Yaiba": 38000,
+    "Jujutsu Kaisen": 40748,
+    "Vinland Saga": 37521,
+    "Cowboy Bebop": 1,
+    "Neon Genesis Evangelion": 30,
+    "Mushishi": 457,
+    "Natsume Yuujinchou": 4081,
+    "One Punch Man": 30276,
+    "Spy x Family": 50265,
+    "Mob Psycho 100": 32182,
+    "Higurashi no Naku Koro ni": 934,
+    "Gintama": 918,
+    "Kimi no Na wa": 32281,
+    "Re:Zero kara Hajimeru Isekai Seikatsu": 31240,
+    "Shigatsu wa Kimi no Uso": 23273,
+    "Hataraku Saibou": 35860
+  }
+}

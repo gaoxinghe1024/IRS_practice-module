@@ -8,7 +8,7 @@ from app.recommendation.features import build_snapshot
 
 
 def make_snapshot(rows: list[dict], version: str = "test-v1"):
-    base = {"mal_id": None, "title_english": None, "title_other": None, "synopsis": None, "score": 7.0,
+    base = {"mal_id": None, "title_english": None, "title_other": None, "synopsis": None, "score": 7.0, "cover_url": None,
             "type": "TV", "episodes": 12, "duration_minutes": 24.0, "total_minutes": 288.0, "status": "Finished Airing",
             "members": 100, "aired_from": "2010", "in_catalog": True, "is_recommendable": True,
             "is_planner_eligible": True, "is_explicit": False}

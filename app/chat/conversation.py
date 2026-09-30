@@ -90,13 +90,13 @@ def constraint_chips(st: dict) -> list[dict]:
     chips = []
     if st.get("reference"):
         chips.append({"kind": "soft", "label": f"Like {st['reference']['title']}"})
-    for ns, v in st.get("include_tags", []):
+    for _ns, v in st.get("include_tags", []):
         chips.append({"kind": "hard", "label": f"{v}"})
-    for ns, v in st.get("exclude_tags", []):
+    for _ns, v in st.get("exclude_tags", []):
         chips.append({"kind": "hard", "label": f"No {v}"})
-    for ns, v in st.get("soft_tags", []):
+    for _ns, v in st.get("soft_tags", []):
         chips.append({"kind": "soft", "label": f"Preferably {v}"})
-    for ns, v in st.get("soft_avoid_tags", []):
+    for _ns, v in st.get("soft_avoid_tags", []):
         chips.append({"kind": "soft", "label": f"Not too much {v}"})
     if st.get("max_episodes") is not None:
         chips.append({"kind": "hard", "label": f"<= {st['max_episodes']} episodes"})

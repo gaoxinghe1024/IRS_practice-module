@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="onboarding-nudge" class="notice hidden">
+  <span>{{ t("home.onboarding") }}</span> <a href="/welcome">{{ t("home.onboarding_link") }}</a>
+</div>
+<section aria-labelledby="home-title">
+  <div class="row-between">
+    <h1 id="home-title">{{ t("home.title") }}</h1>
+  </div>
+  <p id="home-mode" class="muted"></p>
+  <p id="home-balance" class="muted"></p>
+  <div id="home-warnings"></div>
+  <div id="home-list" class="grid" aria-live="polite"></div>
+</section>
+<section aria-labelledby="explore-title">
+  <h2 id="explore-title">{{ t("home.explore") }}</h2>
+  <p class="muted">{{ t("home.explore_note") }}</p>
+  <div id="explore-list" class="grid"></div>
+</section>
+{% endblock %}

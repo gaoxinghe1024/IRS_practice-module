@@ -97,3 +97,24 @@ def test_save_and_load_roundtrip(tmp_path):
     back = ICFModel.load(tmp_path / "icf.npz")
     assert np.allclose(back.S.toarray(), model.S.toarray())
     assert np.allclose(back.co_counts.toarray(), model.co_counts.toarray())
+
+
+def test_uniform_ratings_need_the_user_mean_prior():
+    R, obs = _random_ratings(seed=7)
+    model = _fit(R, obs, min_co_rated=3, shrinkage=0.0)
+    g = model.params["global_train_mean"]
+    assert np.isclose(g, R[obs].mean())                     # stored at fit time from the train ratings
+    rated = np.array([0, 2, 5, 7])
+    vals = np.full(4, 9.0)
+    exact = ICFScorer(model).predict(rated, vals)
+    assert np.allclose(exact.predicted, 9.0)                # the brief's formula: no preference signal at all
+    shrunk = ICFScorer(model, damping=2.0, prior_weight=5.0)
+    m = shrunk.reference_mean(9.0, 4)
+    assert np.isclose(m, (4 * 9.0 + 5 * g) / 9) and m < 9.0
+    pred = shrunk.predict(rated, vals)
+    # every contribution is now positive, and more neighbour support means a higher score
+    order = np.argsort(pred.support)
+    assert (np.diff(pred.predicted[order]) >= -1e-9).all() and pred.predicted.max() > pred.predicted.min()
+    # k = 0 reproduces the exact formula; a short history of high ratings is never negative evidence
+    assert np.allclose(ICFScorer(model, prior_weight=0.0).predict(rated, vals).predicted, exact.predicted)
+    assert (np.array([9.0, 9.0, 9.0, 10.0]) - shrunk.reference_mean(9.25, 4) > 0).all()

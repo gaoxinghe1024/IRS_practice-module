@@ -6,7 +6,17 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import get_db, get_state, require_user
 from app.core.errors import ValidationFailed
-from app.db.models import Anime, ChatSession, Collection, PlanRevision, Rating, Tag, User, ViewingPlan, WatchProgress
+from app.db.models import (
+    Anime,
+    ChatSession,
+    Collection,
+    PlanRevision,
+    Rating,
+    Tag,
+    User,
+    ViewingPlan,
+    WatchProgress,
+)
 from app.schemas.requests import PreferencesUpdate
 from app.services import user_data
 from app.services.serving import ServingState

@@ -16,6 +16,16 @@ def _range(it: dict) -> str:
     return f"Episodes {it['episode_start']}-{it['episode_end']}" + ("" if it.get("is_full") else " (partial)")
 
 
+def _method(plan: dict) -> str:
+    if plan.get("algorithm") == "manual_edit":
+        return "edited by you (feasibility re-checked after the edit)"
+    return str((plan.get("objective") or {}).get("optimizer") or plan.get("algorithm") or "unknown")
+
+
+def _span(x: dict) -> str:
+    return "movie" if x["kind"] == "movie" else f"ep {x['episode_start']}-{x['episode_end']}"
+
+
 def to_markdown(plan: dict) -> str:
     lines = [f"# {plan.get('title') or 'Viewing plan'}", ""]
     lines.append(f"- Budget: {plan['budget_minutes']} min; planned: {plan['total_minutes']:.0f} min; "
@@ -33,8 +43,7 @@ def to_markdown(plan: dict) -> str:
         for s in sched["sessions"]:
             parts = []
             for x in s["entries"]:
-                span = "movie" if x["kind"] == "movie" else "ep %d-%d" % (x["episode_start"], x["episode_end"])
-                parts.append(f"{x['title']} ({span})")
+                parts.append(f"{x['title']} ({_span(x)})")
             lines.append(f"- **{s['label']}** ({s['used_minutes']:.0f}/{s['capacity_minutes']:.0f} min): "
                          + (", ".join(parts) or "free"))
         if not sched["feasible"]:
@@ -42,8 +51,7 @@ def to_markdown(plan: dict) -> str:
             lines += [f"> {p}" for p in sched["problems"]]
     lines += ["", "## Notes", "",
               "- Minutes use the catalogue's per-episode average duration, not exact runtimes.",
-              f"- Dataset: {plan.get('dataset_mode')} ({plan.get('dataset_version')}); optimiser: "
-              f"{plan.get('objective', {}).get('optimizer')}."]
+              f"- Dataset: {plan.get('dataset_mode')} ({plan.get('dataset_version')}); plan method: {_method(plan)}."]
     return "\n".join(lines) + "\n"
 
 
@@ -58,8 +66,7 @@ def to_html(plan: dict) -> str:
     if plan.get("schedule") and plan["schedule"].get("sessions"):
         items = "".join(
             f"<li><strong>{e(s['label'])}</strong> ({s['used_minutes']:.0f}/{s['capacity_minutes']:.0f} min): "
-            + e(", ".join(f"{x['title']} ({'movie' if x['kind'] == 'movie' else 'ep %d-%d' % (x['episode_start'], x['episode_end'])})"
-                          for x in s["entries"]) or "free") + "</li>"
+            + e(", ".join(f"{x['title']} ({_span(x)})" for x in s["entries"]) or "free") + "</li>"
             for s in plan["schedule"]["sessions"])
         sched = f"<h2>Sessions</h2><ul>{items}</ul>"
     status = "OK" if plan["feasibility"]["feasible"] else "NOT satisfied"
@@ -74,4 +81,4 @@ th{{background:#f0f0f0}}@media print{{body{{margin:0}}}}</style></head><body>
 <table><thead><tr><th>#</th><th>Title</th><th>Range</th><th>Minutes</th><th>Why</th><th>Watch first</th></tr></thead>
 <tbody>{rows}</tbody></table>{sched}
 <p><small>Minutes use the catalogue's per-episode average duration. Dataset {e(str(plan.get('dataset_mode')))}
-({e(str(plan.get('dataset_version')))}).</small></p></body></html>"""
+({e(str(plan.get('dataset_version')))}); plan method: {e(_method(plan))}.</small></p></body></html>"""

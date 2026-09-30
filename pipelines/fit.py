@@ -286,6 +286,21 @@ def _train_logistic(settings: Settings, ds, snap, out: Path, seed: int, log) -> 
     rows = [r for r in read_jsonl(path) if r.get("query_item") in snap.index]
     groups = group_queries(rows, franchise_components(ds), seed)
     split_rows = {s: [r for r in rows if groups[r["query_item"]] == s] for s in ("train", "val", "test")}
+    write_json(out / "models" / "similarity_query_groups.json", groups)
+    counts = {s: len(v) for s, v in split_rows.items()}
+    sim_cfg = settings.recommendation.get("similar", {})
+    need_train = int(sim_cfg.get("logistic_min_train_queries", 20))
+    need_val = int(sim_cfg.get("logistic_min_val_queries", 5))
+    stale = out / "models" / "logistic_similarity.joblib"
+    if counts["train"] < need_train or counts["val"] < need_val:
+        if stale.exists():
+            stale.unlink()                 # never leave a model from an earlier run next to a limited status
+        log(f"[train] logistic similarity: limited_by_data ({name}: {counts}; need >= {need_train} train / "
+            f"{need_val} validation query titles)")
+        return {"scorer_id": "logistic_similarity", "status": "limited_by_data", "label_source": name,
+                "label_file": rel(path), "queries": counts,
+                "reason": f"only {counts['train']} training / {counts['val']} validation query titles with "
+                          f"similarity labels from {name}; at least {need_train} / {need_val} are required"}
     base = WeightedAttributeScorer(settings.recommendation.get("similar", {}).get("weights"),
                                    settings.recommendation.get("similar", {}).get("tau_episodes", 12.0))
     pool = np.flatnonzero(snap.recommendable & snap.in_catalog & ~snap.explicit)
@@ -304,14 +319,12 @@ def _train_logistic(settings: Settings, ds, snap, out: Path, seed: int, log) -> 
         return float(np.mean(vals)) if vals else float("nan")
 
     model, meta = fit_logistic(snap, base, split_rows["train"], split_rows["val"], pool, seed=seed, eval_fn=eval_fn)
-    meta.update({"label_source": name, "label_file": rel(path),
-                 "queries": {s: len(v) for s, v in split_rows.items()}})
+    meta.update({"label_source": name, "label_file": rel(path), "queries": counts})
     if model is not None:
         joblib.dump(model, out / "models" / "logistic_similarity.joblib")
         meta["file"] = "models/logistic_similarity.joblib"
         meta["sha256"] = sha256_file(out / "models" / "logistic_similarity.joblib")
         log(f"[train] logistic similarity ({name}): C={meta['C']} {meta['selection']}")
-    write_json(out / "models" / "similarity_query_groups.json", groups)
     return meta
 
 

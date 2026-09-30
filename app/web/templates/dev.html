@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("dev.title") }}</h1>
+<section class="panel"><h2>{{ t("dev.similar") }}</h2>
+  <form id="sim-form" class="inline"><label for="sim-key" class="visually-hidden">{{ t("dev.item_key") }}</label>
+    <input id="sim-key" type="text" placeholder="{{ t('dev.item_key') }}"><button type="submit">{{ t("dev.run") }}</button></form>
+  <div id="sim-out"></div></section>
+<section class="panel"><h2>{{ t("dev.home") }}</h2><button type="button" id="home-run">{{ t("dev.run") }}</button><div id="home-out"></div></section>
+<section class="panel"><h2>{{ t("dev.trace") }}</h2>
+  <form id="trace-form" class="inline"><label for="trace-id" class="visually-hidden">{{ t("dev.request_id") }}</label>
+    <input id="trace-id" type="text" placeholder="{{ t('dev.request_id') }}"><button type="submit">{{ t("dev.run") }}</button></form>
+  <pre id="trace-out" class="panel"></pre></section>
+{% endblock %}

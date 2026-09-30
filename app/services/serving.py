@@ -151,9 +151,14 @@ def load_state(settings: Settings) -> ServingState:
     if state.cf_items is not None and _verify(art, manifest, "models/icf.npz"):
         from app.recommendation.recall.icf import ICFModel, ICFScorer
 
+        icf_cfg = rec.get("icf", {})
         state.icf = ICFScorer(ICFModel.load(art / "models" / "icf.npz"),
-                              damping=float(rec.get("icf", {}).get("prediction_damping", 0.0)))
-        state.set_cap("recall_icf", "ready", f"{state.icf.model.nnz} item-neighbour edges")
+                              damping=float(icf_cfg.get("prediction_damping", 0.0)),
+                              prior_weight=float(icf_cfg.get("user_mean_prior_weight", 0.0)))
+        detail = f"{state.icf.model.nnz} item-neighbour edges"
+        if state.icf.prior_weight > 0 and state.icf.model.params.get("global_train_mean") is None:
+            detail += "; user-mean prior ignored (this ICF artifact has no global mean: retrain ICF)"
+        state.set_cap("recall_icf", "ready", detail)
     else:
         state.set_cap("recall_icf", "missing_data", "ICF neighbours not trained for this version")
     if state.cf_items is not None and _verify(art, manifest, "models/mf.npz"):
@@ -194,7 +199,10 @@ def load_state(settings: Settings) -> ServingState:
         state.similarity["tag_semantic_hybrid"] = HybridSimilarityScorer(es, base,
                                                                          float(sim_cfg.get("hybrid_tag_weight", 0.6)))
     alternatives = ", ".join(k for k in state.similarity if k != "weighted_attributes") or "none"
-    state.set_cap("similar", "ready", f"weighted_attributes (default); alternatives: {alternatives}")
+    detail = f"weighted_attributes (default); alternatives: {alternatives}"
+    if "logistic_similarity" not in state.similarity and lg.get("reason"):
+        detail += f". logistic_similarity is {lg.get('status', 'unavailable')}: {lg['reason']}"
+    state.set_cap("similar", "ready", detail)
 
     # ---------------------------------------------------------------- collection scorers
     from app.recommendation.collection.manual import CollectionProfileScorer, ManualSlidesScorer
@@ -273,10 +281,21 @@ def load_state(settings: Settings) -> ServingState:
                       "as a substitute. Provide data/enriched/scene_images/manifest.jsonl to enable.")
     with engine.connect() as conn:
         n_rel = conn.execute(select(func.count()).select_from(M.Relation).where(M.Relation.to_item.is_not(None))).scalar()
+        n_from = conn.execute(select(func.count(func.distinct(M.Relation.from_item)))).scalar()
         n_scene = conn.execute(select(func.count()).select_from(M.Scene)).scalar()
-    state.set_cap("relations", "ready" if n_rel else "limited_by_data",
-                  f"{n_rel} confirmed title-to-title relations" if n_rel else
-                  "No relation data for this version (run the optional Jikan enrichment).")
+    n_served = int(snap.in_catalog.sum()) if snap is not None else 0
+    if not n_rel:
+        state.set_cap("relations", "limited_by_data",
+                      "No relation data for this version (run the optional Jikan enrichment or provide "
+                      "data/enriched/relations.jsonl).")
+    elif state.dataset_mode == "real" and n_served and n_from / n_served < 0.5:
+        # partial coverage: for titles without fetched relation data, a missing edge means "unknown", not "none"
+        state.set_cap("relations", "degraded",
+                      f"{n_rel} confirmed title-to-title relations from {n_from} of {n_served} titles (partial "
+                      "enrichment); for other titles relations are unknown, not absent.",
+                      titles_with_relation_data=n_from, served_titles=n_served)
+    else:
+        state.set_cap("relations", "ready", f"{n_rel} confirmed title-to-title relations from {n_from} titles")
     if n_scene:
         state.set_cap("scenes", "degraded" if settings.mode == "synthetic" else "ready",
                       f"{n_scene} scene records" + (" (fictional synthetic scenes)" if settings.mode == "synthetic" else ""))

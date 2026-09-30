@@ -6,6 +6,8 @@ redirect to /login server-side when there is no valid session.
 
 from __future__ import annotations
 
+import json
+from functools import lru_cache
 from urllib.parse import quote
 
 from fastapi import APIRouter, Request
@@ -19,6 +21,23 @@ from app.services import auth
 
 templates = Jinja2Templates(directory=str(PROJECT_ROOT / "app" / "web" / "templates"))
 router = APIRouter(include_in_schema=False)
+I18N_DIR = PROJECT_ROOT / "app" / "web" / "i18n"
+
+
+@lru_cache(maxsize=4)
+def strings(locale: str = "en") -> dict[str, str]:
+    path = I18N_DIR / f"{locale}.json"
+    if not path.exists():
+        path = I18N_DIR / "en.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def t(key: str, locale: str = "en", **params) -> str:
+    text = strings(locale).get(key, key)
+    return text.format(**params) if params else text
+
+
+templates.env.globals["t"] = t
 
 NAV = [("home", "/", "nav.home"), ("discover", "/discover", "nav.discover"), ("chat", "/chat", "nav.chat"),
        ("plan", "/plan", "nav.plan"), ("collections", "/collections", "nav.collections"),
@@ -45,7 +64,8 @@ def _render(request: Request, page: str, title: str, *, private: bool = True, da
            "user": {"name": user.display_name, "is_admin": user.is_admin} if user else None,
            "app_name": settings.app.name, "tagline": settings.app.tagline, "group": settings.app.group_display,
            "dataset_mode": state.dataset_mode, "dataset_version": state.dataset_version,
-           "catalog_ready": state.ready}
+           "catalog_ready": state.ready,
+           "i18n_json": json.dumps(strings(settings.app.locale), ensure_ascii=False).replace("</", "<\\/")}
     return templates.TemplateResponse(request, f"{page}.html", ctx, status_code=status_code)
 
 

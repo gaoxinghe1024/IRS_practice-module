@@ -9,7 +9,7 @@ algorithm id/version, the dataset version and a freshly computed feasibility.
 from __future__ import annotations
 
 import time
-from datetime import datetime
+from datetime import UTC, datetime
 
 import numpy as np
 from sqlalchemy import select
@@ -21,7 +21,14 @@ from app.graph.relations import PrequelGraph, confirmed_edges
 from app.planning import export as plan_export
 from app.planning.duration import TitleTime, title_time
 from app.planning.feasibility import PlanEntry, check
-from app.planning.optimizer import DEFAULT_WEIGHTS, PlanGA, PlanProblem, Unit, exhaustive_complete, greedy_complete
+from app.planning.optimizer import (
+    DEFAULT_WEIGHTS,
+    PlanGA,
+    PlanProblem,
+    Unit,
+    exhaustive_complete,
+    greedy_complete,
+)
 from app.planning.scheduling import build_schedule
 from app.recommendation import explanations as X
 from app.recommendation.constraints import ConstraintSet
@@ -70,10 +77,12 @@ def _relevance(state: ServingState, us, pool: np.ndarray) -> tuple[dict[int, flo
     return rel, source
 
 
-def build_problem(state: ServingState, db: Session, user: User, req: dict) -> tuple[PlanProblem, dict]:
+def build_problem(state: ServingState, db: Session, user: User | None, req: dict, us=None
+                  ) -> tuple[PlanProblem, dict]:
+    """`us` lets offline evaluation plan for a UserState built from training data (no account needed)."""
     snap = _require(state)
     cfg = state.settings.planner
-    us = load_user_state(db, user, snap)
+    us = us if us is not None else load_user_state(db, user, snap)
     completed = us.items_with_status(["completed"])
     watched_eps = {i: eps for i, (st, eps) in us.progress.items()}
     completed_keys = {str(snap.keys[i]) for i in completed}
@@ -210,9 +219,11 @@ def _payload(state: ServingState, problem: PlanProblem, items: list[int], episod
     schedule = build_schedule(entries, times_by_key, titles, req.get("daily_slots", []),
                               problem.break_minutes) if req.get("daily_slots") else None
     out_items = []
+    source = (extra.get("diagnostics") or {}).get("relevance_source")
+    source_reason = {"icf": "plan_icf", "content": "plan_content"}.get(source, "plan_popular")
     for en in entries:
         i = en.idx
-        reasons = [X.reason("plan_budget", minutes=round(en.minutes), budget=int(problem.budget))]
+        reasons = [X.reason(source_reason), X.reason("plan_budget", minutes=round(en.minutes), budget=int(problem.budget))]
         for r in en.requires:
             reasons.append(X.reason("plan_prereq", title=titles.get(r, r)))
         if en.prerequisite_of:
@@ -459,7 +470,7 @@ def delete(db: Session, user: User, plan_id: int) -> None:
 def export(state: ServingState, db: Session, user: User, plan_id: int, fmt: str) -> tuple[str, str, str]:
     plan = get_plan(state, db, user, plan_id)
     safe = {k: v for k, v in plan.items() if k not in ("diagnostics",)}
-    stamp = datetime.utcnow().strftime("%Y%m%d")
+    stamp = datetime.now(UTC).strftime("%Y%m%d")
     if fmt == "json":
         return plan_export.to_json(safe), "application/json", f"anilogic-plan-{plan_id}-{stamp}.json"
     if fmt == "markdown":

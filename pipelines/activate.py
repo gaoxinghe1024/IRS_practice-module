@@ -111,7 +111,7 @@ def activate(settings: Settings, version: str | None = None, log=print) -> dict[
         gone = existing - served_keys
         if gone:
             referenced = set()
-            for tbl, col in ((M.Rating, M.Rating.item_key), (M.CollectionItem, M.CollectionItem.item_key),
+            for _tbl, col in ((M.Rating, M.Rating.item_key), (M.CollectionItem, M.CollectionItem.item_key),
                              (M.WatchProgress, M.WatchProgress.item_key), (M.Exclusion, M.Exclusion.item_key),
                              (M.PlanItem, M.PlanItem.item_key), (M.FeedbackEvent, M.FeedbackEvent.item_key)):
                 referenced |= set(conn.execute(select(col).distinct()).scalars())

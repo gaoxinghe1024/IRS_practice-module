@@ -163,10 +163,11 @@ def _num(s: str) -> float:
     return float(s)
 
 
-def _extract_reference(text: str) -> list[str]:
+def _extract_reference_spans(text: str) -> list[tuple[str, int]]:
+    """Candidate reference titles with their start offset in `text`."""
     refs = []
     for m in re.finditer(r"[\"“”「『《]([^\"“”」』》]{2,80})[\"“”」』》]", text):
-        refs.append(m.group(1).strip())
+        refs.append((m.group(1).strip(), m.start(1)))
     pat = (r"(?:\blike|\bsimilar to|\bsuch as|\bsame as|\bin the vein of|\breminds me of|\bcomparable to|"
            r"\bsequel (?:to|of)|\bprequel (?:to|of)|\bseason \d+ of|\btell me about|\binfo (?:on|about)|"
            r"\bwhat do you know about|\bepisodes (?:of|does|in)|\bwatch order (?:of|for)|\bbefore watching|"
@@ -176,11 +177,11 @@ def _extract_reference(text: str) -> list[str]:
     for m in re.finditer(pat, text, re.IGNORECASE):
         cand = m.group(1).strip(" '\"")
         if 2 <= len(cand) <= 80:
-            refs.append(cand)
+            refs.append((cand, m.start(1)))
     m = re.match(r"^\s*(?:what is|what's|who made|how many episodes (?:does|is|are in)|when did)\s+(.+?)[?？]?\s*$",
                  text, re.IGNORECASE)
     if m:
-        refs.append(m.group(1))
+        refs.append((m.group(1), m.start(1)))
     return refs
 
 
@@ -244,8 +245,22 @@ def parse(message: str, snap, titles, lexicon: TagLexicon) -> ParsedQuery:
 
     # ------------------------------------------------------------ reference titles
     seen = set()
-    for raw in _extract_reference(text):
+    for raw, start in _extract_reference_spans(text):
+        # prefer the longest exact alias starting at the same place: the clause splitter cuts at "!" or ","
+        exact_span = titles.longest_prefix_mention(text[start:])
+        if exact_span and len(exact_span) >= len(raw):
+            raw = exact_span
         matches = titles.resolve(raw, limit=3, fuzzy_cutoff=85.0)
+        if not exact_span:
+            # a typo inside a title with punctuation ("Komi-san wa, Cmyushou desu."): also try the span up to the
+            # next clause word, and keep whichever resolves with the higher score
+            clause = re.match(r"(.+?)(?=\s+(?:but|and|with|except|without|though|however|that|which|who|please)\b"
+                              r"|[?？。]|$)", text[start:], re.IGNORECASE)
+            longer = clause.group(1).strip(" '\"") if clause else ""
+            if len(longer) > len(raw) and len(longer) <= 80:
+                alt = titles.resolve(longer, limit=3, fuzzy_cutoff=85.0)
+                if alt and (not matches or alt[0].score > matches[0].score):
+                    raw, matches = longer, alt
         if not matches:
             continue
         top = matches[0]
@@ -275,7 +290,7 @@ def parse(message: str, snap, titles, lexicon: TagLexicon) -> ParsedQuery:
             continue    # part of a title mention, not a tag request
         before = t_norm[max(0, start - 28):start]
         pair = [ns, val]
-        if re.search(rf"not too\s*$|不要太\s*$", before):
+        if re.search(r"not too\s*$|不要太\s*$", before):
             pq.soft_avoid_tags.append(pair)
         elif re.search(rf"{NEGATORS}\b[\w\s'-]{{0,12}}$|{NEGATORS}\s*$", before):
             pq.exclude_tags.append(pair)

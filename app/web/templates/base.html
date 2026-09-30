@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ title }} · {{ app_name }}</title>
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body data-page="{{ page }}" data-dataset-mode="{{ dataset_mode }}" data-logged-in="{{ 'true' if user else 'false' }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="{{ app_name }} home">
+        <img src="/static/img/logo.svg" alt="" width="28" height="28">
+        <span class="brand-name">{{ app_name }}</span>
+        <span class="brand-tagline">{{ tagline }}</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          {% for key, href, label in nav %}
+          <li><a href="{{ href }}" {% if key == page or (page == 'anime' and key == 'discover') or (page == 'collection' and key == 'collections') %}aria-current="page"{% endif %}>{{ t(label) }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="account">
+        {% if user %}
+          <a class="account-name" href="/profile">{{ user.name }}</a>
+          <a href="/history" >{{ t("nav.history") }}</a>
+          {% if user.is_admin %}<a href="/dev" >{{ t("nav.dev") }}</a>{% endif %}
+          <button type="button" class="link-button" id="logout-button">{{ t("nav.logout") }}</button>
+        {% else %}
+          <a href="/login" >{{ t("nav.login") }}</a>
+          <a class="button small" href="/register" >{{ t("nav.register") }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  {% if dataset_mode == 'synthetic' %}
+  <div class="mode-banner" role="note">{{ t("banner.synthetic") }}</div>
+  {% endif %}
+  {% if not catalog_ready %}
+  <div class="mode-banner warning" role="alert">{{ t("banner.not_ready") }}</div>
+  {% endif %}
+  <main id="main" class="page page-{{ page }}" tabindex="-1"
+        {% for k, v in data.items() %} data-{{ k | replace('_', '-') }}="{{ v }}"{% endfor %}>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <span>{{ app_name }} · {{ group }} · NUS-ISS Intelligent Reasoning Systems</span>
+    <span>Dataset: {{ dataset_mode }}{% if dataset_version %} ({{ dataset_version }}){% endif %}</span>
+    <a href="/status" >{{ t("nav.status") }}</a>
+  </footer>
+  <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
+  <script type="application/json" id="i18n">{{ i18n_json | safe }}</script>
+  <script type="module" src="/static/js/pages/{{ page }}.js"></script>
+</body>
+</html>

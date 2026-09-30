@@ -304,8 +304,8 @@ def _h_recommend(state, db, st, pq, user) -> dict:
     for p in order:
         k = str(snap.keys[int(cand[p])])
         keys.append(k)
-        reasons[k] = [X.reason("popular_quality")] + [{"code": "soft_preference", "params": {}, "text": t}
-                                                      for t in notes.get(int(p), [])[:2]]
+        reasons[k] = [X.reason("constraint_ranked" if _user_filters(cs) else "popular_quality")] + \
+            [{"code": "soft_preference", "params": {}, "text": t} for t in notes.get(int(p), [])[:2]]
     docs = []
     for k in keys:
         docs += item_docs(db, k, ["attributes"])[:1]
@@ -475,8 +475,6 @@ def post_message(state: ServingState, db: Session, user: User, sid: int, message
         else:
             warnings.append("The language model was unavailable or its answer failed validation; "
                             "showing the local evidence-based answer.")
-    elif llm is None and state.cap("llm").status != "ready":
-        pass
     items_out = []
     reasons = result.get("item_reasons", {})
     ev_by_item: dict[str, list[str]] = {}

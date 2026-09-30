@@ -8,6 +8,17 @@ import numpy as np
 
 from app.recommendation.features import PROFILE_NAMESPACES, CatalogSnapshot
 
+NEGATIVE_ABSOLUTE = 5.0       # ratings <= 5 are negative signals
+NEGATIVE_BELOW_MEAN = 1.5     # ...and so is anything more than 1.5 below the user's own mean
+
+
+def is_negative(rating: float, user_mean: float | None) -> bool:
+    """A rating is a negative signal when it is low in absolute terms or clearly below the
+    user's own average (an 8/10 from a user who averages 8.4 is still positive)."""
+    if rating <= NEGATIVE_ABSOLUTE:
+        return True
+    return user_mean is not None and rating < user_mean - NEGATIVE_BELOW_MEAN
+
 
 @dataclass
 class CollectionProfile:
@@ -32,16 +43,15 @@ class CollectionProfile:
 
 
 def build_collection_profile(snap: CatalogSnapshot, items: list[int], ratings: dict[int, float] | None = None,
-                             user_mean: float | None = None, excluded: set[int] | None = None,
-                             min_margin: float = 0.0) -> CollectionProfile:
-    """Profile of the given collection items. Items the user rated below their mean
-    (or explicitly excluded) are not used as positive seeds."""
+                             user_mean: float | None = None, excluded: set[int] | None = None) -> CollectionProfile:
+    """Profile of the given collection items. Items the user rated low (is_negative) or
+    explicitly excluded are not used as positive seeds."""
     use, skipped = [], []
     for i in items:
         if excluded and i in excluded:
             skipped.append((i, "not_interested"))
-        elif ratings and i in ratings and user_mean is not None and ratings[i] < user_mean + min_margin:
-            skipped.append((i, "rated_below_your_average"))
+        elif ratings and i in ratings and is_negative(ratings[i], user_mean):
+            skipped.append((i, "rated_low"))
         else:
             use.append(i)
     tag_freq: dict[str, np.ndarray] = {}
@@ -129,9 +139,9 @@ class UserState:
         return out
 
     def positive_items(self) -> list[int]:
-        """Rated at/above the user's own mean, or saved (and not excluded)."""
+        """Rated items that are not negative signals, plus saved items (never excluded or low-rated ones)."""
         mu = self.rating_mean
-        pos = {i for i, r in self.ratings.items() if mu is not None and r >= mu}
-        low = {i for i, r in self.ratings.items() if mu is not None and r < mu}
+        low = {i for i, r in self.ratings.items() if is_negative(r, mu)}
+        pos = set(self.ratings) - low
         pos |= (self.saved_items() - low)
         return sorted(pos - self.excluded_items)

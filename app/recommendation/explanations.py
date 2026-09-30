@@ -15,16 +15,21 @@ TEMPLATES = {
     "same_demographic": "Also {tags}",
     "same_studio": "Same studio: {tags}",
     "similar_length": "Similar length ({a} vs {b} episodes)",
-    "missing_dims": "Not compared (unknown): {dims}",
+    "missing_dims": "Not compared (unknown for this title): {dims}",
     "low_coverage": "Only part of the metadata could be compared",
     "profile_tags": "Matches this collection's {ns}: {tags}",
     "profile_length": "Close to the typical length in this collection",
     "filters_met": "Meets your filters: {filters}",
-    "icf_support": "Because you rated {title} {rating}/10 (item similarity {sim}, {co} co-raters)",
+    "icf_support": "Because you rated {title} {rating}/10 (similarity {sim} across {co} shared raters)",
     "icf_support_short": "Liked by people who rated {title} like you did",
     "mf_support": "Predicted from your ratings with matrix factorisation",
     "content_profile": "Matches your saved / liked {tags}",
     "popular_quality": "Popular and well rated (exploration)",
+    "content_popular": "Ranked among popular, well-rated titles (popularity weight {weight})",
+    "constraint_ranked": "Meets your conditions; ranked by score and popularity",
+    "plan_icf": "Predicted to match your ratings",
+    "plan_content": "Matches your saved or liked genres",
+    "plan_popular": "Popular and well rated",
     "novel": "A less-watched title (novelty {nov})",
     "fresh": "Adds {tags}, new for your history",
     "list_role": "Keeps the list varied (list score drops by {delta} without it; explanatory estimate)",
@@ -56,10 +61,18 @@ def similarity_reasons(snap, target: int, cand: int, available: dict, sims: dict
                 out.append(reason(code, tags=", ".join(shared[:3])))
     if available["length"][pos] and sims["length"][pos] >= 0.6:
         out.append(reason("similar_length", a=int(snap.episodes[cand]), b=int(snap.episodes[target])))
-    missing = [DIM_LABEL[d] for d in ("genre", "theme", "demographic", "studio", "length") if not available[d][pos]]
+    missing = [DIM_LABEL[d] for d in ("genre", "theme", "demographic", "studio", "length")
+               if not available[d][pos] and target_has(snap, target, d)]
     if missing:
         out.append(reason("missing_dims", dims=", ".join(missing)))
     return out
+
+
+def target_has(snap, i: int, dim: str) -> bool:
+    if dim == "length":
+        return bool(np.isfinite(snap.episodes[i]))
+    tm = snap.tags.get(dim)
+    return bool(tm is not None and tm.sizes[i] > 0)
 
 
 def profile_reasons(snap, profile, cand: int) -> list[dict]:

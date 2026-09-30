@@ -100,34 +100,47 @@ class GeneticListOptimizer:
         self.time_budget_ms = time_budget_ms
 
     # ------------------------------------------------------------------ operators
+    # Chromosomes are tiny (K genes), so plain Python sets/lists beat numpy set routines here.
     @staticmethod
-    def _repair(child: list[int], k: int, n: int, rng: np.random.Generator) -> np.ndarray:
+    def _repair(child, k: int, n: int, rng: np.random.Generator) -> np.ndarray:
         seen: list[int] = []
+        present: set[int] = set()
         for g in child:
-            if g not in seen and 0 <= g < n:
+            g = int(g)
+            if g not in present and 0 <= g < n:
+                present.add(g)
                 seen.append(g)
-        if len(seen) < k:
-            pool = np.setdiff1d(np.arange(n), np.array(seen, dtype=int))
-            seen.extend(rng.choice(pool, size=k - len(seen), replace=False).tolist())
-        return np.array(seen[:k], dtype=int)
+        while len(seen) < k:
+            g = int(rng.integers(n))
+            if g not in present:
+                present.add(g)
+                seen.append(g)
+        return np.array(seen[:k], dtype=np.int64)
 
     def _crossover(self, a: np.ndarray, b: np.ndarray, k: int, n: int, rng) -> np.ndarray:
-        common = np.intersect1d(a, b)
-        others = np.setdiff1d(np.union1d(a, b), common)
+        sa, sb = set(a.tolist()), set(b.tolist())
+        common = sorted(sa & sb)
+        others = sorted(sa ^ sb)
         need = k - len(common)
-        fill = rng.choice(others, size=min(need, len(others)), replace=False) if need > 0 and len(others) else []
-        return self._repair(list(common) + list(fill), k, n, rng)
+        if need > 0 and others:
+            pick = rng.permutation(len(others))[:need]
+            common += [others[i] for i in pick]
+        return self._repair(common, k, n, rng)
 
     def _mutate(self, child: np.ndarray, n: int, rng) -> np.ndarray:
-        outside = np.setdiff1d(np.arange(n), child)
-        if len(outside) == 0:
+        if len(child) >= n:
             return child
+        present = set(child.tolist())
+        while True:
+            g = int(rng.integers(n))
+            if g not in present:
+                break
         c = child.copy()
-        c[rng.integers(len(c))] = rng.choice(outside)
+        c[rng.integers(len(c))] = g
         return c
 
     def _tournament(self, fit: np.ndarray, rng) -> int:
-        idx = rng.choice(len(fit), size=min(self.tournament_size, len(fit)), replace=False)
+        idx = rng.integers(0, len(fit), size=min(self.tournament_size, len(fit)))
         return int(idx[np.argmax(fit[idx])])
 
     # ------------------------------------------------------------------ main loop

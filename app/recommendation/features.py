@@ -107,7 +107,7 @@ def build_snapshot(catalog: pd.DataFrame, tags: pd.DataFrame, dataset_version: s
         rows = sub["item_key"].map(index)
         ok = rows.notna().to_numpy()
         r = rows[ok].astype(int).to_numpy()
-        c = sub["value"][ok].map(lambda v: col[norm(str(v))]).to_numpy()
+        c = sub["value"][ok].map(lambda v, col=col: col[norm(str(v))]).to_numpy()
         X = sp.csr_matrix((np.ones(len(r), dtype=np.float32), (r, c)), shape=(len(keys), max(1, len(vocab))))
         X.sum_duplicates()
         X.data[:] = 1.0

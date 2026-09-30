@@ -39,6 +39,12 @@ SCORES_REQUIRED = ["user_id", "anime_id", "rating"]
 DETAILS_EXPECTED = ["Mal ID", "Username"]
 
 
+# Part of the real dataset version: bump it whenever preprocessing produces different output for the
+# same inputs, so a changed processed dataset never reuses an existing version id.
+#   2: provenance lists the Jikan endpoints whose data was actually used (a cache file alone is not enrichment)
+REAL_PREPROCESS_VERSION = 2
+
+
 class DataValidationError(RuntimeError):
     pass
 
@@ -126,6 +132,77 @@ def _jikan_data(rec: dict, endpoint: str) -> Any:
     return (ep.get("data") or {}).get("data")
 
 
+SUPPLEMENTARY = ("relations.jsonl", "characters.jsonl", "scenes.jsonl", "scene_images/manifest.jsonl")
+SCENE_COLS = ["scene_id", "item_key", "description", "episode", "timestamp_seconds", "characters", "source_ref",
+              "source_url", "spoiler_level", "verification_status"]
+IMAGE_COLS = ["image_id", "scene_id", "item_key", "path", "sha256", "episode", "timestamp_seconds", "split",
+              "provenance"]
+
+
+def supplementary_sources(settings: Settings) -> dict[str, Path]:
+    """Optional curated files under data/enriched (docs/data-contracts.md) that are present and non-empty."""
+    root = settings._abs(settings.real.get("enriched_dir", "data/enriched"))
+    return {n: root / n for n in SUPPLEMENTARY if (root / n).exists() and (root / n).stat().st_size > 0}
+
+
+def load_supplementary(settings: Settings, valid_keys: set[str]) -> dict[str, Any]:
+    """Validate and map the supplementary files onto the processed tables.
+
+    An invalid file stops preprocessing (DataValidationError) instead of being half-imported. Rows that point
+    at titles outside the served catalogue are counted in the report, never silently kept or dropped.
+    """
+    from pipelines.validate_data import CONTRACTS, validate_file
+
+    out: dict[str, Any] = {"relations": [], "characters": [], "scenes": [], "scene_images": [], "report": {}}
+    for name, path in supplementary_sources(settings).items():
+        check = validate_file(path, CONTRACTS[f"enriched/{name}"])
+        if not check["ok"]:
+            raise DataValidationError(f"{path}: " + "; ".join(check["errors"][:5]))
+        rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        kept = outside = 0
+        for r in rows:
+            if name == "relations.jsonl":
+                to_mal = r.get("to_mal_id")
+                out["relations"].append({
+                    "from_mal": int(r["from_mal_id"]), "to_mal": int(to_mal) if to_mal else r.get("to_external_id"),
+                    "to_type": "anime" if to_mal else str(r.get("to_entity_type") or "external"),
+                    "to_name": r.get("to_name"), "source_ref": r["source_ref"],
+                    "relation_type": str(r["relation_type"]).strip().lower().replace(" ", "_")})
+                kept += 1                                   # resolved against the catalogue later
+                continue
+            key = mal_key(int(r["mal_id"])) if name == "characters.jsonl" else str(r["item_key"])
+            if key not in valid_keys:
+                outside += 1
+                continue
+            kept += 1
+            if name == "characters.jsonl":
+                out["characters"].append({"source_id": str(r["character_source_id"]), "name": r["name"],
+                                          "item_key": key, "role": r.get("role"), "source_ref": r["source_ref"]})
+            elif name == "scenes.jsonl":
+                out["scenes"].append({c: r.get(c) for c in SCENE_COLS} | {"characters": r.get("characters") or [],
+                                                                         "spoiler_level": r.get("spoiler_level") or "major"})
+            else:                                           # frame manifest: paths are relative to its folder
+                abs_path = (path.parent / r["path"]).resolve()
+                try:
+                    rel_path = str(abs_path.relative_to(settings.data_root.parent.resolve()))
+                except ValueError:
+                    raise DataValidationError(f"{path}: image path {r['path']!r} leaves the project") from None
+                out["scene_images"].append({c: r.get(c) for c in IMAGE_COLS} | {
+                    "path": rel_path, "split": r.get("split") or "gallery",
+                    "provenance": {"source": r["source_ref"]}})
+        out["report"][name] = {"rows": len(rows), "kept": kept, "outside_catalogue": outside,
+                               "sha256": sha256_file(path)}
+    return out
+
+
+def _jikan_provenance(rec: dict | None) -> dict:
+    """Only endpoints that returned data count as enrichment; failed attempts are not provenance."""
+    used = [ep for ep in ("full", "characters", "recommendations") if rec and _jikan_data(rec, ep) is not None]
+    fetched = [rec["endpoints"][ep].get("fetched_at") for ep in used]
+    return {"jikan_enriched": bool(used), "jikan_endpoints_used": used,
+            "jikan_fetched_at": max((f for f in fetched if f), default=None)}
+
+
 # ---------------------------------------------------------------------- preprocess
 
 
@@ -143,9 +220,12 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
     jikan = load_jikan_layer(settings)
     if jikan:
         source_hashes["jikan_layer"] = hashlib_of_layer(jikan)
+    for name, path in supplementary_sources(settings).items():
+        source_hashes[f"enriched/{name}"] = sha256_file(path)
     pipe = settings.pipeline
     config_fp = settings.fingerprint("content_rules") + ":" + json.dumps(
-        {k: pipe.get(k) for k in ("sample_users_fraction", "sample_seed")}, sort_keys=True)
+        {k: pipe.get(k) for k in ("sample_users_fraction", "sample_seed")}, sort_keys=True) + \
+        f":preprocess-v{REAL_PREPROCESS_VERSION}"
     version = dataset_version("real", source_hashes, config_fp)
     root = settings.processed_dir / version
     writer = ProcessedWriter(root, int(pipe.get("rating_partitions", 32)))
@@ -243,8 +323,7 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
             "aired_from": aired_from, "aired_to": aired_to, "premiered_season": season,
             "premiered_year": prem_year, "cover_url": C.clean_str(rec.get("Image URL")),
             "provenance": {"source": "kaggle:dbdmobile/myanimelist-dataset:anime-dataset-2023.csv",
-                           "snapshot": "2023", "jikan_enriched": bool(jrec),
-                           "jikan_fetched_at": (jrec or {}).get("fetched_at")},
+                           "snapshot": "2023", **_jikan_provenance(jrec)},
             "missing_fields": missing, "in_catalog": in_catalog, "is_recommendable": recommendable,
             "is_planner_eligible": planner_ok, "is_explicit": explicit, "exclusion_reasons": reasons,
         })
@@ -268,11 +347,20 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
     writer.write_table("item_tags", pd.DataFrame(tag_rows, columns=["item_key", "namespace", "value", "source"]))
     writer.write_table("aliases", pd.DataFrame(alias_rows, columns=["item_key", "alias", "kind"]).drop_duplicates())
     valid_keys = set(catalog.loc[catalog.in_catalog, "item_key"])
-    rel_df = _resolve_relations(relation_rows, valid_keys)
+    supp = load_supplementary(settings, valid_keys)
+    rel_df = _resolve_relations(relation_rows + supp["relations"], valid_keys)
     writer.write_table("relations", rel_df)
-    writer.write_table("characters", pd.DataFrame(
-        [r for r in char_rows if r["item_key"] in valid_keys],
-        columns=["source_id", "name", "item_key", "role", "source_ref"]))
+    chars_df = pd.DataFrame([r for r in char_rows if r["item_key"] in valid_keys],
+                            columns=["source_id", "name", "item_key", "role", "source_ref"])
+    if supp["characters"]:
+        chars_df = pd.concat([chars_df, pd.DataFrame(supp["characters"], columns=chars_df.columns)],
+                             ignore_index=True).drop_duplicates(["source_id", "item_key"])
+    writer.write_table("characters", chars_df)
+    # without supplementary files the output is identical to earlier runs (their hashes enter the version)
+    if supp["scenes"]:
+        writer.write_table("scenes", pd.DataFrame(supp["scenes"], columns=SCENE_COLS))
+    if supp["scene_images"]:
+        writer.write_table("scene_images", pd.DataFrame(supp["scene_images"], columns=IMAGE_COLS))
     labels = _weak_similarity_labels(jikan, valid_keys)
     with (root / "labels" / "similarity_mal_recommendations.jsonl").open("w", encoding="utf-8") as fh:
         for row in labels:
@@ -344,7 +432,11 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
             "reasons": dict(exclusion),
             "missing_rate": {f: round(float(catalog.missing_fields.map(lambda m, f=f: f in m).mean()), 4)
                              for f in ("score", "studios", "genres", "episodes", "duration", "synopsis")},
+            "jikan_cached_titles": len(jikan),
             "jikan_enriched_titles": int(sum(1 for p in catalog.provenance if p.get("jikan_enriched"))),
+            "jikan_endpoint_titles": {ep: int(sum(1 for p in catalog.provenance
+                                                  if ep in p.get("jikan_endpoints_used", [])))
+                                      for ep in ("full", "characters", "recommendations")},
         },
         "ratings": {**{k: int(v) for k, v in counts.items()}, **dedupe,
                     "sampling": {"sample_users_fraction": frac, "sample_seed": sample_seed,
@@ -355,6 +447,7 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
         "relations": {"resolved_anime_edges": int((rel_df.to_entity_type == "anime").sum()) if len(rel_df) else 0,
                       "external_edges": int((rel_df.to_entity_type != "anime").sum()) if len(rel_df) else 0},
         "weak_similarity_label_pairs": len(labels),
+        **({"supplementary_files": supp["report"]} if supp["report"] else {}),
     }
     writer.write_report("preprocess_report", report)
     with (root / "reports" / "quarantine.jsonl").open("w", encoding="utf-8") as fh:

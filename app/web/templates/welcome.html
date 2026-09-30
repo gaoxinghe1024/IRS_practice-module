@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("welcome.title") }}</h1>
+<p class="muted">{{ t("welcome.intro") }}</p>
+<section class="panel" aria-labelledby="tags-title">
+  <h2 id="tags-title">{{ t("welcome.tags") }}</h2>
+  <div id="tag-chips" class="chips" role="group" aria-labelledby="tags-title"></div>
+</section>
+<section class="panel" aria-labelledby="titles-title">
+  <h2 id="titles-title">{{ t("welcome.titles") }}</h2>
+  <ul id="title-list" class="list"></ul>
+</section>
+<p id="welcome-error" class="error-text" role="alert" hidden></p>
+<div class="inline">
+  <button type="button" id="welcome-finish">{{ t("welcome.finish") }}</button>
+  <button type="button" class="secondary" id="welcome-skip">{{ t("welcome.skip") }}</button>
+</div>
+{% endblock %}

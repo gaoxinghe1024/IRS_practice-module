@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("history.title") }}</h1>
+<div class="two-col">
+  <section class="panel" aria-labelledby="h-chats"><h2 id="h-chats">{{ t("history.chats") }}</h2><ul id="chats" class="list"></ul></section>
+  <section class="panel" aria-labelledby="h-plans"><h2 id="h-plans">{{ t("history.plans") }}</h2><ul id="plans" class="list"></ul></section>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+# Real mode: Kaggle "Anime Dataset 2023" (dbdmobile/myanimelist-dataset),
+# placed under data/raw/mal_2023/, optionally enriched from Jikan under data/enriched/.
+dataset:
+  mode: real
+
+real:
+  raw_dir: "data/raw/mal_2023"
+  enriched_dir: "data/enriched"
+  anime_file: "anime-dataset-2023.csv"
+  scores_file: "users-score-2023.csv"
+  details_file: "users-details-2023.csv"
+  # users-score-2023.csv may also be supplied gzip-compressed
+  scores_file_gz: "users-score-2023.csv.gz"
+
+pipeline:
+  # Fraction of offline users kept by a seeded hash of user_id (null = all).
+  # Chosen for laptop-scale training; the before/after distribution is
+  # written to the split report.
+  sample_users_fraction: null

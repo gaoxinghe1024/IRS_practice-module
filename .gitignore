@@ -5,22 +5,43 @@ __pycache__/
 .venv/
 venv/
 env/
+.pytest_cache/
+.ruff_cache/
 
-# === SQLite 数据库（可运行 database.py 自动重建，勿上传） ===
+# === Local databases (rebuilt by `make seed` / activation) ===
 *.db
 *.sqlite
 *.sqlite3
+*.sqlite3-*
+var/
 
-# === Jikan 补全临时数据 ===
-*.jsonl
-/tmp_*.json
+# === Data: raw Kaggle files, caches and generated/processed data are never committed ===
+data/raw/
+data/enriched/
+data/processed/
+data/synthetic/
+!data/**/README.md
+!data/**/.gitkeep
 
-# === 系统/编辑器 ===
+# === Trained models / indexes (reproducible from the pipelines) ===
+artifacts/
+
+# === Evaluation: large per-case files stay local; reports and metrics are committed ===
+evaluation/runs/**/predictions.csv
+evaluation/runs/**/per_case.jsonl
+
+# === Browser test output ===
+test-results/
+playwright-report/
+
+# === System / editor ===
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 *.swp
 
-# === 环境变量（含密钥，勿上传） ===
+# === Environment variables (secrets) ===
 .env
+.env.*
+!.env.example

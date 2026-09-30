@@ -14,6 +14,9 @@ from .engine import METHODS
 
 
 def report(output=None):
+    if (ROOT / "data/optimization_protocol.json").exists():
+        from .report_v2 import report as report_expanded
+        return report_expanded(Path(output) if output else None)
     output = Path(output) if output else ROOT / "results"
     summary = read_json(output / "summary.json")
     source = summary["source"]

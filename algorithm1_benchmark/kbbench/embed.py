@@ -34,7 +34,7 @@ def download():
                files={name: dict(sha256=sha256(MODEL_DIR / name), bytes=(MODEL_DIR / name).stat().st_size) for name in FILES}))
 
 
-def encode(batch_size=64, threads=4):
+def encode_texts(texts, batch_size=64, threads=4, label="BGE"):
     import onnxruntime as ort
     from tokenizers import Tokenizer
     started = time.perf_counter()
@@ -52,12 +52,10 @@ def encode(batch_size=64, threads=4):
     options.intra_op_num_threads = threads
     options.inter_op_num_threads = 1
     session = ort.InferenceSession(str(MODEL_DIR / "onnx/model.onnx"), sess_options=options, providers=["CPUExecutionProvider"])
-    items = list(read_rows(ROOT / "data/catalog.jsonl.gz"))
-    texts = [semantic_text(item) for item in items]
-    result = np.empty((len(items), 384), dtype=np.float32)
+    result = np.empty((len(texts), 384), dtype=np.float32)
     truncated = 0
     input_names = {entry.name for entry in session.get_inputs()}
-    for start in range(0, len(items), batch_size):
+    for start in range(0, len(texts), batch_size):
         encodings = tokenizer.encode_batch(texts[start:start + batch_size])
         truncated += sum(bool(encoding.overflowing) for encoding in encodings)
         inputs = dict(input_ids=np.asarray([encoding.ids for encoding in encodings], dtype=np.int64),
@@ -71,9 +69,16 @@ def encode(batch_size=64, threads=4):
         vectors = vectors / np.linalg.norm(vectors, axis=1, keepdims=True)
         result[start:start + len(encodings)] = vectors
         if start % (batch_size * 10) == 0:
-            print(f"BGE {start + len(encodings)}/{len(items)}, elapsed {time.perf_counter()-started:.1f}s", flush=True)
+            print(f"{label} {start + len(encodings)}/{len(texts)}, elapsed {time.perf_counter()-started:.1f}s", flush=True)
     if not np.all(np.isfinite(result)) or not np.allclose(np.linalg.norm(result, axis=1), 1, atol=1e-5):
         raise ValueError("Invalid embeddings")
+    return result, truncated, time.perf_counter() - started
+
+
+def encode(batch_size=64, threads=4):
+    items = list(read_rows(ROOT / "data/catalog.jsonl.gz"))
+    texts = [semantic_text(item) for item in items]
+    result, truncated, seconds = encode_texts(texts, batch_size, threads)
     (ROOT / "models").mkdir(exist_ok=True)
     np.savez_compressed(ROOT / "models/bge_embeddings.npz", anime_ids=np.array([row["anime_id"] for row in items]), vectors=result)
     metadata = dict(model=MODEL, revision=REVISION, backend="original ONNX float32; CPUExecutionProvider",
@@ -85,7 +90,7 @@ def encode(batch_size=64, threads=4):
                     vector_sha256=sha256(ROOT / "models/bge_embeddings.npz"),
                     onnx_sha256=sha256(MODEL_DIR / "onnx/model.onnx"),
                     tokenizer_sha256=sha256(MODEL_DIR / "tokenizer.json"),
-                    titles=len(items), truncated_titles=truncated, encode_seconds=time.perf_counter() - started)
+                    titles=len(items), truncated_titles=truncated, encode_seconds=seconds)
     write_json(ROOT / "models/bge_metadata.json", metadata)
     print(metadata, flush=True)
 

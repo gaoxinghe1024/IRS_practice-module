@@ -19,7 +19,9 @@ def split_for(anime_id):
     return "validation" if int.from_bytes(digest[:4], "big") % 10 < 3 else "test"
 
 
-def prepare(release):
+def prepare(release, catalog_only=False):
+    if (ROOT / "data/optimization_protocol.json").exists() and not catalog_only:
+        raise ValueError("An expanded cohort is frozen; use --catalog-only to preserve its split")
     release = Path(release)
     index = read_json(release / "DATASET_INDEX.json")
     if index["catalog_status"] != "final":
@@ -60,6 +62,9 @@ def prepare(release):
     relations = [row for row in relations if row["similar_id"] in ids and row["target_id"] != row["similar_id"]]
     write_rows(ROOT / "data/catalog.jsonl.gz", items)
     write_rows(ROOT / "data/franchise_links.jsonl.gz", relations)
+    if catalog_only:
+        print(f"Rebuilt {len(items)} five-field records; frozen cohort retained", flush=True)
+        return
     # Deliberately include popular demonstration titles AND report the random stratum separately.
     anchors = [aid for aid in ANCHORS if aid in ids]
     rest = sorted(ids - set(anchors), key=lambda aid: (popularity[aid], aid))
@@ -92,4 +97,6 @@ def prepare(release):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--release", type=Path, required=True)
-    prepare(parser.parse_args().release)
+    parser.add_argument("--catalog-only", action="store_true")
+    args = parser.parse_args()
+    prepare(args.release, args.catalog_only)

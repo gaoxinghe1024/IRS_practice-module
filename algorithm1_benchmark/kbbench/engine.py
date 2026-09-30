@@ -3,27 +3,40 @@ import numpy as np
 from scipy.special import expit
 
 from .common import ROOT, read_json, read_rows, sha256
-from .features import DIMENSIONS, WEIGHTS, cosine_to_unit, feature_matrix, rank_top_k
+from .features import DIMENSIONS, WEIGHTS, normalized_semantic, feature_matrix, rank_top_k
 
 METHODS = {"A": "Weighted five-dimension similarity", "B": "Logistic regression",
            "C": "BGE embeddings", "D": "0.6 tag + 0.4 semantic"}
 
 
 class SimilarityEngine:
-    def __init__(self, root=ROOT):
+    def __init__(self, root=ROOT, variant="optimized"):
+        if variant not in {"baseline", "optimized"}:
+            raise ValueError("variant must be baseline or optimized")
         self.items = list(read_rows(root / "data/catalog.jsonl.gz"))
         self.ids = np.asarray([item["anime_id"] for item in self.items])
         self.index = {int(aid): index for index, aid in enumerate(self.ids)}
         if len(self.index) != len(self.items):
             raise ValueError("Duplicate catalog IDs")
-        self.logistic = read_json(root / "models/logistic.json")
-        metadata = read_json(root / "models/bge_metadata.json")
+        selection_path = root / "models/optimization_selection.json"
+        self.selection = read_json(selection_path) if variant == "optimized" and selection_path.exists() else None
+        self.variant = "optimized" if self.selection else "baseline"
+        model_file = "models/logistic_optimized.json" if self.selection else "models/logistic.json"
+        vector_file = "models/bge_optimized.npz" if self.selection else "models/bge_embeddings.npz"
+        metadata_file = "models/bge_optimized_metadata.json" if self.selection else "models/bge_metadata.json"
+        self.model_files = [model_file, vector_file, metadata_file]
+        self.logistic = read_json(root / model_file)
+        metadata = read_json(root / metadata_file)
+        if self.selection:
+            for name in self.model_files:
+                if sha256(root / name) != self.selection["files"][name]:
+                    raise ValueError("Selected artifact differs from frozen model selection")
         catalog_hash = sha256(root / "data/catalog.jsonl.gz")
         if self.logistic["catalog_sha256"] != catalog_hash or metadata["catalog_sha256"] != catalog_hash:
             raise ValueError("Model and catalog versions differ")
-        if sha256(root / "models/bge_embeddings.npz") != metadata["vector_sha256"]:
+        if sha256(root / vector_file) != metadata["vector_sha256"]:
             raise ValueError("Embedding artifact hash mismatch")
-        with np.load(root / "models/bge_embeddings.npz", allow_pickle=False) as data:
+        with np.load(root / vector_file, allow_pickle=False) as data:
             if not np.array_equal(data["anime_ids"], self.ids):
                 raise ValueError("Embedding row mapping differs from catalog")
             self.vectors = data["vectors"].copy()
@@ -41,7 +54,9 @@ class SimilarityEngine:
             tag += features[:, column] * weight
         learned = expit(features @ np.asarray(self.logistic["coefficients"]) + self.logistic["intercept"])
         cosine = np.clip(self.vectors @ self.vectors[position], -1.0, 1.0)
-        fusion = 0.6 * tag + 0.4 * cosine_to_unit(cosine)
+        normalization = self.selection["D"] if self.selection else "affine"
+        calibration = self.selection["semantic_calibration"] if self.selection else None
+        fusion = 0.6 * tag + 0.4 * normalized_semantic(cosine, normalization, calibration)
         return {"A": tag, "B": learned, "C": cosine, "D": fusion}, features
 
     def recommend(self, anime_id, method="A", k=5):

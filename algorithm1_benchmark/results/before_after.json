@@ -1,0 +1,146 @@
+{
+  "test_targets": 234,
+  "before": {
+    "A": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "A",
+      "n_targets": 234,
+      "coverage_at_5": 0.04017094017094018,
+      "ndcg_at_5": 0.04324773018284055,
+      "hit_rate_at_5": 0.16666666666666666,
+      "precision_at_5": 0.03931623931623932
+    },
+    "B": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "B",
+      "n_targets": 234,
+      "coverage_at_5": 0.03176638176638177,
+      "ndcg_at_5": 0.03284573190724425,
+      "hit_rate_at_5": 0.15384615384615385,
+      "precision_at_5": 0.03076923076923077
+    },
+    "C": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "C",
+      "n_targets": 234,
+      "coverage_at_5": 0.03554131054131054,
+      "ndcg_at_5": 0.03716386271685412,
+      "hit_rate_at_5": 0.1623931623931624,
+      "precision_at_5": 0.03418803418803419
+    },
+    "D": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "D",
+      "n_targets": 234,
+      "coverage_at_5": 0.04081196581196581,
+      "ndcg_at_5": 0.04261233553879395,
+      "hit_rate_at_5": 0.16666666666666666,
+      "precision_at_5": 0.040170940170940174
+    }
+  },
+  "after": {
+    "A": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "A",
+      "n_targets": 234,
+      "coverage_at_5": 0.04017094017094018,
+      "ndcg_at_5": 0.04324773018284055,
+      "hit_rate_at_5": 0.16666666666666666,
+      "precision_at_5": 0.03931623931623932
+    },
+    "B": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "B",
+      "n_targets": 234,
+      "coverage_at_5": 0.039957264957264954,
+      "ndcg_at_5": 0.04059294268006993,
+      "hit_rate_at_5": 0.1794871794871795,
+      "precision_at_5": 0.039316239316239315
+    },
+    "C": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "C",
+      "n_targets": 234,
+      "coverage_at_5": 0.034971509971509974,
+      "ndcg_at_5": 0.03702345203649446,
+      "hit_rate_at_5": 0.1623931623931624,
+      "precision_at_5": 0.03418803418803419
+    },
+    "D": {
+      "source": "mal_recommendations",
+      "split": "test",
+      "method": "D",
+      "n_targets": 234,
+      "coverage_at_5": 0.03988603988603988,
+      "ndcg_at_5": 0.04350778746413337,
+      "hit_rate_at_5": 0.1623931623931624,
+      "precision_at_5": 0.038461538461538464
+    }
+  },
+  "improvements": {
+    "A": {
+      "coverage_delta_pp": 0.0,
+      "ndcg_delta": 0.0,
+      "paired_95pct_delta_ci": {
+        "coverage_at_5": [
+          0.0,
+          0.0
+        ],
+        "ndcg_at_5": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "B": {
+      "coverage_delta_pp": 0.8190883190883187,
+      "ndcg_delta": 0.007747210772825683,
+      "paired_95pct_delta_ci": {
+        "coverage_at_5": [
+          -0.003133903133903134,
+          0.01944800569800571
+        ],
+        "ndcg_at_5": [
+          -0.004094329512985954,
+          0.019781630097694788
+        ]
+      }
+    },
+    "C": {
+      "coverage_delta_pp": -0.056980056980056315,
+      "ndcg_delta": -0.00014041068035965804,
+      "paired_95pct_delta_ci": {
+        "coverage_at_5": [
+          -0.0062678062678062675,
+          0.004273504273504274
+        ],
+        "ndcg_at_5": [
+          -0.003904312587342011,
+          0.003460705105920622
+        ]
+      }
+    },
+    "D": {
+      "coverage_delta_pp": -0.09259259259259342,
+      "ndcg_delta": 0.0008954519253394216,
+      "paired_95pct_delta_ci": {
+        "coverage_at_5": [
+          -0.007977207977207978,
+          0.006125356125356125
+        ],
+        "ndcg_at_5": [
+          -0.005074724060108504,
+          0.0072759378541793025
+        ]
+      }
+    }
+  },
+  "comparison": "identical fresh test targets, truths and full candidate catalog"
+}

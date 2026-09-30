@@ -10,8 +10,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Independent Top-5 similarity demo; no backend/database needed")
     parser.add_argument("--anime-id", type=int, required=True)
     parser.add_argument("--method", choices=list(METHODS), default="A")
+    parser.add_argument("--variant", choices=["baseline", "optimized"], default="optimized")
     args = parser.parse_args()
-    engine = SimilarityEngine()
+    engine = SimilarityEngine(variant=args.variant)
     if args.anime_id not in engine.index:
         parser.error("Unknown anime ID; use an ID from data/catalog.jsonl.gz")
     print(json.dumps(engine.recommend(args.anime_id, args.method), ensure_ascii=False, indent=2))

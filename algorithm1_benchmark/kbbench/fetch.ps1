@@ -5,4 +5,9 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest -UseBasicParsing -Uri $Url -OutFile $OutFile -TimeoutSec $TimeoutSec
+try {
+    Invoke-WebRequest -UseBasicParsing -Uri $Url -OutFile $OutFile -TimeoutSec $TimeoutSec
+} catch {
+    [Console]::Error.WriteLine('HTTP transfer failed: ' + $_.Exception.Response.StatusCode + ': ' + $_.Exception.Message)
+    exit 1
+}

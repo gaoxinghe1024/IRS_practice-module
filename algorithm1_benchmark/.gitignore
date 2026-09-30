@@ -5,3 +5,4 @@ __pycache__/
 !data/*.jsonl
 !results/*.jsonl
 !results/**/*.jsonl
+!history/**/*.jsonl

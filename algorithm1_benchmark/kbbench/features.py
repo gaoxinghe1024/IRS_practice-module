@@ -43,6 +43,15 @@ def cosine_to_unit(cosine):
     return np.clip((np.asarray(cosine) + 1.0) / 2.0, 0.0, 1.0)
 
 
+def normalized_semantic(cosines, method, calibration=None):
+    import numpy as np
+    if method == "affine":
+        return cosine_to_unit(cosines)
+    if method != "corpus_quantile" or calibration is None or calibration["high"] <= calibration["low"]:
+        raise ValueError("Invalid semantic calibration")
+    return np.clip((cosines - calibration["low"]) / (calibration["high"] - calibration["low"]), 0, 1)
+
+
 def rank_top_k(ids, scores, target_id, k=5):
     import numpy as np
     ids, scores = np.asarray(ids), np.asarray(scores)

@@ -1,5 +1,7 @@
 import argparse
 import csv
+import hashlib
+import json
 import importlib.metadata
 import platform
 import statistics
@@ -50,11 +52,30 @@ def summarize(rows):
     return result
 
 
-def evaluate(human=None, output=None):
+def evaluate(human=None, output=None, variant="optimized"):
     output = Path(output) if output else ROOT / ("results/human" if human else "results")
     output.mkdir(parents=True, exist_ok=True)
     started = time.perf_counter()
-    engine = SimilarityEngine()
+    protocol_path = ROOT / "data/optimization_protocol.json"
+    if protocol_path.exists():
+        selection_path = ROOT / "models/optimization_selection.json"
+        if not selection_path.exists():
+            raise ValueError("Freeze validation-only model selection before evaluating fresh test rankings")
+        selection = read_json(selection_path)
+        if selection["protocol_sha256"] != sha256(protocol_path):
+            raise ValueError("Optimization protocol changed after model selection")
+        if read_json(protocol_path)["targets_sha256"] != sha256(ROOT / "data/targets.jsonl"):
+            raise ValueError("Target cohort changed after pre-registration")
+        if not human:
+            targets = {row["anime_id"] for row in read_rows(ROOT / "data/targets.jsonl")}
+            audited = {row["anime_id"] for row in read_json(ROOT / "data/collection_audit.json")}
+            if targets != audited:
+                raise ValueError("Finish auditing all frozen targets before final evaluation")
+            validation = sorted([row for row in read_rows(ROOT / "data/mal_ground_truth.jsonl") if row["split"] == "validation"], key=lambda row: row["target_id"])
+            content = "".join(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n" for row in validation).encode()
+            if hashlib.sha256(content).hexdigest() != selection["validation_truth_sha256"]:
+                raise ValueError("Validation evidence changed after model selection")
+    engine = SimilarityEngine(variant=variant)
     loaded_seconds = time.perf_counter() - started
     cohort = {row["anime_id"]: row for row in read_rows(ROOT / "data/targets.jsonl")}
     if human:
@@ -125,7 +146,7 @@ def evaluate(human=None, output=None):
             strata.append(dict(sampling_group=group, **summary))
     environment = dict(python=platform.python_version(), platform=platform.platform(), processor=platform.processor(),
                        packages={package: importlib.metadata.version(package) for package in ["numpy", "scipy", "scikit-learn", "onnxruntime", "tokenizers", "matplotlib"]})
-    summary = dict(created_at=utc_now(), source=primary_source, k=5, candidate_catalog_size=len(engine.items),
+    summary = dict(created_at=utc_now(), source=primary_source, variant=engine.variant, k=5, candidate_catalog_size=len(engine.items),
                    candidate_policy="Every catalog title except the target; no sampled candidate pool", target_count=len(targets),
                    metric_definition={"coverage_at_5": "slide HR@5 = |Top5 intersect truth| / |truth| (standard Recall@5)",
                                       "hit_rate_at_5": "1 if at least one Top5 hit else 0", "ndcg_at_5": "binary relevance; ideal length min(5, truth size)"},
@@ -134,7 +155,10 @@ def evaluate(human=None, output=None):
                    environment=environment,
                    timing=dict(load_seconds=loaded_seconds, all_four_methods_p50_ms=1000 * statistics.median(elapsed),
                                all_four_methods_p95_ms=float(1000 * np.quantile(elapsed, 0.95)), total_evaluation_seconds=time.perf_counter()-started),
-                   inputs={str(path.relative_to(ROOT)).replace("\\", "/"): sha256(path) for path in [ROOT / "data/catalog.jsonl.gz", ROOT / "data/targets.jsonl", ROOT / "models/logistic.json", ROOT / "models/bge_metadata.json", ROOT / "data/training_pairs.jsonl.gz"]})
+                   inputs={str(path.relative_to(ROOT)).replace("\\", "/"): sha256(path) for path in [ROOT / "data/catalog.jsonl.gz", ROOT / "data/targets.jsonl", ROOT / "data/training_pairs.jsonl.gz", *[ROOT / name for name in engine.model_files]]})
+    if protocol_path.exists():
+        summary["selection_sha256"] = sha256(ROOT / "models/optimization_selection.json")
+        summary["protocol_sha256"] = sha256(protocol_path)
     label_path = Path(human) if human else ROOT / "data/mal_ground_truth.jsonl"
     summary["ground_truth_sha256"] = sha256(label_path)
     write_json(output / "summary.json", summary)
@@ -153,5 +177,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--human", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--variant", choices=["baseline", "optimized"], default="optimized")
     args = parser.parse_args()
-    evaluate(args.human, args.output)
+    evaluate(args.human, args.output, args.variant)

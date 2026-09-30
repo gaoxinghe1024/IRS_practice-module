@@ -50,9 +50,11 @@ def fetch_html(aid, cache):
     return json.dumps(parse_recommendations(page, aid), ensure_ascii=False).encode("utf-8"), url, path
 
 
-def collect():
+def collect(html_first=False):
     ids = {row["anime_id"] for row in read_rows(ROOT / "data/catalog.jsonl.gz")}
     targets = list(read_rows(ROOT / "data/targets.jsonl"))
+    # Obtain development labels first while keeping the frozen split unchanged.
+    targets.sort(key=lambda row: ({"historical": 0, "validation": 1, "test": 2}.get(row["split"], 3), row["anime_id"]))
     cache = ROOT / "data/mal_cache"
     cache.mkdir(parents=True, exist_ok=True)
     labels, audit = [], []
@@ -65,18 +67,25 @@ def collect():
                 api_error = None
                 raw_page = None
                 try:
-                    body = fetch(url)
-                except RuntimeError as error:
+                    if html_first:
+                        body, url, raw_page = fetch_html(aid, cache)
+                    else:
+                        body = fetch(url)
+                except (RuntimeError, OSError, ValueError) as error:
                     api_error = str(error)
-                    body, url, raw_page = fetch_html(aid, cache)
+                    if html_first:
+                        body = fetch(url)
+                    else:
+                        body, url, raw_page = fetch_html(aid, cache)
                 # Keep full API response for vote/filter auditing, with deterministic gzip headers.
                 with path.open("wb") as raw:
                     with gzip.GzipFile(filename="", fileobj=raw, mode="wb", mtime=0) as stream:
                         stream.write(body)
                 write_json(cache / f"{aid}.meta.json", dict(url=url, retrieved_at=utc_now(), sha256=sha256(path),
-                           retrieval="MAL HTML fallback" if raw_page else "Jikan API",
+                           retrieval=("MAL HTML direct" if html_first else "MAL HTML fallback") if raw_page else "Jikan API",
                            raw_page=raw_page.name if raw_page else None, jikan_error=api_error))
-                time.sleep(1.05)
+                if not raw_page:
+                    time.sleep(1.05)
             metadata = json.loads((cache / f"{aid}.meta.json").read_text(encoding="utf-8"))
             url = metadata["url"]
             with gzip.open(path, "rt", encoding="utf-8") as stream:
@@ -94,7 +103,8 @@ def collect():
                 labels.append(dict(target_id=aid, relevant_ids=ranked, votes=[recommendations[rid] for rid in ranked],
                                    source="mal_recommendations", source_url=url, split=target["split"],
                                    sampling_group=target["sampling_group"], cache_file=str(path.relative_to(ROOT)).replace("\\", "/")))
-            print(f"{number}/{len(targets)} MAL {aid}: {len(recommendations)} catalog matches", flush=True)
+            if number % 10 == 0 or number == len(targets):
+                print(f"{number}/{len(targets)} MAL {aid}: {len(labels)} eligible so far", flush=True)
         except (RuntimeError, OSError, ValueError) as error:
             audit.append(dict(**target, status="request_failed", error=str(error)))
             print(f"{number}/{len(targets)} MAL {aid}: FAILED (see collection_audit.json)", flush=True)
@@ -104,5 +114,6 @@ def collect():
 
 
 if __name__ == "__main__":
-    argparse.ArgumentParser(description=__doc__).parse_args()
-    collect()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--html-first", action="store_true")
+    collect(parser.parse_args().html_first)

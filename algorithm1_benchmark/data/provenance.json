@@ -30,7 +30,9 @@
     "genres": 20,
     "themes": 53
   },
-  "target_count": 120,
-  "sampling": "20 fixed demo anchors + 25 seeded random titles from each membership quartile",
-  "ground_truth": "MAL recommendation votes, independent of co-high-rating training pairs; human labels initially absent"
+  "target_count": 720,
+  "sampling": "300 uniform stratified titles (75 per membership quartile), plus 300 random titles from the top-2000 membership band; all exclude v1 targets",
+  "ground_truth": "MAL recommendation votes, independent of co-high-rating training pairs; human labels initially absent",
+  "original_target_count": 120,
+  "optimization_protocol": "data/optimization_protocol.json"
 }

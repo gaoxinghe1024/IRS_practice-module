@@ -1,5 +1,0 @@
-set,queries,tsr,hits@5,mrr@10,compliant,fabricated_episode,intent_ok,latency_ms_p95
-auto_titles,312,0.95192,0.95192,0.94722,1.0,0.0,0.95192,114.74841647141146
-auto_constraints,38,1.0,,,1.0,0.0,1.0,35.21258386899714
-auto_relations,17,1.0,1.0,0.44608,1.0,0.0,1.0,142.9536665906198
-auto_no_episode,30,1.0,,,1.0,0.0,1.0,2.19882482488174

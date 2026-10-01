@@ -1,8 +1,0 @@
-method,mae,rmse,mae_on_icf_supported
-global_mean,1.28839,1.6166,1.28902
-user_mean,1.21171,1.48101,1.21153
-item_mean,1.25766,1.56333,1.2584
-icf_with_fallback,1.10172,1.38515,1.10107
-mf,1.05093,1.31753,1.04993
-ncf_explicit,1.0471,1.3071,1.0464
-icf_supported_only,1.10107,1.38431,1.10107

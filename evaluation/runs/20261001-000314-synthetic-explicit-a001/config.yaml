@@ -1,0 +1,197 @@
+experiment: explicit
+params:
+  sample_test_users: null
+  tag: null
+settings:
+  app:
+    name: AniLogic
+    tagline: Your ACG Friend
+    group_display: Group 10
+    locale: en
+    host: 127.0.0.1
+    port: 8000
+    secure_cookies: false
+    session_ttl_hours: 168
+    max_upload_bytes: 5242880
+    max_upload_pixels: 25000000
+    log_chat_text: false
+    cpu_workers: 4
+  dataset:
+    mode: synthetic
+  paths:
+    data_root: data
+    artifacts_root: artifacts
+    var_root: var
+    evaluation_runs: evaluation/runs
+  content_rules:
+    exclude_genres:
+    - Hentai
+    - Erotica
+    exclude_rating_prefixes:
+    - Rx
+  llm:
+    provider: none
+    base_url: ''
+    model: ''
+    timeout_s: 30.0
+    max_output_tokens: 700
+    temperature: 0.2
+    max_calls_per_request: 2
+    effort: low
+    anthropic_max_tokens: 16000
+    price_per_mtok_input: null
+    price_per_mtok_output: null
+    price_as_of: null
+  recommendation:
+    similar:
+      k: 5
+      max_k: 10
+      scorer: weighted_attributes
+      weights:
+        genre: 0.35
+        theme: 0.3
+        demographic: 0.15
+        studio: 0.1
+        length: 0.1
+      tau_episodes: 12.0
+      min_coverage_for_ranking: null
+      low_coverage_warning: 0.5
+      hybrid_tag_weight: 0.6
+      hide_watched_default: false
+      logistic_min_train_queries: 20
+      logistic_min_val_queries: 5
+      replacement_min_val_queries: 20
+    collection:
+      k: 8
+      scorer: collection_profile_v1
+      alpha: 0.7
+      exclude_statuses:
+      - completed
+    home:
+      k: 10
+      candidate_k: 20
+      recall_engine: icf
+      reranker: ga
+      warm_gate: 8
+      exclude_statuses:
+      - completed
+      exploration_k: 10
+    icf:
+      min_co_rated: 3
+      shrinkage: 5.0
+      neighbors: 60
+      prediction_damping: 5.0
+      user_mean_prior_weight: 10.0
+      block_size: 1024
+    mf:
+      latent_dim: 32
+      epochs: 60
+      batch_size: 2048
+      learning_rate: 0.02
+      reg: 0.04
+      patience: 5
+      fold_in_reg: 1.0
+      fold_in_min_ratings: 3
+    ncf:
+      embedding_dim: 32
+      mlp_layers:
+      - 64
+      - 32
+      - 16
+      dropout: 0.2
+      weight_decay: 1.0e-05
+      learning_rate: 0.002
+      batch_size: 1024
+      epochs: 40
+      patience: 5
+      loss: huber
+    ga:
+      population: 64
+      generations: 80
+      tournament_size: 3
+      elitism: 2
+      crossover_prob: 0.8
+      mutation_prob: 0.2
+      early_stop_generations: 20
+      time_budget_ms: 250
+      weights:
+        relevance: 0.4
+        diversity: 0.3
+        novelty: 0.2
+        fresh: 0.1
+    gbdt:
+      negatives_per_positive: 4
+      max_iter: 200
+      learning_rate: 0.05
+    two_tower:
+      min_interactions: 1000
+      embedding_dim: 32
+      epochs: 30
+      enabled: false
+  retrieval:
+    lexical_top_n: 50
+    dense_top_n: 50
+    rrf_k0: 60
+    item_k: 5
+    evidence_per_item: 2
+    chunk_min_tokens: 150
+    chunk_max_tokens: 350
+    chunk_overlap_tokens: 40
+    embedding:
+      provider: auto
+      model: BAAI/bge-small-en-v1.5
+      batch_size: 64
+      lsa_dim: 64
+  chat:
+    history_turns: 6
+    max_message_chars: 1000
+  planner:
+    default_budget_minutes: 900
+    max_titles_default: 5
+    min_relevance: 0.2
+    candidate_pool: 40
+    population: 60
+    generations: 120
+    time_budget_ms: 1500
+    weights:
+      relevance: 0.45
+      quality: 0.2
+      diversity: 0.2
+      novelty: 0.05
+      utilization: 0.1
+    exact_oracle_max_items: 14
+  images:
+    encoder: color_histogram_v1
+    clip_model: clip-ViT-B-32
+    top_n: 20
+    accept_threshold: null
+    retain_uploads: false
+  jikan:
+    base_url: https://api.jikan.moe/v4
+    min_interval_s: 1.1
+    timeout_s: 20
+    max_retries: 4
+    server_error_retries: 0
+  pipeline:
+    chunk_rows: 100000
+    rating_partitions: 4
+    split_seed: 20260930
+    positive_threshold: 8
+    explicit_split:
+    - 0.8
+    - 0.1
+    - 0.1
+    min_ratings_ranking_eval: 5
+    min_ratings_explicit_eval: 5
+    sample_users_fraction: null
+    sample_seed: 7
+  synthetic:
+    seed: 42
+    n_anime: 200
+    n_users: 800
+    target_ratings: 20000
+    n_collectors: 240
+    n_latent_hidden: 4
+    n_scenes: 24
+    n_scene_images: 12
+  real: {}

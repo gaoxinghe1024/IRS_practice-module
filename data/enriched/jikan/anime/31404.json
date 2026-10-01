@@ -1,0 +1,302 @@
+{
+  "mal_id": 31404,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/31404/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:06:19Z",
+      "sha256": "8ecbaecef46bbe097980ae2e3a06924f6d1f1505b5c431812feae985ab6108ef",
+      "data": {
+        "data": {
+          "mal_id": 31404,
+          "url": "https://myanimelist.net/anime/31404/Netoge_no_Yome_wa_Onnanoko_ja_Nai_to_Omotta",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/3/79414.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/3/79414t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/3/79414l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/3/79414.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/3/79414t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/3/79414l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/_iMzdyYRPrk?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Netoge no Yome wa Onnanoko ja Nai to Omotta?"
+            },
+            {
+              "type": "Synonym",
+              "title": "Net Game no Yome wa Onna no Ko ja Nai to Omotta?"
+            },
+            {
+              "type": "Synonym",
+              "title": "NetoYome"
+            },
+            {
+              "type": "Japanese",
+              "title": "ネトゲの嫁は女の子じゃないと思った？"
+            },
+            {
+              "type": "English",
+              "title": "And you thought there is never a girl online?"
+            },
+            {
+              "type": "German",
+              "title": "And you thought there is never a girl online?"
+            },
+            {
+              "type": "Spanish",
+              "title": "And You Thought There is Never a Girl Online?"
+            },
+            {
+              "type": "French",
+              "title": "And You Thought There is Never a Girl Online?"
+            }
+          ],
+          "title": "Netoge no Yome wa Onnanoko ja Nai to Omotta?",
+          "title_english": "And you thought there is never a girl online?",
+          "title_japanese": "ネトゲの嫁は女の子じゃないと思った？",
+          "title_synonyms": [
+            "Net Game no Yome wa Onna no Ko ja Nai to Omotta?",
+            "NetoYome"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2016-04-07T00:00:00+00:00",
+            "to": "2016-06-23T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 7,
+                "month": 4,
+                "year": 2016
+              },
+              "to": {
+                "day": 23,
+                "month": 6,
+                "year": 2016
+              }
+            },
+            "string": "Apr 7, 2016 to Jun 23, 2016"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 6.66,
+          "scored_by": 310909,
+          "rank": 6910,
+          "popularity": 415,
+          "members": 604847,
+          "favorites": 1297,
+          "synopsis": "After mustering up the courage to propose to a girl in an online game, naive otaku Hideki \"Rusian\" Nishimura is devastated when she flat-out rejects him. To make matters worse, the girl reveals that she is actually an older man in real life. With his dreams crushed and his heart broken, Rusian comes to an abrupt decision in the midst of his raging fit: he will never trust another girl in an online game again.\n\nYears later, Rusian is now in a guild with three other players, one of whom possesses a female avatar by the name of Ako. Ako is deeply in love with Rusian and wants to marry him. Although he entertains the possibility that she might be a guy, Rusian accepts her proposal, claiming that her gender does not matter as long as she is cute in-game. However, after a discussion between the guild members that led to all of them having an offline meeting, Rusian finds out that Ako, along with the other members, is not just a girl but also his schoolmate.\n\n[Written by MAL Rewrite]",
+          "background": "Netoge no Yome wa Onnanoko ja Nai to Omotta? adapts the first 4 novels of Shibai Kineko's light novel series of the same title.",
+          "season": "spring",
+          "year": 2016,
+          "broadcast": {
+            "day": "Thursdays",
+            "time": "23:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Thursdays at 23:00 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 64,
+              "type": "anime",
+              "name": "Sotsu",
+              "url": "https://myanimelist.net/anime/producer/64/Sotsu"
+            },
+            {
+              "mal_id": 238,
+              "type": "anime",
+              "name": "AT-X",
+              "url": "https://myanimelist.net/anime/producer/238/AT-X"
+            },
+            {
+              "mal_id": 271,
+              "type": "anime",
+              "name": "Barnum Studio",
+              "url": "https://myanimelist.net/anime/producer/271/Barnum_Studio"
+            },
+            {
+              "mal_id": 315,
+              "type": "anime",
+              "name": "DAX Production",
+              "url": "https://myanimelist.net/anime/producer/315/DAX_Production"
+            },
+            {
+              "mal_id": 681,
+              "type": "anime",
+              "name": "ASCII Media Works",
+              "url": "https://myanimelist.net/anime/producer/681/ASCII_Media_Works"
+            },
+            {
+              "mal_id": 1113,
+              "type": "anime",
+              "name": "NBCUniversal Entertainment Japan",
+              "url": "https://myanimelist.net/anime/producer/1113/NBCUniversal_Entertainment_Japan"
+            },
+            {
+              "mal_id": 1331,
+              "type": "anime",
+              "name": "i0+",
+              "url": "https://myanimelist.net/anime/producer/1331/i0_"
+            },
+            {
+              "mal_id": 1337,
+              "type": "anime",
+              "name": "Medicos Entertainment",
+              "url": "https://myanimelist.net/anime/producer/1337/Medicos_Entertainment"
+            },
+            {
+              "mal_id": 1631,
+              "type": "anime",
+              "name": "Radio Osaka",
+              "url": "https://myanimelist.net/anime/producer/1631/Radio_Osaka"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 439,
+              "type": "anime",
+              "name": "Project No.9",
+              "url": "https://myanimelist.net/anime/producer/439/Project_No9"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Comedy",
+              "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            },
+            {
+              "mal_id": 9,
+              "type": "anime",
+              "name": "Ecchi",
+              "url": "https://myanimelist.net/anime/genre/9/Ecchi"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            },
+            {
+              "mal_id": 79,
+              "type": "anime",
+              "name": "Video Game",
+              "url": "https://myanimelist.net/anime/genre/79/Video_Game"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 77359,
+                  "type": "manga",
+                  "name": "Netoge no Yome wa Onnanoko ja Nai to Omotta?",
+                  "url": "https://myanimelist.net/manga/77359/Netoge_no_Yome_wa_Onnanoko_ja_Nai_to_Omotta"
+                },
+                {
+                  "mal_id": 57835,
+                  "type": "manga",
+                  "name": "Netoge no Yome wa Onnanoko ja Nai to Omotta?",
+                  "url": "https://myanimelist.net/manga/57835/Netoge_no_Yome_wa_Onnanoko_ja_Nai_to_Omotta"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"1st Love Story\" by Luce Twinkle Wink☆ (eps 2-12)"
+            ],
+            "endings": [
+              "1: \"1st Love Story\" by Luce Twinkle Wink☆ (eps 1)",
+              "2: \"Zero Ichi Kiseki (ゼロイチキセキ)\" by Yoshino Nanjo (eps 2-12)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.netogenoyome.com/"
+            },
+            {
+              "name": "@netoge_anime",
+              "url": "https://twitter.com/netoge_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=11480"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=17514"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Netoge_no_Yome_wa_Onna_no_Ko_Janai_to_Omotta%3F"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-273239"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/31404/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:34:30Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/31404/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:34:31Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:34:31Z"
+}

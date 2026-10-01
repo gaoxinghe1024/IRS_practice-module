@@ -1,0 +1,314 @@
+{
+  "mal_id": 39551,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/39551/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:54:37Z",
+      "sha256": "141800e40a46eac14d88d241e2fd4dfc615a1f112b2d3e4d2c9a43306345eb55",
+      "data": {
+        "data": {
+          "mal_id": 39551,
+          "url": "https://myanimelist.net/anime/39551/Tensei_shitara_Slime_Datta_Ken_2nd_Season",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1271/109841.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1271/109841t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1271/109841l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1271/109841.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1271/109841t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1271/109841l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/Lk3fJsIOnKw?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Tensei shitara Slime Datta Ken 2nd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "Tensura 2"
+            },
+            {
+              "type": "Japanese",
+              "title": "転生したらスライムだった件"
+            },
+            {
+              "type": "English",
+              "title": "That Time I Got Reincarnated as a Slime Season 2"
+            },
+            {
+              "type": "German",
+              "title": "That Time I Got Reincarnated as a Slime Staffel 2"
+            },
+            {
+              "type": "Spanish",
+              "title": "That Time I Got Reincarnated as a Slime Temporada 2"
+            },
+            {
+              "type": "French",
+              "title": "Moi, quand je me réincarne en Slime Saison 2"
+            }
+          ],
+          "title": "Tensei shitara Slime Datta Ken 2nd Season",
+          "title_english": "That Time I Got Reincarnated as a Slime Season 2",
+          "title_japanese": "転生したらスライムだった件",
+          "title_synonyms": [
+            "Tensura 2"
+          ],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2021-01-12T00:00:00+00:00",
+            "to": "2021-03-30T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 12,
+                "month": 1,
+                "year": 2021
+              },
+              "to": {
+                "day": 30,
+                "month": 3,
+                "year": 2021
+              }
+            },
+            "string": "Jan 12, 2021 to Mar 30, 2021"
+          },
+          "duration": "23 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 8.33,
+          "scored_by": 656053,
+          "rank": 298,
+          "popularity": 162,
+          "members": 1128137,
+          "favorites": 11052,
+          "synopsis": "Taking a break from his time as a teacher, the powerful slime Rimuru Tempest returns to his kingdom, eponymously named Tempest, just in time to begin negotiations with a nearby nation—the Kingdom of Eurazania. While the negotiations are anything but peaceful, they do end successfully, allowing Rimuru to return and finish teaching. When trying to again return to Tempest, this time permanently, Rimuru is stopped by a mysterious figure who is somehow able to constrain the many magical abilities he has at his disposal. \n\nIn Tempest, the situation is even worse. A group of unknown humans has invaded the land and are assaulting its citizens, both influential and innocent. They are not just trying to bring harm either—they have the intent to kill. Can Rimuru overcome his powerful and dangerous foe and return to Tempest before it is too late?  \n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "winter",
+          "year": 2021,
+          "broadcast": {
+            "day": "Tuesdays",
+            "time": "23:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Tuesdays at 23:00 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 159,
+              "type": "anime",
+              "name": "Kodansha",
+              "url": "https://myanimelist.net/anime/producer/159/Kodansha"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 441,
+              "type": "anime",
+              "name": "8bit",
+              "url": "https://myanimelist.net/anime/producer/441/8bit"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Comedy",
+              "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            },
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Fantasy",
+              "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 62,
+              "type": "anime",
+              "name": "Isekai",
+              "url": "https://myanimelist.net/anime/genre/62/Isekai"
+            },
+            {
+              "mal_id": 72,
+              "type": "anime",
+              "name": "Reincarnation",
+              "url": "https://myanimelist.net/anime/genre/72/Reincarnation"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 27,
+              "type": "anime",
+              "name": "Shounen",
+              "url": "https://myanimelist.net/anime/genre/27/Shounen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 37430,
+                  "type": "anime",
+                  "name": "Tensei shitara Slime Datta Ken",
+                  "url": "https://myanimelist.net/anime/37430/Tensei_shitara_Slime_Datta_Ken"
+                }
+              ]
+            },
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 41487,
+                  "type": "anime",
+                  "name": "Tensei shitara Slime Datta Ken 2nd Season Part 2",
+                  "url": "https://myanimelist.net/anime/41487/Tensei_shitara_Slime_Datta_Ken_2nd_Season_Part_2"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 87609,
+                  "type": "manga",
+                  "name": "Tensei shitara Slime Datta Ken",
+                  "url": "https://myanimelist.net/manga/87609/Tensei_shitara_Slime_Datta_Ken"
+                }
+              ]
+            },
+            {
+              "relation": "Summary",
+              "entry": [
+                {
+                  "mal_id": 49318,
+                  "type": "anime",
+                  "name": "Tensei shitara Slime Datta Ken 2nd Season: Kanwa - Veldora Nikki 2",
+                  "url": "https://myanimelist.net/anime/49318/Tensei_shitara_Slime_Datta_Ken_2nd_Season__Kanwa_-_Veldora_Nikki_2"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Storyteller\" by TRUE"
+            ],
+            "endings": [
+              "\"STORYSEEKER\" by STEREO DIVE FOUNDATION"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "https://www.ten-sura.com/anime/tensura"
+            },
+            {
+              "name": "@ten_sura_anime",
+              "url": "https://twitter.com/ten_sura_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=14767"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=23358"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/That_Time_I_Got_Reincarnated_as_a_Slime#Anime"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E8%BB%A2%E7%94%9F%E3%81%97%E3%81%9F%E3%82%89%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0%E3%81%A0%E3%81%A3%E3%81%9F%E4%BB%B6"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/5844"
+            },
+            {
+              "name": "Bangumi",
+              "url": "https://bangumi.tv/subject/278031"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-277041"
+            },
+            {
+              "name": "Bahamut Anime Crazy",
+              "url": "https://ani.gamer.com.tw/"
+            },
+            {
+              "name": "Bilibili",
+              "url": "https://www.bilibili.com/"
+            },
+            {
+              "name": "Muse Asia",
+              "url": "https://www.youtube.com/channel/UCGbshtvS9t-8CW11W7TooQg"
+            },
+            {
+              "name": "Viu",
+              "url": "https://www.hq.viu.com/"
+            },
+            {
+              "name": "iQIYI",
+              "url": "https://www.iq.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/39551/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:23:14Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/39551/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:23:15Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:23:15Z"
+}

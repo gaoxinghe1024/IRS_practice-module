@@ -1,0 +1,27 @@
+{
+  "mal_id": 339,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/339/full",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:26:51Z",
+      "sha256": null,
+      "data": null
+    },
+    "recommendations": {
+      "endpoint": "/anime/339/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:26:52Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/339/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:26:53Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:26:53Z"
+}

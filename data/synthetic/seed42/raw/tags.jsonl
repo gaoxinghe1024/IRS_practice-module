@@ -1,0 +1,1186 @@
+{"item_key": "synthetic:42:001", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:001", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:001", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:001", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:002", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:002", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:002", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:002", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:002", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:002", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:003", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:003", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:003", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:003", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:003", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:004", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:004", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:004", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:004", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:004", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:004", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:005", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:005", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:005", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:005", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:005", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:005", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:006", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:006", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:006", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:006", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:007", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:007", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:007", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:007", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:007", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:007", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:008", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:009", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:009", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:009", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:009", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:009", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:010", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:010", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:010", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:010", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:010", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:011", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:011", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:011", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:011", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:011", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:011", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:012", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:012", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:012", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:012", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:012", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:013", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:013", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:013", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:013", "namespace": "theme", "value": "Psychological", "source": "synthetic"}
+{"item_key": "synthetic:42:013", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:014", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:015", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:015", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:015", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:015", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:015", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:015", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:016", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:016", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:016", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:016", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:017", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:017", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:017", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:017", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:017", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:018", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:018", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:018", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:018", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:018", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:018", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:019", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:019", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:020", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:020", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:020", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:020", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:021", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:021", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:021", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:021", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:022", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:022", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:022", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:022", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:022", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:023", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:023", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:023", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:023", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:023", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:024", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:024", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:024", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:024", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:025", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:025", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:025", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:026", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:026", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:026", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:026", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:026", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:027", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:028", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:028", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:028", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:028", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:028", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:029", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:030", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:030", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:030", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:030", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:031", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:031", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:031", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:031", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:031", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:032", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:032", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:032", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:033", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:033", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:033", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:033", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:034", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:034", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:034", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:034", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:034", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:034", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:035", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:035", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:035", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:035", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:035", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:036", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:036", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:036", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:036", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:036", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:036", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:037", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:038", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:038", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:038", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:038", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:038", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "theme", "value": "Gourmet", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:039", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:040", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:040", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:040", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:040", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:040", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:040", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:041", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:041", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:041", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:041", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:041", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:041", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:042", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:042", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:042", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:042", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:042", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:042", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:043", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:043", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:043", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:043", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:043", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:043", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:044", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:044", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:044", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:044", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:044", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:045", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:045", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:045", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:045", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:045", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:045", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:046", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:046", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:046", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:046", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:046", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "theme", "value": "Gourmet", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:047", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:048", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:049", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:049", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:049", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:049", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:049", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:049", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:050", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:051", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:051", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:051", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:051", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:051", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:052", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:052", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:052", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:052", "namespace": "theme", "value": "Gourmet", "source": "synthetic"}
+{"item_key": "synthetic:42:052", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:053", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:054", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:054", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:054", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:054", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:054", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:055", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:056", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:056", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:056", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:056", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:056", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:056", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:057", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:057", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:057", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:057", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:058", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:058", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:058", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:058", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:058", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:059", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:060", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:060", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:060", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:060", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:060", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:061", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:062", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:062", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:062", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:062", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:062", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:063", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:063", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:063", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:063", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:063", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:063", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:064", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:064", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:064", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:064", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:064", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:065", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:065", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:065", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:065", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:065", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:065", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:066", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:066", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:066", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:066", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:067", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:067", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:067", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:067", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:068", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:069", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:069", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:069", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:069", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:070", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:070", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:070", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:070", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:070", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:070", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:071", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:071", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:071", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:071", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:071", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:072", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:072", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:072", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:072", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:072", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:072", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:073", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:073", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:073", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:073", "namespace": "theme", "value": "Psychological", "source": "synthetic"}
+{"item_key": "synthetic:42:073", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:073", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:074", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:074", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:074", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:074", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:074", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:074", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:075", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:075", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:075", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:075", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:075", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:075", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:076", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:077", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:078", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:078", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:078", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:078", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:079", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:080", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:080", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:080", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:080", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:080", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:080", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:081", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:081", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:081", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:081", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:081", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:081", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:082", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:082", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:082", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:082", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:082", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:083", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:083", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:083", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:083", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:083", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:083", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:084", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:084", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:084", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:085", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:085", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:085", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:085", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:085", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:086", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:086", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:086", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:086", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:086", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:086", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:087", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:087", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:087", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:087", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:087", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:088", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:088", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:088", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:088", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:088", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:088", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:089", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:089", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:089", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:089", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:089", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:090", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:090", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:090", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:090", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:090", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:091", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:091", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:091", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:092", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:092", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:092", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:092", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:093", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:093", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:093", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:093", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:094", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:094", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:094", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:094", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:094", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:095", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:095", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:095", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:096", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:097", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:098", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:098", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:098", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:098", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:098", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:099", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:100", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:100", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:100", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:100", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:100", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:100", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:101", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:101", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:101", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:101", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:101", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:101", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:102", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:103", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:103", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:103", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:103", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:104", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:104", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:104", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:104", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:104", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:104", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:105", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:106", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:106", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:106", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:106", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:106", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:107", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:107", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:107", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:107", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:107", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:108", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:108", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:108", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:108", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:108", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:108", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:109", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:109", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:109", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:109", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:110", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:110", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:110", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:110", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:110", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:111", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:111", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:111", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:111", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:112", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:112", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:112", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:112", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:113", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:113", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:113", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:113", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:113", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:114", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:114", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:114", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:114", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:114", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:115", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:116", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:116", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:116", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:116", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:116", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:117", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:118", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:118", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:118", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:118", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:118", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:118", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:119", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:120", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:120", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:120", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:120", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:121", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:122", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:122", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:122", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:122", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:122", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:123", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:123", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:123", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:123", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:123", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:124", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:124", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:124", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:124", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:124", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:125", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:125", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:125", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:125", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:125", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:126", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:126", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:126", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:126", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:126", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:127", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:128", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:128", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:128", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:128", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:128", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:128", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:129", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:129", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:129", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:129", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:129", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:130", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:130", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:130", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:130", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:131", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:131", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:131", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:131", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:132", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:133", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:133", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:133", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:133", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:134", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:134", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:134", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:134", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:134", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:134", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:135", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:135", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:135", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:135", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:135", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:135", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:136", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:136", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:136", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:136", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:136", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:137", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:138", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:138", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:138", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:138", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:138", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:138", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:139", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:140", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:140", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:140", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:140", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:140", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:140", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:141", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:141", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:141", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:141", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:142", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:143", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:143", "namespace": "theme", "value": "Gourmet", "source": "synthetic"}
+{"item_key": "synthetic:42:143", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:143", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:143", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:143", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:144", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:144", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:144", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:144", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:144", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:145", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:145", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:145", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:145", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:145", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:145", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:146", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:147", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:147", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:147", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:147", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:147", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:148", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:148", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:148", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:148", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "theme", "value": "Psychological", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:149", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:150", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:151", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:151", "namespace": "theme", "value": "Gourmet", "source": "synthetic"}
+{"item_key": "synthetic:42:151", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:151", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:151", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:151", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:152", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:152", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:152", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:152", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:152", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:153", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:153", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:153", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:153", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:153", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:153", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:154", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:154", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:154", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:154", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:154", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:155", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:155", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:155", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:155", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:156", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:156", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:156", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:156", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:156", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:156", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:157", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:158", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:159", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:159", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:159", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:159", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:159", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:159", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:160", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:160", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:160", "namespace": "theme", "value": "Martial Arts", "source": "synthetic"}
+{"item_key": "synthetic:42:160", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:160", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:160", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:161", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:161", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:161", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:161", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:162", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:162", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:162", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:162", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:162", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "theme", "value": "Psychological", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:163", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:164", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:164", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:164", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:164", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:165", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:165", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:165", "namespace": "theme", "value": "Historical", "source": "synthetic"}
+{"item_key": "synthetic:42:165", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:165", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:166", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:167", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:167", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:167", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:167", "namespace": "theme", "value": "Music", "source": "synthetic"}
+{"item_key": "synthetic:42:167", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:167", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "theme", "value": "Mythology", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:168", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:169", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:169", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:169", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:169", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:169", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:169", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:170", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:170", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:170", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:171", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:172", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:172", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:172", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:172", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:172", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:173", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:173", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:173", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:173", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:173", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:174", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:174", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:174", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:174", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:174", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:175", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:175", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:175", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:176", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:176", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:176", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:176", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:176", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:176", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:177", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:178", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:178", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:178", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:178", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:178", "namespace": "source", "value": "Light novel", "source": "synthetic"}
+{"item_key": "synthetic:42:179", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:179", "namespace": "studio", "value": "Lantern Frame", "source": "synthetic"}
+{"item_key": "synthetic:42:179", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:180", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:180", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:180", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:180", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:181", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:182", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:182", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:182", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:182", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:182", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:183", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:183", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:183", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:183", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:183", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:183", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:184", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:185", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:185", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:185", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:185", "namespace": "studio", "value": "Orbit Line Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:185", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:186", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:186", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:186", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:186", "namespace": "theme", "value": "Psychological", "source": "synthetic"}
+{"item_key": "synthetic:42:186", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:187", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:187", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:187", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:187", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:187", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:187", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:188", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:188", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:188", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:188", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:189", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:189", "namespace": "theme", "value": "Space", "source": "synthetic"}
+{"item_key": "synthetic:42:189", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:189", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:189", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:190", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:190", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:190", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:190", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "theme", "value": "Survival", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "theme", "value": "Workplace", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "studio", "value": "Nightjar Motion", "source": "synthetic"}
+{"item_key": "synthetic:42:191", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:192", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:192", "namespace": "theme", "value": "Isekai", "source": "synthetic"}
+{"item_key": "synthetic:42:192", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:192", "namespace": "studio", "value": "Hoshikage Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:192", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:193", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:193", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:193", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:193", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:193", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "theme", "value": "Iyashikei", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "theme", "value": "Detective", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:194", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:195", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:195", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:195", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:195", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:195", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:195", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:196", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:196", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:196", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:196", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:196", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:196", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:197", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:197", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:197", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:197", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:197", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:197", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:198", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:198", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:198", "namespace": "genre", "value": "Supernatural", "source": "synthetic"}
+{"item_key": "synthetic:42:198", "namespace": "theme", "value": "Psychological", "source": "synthetic"}
+{"item_key": "synthetic:42:198", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:199", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:199", "namespace": "demographic", "value": "Kids", "source": "synthetic"}
+{"item_key": "synthetic:42:199", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:199", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:200", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:200", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:200", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:200", "namespace": "studio", "value": "Tidewater Studio", "source": "synthetic"}
+{"item_key": "synthetic:42:200", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:201", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:201", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:201", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:201", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:201", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:202", "namespace": "genre", "value": "Suspense", "source": "synthetic"}
+{"item_key": "synthetic:42:202", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:202", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:202", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:202", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:203", "namespace": "genre", "value": "Romance", "source": "synthetic"}
+{"item_key": "synthetic:42:203", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:203", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:203", "namespace": "source", "value": "Game", "source": "synthetic"}
+{"item_key": "synthetic:42:204", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:204", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:204", "namespace": "theme", "value": "Time Travel", "source": "synthetic"}
+{"item_key": "synthetic:42:204", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:204", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:204", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:205", "namespace": "genre", "value": "Slice of Life", "source": "synthetic"}
+{"item_key": "synthetic:42:205", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:205", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:205", "namespace": "demographic", "value": "Seinen", "source": "synthetic"}
+{"item_key": "synthetic:42:205", "namespace": "studio", "value": "Maple Arc", "source": "synthetic"}
+{"item_key": "synthetic:42:205", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:206", "namespace": "genre", "value": "Drama", "source": "synthetic"}
+{"item_key": "synthetic:42:206", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:206", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:206", "namespace": "theme", "value": "Strategy Game", "source": "synthetic"}
+{"item_key": "synthetic:42:206", "namespace": "studio", "value": "Studio Aster", "source": "synthetic"}
+{"item_key": "synthetic:42:206", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:207", "namespace": "genre", "value": "Sci-Fi", "source": "synthetic"}
+{"item_key": "synthetic:42:207", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:207", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:207", "namespace": "studio", "value": "Kumo Works", "source": "synthetic"}
+{"item_key": "synthetic:42:207", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "genre", "value": "Horror", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "theme", "value": "School", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "demographic", "value": "Shoujo", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "studio", "value": "Brightwell Animation", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "studio", "value": "Paper Crane Pictures", "source": "synthetic"}
+{"item_key": "synthetic:42:208", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:209", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:209", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:209", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:209", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:209", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:209", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:210", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:210", "namespace": "genre", "value": "Mystery", "source": "synthetic"}
+{"item_key": "synthetic:42:210", "namespace": "genre", "value": "Sports", "source": "synthetic"}
+{"item_key": "synthetic:42:210", "namespace": "theme", "value": "Super Power", "source": "synthetic"}
+{"item_key": "synthetic:42:210", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:210", "namespace": "source", "value": "Novel", "source": "synthetic"}
+{"item_key": "synthetic:42:211", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:211", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:211", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:211", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:211", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:211", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:212", "namespace": "genre", "value": "Fantasy", "source": "synthetic"}
+{"item_key": "synthetic:42:212", "namespace": "genre", "value": "Action", "source": "synthetic"}
+{"item_key": "synthetic:42:212", "namespace": "theme", "value": "Military", "source": "synthetic"}
+{"item_key": "synthetic:42:212", "namespace": "theme", "value": "Mecha", "source": "synthetic"}
+{"item_key": "synthetic:42:212", "namespace": "demographic", "value": "Shounen", "source": "synthetic"}
+{"item_key": "synthetic:42:212", "namespace": "source", "value": "Web manga", "source": "synthetic"}
+{"item_key": "synthetic:42:213", "namespace": "genre", "value": "Comedy", "source": "synthetic"}
+{"item_key": "synthetic:42:213", "namespace": "genre", "value": "Adventure", "source": "synthetic"}
+{"item_key": "synthetic:42:213", "namespace": "demographic", "value": "Josei", "source": "synthetic"}
+{"item_key": "synthetic:42:213", "namespace": "source", "value": "Manga", "source": "synthetic"}
+{"item_key": "synthetic:42:214", "namespace": "genre", "value": "Erotica", "source": "synthetic"}
+{"item_key": "synthetic:42:214", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:215", "namespace": "genre", "value": "Erotica", "source": "synthetic"}
+{"item_key": "synthetic:42:215", "namespace": "source", "value": "Original", "source": "synthetic"}
+{"item_key": "synthetic:42:216", "namespace": "genre", "value": "Erotica", "source": "synthetic"}
+{"item_key": "synthetic:42:216", "namespace": "source", "value": "Original", "source": "synthetic"}

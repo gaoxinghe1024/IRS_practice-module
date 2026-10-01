@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="detail-root"><div class="state loading" role="status">{{ t("common.loading") }}</div></div>
+<section aria-labelledby="similar-title" id="similar-section" class="hidden">
+  <div class="row-between">
+    <h2 id="similar-title">{{ t("anime.similar") }}</h2>
+    <label class="checkbox hidden" id="hide-watched-wrap"><input type="checkbox" id="hide-watched"> {{ t("anime.hide_watched") }}</label>
+  </div>
+  <p class="muted">{{ t("anime.similar_note") }}</p>
+  <div id="similar-warnings"></div>
+  <div id="similar-list" class="grid"></div>
+  <p><button type="button" class="secondary small" id="similar-more">{{ t("common.more") }}</button></p>
+</section>
+{% endblock %}

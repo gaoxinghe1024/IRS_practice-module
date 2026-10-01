@@ -1,0 +1,41 @@
+{
+  "dataset_mode": "synthetic",
+  "dataset_version": "synthetic-7a7d5d6a74",
+  "pipeline_version": "2.0.0",
+  "source_hashes": {
+    "generator_files": "148897bf16ca0caa87dffa030f0fe11d13c7efc9af84f4590ae3abc38f29bffb"
+  },
+  "created_at": "2026-09-30T09:34:34Z",
+  "seed": 42,
+  "counts": {
+    "catalog": 216,
+    "ratings": 19984,
+    "users": 800
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.1",
+    "fastapi": "0.142.1",
+    "sqlalchemy": "2.1.1",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.1.0"
+  },
+  "files": {
+    "aliases.parquet": "73998ce73d97ca2c4f49b2c6a6e2e65368979e01b6f141776f55ee9ad79ceb30",
+    "catalog.parquet": "1fa51d388a73a59bd142c6efde5927ac5d7f999ab60444110532f6b446c9f88e",
+    "characters.parquet": "9802cc04ecbc10334fc00c50fcb7f42070b2051214fc72c5457250073b090d5f",
+    "item_tags.parquet": "ec9597b5bd18cb934ac3ec1eb400f701baf375f58c5d1abb6eebc9ed050fe519",
+    "ratings/part-000.parquet": "fa2f88b82fda23338c5facb069ec11288d25604c6654fc7b66898b6d7f7ee929",
+    "ratings/part-001.parquet": "182326fc522a95d2ac41c4556017ad839365de40b6c11188b06bfe2dfe9bd8ef",
+    "ratings/part-002.parquet": "a2678e71ea30290aa85327056283124b9c926c7df4e7e59dcf2f50407664b0f9",
+    "ratings/part-003.parquet": "278dcfeef3d89446537b96e559db136cc6fe0f402059fd689451319b944c122b",
+    "relations.parquet": "eaa0faeb6fff40ac03af335023a061cb0e7bc40f2ac1f40bb4fa5033cdaa4cd9",
+    "reports/preprocess_report.json": "64b12f77f6cb7f603b94afe0985e9106f34448f308b21fa9c484772c955597fe",
+    "scene_images.parquet": "ed0f283481c8c216a5ba913edf1eb20a30022b0c6135ef0423eebb7ce63ae4f4",
+    "scenes.parquet": "1158ae4d290f45e3cce00b059581b4c61c5ad09efd561bc90e604b0d845ba212"
+  }
+}

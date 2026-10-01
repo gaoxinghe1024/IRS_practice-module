@@ -252,3 +252,29 @@
 - `node --check common.js` 语法通过。
 
 **注意事项：** 前端是静态 JS，浏览器可能缓存旧版 common.js——**测试前请强制刷新（Ctrl+F5）**。
+
+## [2026-09-30] AniLogic 完整重建（分支 anilogic-rebuild，替换 AnimeFinder v1.4.1）
+
+**状态：** 新系统在模拟数据与真实数据（Kaggle MAL 2023 全量，23,363 部在库作品、2,396 万条评分，未抽样）上走通；旧模板已从本分支移除（历史保留在 `main` 与提交 `426db20`）。按重建提示词执行，未推送远程、未调用付费接口。
+
+**变更内容：**
+
+1. **新架构**（`app/`）：FastAPI 模块化单体 + SQLite（WAL、外键、Alembic 迁移含 FTS5）+ 服务端渲染页面骨架 + 原生 ES 模块前端。继续遵守本日志规则 6：一个页面 = `app/web/templates/<page>.html` + `app/web/static/js/pages/<page>.js`，共享逻辑 `js/common.js`，共享样式 `css/style.css`。
+2. **账户与安全**：argon2id；HttpOnly 会话 cookie（库中只存哈希）+ CSRF 双提交；登录节流；无默认管理员；所有私有资源服务端校验归属（旧模板的 `user_id` 回退与越权读取已消除，见 `docs/legacy-feature-audit.md` §3）。
+3. **四个核心算法**：①相似作品（加权五维属性 A 为默认，逻辑回归 B / BGE 属性向量 C / 融合 D 为对照）；②收藏夹规则层 + 偏好评分（严格为空时只给放宽建议，由用户选择）；③首页 ICF（共评分母的精确 adjusted cosine）召回 Top-20 + GA 列表优化 Top-10（MF / NCF / greedy / MMR / 穷举 oracle 对照，冷启动分 cold / partial / warm）；④聊天找番（确定性意图解析、多轮条件、FTS5 + BGE 混合检索 RRF、带来源回答，LLM 可选且经后验证，无 LLM 时本地模式）。
+4. **观看计划**：时间预算、完整/部分模式、观看进度、前置作品、每日时段、保存/编辑/重新优化/导出（JSON / Markdown / HTML），每次返回与编辑都独立校验可行性。
+5. **数据管线**（`pipelines/`）：模拟世界生成；真实数据 validate → preprocess → split → train → build-index → activate，版本化产物与 SHA-256 manifest，原子激活；可选 Jikan 离线补全（本次上游 MAL 大面积 504，仅 33 部取得 /full 数据）；补充数据（relations / characters / scenes / 帧图 manifest）按 `docs/data-contracts.md` 校验后入库。
+6. **评估**（`evaluation/`）：9 个实验（similar、collection、homepage、explicit、ga_ablation、chat、planner、system、multimodal），每次运行独立目录（config / manifest / metrics / per_case / failures / comparison / report），`make export-evaluation` 汇总到 `docs/evaluation-results-{real,synthetic}.md`。
+7. **本次修正的缺陷（均有回归测试或评估证据）**：收藏放宽请求带多余字段导致 422；编辑后的计划导出 500；关系文档超出 BGE 512 token 被截断；Jikan「已补全」统计把失败请求也算入；逻辑回归在仅 2 条弱标签时被标记为已训练；默认替换规则在 1 条验证查询上给出结论；ICF 对「全部打 9 分」的新用户预测全部相等（新增按验证集调参的用户均值先验 k，k = 0 即原公式）；冷启动纯标签画像几乎推不中（新增按验证集调参的热度权重 g）；真实模式补充数据只校验不入库；关系覆盖不足却显示 ready；聊天中仅标点不同的续作（如 Working'!!）与含逗号/感叹号的标题被截断识别错（标题识别 0.917 → 0.968）；评估自动查询误用被内容规则排除的类型。
+8. **旧模板处理**：删除 `backend/*.py`、`backend/services/`、`frontend/`、含明文演示密码的 `account for test.txt`；`requirements.txt` 改为由 `uv.lock` 生成的锁定版本；`backend/anime.db`（未入库的本地用户数据）原样保留，供 `migrate-legacy` 使用。迁移 dry-run 结果见审计文档 §4（1 个注册账号；其 11 条评分符合旧种子回填时间模式，默认不迁移；`Hataraku Saibou` 的旧 MAL ID 35860 错误，迁移按唯一精确标题更正为 37141 并报告）。
+
+**涉及文件：** `app/`、`pipelines/`、`evaluation/`、`configs/`、`migrations/`、`tests/`、`docs/`、`data/README.md`、`data/evaluation/`、`Makefile`、`Dockerfile`、`compose.yaml`、`.env.example`、`README.md`（重写）、`requirements.txt`（重新生成）；删除旧 `backend/`、`frontend/` 源码与 `account for test.txt`。
+
+**原因：** 按《AniLogic 完整重建：Code Agent 实施提示词》与两份 Group 10 材料从零重建；旧模板存在越权与身份回退问题，且只在 24 部手写种子数据上运行，无法承载真实数据与评估要求。
+
+**验证方式：** 单元 + 集成 131 项全部通过（含真实数据与 BGE 模型测试），浏览器旅程 8 个测试覆盖旅程 1–12 全部通过，ruff 无告警；详见 `docs/test-report.md`。真实数据 9 个实验结果见 `docs/evaluation-results-real.md`，要点与未决事项见 `docs/delivery-status.md`（例如：在该留出协议下热度基线 Hits@10 约为 ICF 的两倍，报告中如实呈现）。未验证：`docker compose up --build`（交付机器未安装 Docker）；Plain LLM vs RAG（未配置 LLM 凭证）；人工标注评估（协议见 `data/evaluation/human-evaluation-protocol.md`）。
+
+**注意事项：**
+- 演示账号只存在于模拟模式（`make seed`），密码 `anilogic-demo`，见 `docs/user-guide.md`；真实模式没有任何预置账号。
+- 运行方式见 `README.md`；各功能状态见 `docs/delivery-status.md`。
+- ICF 的 damping、用户均值先验 k 与首页冷启动热度权重 g 由 `make apply-tuning` 写入 `configs/<mode>.yaml`，注释中记录对应评估 run id。

@@ -1,0 +1,3 @@
+{"task_id": "st-chat-constraint", "surface": "chat", "steps": ["send: a comedy anime with at most 12 episodes"], "success": {"all_items": {"max_episodes": 12, "include_genres": ["Comedy"]}, "min_items": 1}}
+{"task_id": "st-chat-refine", "surface": "chat", "steps": ["send: something like Circuit of the Velvet Frontier", "send: at most 13 episodes"], "success": {"all_items": {"max_episodes": 13}, "exclude_items": ["synthetic:42:001"]}}
+{"task_id": "st-plan-budget", "surface": "plan", "steps": ["plan: budget_minutes=900 max_titles=3"], "success": {"total_minutes_lte": 900, "max_titles": 3}}

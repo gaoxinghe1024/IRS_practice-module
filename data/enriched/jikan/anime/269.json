@@ -1,0 +1,394 @@
+{
+  "mal_id": 269,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/269/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:44:11Z",
+      "sha256": "9a0d281a3fbab72f5fbd9a6818c4900e8c1fad20ce2341fec7f3e3696dfc33e8",
+      "data": {
+        "data": {
+          "mal_id": 269,
+          "url": "https://myanimelist.net/anime/269/Bleach",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1541/147774.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1541/147774t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1541/147774l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1541/147774.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1541/147774t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1541/147774l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/0yk5H6vvfG4?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Bleach"
+            },
+            {
+              "type": "Japanese",
+              "title": "BLEACH - ブリーチ -"
+            },
+            {
+              "type": "English",
+              "title": "Bleach"
+            }
+          ],
+          "title": "Bleach",
+          "title_english": "Bleach",
+          "title_japanese": "BLEACH - ブリーチ -",
+          "title_synonyms": [],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 366,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2004-10-05T00:00:00+00:00",
+            "to": "2012-03-27T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 5,
+                "month": 10,
+                "year": 2004
+              },
+              "to": {
+                "day": 27,
+                "month": 3,
+                "year": 2012
+              }
+            },
+            "string": "Oct 5, 2004 to Mar 27, 2012"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 8,
+          "scored_by": 1272178,
+          "rank": 745,
+          "popularity": 33,
+          "members": 2227302,
+          "favorites": 84713,
+          "synopsis": "Ichigo Kurosaki is an ordinary high schooler—until his family is attacked by a Hollow, a corrupt spirit that seeks to devour human souls. It is then that he meets a Soul Reaper named Rukia Kuchiki, who gets injured while protecting Ichigo's family from the assailant. To save his family, Ichigo accepts Rukia's offer of taking her powers and becomes a Soul Reaper as a result.\n\nHowever, as Rukia is unable to regain her powers, Ichigo is given the daunting task of hunting down the Hollows that plague their town. However, he is not alone in his fight, as he is later joined by his friends—classmates Orihime Inoue, Yasutora Sado, and Uryuu Ishida—who each have their own unique abilities. As Ichigo and his comrades get used to their new duties and support each other on and off the battlefield, the young Soul Reaper soon learns that the Hollows are not the only real threat to the human world.\n\n[Written by MAL Rewrite]",
+          "background": "Bleach adapts the first 54 volumes of Tite Kubo's manga series of the same name. In addition, 4 anime-original arcs were broadcast in-between and during the adaptations of original arcs of the manga.",
+          "season": "fall",
+          "year": 2004,
+          "broadcast": {
+            "day": "Tuesdays",
+            "time": "18:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Tuesdays at 18:00 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 16,
+              "type": "anime",
+              "name": "TV Tokyo",
+              "url": "https://myanimelist.net/anime/producer/16/TV_Tokyo"
+            },
+            {
+              "mal_id": 17,
+              "type": "anime",
+              "name": "Aniplex",
+              "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+            },
+            {
+              "mal_id": 53,
+              "type": "anime",
+              "name": "Dentsu",
+              "url": "https://myanimelist.net/anime/producer/53/Dentsu"
+            },
+            {
+              "mal_id": 717,
+              "type": "anime",
+              "name": "TV Tokyo Music",
+              "url": "https://myanimelist.net/anime/producer/717/TV_Tokyo_Music"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 119,
+              "type": "anime",
+              "name": "VIZ Media",
+              "url": "https://myanimelist.net/anime/producer/119/VIZ_Media"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Studio Pierrot",
+              "url": "https://myanimelist.net/anime/producer/1/Studio_Pierrot"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 2,
+              "type": "anime",
+              "name": "Adventure",
+              "url": "https://myanimelist.net/anime/genre/2/Adventure"
+            },
+            {
+              "mal_id": 37,
+              "type": "anime",
+              "name": "Supernatural",
+              "url": "https://myanimelist.net/anime/genre/37/Supernatural"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [],
+          "demographics": [
+            {
+              "mal_id": 27,
+              "type": "anime",
+              "name": "Shounen",
+              "url": "https://myanimelist.net/anime/genre/27/Shounen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 41467,
+                  "type": "anime",
+                  "name": "Bleach: Sennen Kessen-hen",
+                  "url": "https://myanimelist.net/anime/41467/Bleach__Sennen_Kessen-hen"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 12,
+                  "type": "manga",
+                  "name": "Bleach",
+                  "url": "https://myanimelist.net/manga/12/Bleach"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 762,
+                  "type": "anime",
+                  "name": "Bleach: Memories in the Rain",
+                  "url": "https://myanimelist.net/anime/762/Bleach__Memories_in_the_Rain"
+                },
+                {
+                  "mal_id": 834,
+                  "type": "anime",
+                  "name": "Bleach: The Sealed Sword Frenzy",
+                  "url": "https://myanimelist.net/anime/834/Bleach__The_Sealed_Sword_Frenzy"
+                },
+                {
+                  "mal_id": 1686,
+                  "type": "anime",
+                  "name": "Bleach Movie 1: Memories of Nobody",
+                  "url": "https://myanimelist.net/anime/1686/Bleach_Movie_1__Memories_of_Nobody"
+                },
+                {
+                  "mal_id": 2889,
+                  "type": "anime",
+                  "name": "Bleach Movie 2: The DiamondDust Rebellion - Mou Hitotsu no Hyourinmaru",
+                  "url": "https://myanimelist.net/anime/2889/Bleach_Movie_2__The_DiamondDust_Rebellion_-_Mou_Hitotsu_no_Hyourinmaru"
+                },
+                {
+                  "mal_id": 35118,
+                  "type": "anime",
+                  "name": "Bleach KaraBuri!: Gotei Juusan Yatai Daisakusen!",
+                  "url": "https://myanimelist.net/anime/35118/Bleach_KaraBuri__Gotei_Juusan_Yatai_Daisakusen"
+                },
+                {
+                  "mal_id": 4835,
+                  "type": "anime",
+                  "name": "Bleach Movie 3: Fade to Black - Kimi no Na wo Yobu",
+                  "url": "https://myanimelist.net/anime/4835/Bleach_Movie_3__Fade_to_Black_-_Kimi_no_Na_wo_Yobu"
+                },
+                {
+                  "mal_id": 8247,
+                  "type": "anime",
+                  "name": "Bleach Movie 4: Jigoku-hen",
+                  "url": "https://myanimelist.net/anime/8247/Bleach_Movie_4__Jigoku-hen"
+                }
+              ]
+            },
+            {
+              "relation": "Summary",
+              "entry": [
+                {
+                  "mal_id": 54171,
+                  "type": "anime",
+                  "name": "Bleach: Shuku! Rukia Dakkan! Kagayaku! Shinigami Juuban Shoubu! Mitai Shinigami Doon to Misemasu Special",
+                  "url": "https://myanimelist.net/anime/54171/Bleach__Shuku_Rukia_Dakkan_Kagayaku_Shinigami_Juuban_Shoubu_Mitai_Shinigami_Doon_to_Misemasu_Special"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Setting",
+              "entry": [
+                {
+                  "mal_id": 41468,
+                  "type": "anime",
+                  "name": "Burn the Witch",
+                  "url": "https://myanimelist.net/anime/41468/Burn_the_Witch"
+                }
+              ]
+            },
+            {
+              "relation": "Other",
+              "entry": [
+                {
+                  "mal_id": 38810,
+                  "type": "anime",
+                  "name": "Bleach: Gotei 13 Omake",
+                  "url": "https://myanimelist.net/anime/38810/Bleach__Gotei_13_Omake"
+                },
+                {
+                  "mal_id": 39476,
+                  "type": "anime",
+                  "name": "Houkiboshi",
+                  "url": "https://myanimelist.net/anime/39476/Houkiboshi"
+                },
+                {
+                  "mal_id": 60048,
+                  "type": "anime",
+                  "name": "Bleach 20th PV",
+                  "url": "https://myanimelist.net/anime/60048/Bleach_20th_PV"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "1: \"*Asterisk (*～アスタリスク～)\" by Orange Range (eps 1-25)",
+              "2: \"D-tecnolife\" by UVERworld (eps 26-51)",
+              "3: \"Ichirin no Hana (一輪の花)\" by High and Mighty Color (eps 52-74)",
+              "4: \"Tonight, Tonight, Tonight\" by Beat Crusaders (eps 75-97)",
+              "5: \"Rolling star\" by YUI (eps 98-120)",
+              "6: \"ALONES\" by Aqua Timez (eps 121-143)",
+              "7: \"After Dark (アフターダーク)\" by Asian Kung-Fu Generation (eps 144-167)",
+              "8: \"CHU-BURA\" by Kelun (eps 168-189)",
+              "9: \"Velonica\" by Aqua Timez (eps 190-214)",
+              "10: \"Shoujo S (少女S)\" by Scandal (eps 215-242)",
+              "11: \"Anima Rossa (アニマロッサ)\" by Porno Graffitti (eps 243-265)",
+              "12: \"chAngE\" by miwa (eps 266-291)",
+              "13: \"Ranbu no Melody (乱舞のメロディ)\" by SID (eps 292-316)",
+              "14: \"BLUE\" by ViViD (eps 317-342)",
+              "15: \"HARUKAZE\" by Scandal (eps 343-366)"
+            ],
+            "endings": [
+              "1: \"Life is Like a Boat\" by Rie Fu (eps 1-13)",
+              "2: \"Thank You!! (サンキュー!!)\" by HOME MADE KAZOKU (eps 14-26)",
+              "3: \"Houkiboshi (ほうき星)\" by Younha (eps 26-38)",
+              "4: \"Happy People\" by Skoop on Somebody (eps 39-51)",
+              "5: \"Life\" by YUI (eps 52-63)",
+              "6: \"My Pace (マイペース)\" by SunSet Swish (eps 64-74)",
+              "7: \"Hanabi\" by Ikimonogakari (eps 75-86)",
+              "8: \"MOVIN!!\" by Takacha (eps 87-97)",
+              "9: \"Baby It's You\" by JUNE (eps 98-109)",
+              "10: \"Sakura Biyori (桜日和)\" by Mai Hoshimura (eps 110120)",
+              "11: \"Tsumasaki (爪先)\" by Ore Ska Band (eps 121-131)",
+              "12: \"Daidai (橙)\" by chatmonchy (eps 132-143)",
+              "13: \"Tane wo Maku Hibi (種をまく日々)\" by Atari Kousuke (eps 144-154)",
+              "14: \"Kansha. (感謝.)\" by RSP a.k.a Real Street Project (eps 155-167)",
+              "15: \"Orange (オレンジ)\" by Lil'B a.k.a MIE&AILA (eps 168-179)",
+              "16: \"Gallop (ギャロップ)\" by pe'zmoku (eps 180-189)",
+              "17: \"Hitohira no Hanabira (ヒトヒラのハナビラ)\" by STEREOPONY (eps 190-201)",
+              "18: \"Sky Chord ~Otona ni Naru Kimi he~ (Sky chord~大人になる君へ~)\" by Tsuji Shion (eps 202-214)",
+              "19: \"Kimi wo Mamotte, Kimi wo Aishite (君を守って, 君を愛して)\" by Sambomaster (eps 215-229)",
+              "20: \"Mad Surfer\" by Kenichi Asai (eps 230-242)",
+              "21: \"Sakurabito (さくらびと)\" by SunSet Swish (eps 243-255)",
+              "22: \"Tabidatsu Kimi e (旅立つキミへ)\" by RSP (eps 256-265)",
+              "23: \"Stay Beautiful\" by Diggy-MO' (eps 266-278)",
+              "24: \"Echoes\" by universe (eps 279-291)",
+              "25: \"Last Moment\" by SPYAIR (eps 292-303)",
+              "26: \"Song for...\" by ROOKiEZ is PUNK’D (eps 304-316)",
+              "27: \"Aoi Tori (アオイトリ)\" by fumika (eps 317-329)",
+              "28: \"Haruka Kanata (ハルカカナタ)\" by UNLIMITS (eps 330-342)",
+              "29: \"Re:pray\" by Aimer (eps 343-354)",
+              "30: \"Mask\" by Aqua Timez (eps 355-366)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.tv-tokyo.co.jp/anime/bleach/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=2369"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=4240"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Bleach_(TV_series)"
+            },
+            {
+              "name": "Bangumi",
+              "url": "https://bangumi.tv/subject/1600"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-42854"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/title/70204957"
+            },
+            {
+              "name": "Animax Mongolia",
+              "url": "https://www.animax.app/"
+            },
+            {
+              "name": "Shahid",
+              "url": "https://shahid.mbc.net/en/series/Bleach/series-913427"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/269/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:15:36Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/269/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:15:37Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:15:37Z"
+}

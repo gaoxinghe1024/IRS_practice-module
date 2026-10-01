@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("discover.title") }}</h1>
+<form id="search-form" class="panel" role="search">
+  <div class="field">
+    <label for="q">{{ t("discover.search") }}</label>
+    <input id="q" name="q" type="search" maxlength="200" autocomplete="off">
+  </div>
+  <div class="form-grid">
+    <div><label for="genres">{{ t("discover.genres") }}</label><select id="genres" name="genres"><option value="">{{ t("discover.any") }}</option></select></div>
+    <div><label for="types">{{ t("discover.type") }}</label>
+      <select id="types" name="types"><option value="">{{ t("discover.any") }}</option>
+        <option>TV</option><option>Movie</option><option>OVA</option><option>ONA</option><option>Special</option><option>Music</option></select></div>
+    <div><label for="max_episodes">{{ t("discover.max_episodes") }}</label><input id="max_episodes" name="max_episodes" type="number" min="1" max="5000"></div>
+    <div><label for="min_score">{{ t("discover.min_score") }}</label><input id="min_score" name="min_score" type="number" min="0" max="10" step="0.1"></div>
+    <div><label for="sort">{{ t("discover.sort") }}</label>
+      <select id="sort" name="sort">
+        <option value="relevance">{{ t("discover.sort.relevance") }}</option><option value="popularity">{{ t("discover.sort.popularity") }}</option>
+        <option value="score">{{ t("discover.sort.score") }}</option><option value="year">{{ t("discover.sort.year") }}</option>
+        <option value="title">{{ t("discover.sort.title") }}</option></select></div>
+    <div class="inline"><button type="submit">{{ t("discover.submit") }}</button>
+      <button type="button" class="secondary" id="clear-filters">{{ t("discover.clear") }}</button></div>
+  </div>
+</form>
+<p id="result-count" class="muted" aria-live="polite"></p>
+<div id="results" class="grid"></div>
+<nav id="pager" class="pagination" aria-label="Pagination"></nav>
+{% endblock %}

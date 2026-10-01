@@ -1,0 +1,274 @@
+{
+  "mal_id": 22147,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/22147/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:01:20Z",
+      "sha256": "44eef09ec21c86f9609bf9dc128c1e86be67b0d6cfc5c25dbd7bf04772d2253a",
+      "data": {
+        "data": {
+          "mal_id": 22147,
+          "url": "https://myanimelist.net/anime/22147/Amagi_Brilliant_Park",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/5/85435.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/5/85435t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/5/85435l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/5/85435.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/5/85435t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/5/85435l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/ylxiq33nd-A?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Amagi Brilliant Park"
+            },
+            {
+              "type": "Synonym",
+              "title": "Amaburi"
+            },
+            {
+              "type": "Japanese",
+              "title": "甘城ブリリアントパーク"
+            },
+            {
+              "type": "English",
+              "title": "Amagi Brilliant Park"
+            }
+          ],
+          "title": "Amagi Brilliant Park",
+          "title_english": "Amagi Brilliant Park",
+          "title_japanese": "甘城ブリリアントパーク",
+          "title_synonyms": [
+            "Amaburi"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 13,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2014-10-07T00:00:00+00:00",
+            "to": "2014-12-26T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 7,
+                "month": 10,
+                "year": 2014
+              },
+              "to": {
+                "day": 26,
+                "month": 12,
+                "year": 2014
+              }
+            },
+            "string": "Oct 7, 2014 to Dec 26, 2014"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.45,
+          "scored_by": 372852,
+          "rank": 2371,
+          "popularity": 341,
+          "members": 705541,
+          "favorites": 2816,
+          "synopsis": "Seiya Kanie, a smart and extremely narcissistic high school student, believes that the beautiful but reserved Isuzu Sento has invited him on a date at an amusement park called Amagi Brilliant Park. Much to his chagrin, not only is the location a run-down facility, the supposed date is merely a recruitment tour where Sento and Princess Latifa Fleuranza, the owner of the theme park, ask him to become the park's new manager. Their cause for desperation? As stipulated in a land-use contract, Amagi has less than three months to meet a quota of 500,000 guests, or the park will be closed for good and the land redeveloped by a greedy real-estate company.\n\nSeiya is won over by the revelation that Amagi is no ordinary amusement park; many of its employees are Maple Landers—mysterious magical beings who live in the human world and are nourished by the energy created by people having fun. Entrusted with the hopes and dreams of this far-off enchanted land, Seiya must now use his many skills to bring Amagi back on its feet, or watch it crumble before his eyes.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "fall",
+          "year": 2014,
+          "broadcast": {
+            "day": "Fridays",
+            "time": "02:16",
+            "timezone": "Asia/Tokyo",
+            "string": "Fridays at 02:16 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 52,
+              "type": "anime",
+              "name": "Avex Entertainment",
+              "url": "https://myanimelist.net/anime/producer/52/Avex_Entertainment"
+            },
+            {
+              "mal_id": 145,
+              "type": "anime",
+              "name": "TBS",
+              "url": "https://myanimelist.net/anime/producer/145/TBS"
+            },
+            {
+              "mal_id": 315,
+              "type": "anime",
+              "name": "DAX Production",
+              "url": "https://myanimelist.net/anime/producer/315/DAX_Production"
+            },
+            {
+              "mal_id": 464,
+              "type": "anime",
+              "name": "flying DOG",
+              "url": "https://myanimelist.net/anime/producer/464/flying_DOG"
+            },
+            {
+              "mal_id": 1213,
+              "type": "anime",
+              "name": "Mobcast",
+              "url": "https://myanimelist.net/anime/producer/1213/Mobcast"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 2,
+              "type": "anime",
+              "name": "Kyoto Animation",
+              "url": "https://myanimelist.net/anime/producer/2/Kyoto_Animation"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Comedy",
+              "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            },
+            {
+              "mal_id": 37,
+              "type": "anime",
+              "name": "Supernatural",
+              "url": "https://myanimelist.net/anime/genre/37/Supernatural"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 48,
+              "type": "anime",
+              "name": "Workplace",
+              "url": "https://myanimelist.net/anime/genre/48/Workplace"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 30206,
+                  "type": "anime",
+                  "name": "Amagi Brilliant Park: Nonbirishiteiru Hima ga Nai!",
+                  "url": "https://myanimelist.net/anime/30206/Amagi_Brilliant_Park__Nonbirishiteiru_Hima_ga_Nai"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 67845,
+                  "type": "manga",
+                  "name": "Amagi Brilliant Park",
+                  "url": "https://myanimelist.net/manga/67845/Amagi_Brilliant_Park"
+                },
+                {
+                  "mal_id": 57979,
+                  "type": "manga",
+                  "name": "Amagi Brilliant Park",
+                  "url": "https://myanimelist.net/manga/57979/Amagi_Brilliant_Park"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 30056,
+                  "type": "anime",
+                  "name": "Amagi Brilliant Park: Wakuwaku Mini Theater - Rakugaki Backstage",
+                  "url": "https://myanimelist.net/anime/30056/Amagi_Brilliant_Park__Wakuwaku_Mini_Theater_-_Rakugaki_Backstage"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Extra Magic Hour (エクストラ・マジック・アワー)\" by AKINO with bless4"
+            ],
+            "endings": [
+              "\"Elementario de Aimashou (エレメンタリオで会いましょう)\" by BRILLIANT4 [Sylphy (Tomoyo Kurosawa), Kobori (Shiori Mikami), Salama (Minami Tsuda), Muse (Yuuka Aisaka)]"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.tbs.co.jp/anime/amaburi/"
+            },
+            {
+              "name": "@amaburiANIME",
+              "url": "https://twitter.com/amaburiANIME"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=10399"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=16133"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Amagi_Brilliant_Park"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "HIDIVE",
+              "url": "https://www.hidive.com/tv/amagi-brilliant-park"
+            },
+            {
+              "name": "Animekey",
+              "url": "https://animekey.tv/apps/458/1567291-1608277/8576b39631a16e4d4be20f692e7e7ae6-1619485-1663626/4e83300bef6d68edf8e69dec0e6ae28d-1572458-1614080"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/22147/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:29:38Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/22147/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:29:39Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:29:39Z"
+}

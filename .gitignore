@@ -2,25 +2,62 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
-.venv/
+.venv
 venv/
 env/
+.pytest_cache/
+.ruff_cache/
 
-# === SQLite 数据库（可运行 database.py 自动重建，勿上传） ===
+# === Shipped state ===
+# The repository carries everything needed to serve exactly what the authors serve: the raw Kaggle files, the
+# active processed version, its trained artifacts and both activated business databases (large files in Git LFS,
+# see .gitattributes). Only the active version of each mode is shipped; retraining writes new version
+# directories, which stay local until they are activated and listed here.
+
+# === Local databases: only the two activated business databases are committed ===
 *.db
 *.sqlite
 *.sqlite3
+*.sqlite3-*
+var/*
+!var/real/
+!var/synthetic/
+var/real/*
+var/synthetic/*
+!var/real/anilogic.sqlite3
+!var/synthetic/anilogic.sqlite3
 
-# === Jikan 补全临时数据 ===
-*.jsonl
-/tmp_*.json
+# === Data: raw Kaggle files, Jikan cache and synthetic world are committed; processed data only for the active version ===
+data/processed/*/*
+!data/processed/*/latest.json
+!data/processed/real/validation_report.json
+!data/processed/real/real-89bfdea00b/
+!data/processed/synthetic/synthetic-7a7d5d6a74/
+!data/**/README.md
+!data/**/.gitkeep
 
-# === 系统/编辑器 ===
+# === Trained models / indexes: only the active version of each mode is committed ===
+artifacts/*/*
+!artifacts/*/active.json
+!artifacts/real/real-89bfdea00b/
+!artifacts/synthetic/synthetic-7a7d5d6a74/
+
+# === Evaluation: large per-case files stay local; reports and metrics are committed ===
+evaluation/runs/**/predictions.csv
+evaluation/runs/**/per_case.jsonl
+
+# === Browser test output ===
+test-results/
+playwright-report/
+
+# === System / editor ===
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 *.swp
 
-# === 环境变量（含密钥，勿上传） ===
+# === Environment variables (secrets) ===
 .env
+.env.*
+!.env.example

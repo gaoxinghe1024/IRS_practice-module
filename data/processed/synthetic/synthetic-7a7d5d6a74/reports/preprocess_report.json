@@ -1,0 +1,41 @@
+{
+  "dataset_version": "synthetic-7a7d5d6a74",
+  "catalog": {
+    "parsed": 216,
+    "in_catalog": 213,
+    "recommendable": 175,
+    "planner_eligible": 166,
+    "explicit_excluded": 3
+  },
+  "ratings": {
+    "rows_read": 19995,
+    "invalid": 0,
+    "dropped_content_rule_item": 11,
+    "duplicate_rows_dropped": 0,
+    "conflicting_pairs": 0,
+    "rows": 19984,
+    "users": 800
+  },
+  "tags_per_namespace": [
+    [
+      "genre",
+      421
+    ],
+    [
+      "source",
+      216
+    ],
+    [
+      "theme",
+      214
+    ],
+    [
+      "demographic",
+      172
+    ],
+    [
+      "studio",
+      163
+    ]
+  ]
+}

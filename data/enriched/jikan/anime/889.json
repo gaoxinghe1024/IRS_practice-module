@@ -1,0 +1,264 @@
+{
+  "mal_id": 889,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/889/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:53:04Z",
+      "sha256": "ca2781024debf827596c2a796f36a2af986c51705cab84b1f6f76605b8689947",
+      "data": {
+        "data": {
+          "mal_id": 889,
+          "url": "https://myanimelist.net/anime/889/Black_Lagoon",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1906/121592.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1906/121592.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/d4EbGC7fKnQ?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Black Lagoon"
+            },
+            {
+              "type": "Japanese",
+              "title": "BLACK LAGOON"
+            },
+            {
+              "type": "English",
+              "title": "Black Lagoon"
+            }
+          ],
+          "title": "Black Lagoon",
+          "title_english": "Black Lagoon",
+          "title_japanese": "BLACK LAGOON",
+          "title_synonyms": [],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2006-04-09T00:00:00+00:00",
+            "to": "2006-06-25T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 9,
+                "month": 4,
+                "year": 2006
+              },
+              "to": {
+                "day": 25,
+                "month": 6,
+                "year": 2006
+              }
+            },
+            "string": "Apr 9, 2006 to Jun 25, 2006"
+          },
+          "duration": "23 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 8.04,
+          "scored_by": 539447,
+          "rank": 678,
+          "popularity": 165,
+          "members": 1119157,
+          "favorites": 21064,
+          "synopsis": "Salaryman Rokurou Okajima spends his days trying to climb his company's corporate ladder, until one day when a business negotiation in Thailand goes awry. During the botched deal, he falls hostage to the Lagoon Company—a band of ruthless pirate mercenaries. Left to the whims of his captors after his managers refuse to pay his ransom, Rokurou does the unthinkable: instead of begging for his life, he joins the very crew who kidnapped him.\n\nNow a member of the group, Rokurou must adjust to his new residence in the dissolute hellscape known as Roanapur, a city where corruption and crime run rampant, and even the smallest slipup could cost him his life. If not for one of the many crime syndicates on the island, Rokurou also constantly finds himself at odds with his brash, gunslinging colleague, Revy. \n\nAs Rokurou struggles to abandon his past—and with more than just the profits from the Lagoon Company's illegal trading on the line—he must quickly find the resolve to make tough decisions in high-stress situations while keeping his humanity intact.\n\n[Written by MAL Rewrite]",
+          "background": "Black Lagoon was released on DVD by Geneon Entertainment from May 22, 2007 to September 18, 2007. Following a 2008 agreement regarding distribution rights, Funimation Entertainment also published the series in the same format on August 19, 2008. The company later released the anime on Blu-ray on November 17, 2015.",
+          "season": "spring",
+          "year": 2006,
+          "broadcast": {
+            "day": "Sundays",
+            "time": "02:35",
+            "timezone": "Asia/Tokyo",
+            "string": "Sundays at 02:35 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 2956,
+              "type": "anime",
+              "name": "Geneon Entertainment",
+              "url": "https://myanimelist.net/anime/producer/2956/Geneon_Entertainment"
+            },
+            {
+              "mal_id": 3172,
+              "type": "anime",
+              "name": "Arts Pro",
+              "url": "https://myanimelist.net/anime/producer/3172/Arts_Pro"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            },
+            {
+              "mal_id": 1459,
+              "type": "anime",
+              "name": "Geneon Entertainment USA",
+              "url": "https://myanimelist.net/anime/producer/1459/Geneon_Entertainment_USA"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 11,
+              "type": "anime",
+              "name": "Madhouse",
+              "url": "https://myanimelist.net/anime/producer/11/Madhouse"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 50,
+              "type": "anime",
+              "name": "Adult Cast",
+              "url": "https://myanimelist.net/anime/genre/50/Adult_Cast"
+            },
+            {
+              "mal_id": 68,
+              "type": "anime",
+              "name": "Organized Crime",
+              "url": "https://myanimelist.net/anime/genre/68/Organized_Crime"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 42,
+              "type": "anime",
+              "name": "Seinen",
+              "url": "https://myanimelist.net/anime/genre/42/Seinen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 1519,
+                  "type": "anime",
+                  "name": "Black Lagoon: The Second Barrage",
+                  "url": "https://myanimelist.net/anime/1519/Black_Lagoon__The_Second_Barrage"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 735,
+                  "type": "manga",
+                  "name": "Black Lagoon",
+                  "url": "https://myanimelist.net/manga/735/Black_Lagoon"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Setting",
+              "entry": [
+                {
+                  "mal_id": 8440,
+                  "type": "anime",
+                  "name": "Black Lagoon Omake",
+                  "url": "https://myanimelist.net/anime/8440/Black_Lagoon_Omake"
+                }
+              ]
+            },
+            {
+              "relation": "Other",
+              "entry": [
+                {
+                  "mal_id": 58974,
+                  "type": "anime",
+                  "name": "Black Lagoon CM",
+                  "url": "https://myanimelist.net/anime/58974/Black_Lagoon_CM"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Red Fraction\" by MELL"
+            ],
+            "endings": [
+              "\"Don't Look Behind\" by EDISON"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.blacklagoon.jp/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=3395"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=6159"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Black_Lagoon"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-275667"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/889/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:45Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/889/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:46Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:21:46Z"
+}

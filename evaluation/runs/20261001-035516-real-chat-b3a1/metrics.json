@@ -1,0 +1,189 @@
+{
+  "status": "completed",
+  "sets": {
+    "auto_titles": {
+      "queries": 312,
+      "tsr": {
+        "mean": 0.96795,
+        "ci95": [
+          0.94551,
+          0.98718
+        ],
+        "n": 312
+      },
+      "hits@5": {
+        "mean": 0.96795,
+        "ci95": [
+          0.94551,
+          0.98718
+        ],
+        "n": 312
+      },
+      "mrr@10": {
+        "mean": 0.96795,
+        "ci95": [
+          0.94551,
+          0.98718
+        ],
+        "n": 312
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 312
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 312
+      },
+      "intent_ok": {
+        "mean": 0.96474,
+        "ci95": [
+          0.94231,
+          0.98397
+        ],
+        "n": 312
+      },
+      "latency_ms_p50": 3.562458005035296,
+      "latency_ms_p95": 133.11319999047552
+    },
+    "auto_constraints": {
+      "queries": 38,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 38
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 38
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 38
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 38
+      },
+      "latency_ms_p50": 4.049791517900303,
+      "latency_ms_p95": 35.15599373786242
+    },
+    "auto_relations": {
+      "queries": 17,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 17
+      },
+      "hits@5": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 17
+      },
+      "mrr@10": {
+        "mean": 0.44608,
+        "ci95": [
+          0.40686,
+          0.48529
+        ],
+        "n": 17
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 17
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 17
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 17
+      },
+      "latency_ms_p50": 112.54516703775153,
+      "latency_ms_p95": 139.36522500589487
+    },
+    "auto_no_episode": {
+      "queries": 30,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 30
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "latency_ms_p50": 1.714187499601394,
+      "latency_ms_p95": 1.9105246785329653
+    }
+  },
+  "plain_llm_vs_rag": {
+    "status": "blocked_by_credentials",
+    "detail": "No LLM configured: chat uses deterministic parsing and local evidence templates (local mode)."
+  }
+}

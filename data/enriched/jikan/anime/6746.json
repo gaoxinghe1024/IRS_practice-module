@@ -1,0 +1,323 @@
+{
+  "mal_id": 6746,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/6746/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:49:12Z",
+      "sha256": "86ad5cc994f17547f2349ced6076a634ec0153066d72cced1e9ca792cf25418b",
+      "data": {
+        "data": {
+          "mal_id": 6746,
+          "url": "https://myanimelist.net/anime/6746/Durarara",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/10/71772.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/10/71772t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/10/71772l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/10/71772.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/10/71772t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/10/71772l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/q5qlX4lWst0?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Durarara!!"
+            },
+            {
+              "type": "Synonym",
+              "title": "Dhurarara!!"
+            },
+            {
+              "type": "Synonym",
+              "title": "Dyurarara!!"
+            },
+            {
+              "type": "Synonym",
+              "title": "Dulalala!!"
+            },
+            {
+              "type": "Synonym",
+              "title": "Dullalala!!"
+            },
+            {
+              "type": "Synonym",
+              "title": "DRRR!!"
+            },
+            {
+              "type": "Japanese",
+              "title": "デュラララ!!"
+            },
+            {
+              "type": "English",
+              "title": "Durarara!!"
+            }
+          ],
+          "title": "Durarara!!",
+          "title_english": "Durarara!!",
+          "title_japanese": "デュラララ!!",
+          "title_synonyms": [
+            "Dhurarara!!",
+            "Dyurarara!!",
+            "Dulalala!!",
+            "Dullalala!!",
+            "DRRR!!"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 24,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2010-01-08T00:00:00+00:00",
+            "to": "2010-06-25T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 8,
+                "month": 1,
+                "year": 2010
+              },
+              "to": {
+                "day": 25,
+                "month": 6,
+                "year": 2010
+              }
+            },
+            "string": "Jan 8, 2010 to Jun 25, 2010"
+          },
+          "duration": "24 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 8.09,
+          "scored_by": 693239,
+          "rank": 609,
+          "popularity": 99,
+          "members": 1498228,
+          "favorites": 30510,
+          "synopsis": "In Tokyo's downtown district of Ikebukuro, amidst many strange rumors and warnings of anonymous gangs and dangerous occupants, one urban legend stands out above the rest—the existence of a headless \"Black Rider\" who is said to be seen driving a jet-black motorcycle through the city streets.\n\nMikado Ryuugamine has always longed for the excitement of the city life, and an invitation from a childhood friend convinces him to move to Tokyo. Witnessing the Black Rider on his first day in the city, his wishes already seem to have been granted. But as supernatural events begin to occur, ordinary citizens like himself, along with Ikebukuro's most colorful inhabitants, are mixed up in the commotion breaking out in their city.\n\n[Written by MAL Rewrite]",
+          "background": "Johnny Yong Bosch and Kari Wahlgren were nominated for the \"Best Male Lead Vocal Performance\" and the \"Best Female Lead Vocal Performance\" awards at the BTVA Anime Voice Acting Awards in 2012 for their performances in Durarara!!.",
+          "season": "winter",
+          "year": 2010,
+          "broadcast": {
+            "day": "Fridays",
+            "time": "01:25",
+            "timezone": "Asia/Tokyo",
+            "string": "Fridays at 01:25 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 17,
+              "type": "anime",
+              "name": "Aniplex",
+              "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+            },
+            {
+              "mal_id": 58,
+              "type": "anime",
+              "name": "Square Enix",
+              "url": "https://myanimelist.net/anime/producer/58/Square_Enix"
+            },
+            {
+              "mal_id": 143,
+              "type": "anime",
+              "name": "Mainichi Broadcasting System",
+              "url": "https://myanimelist.net/anime/producer/143/Mainichi_Broadcasting_System"
+            },
+            {
+              "mal_id": 166,
+              "type": "anime",
+              "name": "Movic",
+              "url": "https://myanimelist.net/anime/producer/166/Movic"
+            },
+            {
+              "mal_id": 681,
+              "type": "anime",
+              "name": "ASCII Media Works",
+              "url": "https://myanimelist.net/anime/producer/681/ASCII_Media_Works"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 493,
+              "type": "anime",
+              "name": "Aniplex of America",
+              "url": "https://myanimelist.net/anime/producer/493/Aniplex_of_America"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 112,
+              "type": "anime",
+              "name": "Brain's Base",
+              "url": "https://myanimelist.net/anime/producer/112/Brains_Base"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "Mystery",
+              "url": "https://myanimelist.net/anime/genre/7/Mystery"
+            },
+            {
+              "mal_id": 37,
+              "type": "anime",
+              "name": "Supernatural",
+              "url": "https://myanimelist.net/anime/genre/37/Supernatural"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 23199,
+                  "type": "anime",
+                  "name": "Durarara!!x2 Shou",
+                  "url": "https://myanimelist.net/anime/23199/Durararax2_Shou"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 14841,
+                  "type": "manga",
+                  "name": "Durarara!!",
+                  "url": "https://myanimelist.net/manga/14841/Durarara"
+                },
+                {
+                  "mal_id": 34335,
+                  "type": "manga",
+                  "name": "Durarara!! Saika-hen",
+                  "url": "https://myanimelist.net/manga/34335/Durarara_Saika-hen"
+                },
+                {
+                  "mal_id": 49547,
+                  "type": "manga",
+                  "name": "Durarara!! Koukinzoku-hen",
+                  "url": "https://myanimelist.net/manga/49547/Durarara_Koukinzoku-hen"
+                },
+                {
+                  "mal_id": 16816,
+                  "type": "manga",
+                  "name": "Durarara!!",
+                  "url": "https://myanimelist.net/manga/16816/Durarara"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 8408,
+                  "type": "anime",
+                  "name": "Durarara!! Specials",
+                  "url": "https://myanimelist.net/anime/8408/Durarara_Specials"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "1: \"Uragiri no Yuuyake (裏切りの夕焼け; Sunset of Betrayal)\" by Theatre Brook (eps 1-12)",
+              "2: \"Complication (コンプリケイション)\" by ROOKiEZ is PUNK'D (eps 13-24)"
+            ],
+            "endings": [
+              "1: \"Trust Me\" by Yuya Matsushita (eps 1-12)",
+              "2: \"Butterfly\" by ON/OFF (eps 13-23)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "https://durararausa.com/season1/index.html"
+            },
+            {
+              "name": "Official Site",
+              "url": "https://www.durarara.com/1st/"
+            },
+            {
+              "name": "@drrr_anime",
+              "url": "https://twitter.com/drrr_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=6671"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=10947"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Durarara!!"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%A5%E3%83%A9%E3%83%A9%E3%83%A9%21%21"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/1802"
+            },
+            {
+              "name": "Bangumi",
+              "url": "https://bgm.tv/subject/2463"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-199620"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/6746/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:17:59Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/6746/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:18:00Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:18:00Z"
+}

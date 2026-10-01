@@ -1,0 +1,13 @@
+{
+  "dataset_mode": "synthetic",
+  "dataset_version": "synthetic-7a7d5d6a74",
+  "artifact_dir": "artifacts/synthetic/synthetic-7a7d5d6a74",
+  "manifest_sha256": "54a8295b97d74cba7ba68f28c129f6dffd2ef2b21590d43e02a9c51aeecffe8b",
+  "activated_at": "2026-09-30T15:56:14Z",
+  "counts": {
+    "anime": 213,
+    "documents": 681,
+    "tags": 1180,
+    "aliases": 213
+  }
+}

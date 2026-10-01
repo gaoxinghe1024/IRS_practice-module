@@ -1,0 +1,273 @@
+{
+  "mal_id": 1535,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/1535/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:27:28Z",
+      "sha256": "1af9be329a0564c730600a1377d313c21a20a4554e1c086142b8f41a00872086",
+      "data": {
+        "data": {
+          "mal_id": 1535,
+          "url": "https://myanimelist.net/anime/1535/Death_Note",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1079/138100.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1079/138100.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/Vt_3c8BgxV4?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Death Note"
+            },
+            {
+              "type": "Synonym",
+              "title": "DN"
+            },
+            {
+              "type": "Japanese",
+              "title": "デスノート"
+            },
+            {
+              "type": "English",
+              "title": "Death Note"
+            }
+          ],
+          "title": "Death Note",
+          "title_english": "Death Note",
+          "title_japanese": "デスノート",
+          "title_synonyms": [
+            "DN"
+          ],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 37,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2006-10-04T00:00:00+00:00",
+            "to": "2007-06-27T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 4,
+                "month": 10,
+                "year": 2006
+              },
+              "to": {
+                "day": 27,
+                "month": 6,
+                "year": 2007
+              }
+            },
+            "string": "Oct 4, 2006 to Jun 27, 2007"
+          },
+          "duration": "23 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 8.62,
+          "scored_by": 3027344,
+          "rank": 99,
+          "popularity": 2,
+          "members": 4331343,
+          "favorites": 186796,
+          "synopsis": "Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.\n\nFor his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.\n\nAware of the terrifying godlike power that has fallen into his hands, Light—under the alias Kira—follows his wicked sense of justice with the ultimate goal of cleansing the world of all evil-doers. The meticulous mastermind detective L is already on his trail, but as Light's brilliance rivals L's, the grand chase for Kira turns into an intense battle of wits that can only end when one of them is dead.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "fall",
+          "year": 2006,
+          "broadcast": {
+            "day": "Wednesdays",
+            "time": "00:56",
+            "timezone": "Asia/Tokyo",
+            "string": "Wednesdays at 00:56 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 29,
+              "type": "anime",
+              "name": "VAP",
+              "url": "https://myanimelist.net/anime/producer/29/VAP"
+            },
+            {
+              "mal_id": 1003,
+              "type": "anime",
+              "name": "Nippon Television Network",
+              "url": "https://myanimelist.net/anime/producer/1003/Nippon_Television_Network"
+            },
+            {
+              "mal_id": 1365,
+              "type": "anime",
+              "name": "Shueisha",
+              "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+            },
+            {
+              "mal_id": 1791,
+              "type": "anime",
+              "name": "D.N. Dream Partners",
+              "url": "https://myanimelist.net/anime/producer/1791/DN_Dream_Partners"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 119,
+              "type": "anime",
+              "name": "VIZ Media",
+              "url": "https://myanimelist.net/anime/producer/119/VIZ_Media"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 11,
+              "type": "anime",
+              "name": "Madhouse",
+              "url": "https://myanimelist.net/anime/producer/11/Madhouse"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 37,
+              "type": "anime",
+              "name": "Supernatural",
+              "url": "https://myanimelist.net/anime/genre/37/Supernatural"
+            },
+            {
+              "mal_id": 41,
+              "type": "anime",
+              "name": "Suspense",
+              "url": "https://myanimelist.net/anime/genre/41/Suspense"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 40,
+              "type": "anime",
+              "name": "Psychological",
+              "url": "https://myanimelist.net/anime/genre/40/Psychological"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 27,
+              "type": "anime",
+              "name": "Shounen",
+              "url": "https://myanimelist.net/anime/genre/27/Shounen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 21,
+                  "type": "manga",
+                  "name": "Death Note",
+                  "url": "https://myanimelist.net/manga/21/Death_Note"
+                }
+              ]
+            },
+            {
+              "relation": "Summary",
+              "entry": [
+                {
+                  "mal_id": 2994,
+                  "type": "anime",
+                  "name": "Death Note: Rewrite",
+                  "url": "https://myanimelist.net/anime/2994/Death_Note__Rewrite"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"What's up, people?!\" by Maximum the Hormone (eps 20-37)",
+              "1: \"the WORLD\" by Nightmare (eps 1-19)"
+            ],
+            "endings": [
+              "1: \"Alumina\" by Nightmare (eps 1-19)",
+              "2: \"Zetsubō Billy\" by Maximum the Hormone (eps 20-36)",
+              "3: \"Coda ~ Death Note\" by Yoshihisa Hirano (eps 37)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.ntv.co.jp/deathnote/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=4563"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=6592"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Death_Note"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/DEATH_NOTE_%28%E3%82%A2%E3%83%8B%E3%83%A1%29"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/945"
+            },
+            {
+              "name": "Bangumi",
+              "url": "https://bgm.tv/subject/1773"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-278866"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/title/70204970"
+            },
+            {
+              "name": "Shahid",
+              "url": "https://shahid.mbc.net/en/series/Death-Note/series-913256"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/1535/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:13:37Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/1535/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:13:38Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:13:38Z"
+}

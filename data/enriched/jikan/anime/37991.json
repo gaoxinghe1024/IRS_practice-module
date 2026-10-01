@@ -1,0 +1,765 @@
+{
+  "mal_id": 37991,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/37991/full",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:48Z",
+      "sha256": null,
+      "data": null
+    },
+    "recommendations": {
+      "endpoint": "/anime/37991/recommendations",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:53:09Z",
+      "sha256": "ca56adb7d9983a2450475810e437be859966dbd770e43d4fe3489a4f27fc4281",
+      "data": {
+        "data": [
+          {
+            "entry": {
+              "mal_id": 31478,
+              "url": "https://myanimelist.net/anime/31478/Bungou_Stray_Dogs",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/3/79409.jpg?s=2885c50dd479ff9260ca95f5e1b786d6",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/3/79409t.jpg?s=2885c50dd479ff9260ca95f5e1b786d6",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/3/79409l.jpg?s=2885c50dd479ff9260ca95f5e1b786d6"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/3/79409.webp?s=2885c50dd479ff9260ca95f5e1b786d6",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/3/79409t.webp?s=2885c50dd479ff9260ca95f5e1b786d6",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/3/79409l.webp?s=2885c50dd479ff9260ca95f5e1b786d6"
+                }
+              },
+              "title": "Bungou Stray Dogs"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/31478-37991",
+            "votes": 4
+          },
+          {
+            "entry": {
+              "mal_id": 11061,
+              "url": "https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1337/99013.jpg?s=1838e905a0aa3542a009fbcf78000701",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1337/99013t.jpg?s=1838e905a0aa3542a009fbcf78000701",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1337/99013l.jpg?s=1838e905a0aa3542a009fbcf78000701"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1337/99013.webp?s=1838e905a0aa3542a009fbcf78000701",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1337/99013t.webp?s=1838e905a0aa3542a009fbcf78000701",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1337/99013l.webp?s=1838e905a0aa3542a009fbcf78000701"
+                }
+              },
+              "title": "Hunter x Hunter (2011)"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/11061-37991",
+            "votes": 4
+          },
+          {
+            "entry": {
+              "mal_id": 1535,
+              "url": "https://myanimelist.net/anime/1535/Death_Note",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1079/138100.jpg?s=3e4bd9dab3fbb90bff74e3240e281d23",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100t.jpg?s=3e4bd9dab3fbb90bff74e3240e281d23",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100l.jpg?s=3e4bd9dab3fbb90bff74e3240e281d23"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1079/138100.webp?s=3e4bd9dab3fbb90bff74e3240e281d23",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100t.webp?s=3e4bd9dab3fbb90bff74e3240e281d23",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100l.webp?s=3e4bd9dab3fbb90bff74e3240e281d23"
+                }
+              },
+              "title": "Death Note"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/1535-37991",
+            "votes": 3
+          },
+          {
+            "entry": {
+              "mal_id": 27947,
+              "url": "https://myanimelist.net/anime/27947/Lupin_III_2015",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/9/75949.jpg?s=3c284fe40d0e485c3f504ff377ce1405",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/9/75949t.jpg?s=3c284fe40d0e485c3f504ff377ce1405",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/9/75949l.jpg?s=3c284fe40d0e485c3f504ff377ce1405"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/9/75949.webp?s=3c284fe40d0e485c3f504ff377ce1405",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/9/75949t.webp?s=3c284fe40d0e485c3f504ff377ce1405",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/9/75949l.webp?s=3c284fe40d0e485c3f504ff377ce1405"
+                }
+              },
+              "title": "Lupin III (2015)"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/27947-37991",
+            "votes": 3
+          },
+          {
+            "entry": {
+              "mal_id": 10087,
+              "url": "https://myanimelist.net/anime/10087/Fate_Zero",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1887/117644.jpg?s=2d08381c9d71958d6e484f18d3520dbf",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1887/117644t.jpg?s=2d08381c9d71958d6e484f18d3520dbf",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1887/117644l.jpg?s=2d08381c9d71958d6e484f18d3520dbf"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1887/117644.webp?s=2d08381c9d71958d6e484f18d3520dbf",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1887/117644t.webp?s=2d08381c9d71958d6e484f18d3520dbf",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1887/117644l.webp?s=2d08381c9d71958d6e484f18d3520dbf"
+                }
+              },
+              "title": "Fate/Zero"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/10087-37991",
+            "votes": 2
+          },
+          {
+            "entry": {
+              "mal_id": 36649,
+              "url": "https://myanimelist.net/anime/36649/Banana_Fish",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1190/93472.jpg?s=a44d13e8e51c4c0e8f80f019e142614c",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1190/93472t.jpg?s=a44d13e8e51c4c0e8f80f019e142614c",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1190/93472l.jpg?s=a44d13e8e51c4c0e8f80f019e142614c"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1190/93472.webp?s=a44d13e8e51c4c0e8f80f019e142614c",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1190/93472t.webp?s=a44d13e8e51c4c0e8f80f019e142614c",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1190/93472l.webp?s=a44d13e8e51c4c0e8f80f019e142614c"
+                }
+              },
+              "title": "Banana Fish"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/36649-37991",
+            "votes": 2
+          },
+          {
+            "entry": {
+              "mal_id": 34443,
+              "url": "https://myanimelist.net/anime/34443/Baki",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1979/93135.jpg?s=0ef7f4202f5732806a0b20728a4500ec",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1979/93135t.jpg?s=0ef7f4202f5732806a0b20728a4500ec",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1979/93135l.jpg?s=0ef7f4202f5732806a0b20728a4500ec"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1979/93135.webp?s=0ef7f4202f5732806a0b20728a4500ec",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1979/93135t.webp?s=0ef7f4202f5732806a0b20728a4500ec",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1979/93135l.webp?s=0ef7f4202f5732806a0b20728a4500ec"
+                }
+              },
+              "title": "Baki"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/34443-37991",
+            "votes": 2
+          },
+          {
+            "entry": {
+              "mal_id": 32998,
+              "url": "https://myanimelist.net/anime/32998/91_Days",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/13/80515.jpg?s=41658544d7fb3927ff22f361b3ac9260",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/13/80515t.jpg?s=41658544d7fb3927ff22f361b3ac9260",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/13/80515l.jpg?s=41658544d7fb3927ff22f361b3ac9260"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/13/80515.webp?s=41658544d7fb3927ff22f361b3ac9260",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/13/80515t.webp?s=41658544d7fb3927ff22f361b3ac9260",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/13/80515l.webp?s=41658544d7fb3927ff22f361b3ac9260"
+                }
+              },
+              "title": "91 Days"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/32998-37991",
+            "votes": 2
+          },
+          {
+            "entry": {
+              "mal_id": 1604,
+              "url": "https://myanimelist.net/anime/1604/Katekyou_Hitman_Reborn",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1531/142751.jpg?s=46cdb6def55c049cbfc6022c6fee2884",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1531/142751t.jpg?s=46cdb6def55c049cbfc6022c6fee2884",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1531/142751l.jpg?s=46cdb6def55c049cbfc6022c6fee2884"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1531/142751.webp?s=46cdb6def55c049cbfc6022c6fee2884",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1531/142751t.webp?s=46cdb6def55c049cbfc6022c6fee2884",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1531/142751l.webp?s=46cdb6def55c049cbfc6022c6fee2884"
+                }
+              },
+              "title": "Katekyou Hitman Reborn!"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/1604-37991",
+            "votes": 2
+          },
+          {
+            "entry": {
+              "mal_id": 10620,
+              "url": "https://myanimelist.net/anime/10620/Mirai_Nikki_TV",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/13/33465.jpg?s=47381246925211d3873b932cba7b2703",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/13/33465t.jpg?s=47381246925211d3873b932cba7b2703",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/13/33465l.jpg?s=47381246925211d3873b932cba7b2703"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/13/33465.webp?s=47381246925211d3873b932cba7b2703",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/13/33465t.webp?s=47381246925211d3873b932cba7b2703",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/13/33465l.webp?s=47381246925211d3873b932cba7b2703"
+                }
+              },
+              "title": "Mirai Nikki (TV)"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/10620-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 185,
+              "url": "https://myanimelist.net/anime/185/Initial_D_First_Stage",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1384/127972.jpg?s=2b7046bea885b88c9742e0abdb601da6",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1384/127972t.jpg?s=2b7046bea885b88c9742e0abdb601da6",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1384/127972l.jpg?s=2b7046bea885b88c9742e0abdb601da6"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1384/127972.webp?s=2b7046bea885b88c9742e0abdb601da6",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1384/127972t.webp?s=2b7046bea885b88c9742e0abdb601da6",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1384/127972l.webp?s=2b7046bea885b88c9742e0abdb601da6"
+                }
+              },
+              "title": "Initial D First Stage"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/185-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 40748,
+              "url": "https://myanimelist.net/anime/40748/Jujutsu_Kaisen",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg?s=f5508bab9e7d610a28f12d1828a6ee79",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1171/109222t.jpg?s=f5508bab9e7d610a28f12d1828a6ee79",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1171/109222l.jpg?s=f5508bab9e7d610a28f12d1828a6ee79"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1171/109222.webp?s=f5508bab9e7d610a28f12d1828a6ee79",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1171/109222t.webp?s=f5508bab9e7d610a28f12d1828a6ee79",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1171/109222l.webp?s=f5508bab9e7d610a28f12d1828a6ee79"
+                }
+              },
+              "title": "Jujutsu Kaisen"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-40748",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 9513,
+              "url": "https://myanimelist.net/anime/9513/Beelzebub",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/3/28013.jpg?s=33c1e4b2fc322189b6799b171e342a04",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/3/28013t.jpg?s=33c1e4b2fc322189b6799b171e342a04",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/3/28013l.jpg?s=33c1e4b2fc322189b6799b171e342a04"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/3/28013.webp?s=33c1e4b2fc322189b6799b171e342a04",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/3/28013t.webp?s=33c1e4b2fc322189b6799b171e342a04",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/3/28013l.webp?s=33c1e4b2fc322189b6799b171e342a04"
+                }
+              },
+              "title": "Beelzebub"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/9513-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 9756,
+              "url": "https://myanimelist.net/anime/9756/Mahou_Shoujo_Madoka★Magica",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/11/55225.jpg?s=cff930c5de079dbeab2107067050e03c",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/11/55225t.jpg?s=cff930c5de079dbeab2107067050e03c",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/11/55225l.jpg?s=cff930c5de079dbeab2107067050e03c"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/11/55225.webp?s=cff930c5de079dbeab2107067050e03c",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/11/55225t.webp?s=cff930c5de079dbeab2107067050e03c",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/11/55225l.webp?s=cff930c5de079dbeab2107067050e03c"
+                }
+              },
+              "title": "Mahou Shoujo Madoka★Magica"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/9756-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 40059,
+              "url": "https://myanimelist.net/anime/40059/Golden_Kamuy_3rd_Season",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1763/108108.jpg?s=22d3f08e16a4dc2ae42c578afb5601a3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1763/108108t.jpg?s=22d3f08e16a4dc2ae42c578afb5601a3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1763/108108l.jpg?s=22d3f08e16a4dc2ae42c578afb5601a3"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1763/108108.webp?s=22d3f08e16a4dc2ae42c578afb5601a3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1763/108108t.webp?s=22d3f08e16a4dc2ae42c578afb5601a3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1763/108108l.webp?s=22d3f08e16a4dc2ae42c578afb5601a3"
+                }
+              },
+              "title": "Golden Kamuy 3rd Season"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-40059",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 36023,
+              "url": "https://myanimelist.net/anime/36023/Persona_5_the_Animation",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1829/92056.jpg?s=6fbf0857aa4218367b7cd1a6f6091e43",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1829/92056t.jpg?s=6fbf0857aa4218367b7cd1a6f6091e43",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1829/92056l.jpg?s=6fbf0857aa4218367b7cd1a6f6091e43"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1829/92056.webp?s=6fbf0857aa4218367b7cd1a6f6091e43",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1829/92056t.webp?s=6fbf0857aa4218367b7cd1a6f6091e43",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1829/92056l.webp?s=6fbf0857aa4218367b7cd1a6f6091e43"
+                }
+              },
+              "title": "Persona 5 the Animation"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/36023-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 25985,
+              "url": "https://myanimelist.net/anime/25985/Contact",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/2/65749.jpg?s=f296ad0765f056c841a2728dc6e44971",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/2/65749t.jpg?s=f296ad0765f056c841a2728dc6e44971",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/2/65749l.jpg?s=f296ad0765f056c841a2728dc6e44971"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/2/65749.webp?s=f296ad0765f056c841a2728dc6e44971",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/2/65749t.webp?s=f296ad0765f056c841a2728dc6e44971",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/2/65749l.webp?s=f296ad0765f056c841a2728dc6e44971"
+                }
+              },
+              "title": "Contact"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/25985-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 21,
+              "url": "https://myanimelist.net/anime/21/One_Piece",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1244/138851.jpg?s=3a515a0e3bc695b2ea62db2fa26c53b3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1244/138851t.jpg?s=3a515a0e3bc695b2ea62db2fa26c53b3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1244/138851l.jpg?s=3a515a0e3bc695b2ea62db2fa26c53b3"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1244/138851.webp?s=3a515a0e3bc695b2ea62db2fa26c53b3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1244/138851t.webp?s=3a515a0e3bc695b2ea62db2fa26c53b3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1244/138851l.webp?s=3a515a0e3bc695b2ea62db2fa26c53b3"
+                }
+              },
+              "title": "One Piece"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/21-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 50248,
+              "url": "https://myanimelist.net/anime/50248/Birdie_Wing__Golf_Girls_Story",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1343/120488.jpg?s=4298001dd9cc0f678cd68ed6769ec2b3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1343/120488t.jpg?s=4298001dd9cc0f678cd68ed6769ec2b3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1343/120488l.jpg?s=4298001dd9cc0f678cd68ed6769ec2b3"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1343/120488.webp?s=4298001dd9cc0f678cd68ed6769ec2b3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1343/120488t.webp?s=4298001dd9cc0f678cd68ed6769ec2b3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1343/120488l.webp?s=4298001dd9cc0f678cd68ed6769ec2b3"
+                }
+              },
+              "title": "Birdie Wing: Golf Girls' Story"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-50248",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 40911,
+              "url": "https://myanimelist.net/anime/40911/Yuukoku_no_Moriarty",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1464/108330.jpg?s=9d28b984858d7d5e002ead9cb4e7cb6f",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1464/108330t.jpg?s=9d28b984858d7d5e002ead9cb4e7cb6f",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1464/108330l.jpg?s=9d28b984858d7d5e002ead9cb4e7cb6f"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1464/108330.webp?s=9d28b984858d7d5e002ead9cb4e7cb6f",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1464/108330t.webp?s=9d28b984858d7d5e002ead9cb4e7cb6f",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1464/108330l.webp?s=9d28b984858d7d5e002ead9cb4e7cb6f"
+                }
+              },
+              "title": "Yuukoku no Moriarty"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-40911",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 40359,
+              "url": "https://myanimelist.net/anime/40359/Ikebukuro_West_Gate_Park",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1277/108376.jpg?s=a1ef86da80c2292ce1e4e446c76688f2",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1277/108376t.jpg?s=a1ef86da80c2292ce1e4e446c76688f2",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1277/108376l.jpg?s=a1ef86da80c2292ce1e4e446c76688f2"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1277/108376.webp?s=a1ef86da80c2292ce1e4e446c76688f2",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1277/108376t.webp?s=a1ef86da80c2292ce1e4e446c76688f2",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1277/108376l.webp?s=a1ef86da80c2292ce1e4e446c76688f2"
+                }
+              },
+              "title": "Ikebukuro West Gate Park"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-40359",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 42249,
+              "url": "https://myanimelist.net/anime/42249/Tokyo_Revengers",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1839/122012.jpg?s=3f4fbb0421092f79d87a44a555656745",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1839/122012t.jpg?s=3f4fbb0421092f79d87a44a555656745",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1839/122012l.jpg?s=3f4fbb0421092f79d87a44a555656745"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1839/122012.webp?s=3f4fbb0421092f79d87a44a555656745",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1839/122012t.webp?s=3f4fbb0421092f79d87a44a555656745",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1839/122012l.webp?s=3f4fbb0421092f79d87a44a555656745"
+                }
+              },
+              "title": "Tokyo Revengers"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-42249",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 41433,
+              "url": "https://myanimelist.net/anime/41433/Akudama_Drive",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1468/109172.jpg?s=7d623bbc59ef48f0e569ea75656fd3ac",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1468/109172t.jpg?s=7d623bbc59ef48f0e569ea75656fd3ac",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1468/109172l.jpg?s=7d623bbc59ef48f0e569ea75656fd3ac"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1468/109172.webp?s=7d623bbc59ef48f0e569ea75656fd3ac",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1468/109172t.webp?s=7d623bbc59ef48f0e569ea75656fd3ac",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1468/109172l.webp?s=7d623bbc59ef48f0e569ea75656fd3ac"
+                }
+              },
+              "title": "Akudama Drive"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-41433",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 14749,
+              "url": "https://myanimelist.net/anime/14749/Ore_no_Kanojo_to_Osananajimi_ga_Shuraba_Sugiru",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/13/44187.jpg?s=a9a40d80dee74c553349f9bdd1bf4d49",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/13/44187t.jpg?s=a9a40d80dee74c553349f9bdd1bf4d49",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/13/44187l.jpg?s=a9a40d80dee74c553349f9bdd1bf4d49"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/13/44187.webp?s=a9a40d80dee74c553349f9bdd1bf4d49",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/13/44187t.webp?s=a9a40d80dee74c553349f9bdd1bf4d49",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/13/44187l.webp?s=a9a40d80dee74c553349f9bdd1bf4d49"
+                }
+              },
+              "title": "Ore no Kanojo to Osananajimi ga Shuraba Sugiru"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/14749-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 1575,
+              "url": "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1032/135088.jpg?s=b67496ea440a61c0d7ac14173e0bd6e0",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1032/135088t.jpg?s=b67496ea440a61c0d7ac14173e0bd6e0",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1032/135088l.jpg?s=b67496ea440a61c0d7ac14173e0bd6e0"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1032/135088.webp?s=b67496ea440a61c0d7ac14173e0bd6e0",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1032/135088t.webp?s=b67496ea440a61c0d7ac14173e0bd6e0",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1032/135088l.webp?s=b67496ea440a61c0d7ac14173e0bd6e0"
+                }
+              },
+              "title": "Code Geass: Hangyaku no Lelouch"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/1575-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 58939,
+              "url": "https://myanimelist.net/anime/58939/Sakamoto_Days",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1026/146459.jpg?s=fc5b80634344c76d151df6955f6febf3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1026/146459t.jpg?s=fc5b80634344c76d151df6955f6febf3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1026/146459l.jpg?s=fc5b80634344c76d151df6955f6febf3"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1026/146459.webp?s=fc5b80634344c76d151df6955f6febf3",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1026/146459t.webp?s=fc5b80634344c76d151df6955f6febf3",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1026/146459l.webp?s=fc5b80634344c76d151df6955f6febf3"
+                }
+              },
+              "title": "Sakamoto Days"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-58939",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 37447,
+              "url": "https://myanimelist.net/anime/37447/Karakuri_Circus",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1518/110450.jpg?s=5dd22c581f1659bacf63ec56b19377ad",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1518/110450t.jpg?s=5dd22c581f1659bacf63ec56b19377ad",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1518/110450l.jpg?s=5dd22c581f1659bacf63ec56b19377ad"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1518/110450.webp?s=5dd22c581f1659bacf63ec56b19377ad",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1518/110450t.webp?s=5dd22c581f1659bacf63ec56b19377ad",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1518/110450l.webp?s=5dd22c581f1659bacf63ec56b19377ad"
+                }
+              },
+              "title": "Karakuri Circus"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37447-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 2251,
+              "url": "https://myanimelist.net/anime/2251/Baccano",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/3/14547.jpg?s=32ce1ad2936def90d8b51ddeef6a82cd",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/3/14547t.jpg?s=32ce1ad2936def90d8b51ddeef6a82cd",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/3/14547l.jpg?s=32ce1ad2936def90d8b51ddeef6a82cd"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/3/14547.webp?s=32ce1ad2936def90d8b51ddeef6a82cd",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/3/14547t.webp?s=32ce1ad2936def90d8b51ddeef6a82cd",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/3/14547l.webp?s=32ce1ad2936def90d8b51ddeef6a82cd"
+                }
+              },
+              "title": "Baccano!"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/2251-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 134,
+              "url": "https://myanimelist.net/anime/134/Gunslinger_Girl",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/5/3088.jpg?s=2e3edee2501a05d1c93610bc3fb198eb",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/5/3088t.jpg?s=2e3edee2501a05d1c93610bc3fb198eb",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/5/3088l.jpg?s=2e3edee2501a05d1c93610bc3fb198eb"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/5/3088.webp?s=2e3edee2501a05d1c93610bc3fb198eb",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/5/3088t.webp?s=2e3edee2501a05d1c93610bc3fb198eb",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/5/3088l.webp?s=2e3edee2501a05d1c93610bc3fb198eb"
+                }
+              },
+              "title": "Gunslinger Girl"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/134-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 38000,
+              "url": "https://myanimelist.net/anime/38000/Kimetsu_no_Yaiba",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg?s=e497d08bef31ae412e314b90a54acfda",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1286/99889t.jpg?s=e497d08bef31ae412e314b90a54acfda",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1286/99889l.jpg?s=e497d08bef31ae412e314b90a54acfda"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1286/99889.webp?s=e497d08bef31ae412e314b90a54acfda",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1286/99889t.webp?s=e497d08bef31ae412e314b90a54acfda",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1286/99889l.webp?s=e497d08bef31ae412e314b90a54acfda"
+                }
+              },
+              "title": "Kimetsu no Yaiba"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-38000",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 889,
+              "url": "https://myanimelist.net/anime/889/Black_Lagoon",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1906/121592.jpg?s=84c7a5dfd8ce64bd60a80454c3cc2945",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592t.jpg?s=84c7a5dfd8ce64bd60a80454c3cc2945",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592l.jpg?s=84c7a5dfd8ce64bd60a80454c3cc2945"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1906/121592.webp?s=84c7a5dfd8ce64bd60a80454c3cc2945",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592t.webp?s=84c7a5dfd8ce64bd60a80454c3cc2945",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1906/121592l.webp?s=84c7a5dfd8ce64bd60a80454c3cc2945"
+                }
+              },
+              "title": "Black Lagoon"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/889-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 44511,
+              "url": "https://myanimelist.net/anime/44511/Chainsaw_Man",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1806/126216.jpg?s=8e4d9184579f166e9adff4987b274192",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1806/126216t.jpg?s=8e4d9184579f166e9adff4987b274192",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1806/126216l.jpg?s=8e4d9184579f166e9adff4987b274192"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1806/126216.webp?s=8e4d9184579f166e9adff4987b274192",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1806/126216t.webp?s=8e4d9184579f166e9adff4987b274192",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1806/126216l.webp?s=8e4d9184579f166e9adff4987b274192"
+                }
+              },
+              "title": "Chainsaw Man"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-44511",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 50265,
+              "url": "https://myanimelist.net/anime/50265/Spy_x_Family",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1441/122795.jpg?s=ba5838dcfffe4a5cd4988e09d8436c79",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795t.jpg?s=ba5838dcfffe4a5cd4988e09d8436c79",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795l.jpg?s=ba5838dcfffe4a5cd4988e09d8436c79"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/1441/122795.webp?s=ba5838dcfffe4a5cd4988e09d8436c79",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795t.webp?s=ba5838dcfffe4a5cd4988e09d8436c79",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795l.webp?s=ba5838dcfffe4a5cd4988e09d8436c79"
+                }
+              },
+              "title": "Spy x Family"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/37991-50265",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 10721,
+              "url": "https://myanimelist.net/anime/10721/Mawaru_Penguindrum",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/5/30238.jpg?s=46b2444e8088905ae92732f507f0d276",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/5/30238t.jpg?s=46b2444e8088905ae92732f507f0d276",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/5/30238l.jpg?s=46b2444e8088905ae92732f507f0d276"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/5/30238.webp?s=46b2444e8088905ae92732f507f0d276",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/5/30238t.webp?s=46b2444e8088905ae92732f507f0d276",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/5/30238l.webp?s=46b2444e8088905ae92732f507f0d276"
+                }
+              },
+              "title": "Mawaru Penguindrum"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/10721-37991",
+            "votes": 1
+          },
+          {
+            "entry": {
+              "mal_id": 10271,
+              "url": "https://myanimelist.net/anime/10271/Gyakkyou_Burai_Kaiji__Hakairoku-hen",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/10/30599.jpg?s=46f357b7a742626af83e557dbe4e37ba",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/10/30599t.jpg?s=46f357b7a742626af83e557dbe4e37ba",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/10/30599l.jpg?s=46f357b7a742626af83e557dbe4e37ba"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/anime/10/30599.webp?s=46f357b7a742626af83e557dbe4e37ba",
+                  "small_image_url": "https://cdn.myanimelist.net/images/anime/10/30599t.webp?s=46f357b7a742626af83e557dbe4e37ba",
+                  "large_image_url": "https://cdn.myanimelist.net/images/anime/10/30599l.webp?s=46f357b7a742626af83e557dbe4e37ba"
+                }
+              },
+              "title": "Gyakkyou Burai Kaiji: Hakairoku-hen"
+            },
+            "url": "https://myanimelist.net/recommendations/anime/10271-37991",
+            "votes": 1
+          }
+        ]
+      }
+    },
+    "characters": {
+      "endpoint": "/anime/37991/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:49Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:21:49Z"
+}

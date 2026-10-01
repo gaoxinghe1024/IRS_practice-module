@@ -1,0 +1,44 @@
+# Synthetic mode: a fully fictional, seeded catalogue used to run and verify
+# the whole system without the Kaggle files. Results here validate
+# implementation and pipeline behaviour only, never recommendation quality.
+dataset:
+  mode: synthetic
+
+synthetic:
+  seed: 42
+  n_anime: 200
+  n_users: 800
+  target_ratings: 20000
+  n_collectors: 240
+  n_latent_hidden: 4
+  n_scenes: 24
+  n_scene_images: 12
+
+recommendation:
+  home:
+    content_popularity_weight: 0.75  # validation-tuned, evaluation run 20261001-033754-synthetic-homepage-e57f
+  icf:
+    user_mean_prior_weight: 10.0  # validation-tuned, evaluation run 20261001-033754-synthetic-homepage-e57f
+    prediction_damping: 5.0  # validation-tuned, evaluation run 20261001-033754-synthetic-homepage-e57f
+    neighbors: 60
+    shrinkage: 5.0
+  mf:
+    epochs: 60
+    batch_size: 2048
+    learning_rate: 0.02
+    patience: 5
+  ncf:
+    batch_size: 1024
+    epochs: 40
+    patience: 5
+  two_tower:
+    min_interactions: 1000
+    epochs: 30
+
+retrieval:
+  embedding:
+    provider: auto
+    lsa_dim: 64
+
+pipeline:
+  rating_partitions: 4

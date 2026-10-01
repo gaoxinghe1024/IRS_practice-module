@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel narrow">
+  <h1 id="auth-title">{{ t("auth.title_login") if data.mode == "login" else t("auth.title_register") }}</h1>
+  <form id="auth-form" novalidate>
+    <div class="field">
+      <label for="username">{{ t("auth.username") }}</label>
+      <input id="username" name="username" type="text" autocomplete="username" required maxlength="32"
+             aria-describedby="username-help">
+      <div class="help" id="username-help">{{ t("auth.username_help") }}</div>
+    </div>
+    <div class="field">
+      <label for="password">{{ t("auth.password") }}</label>
+      <input id="password" name="password" type="password" required minlength="8" maxlength="256"
+             autocomplete="{{ 'current-password' if data.mode == 'login' else 'new-password' }}"
+             aria-describedby="password-help">
+      <div class="help" id="password-help">{{ t("auth.password_help") }}</div>
+    </div>
+    <p id="auth-error" class="error-text" role="alert" hidden></p>
+    <button type="submit" id="auth-submit">{{ t("auth.submit_login") if data.mode == "login" else t("auth.submit_register") }}</button>
+  </form>
+  <p class="spaced">
+    {% if data.mode == "login" %}<a href="/register">{{ t("auth.switch_to_register") }}</a>
+    {% else %}<a href="/login">{{ t("auth.switch_to_login") }}</a>{% endif %}
+  </p>
+</section>
+{% endblock %}

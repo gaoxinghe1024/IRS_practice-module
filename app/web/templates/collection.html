@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<p><a href="/collections">← {{ t("collections.title") }}</a></p>
+<h1 id="collection-name">…</h1>
+<p id="collection-desc" class="muted"></p>
+<div class="two-col">
+  <section class="panel" aria-labelledby="items-title">
+    <h2 id="items-title">{{ t("collection.items") }}</h2>
+    <ul id="item-list" class="list"></ul>
+  </section>
+  <section class="panel" aria-labelledby="profile-title">
+    <h2 id="profile-title">{{ t("collection.profile") }}</h2>
+    <div id="profile"></div>
+  </section>
+</div>
+<section class="panel" aria-labelledby="recs-title">
+  <h2 id="recs-title">{{ t("collection.recs") }}</h2>
+  <form id="filter-form">
+    <fieldset><legend>{{ t("collection.filters") }}</legend>
+      <div class="form-grid">
+        <div><label for="keywords">{{ t("collection.keywords") }}</label><input id="keywords" name="keywords" type="text" maxlength="200"></div>
+        <div><label for="genre">{{ t("collection.tags") }}</label><select id="genre" name="genre"><option value="">{{ t("discover.any") }}</option></select></div>
+        <div><label for="min_score">{{ t("collection.min_score") }}</label><input id="min_score" name="min_score" type="number" min="0" max="10" step="0.1"></div>
+        <div><label for="max_episodes">{{ t("collection.max_episodes") }}</label><input id="max_episodes" name="max_episodes" type="number" min="1"></div>
+        <div><button type="submit">{{ t("collection.run") }}</button></div>
+      </div>
+    </fieldset>
+  </form>
+  <div id="rec-status"></div>
+  <div id="rec-list" class="grid" aria-live="polite"></div>
+</section>
+{% endblock %}

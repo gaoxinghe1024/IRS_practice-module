@@ -1,0 +1,290 @@
+{
+  "mal_id": 28907,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/28907/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:57:13Z",
+      "sha256": "81dedf7dc4baa0e18172251d15b24a641d95124d76ea3bf060927b4289cb0aeb",
+      "data": {
+        "data": {
+          "mal_id": 28907,
+          "url": "https://myanimelist.net/anime/28907/Gate__Jieitai_Kanochi_nite_Kaku_Tatakaeri",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/8/76222.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/8/76222t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/8/76222l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/8/76222.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/8/76222t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/8/76222l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/mdTjE_jHnKk?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri"
+            },
+            {
+              "type": "Synonym",
+              "title": "Gate: Thus the JSDF Fought There!"
+            },
+            {
+              "type": "Japanese",
+              "title": "GATE（ゲート）自衛隊　彼の地にて、斯く戦えり"
+            },
+            {
+              "type": "English",
+              "title": "GATE"
+            },
+            {
+              "type": "German",
+              "title": "GATE"
+            },
+            {
+              "type": "Spanish",
+              "title": "GATE"
+            },
+            {
+              "type": "French",
+              "title": "Gate: Au-delà de la Porte"
+            }
+          ],
+          "title": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri",
+          "title_english": "GATE",
+          "title_japanese": "GATE（ゲート）自衛隊　彼の地にて、斯く戦えり",
+          "title_synonyms": [
+            "Gate: Thus the JSDF Fought There!"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2015-07-04T00:00:00+00:00",
+            "to": "2015-09-19T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 4,
+                "month": 7,
+                "year": 2015
+              },
+              "to": {
+                "day": 19,
+                "month": 9,
+                "year": 2015
+              }
+            },
+            "string": "Jul 4, 2015 to Sep 19, 2015"
+          },
+          "duration": "23 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 7.68,
+          "scored_by": 492359,
+          "rank": 1500,
+          "popularity": 239,
+          "members": 892593,
+          "favorites": 6735,
+          "synopsis": "Off-duty Japan Self-Defense Forces (JSDF) officer and otaku Youji Itami is on his way to attend a doujin convention in Ginza, Tokyo when a mysterious portal in the shape of a large gate suddenly appears. From this gate, supernatural creatures and warriors clad in medieval armor emerge, charging through the city, killing and destroying everything in their path. With swift actions, Youji saves as many lives as he can while the rest of the JSDF direct their efforts toward stopping the invasion.\n\nThree months after the attack, Youji has been tasked with leading a special recon team, as part of a JSDF task force, that will be sent to the world beyond the gate—now being referred to as the \"Special Region.\" They must travel into this unknown world in order to learn more about what they are dealing with and attempt to befriend the locals in hopes of creating peaceful ties with the ruling empire. But if they fail, they face the consequence of participating in a devastating war that will engulf both sides of the gate.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "summer",
+          "year": 2015,
+          "broadcast": {
+            "day": "Saturdays",
+            "time": "00:30",
+            "timezone": "Asia/Tokyo",
+            "string": "Saturdays at 00:30 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 79,
+              "type": "anime",
+              "name": "Genco",
+              "url": "https://myanimelist.net/anime/producer/79/Genco"
+            },
+            {
+              "mal_id": 306,
+              "type": "anime",
+              "name": "Magic Capsule",
+              "url": "https://myanimelist.net/anime/producer/306/Magic_Capsule"
+            },
+            {
+              "mal_id": 415,
+              "type": "anime",
+              "name": "Warner Bros. Japan",
+              "url": "https://myanimelist.net/anime/producer/415/Warner_Bros_Japan"
+            },
+            {
+              "mal_id": 460,
+              "type": "anime",
+              "name": "KlockWorx",
+              "url": "https://myanimelist.net/anime/producer/460/KlockWorx"
+            },
+            {
+              "mal_id": 777,
+              "type": "anime",
+              "name": "Showgate",
+              "url": "https://myanimelist.net/anime/producer/777/Showgate"
+            },
+            {
+              "mal_id": 1097,
+              "type": "anime",
+              "name": "Bandai Namco Games",
+              "url": "https://myanimelist.net/anime/producer/1097/Bandai_Namco_Games"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 56,
+              "type": "anime",
+              "name": "A-1 Pictures",
+              "url": "https://myanimelist.net/anime/producer/56/A-1_Pictures"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 2,
+              "type": "anime",
+              "name": "Adventure",
+              "url": "https://myanimelist.net/anime/genre/2/Adventure"
+            },
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Fantasy",
+              "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 62,
+              "type": "anime",
+              "name": "Isekai",
+              "url": "https://myanimelist.net/anime/genre/62/Isekai"
+            },
+            {
+              "mal_id": 38,
+              "type": "anime",
+              "name": "Military",
+              "url": "https://myanimelist.net/anime/genre/38/Military"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 31637,
+                  "type": "anime",
+                  "name": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri Part 2",
+                  "url": "https://myanimelist.net/anime/31637/Gate__Jieitai_Kanochi_nite_Kaku_Tatakaeri_Part_2"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 41733,
+                  "type": "manga",
+                  "name": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri",
+                  "url": "https://myanimelist.net/manga/41733/Gate__Jieitai_Kanochi_nite_Kaku_Tatakaeri"
+                },
+                {
+                  "mal_id": 67879,
+                  "type": "manga",
+                  "name": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri",
+                  "url": "https://myanimelist.net/manga/67879/Gate__Jieitai_Kanochi_nite_Kaku_Tatakaeri"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"GATE: Sore wa Akatsuki no you ni (GATE～それは暁のように～)\" by Kishida Kyoudan & The Akeboshi Rockets (eps 1-11)"
+            ],
+            "endings": [
+              "1: \"Prism Communicate (ぷりずむコミュニケート)\" by Rory (Risa Taneda), Tuka (Hisako Kanemoto), Lelei (Nao Touyama) (eps 1-11)",
+              "2: \"GATE: Sore wa Akatsuki no you ni (GATE～それは暁のように～)\" by Kishida Kyoudan & The Akeboshi Rockets (eps 12)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.gate-anime.com/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=10982"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=16679"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Gate_(novel_series)"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "HIDIVE",
+              "url": "https://www.hidive.com/tv/gate"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/28907/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:25:43Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/28907/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:25:45Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:25:45Z"
+}

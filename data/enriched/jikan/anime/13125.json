@@ -1,0 +1,277 @@
+{
+  "mal_id": 13125,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/13125/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:57:43Z",
+      "sha256": "7bcf8b2874d31f6f9b4850f1177077bc542240f31809797339b4bd103d47195b",
+      "data": {
+        "data": {
+          "mal_id": 13125,
+          "url": "https://myanimelist.net/anime/13125/Shinsekai_yori",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1549/136389.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1549/136389t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1549/136389l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1549/136389.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1549/136389t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1549/136389l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/oYWBoSDpwdQ?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Shinsekai yori"
+            },
+            {
+              "type": "Synonym",
+              "title": "Shin Sekai Yori"
+            },
+            {
+              "type": "Japanese",
+              "title": "新世界より"
+            },
+            {
+              "type": "English",
+              "title": "From the New World"
+            },
+            {
+              "type": "German",
+              "title": "Shinsekai Yori: From the New World"
+            },
+            {
+              "type": "Spanish",
+              "title": "Shin Sekai Yori (Del Nuevo Mundo)"
+            },
+            {
+              "type": "French",
+              "title": "Shinsekai Yori"
+            }
+          ],
+          "title": "Shinsekai yori",
+          "title_english": "From the New World",
+          "title_japanese": "新世界より",
+          "title_synonyms": [
+            "Shin Sekai Yori"
+          ],
+          "type": "TV",
+          "source": "Novel",
+          "episodes": 25,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2012-09-29T00:00:00+00:00",
+            "to": "2013-03-23T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 29,
+                "month": 9,
+                "year": 2012
+              },
+              "to": {
+                "day": 23,
+                "month": 3,
+                "year": 2013
+              }
+            },
+            "string": "Sep 29, 2012 to Mar 23, 2013"
+          },
+          "duration": "22 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 8.24,
+          "scored_by": 290288,
+          "rank": 406,
+          "popularity": 276,
+          "members": 825464,
+          "favorites": 22495,
+          "synopsis": "In the year 2011, a small percentage of humans began manifesting psychokinetic abilities known as \"Cantus.\" Over a millennium later, in the small town of Kamisu 66, Saki Watanabe is the last of her friends to awaken her powers and join the Sage Academy, a school for psychics like her. Although everyone at the institution has Cantus, they are not all equal; shortly after Saki enrolls, one of her classmates who is regarded as being weaker than the others suddenly disappears.\n\nWalking home one day with her friends—the determined Maria Akizuki, the intelligent Shun Aonuma, the observant Satoru Asahina, and the timid Mamoru Itou—she comes across two unfamiliar creatures known as \"Monster Rats.\" These beings resemble moles and worship those with Cantus as gods. As a result, when Saki uses her abilities to save one from trouble, she is met with exceptional gratitude.\n\nNow unsure about the Monster Rats' place in society, Saki and her friends find out about another disappearance. As time passes, they slowly look for answers to the mysteries that surround them and begin to realize that this seemingly \"perfect\" new world masks humanity's dark past.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "fall",
+          "year": 2012,
+          "broadcast": {
+            "day": "Saturdays",
+            "time": "00:30",
+            "timezone": "Asia/Tokyo",
+            "string": "Saturdays at 00:30 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 17,
+              "type": "anime",
+              "name": "Aniplex",
+              "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+            },
+            {
+              "mal_id": 55,
+              "type": "anime",
+              "name": "TV Asahi",
+              "url": "https://myanimelist.net/anime/producer/55/TV_Asahi"
+            },
+            {
+              "mal_id": 144,
+              "type": "anime",
+              "name": "Pony Canyon",
+              "url": "https://myanimelist.net/anime/producer/144/Pony_Canyon"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 56,
+              "type": "anime",
+              "name": "A-1 Pictures",
+              "url": "https://myanimelist.net/anime/producer/56/A-1_Pictures"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 8,
+              "type": "anime",
+              "name": "Drama",
+              "url": "https://myanimelist.net/anime/genre/8/Drama"
+            },
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Fantasy",
+              "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+            },
+            {
+              "mal_id": 14,
+              "type": "anime",
+              "name": "Horror",
+              "url": "https://myanimelist.net/anime/genre/14/Horror"
+            },
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "Mystery",
+              "url": "https://myanimelist.net/anime/genre/7/Mystery"
+            },
+            {
+              "mal_id": 24,
+              "type": "anime",
+              "name": "Sci-Fi",
+              "url": "https://myanimelist.net/anime/genre/24/Sci-Fi"
+            },
+            {
+              "mal_id": 41,
+              "type": "anime",
+              "name": "Suspense",
+              "url": "https://myanimelist.net/anime/genre/41/Suspense"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 40,
+              "type": "anime",
+              "name": "Psychological",
+              "url": "https://myanimelist.net/anime/genre/40/Psychological"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 41575,
+                  "type": "manga",
+                  "name": "Shinsekai yori",
+                  "url": "https://myanimelist.net/manga/41575/Shinsekai_yori"
+                },
+                {
+                  "mal_id": 116479,
+                  "type": "manga",
+                  "name": "Shinsekai yori",
+                  "url": "https://myanimelist.net/manga/116479/Shinsekai_yori"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Yuki ni Saku Hana (雪に咲く花)\" by Maria Akizuki (Kana Hanazawa) (eps 16)"
+            ],
+            "endings": [
+              "1: \"Wareta Ringo (割れたリンゴ)\" by Saki Watanabe (Risa Taneda) (eps 1-16)",
+              "2: \"Yuki ni Saku Hana (雪に咲く花)\" by Maria Akizuki (Kana Hanazawa) (eps 17-24)"
+            ]
+          },
+          "external": [
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=9002"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=14089"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/From_the_New_World_%28novel%29"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E6%96%B0%E4%B8%96%E7%95%8C%E3%82%88%E3%82%8A_(%E5%B0%8F%E8%AA%AC)#%E3%83%86%E3%83%AC%E3%83%93%E3%82%A2%E3%83%8B%E3%83%A1"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/2717"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "HIDIVE",
+              "url": "https://www.hidive.com/tv/from-the-new-world"
+            },
+            {
+              "name": "Shahid",
+              "url": "https://shahid.mbc.net/en/series/From-The-New-World/series-910726"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/13125/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:26:12Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/13125/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:26:13Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:26:13Z"
+}

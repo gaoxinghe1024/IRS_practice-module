@@ -1,0 +1,177 @@
+# AniLogic base configuration. Mode overlays (synthetic.yaml / real.yaml) and
+# environment variables (ANILOGIC_<SECTION>__<KEY>) are applied on top.
+# Secrets (LLM keys) are read only from the environment, never from YAML.
+
+app:
+  name: "AniLogic"
+  tagline: "Your ACG Friend"
+  # The Group 10 proposal and the 10-minute slides disagree (Group 10 vs 18);
+  # see docs/requirements-resolution.md. The display name is kept in one place.
+  group_display: "Group 10"
+  locale: "en"
+  host: "127.0.0.1"
+  port: 8000
+  secure_cookies: false          # set true behind HTTPS
+  session_ttl_hours: 168
+  max_upload_bytes: 5242880      # 5 MiB
+  max_upload_pixels: 25000000
+  log_chat_text: false           # chat text is not written to logs by default
+  cpu_workers: 4                 # bounded executor for CPU-heavy requests
+
+dataset:
+  mode: synthetic                # synthetic | real
+
+paths:
+  data_root: "data"
+  artifacts_root: "artifacts"
+  var_root: "var"
+  evaluation_runs: "evaluation/runs"
+
+content_rules:
+  # Explicit content excluded from the served catalog by default (slides rule 1).
+  # Ecchi and R+ are NOT treated as explicit.
+  exclude_genres: ["Hentai", "Erotica"]
+  exclude_rating_prefixes: ["Rx"]
+
+recommendation:
+  similar:
+    k: 5
+    max_k: 10
+    scorer: weighted_attributes
+    weights: {genre: 0.35, theme: 0.30, demographic: 0.15, studio: 0.10, length: 0.10}
+    tau_episodes: 12.0
+    min_coverage_for_ranking: null   # independent option; null = no coverage penalty
+    low_coverage_warning: 0.5
+    hybrid_tag_weight: 0.6
+    hide_watched_default: false
+    logistic_min_train_queries: 20   # below this the supervised scorer is limited_by_data
+    logistic_min_val_queries: 5
+    replacement_min_val_queries: 20  # the default-replacement rule decides only with >= this many validation queries
+  collection:
+    k: 8
+    scorer: collection_profile_v1
+    alpha: 0.7
+    exclude_statuses: ["completed"]
+  home:
+    k: 10
+    candidate_k: 20
+    recall_engine: icf
+    reranker: ga
+    warm_gate: 8
+    exclude_statuses: ["completed"]
+    exploration_k: 10
+    content_popularity_weight: 0.0   # g in (1-g)*profile match + g*popular_quality; mode files set the tuned value
+  icf:
+    min_co_rated: 3
+    shrinkage: 10.0
+    neighbors: 150
+    prediction_damping: 0.0          # 0 = exact normalised formula; mode files set the validation-tuned value
+    user_mean_prior_weight: 0.0      # k: shrink a short history's mean towards the global train mean (0 = exact)
+    block_size: 1024
+  mf:
+    latent_dim: 32
+    epochs: 30
+    batch_size: 65536
+    learning_rate: 0.01
+    reg: 0.04
+    patience: 3
+    fold_in_reg: 1.0
+    fold_in_min_ratings: 3
+  ncf:
+    embedding_dim: 32
+    mlp_layers: [64, 32, 16]
+    dropout: 0.2
+    weight_decay: 1.0e-5
+    learning_rate: 0.002
+    batch_size: 8192
+    epochs: 20
+    patience: 3
+    loss: huber
+  ga:
+    population: 64
+    generations: 80
+    tournament_size: 3
+    elitism: 2
+    crossover_prob: 0.8
+    mutation_prob: 0.2
+    early_stop_generations: 20
+    time_budget_ms: 250
+    weights: {relevance: 0.4, diversity: 0.3, novelty: 0.2, fresh: 0.1}
+  gbdt:
+    negatives_per_positive: 4
+    max_iter: 200
+    learning_rate: 0.05
+  two_tower:
+    min_interactions: 10000
+    embedding_dim: 32
+    epochs: 15
+    enabled: false
+
+retrieval:
+  lexical_top_n: 50
+  dense_top_n: 50
+  rrf_k0: 60
+  item_k: 5
+  evidence_per_item: 2
+  chunk_min_tokens: 150
+  chunk_max_tokens: 350
+  chunk_overlap_tokens: 40
+  embedding:
+    provider: auto                   # auto | bge | lsa | none
+    model: "BAAI/bge-small-en-v1.5"
+    batch_size: 64
+    lsa_dim: 256
+
+llm:
+  provider: none                     # none | openai_compatible | anthropic
+  base_url: ""
+  model: ""
+  timeout_s: 30
+  max_output_tokens: 700
+  temperature: 0.2
+  max_calls_per_request: 2
+  effort: low                        # anthropic provider: low | medium | high | xhigh | max
+  anthropic_max_tokens: 16000        # ceiling (thinking + JSON answer); answers are short
+  price_per_mtok_input: null         # USD, dated in price_as_of
+  price_per_mtok_output: null
+  price_as_of: null
+
+chat:
+  history_turns: 6
+  max_message_chars: 1000
+
+planner:
+  default_budget_minutes: 900
+  max_titles_default: 5
+  min_relevance: 0.2
+  candidate_pool: 40
+  population: 60
+  generations: 120
+  time_budget_ms: 1500
+  weights: {relevance: 0.45, quality: 0.2, diversity: 0.2, novelty: 0.05, utilization: 0.1}
+  exact_oracle_max_items: 14
+
+images:
+  encoder: color_histogram_v1        # color_histogram_v1 (fixtures) | clip
+  clip_model: "clip-ViT-B-32"
+  top_n: 20
+  accept_threshold: null             # must be calibrated on validation data
+  retain_uploads: false
+
+jikan:
+  base_url: "https://api.jikan.moe/v4"
+  min_interval_s: 1.1                # stricter than the documented 3 req/s, 60 req/min
+  timeout_s: 20
+  max_retries: 4                     # for 429 (Retry-After honoured)
+  server_error_retries: 0            # 5xx are collected by the next resumable pass instead
+
+pipeline:
+  chunk_rows: 100000
+  rating_partitions: 32
+  split_seed: 20260930
+  positive_threshold: 8
+  explicit_split: [0.8, 0.1, 0.1]
+  min_ratings_ranking_eval: 5
+  min_ratings_explicit_eval: 5
+  sample_users_fraction: null        # null = all users
+  sample_seed: 7

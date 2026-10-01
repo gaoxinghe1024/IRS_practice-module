@@ -1,0 +1,260 @@
+{
+  "mal_id": 22789,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/22789/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:01:07Z",
+      "sha256": "50aeb832d7c4d0e58ee503050804b7ed5d5c9db2085fb0caeba6a17ffb2779f2",
+      "data": {
+        "data": {
+          "mal_id": 22789,
+          "url": "https://myanimelist.net/anime/22789/Barakamon",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1426/111248.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1426/111248t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1426/111248l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1426/111248.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1426/111248t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1426/111248l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/u1pCw1Cr3_U?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Barakamon"
+            },
+            {
+              "type": "Synonym",
+              "title": "Barakamon"
+            },
+            {
+              "type": "Japanese",
+              "title": "ばらかもん"
+            },
+            {
+              "type": "English",
+              "title": "Barakamon"
+            }
+          ],
+          "title": "Barakamon",
+          "title_english": "Barakamon",
+          "title_japanese": "ばらかもん",
+          "title_synonyms": [
+            "Barakamon"
+          ],
+          "type": "TV",
+          "source": "Web manga",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2014-07-06T00:00:00+00:00",
+            "to": "2014-09-28T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 6,
+                "month": 7,
+                "year": 2014
+              },
+              "to": {
+                "day": 28,
+                "month": 9,
+                "year": 2014
+              }
+            },
+            "string": "Jul 6, 2014 to Sep 28, 2014"
+          },
+          "duration": "22 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 8.36,
+          "scored_by": 363608,
+          "rank": 265,
+          "popularity": 331,
+          "members": 717691,
+          "favorites": 13544,
+          "synopsis": "Seishuu Handa is an up-and-coming calligrapher: young, handsome, talented, and unfortunately, a narcissist to boot. When a veteran labels his award-winning piece as \"unoriginal,\" Seishuu quickly loses his cool with severe repercussions.\n\nAs punishment, and also in order to aid him in self-reflection, Seishuu's father exiles him to the Goto Islands, far from the comfortable Tokyo lifestyle the temperamental artist is used to. Now thrown into a rural setting, Seishuu must attempt to find new inspiration and develop his own unique art style—that is, if boisterous children (headed by the frisky Naru Kotoishi), fujoshi middle schoolers, and energetic old men stop barging into his house! The newest addition to the intimate and quirky Goto community only wants to get some work done, but the islands are far from the peaceful countryside he signed up for. Thanks to his wacky neighbors who are entirely incapable of minding their own business, the arrogant calligrapher learns so much more than he ever hoped to.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "summer",
+          "year": 2014,
+          "broadcast": {
+            "day": "Sundays",
+            "time": "02:20",
+            "timezone": "Asia/Tokyo",
+            "string": "Sundays at 02:20 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 29,
+              "type": "anime",
+              "name": "VAP",
+              "url": "https://myanimelist.net/anime/producer/29/VAP"
+            },
+            {
+              "mal_id": 1003,
+              "type": "anime",
+              "name": "Nippon Television Network",
+              "url": "https://myanimelist.net/anime/producer/1003/Nippon_Television_Network"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 290,
+              "type": "anime",
+              "name": "Kinema Citrus",
+              "url": "https://myanimelist.net/anime/producer/290/Kinema_Citrus"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 36,
+              "type": "anime",
+              "name": "Slice of Life",
+              "url": "https://myanimelist.net/anime/genre/36/Slice_of_Life"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 53,
+              "type": "anime",
+              "name": "Childcare",
+              "url": "https://myanimelist.net/anime/genre/53/Childcare"
+            },
+            {
+              "mal_id": 63,
+              "type": "anime",
+              "name": "Iyashikei",
+              "url": "https://myanimelist.net/anime/genre/63/Iyashikei"
+            },
+            {
+              "mal_id": 80,
+              "type": "anime",
+              "name": "Visual Arts",
+              "url": "https://myanimelist.net/anime/genre/80/Visual_Arts"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 32648,
+                  "type": "anime",
+                  "name": "Handa-kun",
+                  "url": "https://myanimelist.net/anime/32648/Handa-kun"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 17051,
+                  "type": "manga",
+                  "name": "Barakamon",
+                  "url": "https://myanimelist.net/manga/17051/Barakamon"
+                }
+              ]
+            },
+            {
+              "relation": "Other",
+              "entry": [
+                {
+                  "mal_id": 25045,
+                  "type": "anime",
+                  "name": "Mijikamon",
+                  "url": "https://myanimelist.net/anime/25045/Mijikamon"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Rashisa (らしさ)\" by SUPER BEAVER (eps 1-10, 12)"
+            ],
+            "endings": [
+              "\"Innocence\" by NoisyCell"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "https://www.vap.co.jp/barakamon/"
+            },
+            {
+              "name": "@brkmn_anime",
+              "url": "https://twitter.com/brkmn_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=10111"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=16083"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Barakamon"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E3%81%B0%E3%82%89%E3%81%8B%E3%82%82%E3%82%93#%E3%83%86%E3%83%AC%E3%83%93%E3%82%A2%E3%83%8B%E3%83%A1"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/3442"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-261685"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/22789/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:29:26Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/22789/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:29:27Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:29:27Z"
+}

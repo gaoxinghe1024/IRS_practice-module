@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("plan.title") }}</h1>
+<form id="plan-form" class="panel">
+  <div class="form-grid">
+    <div><label for="hours">{{ t("plan.budget") }} ({{ t("plan.hours") }})</label><input id="hours" name="hours" type="number" min="0" max="336" step="0.5" value="15"></div>
+    <div><label for="extra_minutes">+ {{ t("plan.minutes") }}</label><input id="extra_minutes" name="extra_minutes" type="number" min="0" max="59" value="0"></div>
+    <div><label for="max_titles">{{ t("plan.max_titles") }}</label><input id="max_titles" name="max_titles" type="number" min="1" max="20" value="3"></div>
+    <div><label for="diversity">{{ t("plan.diversity") }}</label>
+      <select id="diversity" name="diversity"><option value="low">{{ t("plan.diversity.low") }}</option>
+        <option value="normal" selected>{{ t("plan.diversity.normal") }}</option><option value="high">{{ t("plan.diversity.high") }}</option></select></div>
+    <div><label for="include">{{ t("plan.include") }}</label><select id="include" name="include" multiple size="3"></select></div>
+    <div><label for="exclude">{{ t("plan.exclude") }}</label><select id="exclude" name="exclude" multiple size="3"></select></div>
+    <div><label for="min_score">{{ t("plan.min_score") }}</label><input id="min_score" name="min_score" type="number" min="0" max="10" step="0.1"></div>
+    <div><label for="max_eps">{{ t("plan.max_eps") }}</label><input id="max_eps" name="max_eps" type="number" min="1"></div>
+    <div><label for="breaks">{{ t("plan.breaks") }}</label><input id="breaks" name="breaks" type="number" min="0" max="120" value="0"></div>
+    <div><label for="plan_name">{{ t("plan.name") }}</label><input id="plan_name" name="plan_name" type="text" maxlength="120"></div>
+  </div>
+  <fieldset class="spaced"><legend>{{ t("plan.mode") }}</legend>
+    <label class="checkbox"><input type="radio" name="mode" value="complete" checked> {{ t("plan.mode.complete") }}</label>
+    <label class="checkbox"><input type="radio" name="mode" value="partial"> {{ t("plan.mode.partial") }}</label>
+    <p class="help muted">{{ t("plan.mode_help") }}</p>
+    <label class="checkbox"><input type="checkbox" name="prereq" checked> {{ t("plan.prereq") }}</label>
+  </fieldset>
+  <fieldset><legend>{{ t("plan.slots") }}</legend>
+    <div id="slots"></div>
+    <button type="button" class="small secondary" id="add-slot">{{ t("plan.add_slot") }}</button>
+  </fieldset>
+  <div class="inline">
+    <button type="submit" id="preview">{{ t("plan.preview") }}</button>
+    <button type="button" class="secondary" id="save">{{ t("plan.save") }}</button>
+  </div>
+  <p id="plan-error" class="error-text" role="alert" hidden></p>
+</form>
+<section id="plan-result" aria-live="polite"></section>
+{% endblock %}

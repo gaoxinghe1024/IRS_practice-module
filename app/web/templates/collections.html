@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("collections.title") }}</h1>
+<form id="create-form" class="panel">
+  <h2>{{ t("collections.create") }}</h2>
+  <div class="form-grid">
+    <div><label for="c-name">{{ t("collections.name") }}</label><input id="c-name" name="name" type="text" maxlength="60" required></div>
+    <div><label for="c-desc">{{ t("collections.description") }}</label><input id="c-desc" name="description" type="text" maxlength="300"></div>
+    <div><button type="submit">{{ t("collections.create") }}</button></div>
+  </div>
+  <p id="create-error" class="error-text" role="alert" hidden></p>
+</form>
+<ul id="collection-list" class="list panel" aria-live="polite"></ul>
+{% endblock %}

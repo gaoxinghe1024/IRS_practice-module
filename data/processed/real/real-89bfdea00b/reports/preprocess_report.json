@@ -1,0 +1,116 @@
+{
+  "dataset_version": "real-89bfdea00b",
+  "generated_at": "2026-09-30T15:24:28Z",
+  "elapsed_s": 14.4,
+  "peak_rss_mb": 505.7,
+  "chunks": 244,
+  "chunk_rows": 100000,
+  "catalog": {
+    "rows_in_snapshot": 24905,
+    "parsed": 24905,
+    "quarantined": 0,
+    "in_catalog": 23363,
+    "explicit_excluded": 1542,
+    "recommendable": 12429,
+    "planner_eligible": 12313,
+    "reasons": {
+      "content_rule_explicit": 1542,
+      "not_recommendable_missing_genre": 4929,
+      "not_recommendable_missing_score": 9181
+    },
+    "missing_rate": {
+      "score": 0.3699,
+      "studios": 0.4226,
+      "genres": 0.1979,
+      "episodes": 0.0245,
+      "duration": 0.0369,
+      "synopsis": 0.1821
+    },
+    "jikan_cached_titles": 400,
+    "jikan_enriched_titles": 40,
+    "jikan_endpoint_titles": {
+      "full": 33,
+      "characters": 6,
+      "recommendations": 2
+    }
+  },
+  "ratings": {
+    "rows_read": 24325191,
+    "invalid_rating": 0,
+    "quarantine_unknown_anime_id": 542,
+    "dropped_content_rule_item": 361269,
+    "rows_kept": 23963380,
+    "duplicate_rows_dropped": 0,
+    "conflicting_pairs": 0,
+    "rows": 23963380,
+    "sampling": {
+      "sample_users_fraction": null,
+      "sample_seed": 7,
+      "hash": "splitmix64(user_id ^ seed) < fraction",
+      "before": {
+        "users": 268600,
+        "ratings": 23963380,
+        "ratings_per_user_pct": {
+          "5": 1.0,
+          "25": 8.0,
+          "50": 36.0,
+          "75": 121.0,
+          "95": 295.0,
+          "99": 640.0
+        },
+        "rating_hist": [
+          0,
+          90610,
+          124524,
+          222465,
+          541683,
+          1333153,
+          2697979,
+          5369019,
+          6002715,
+          4398672,
+          3182560
+        ]
+      },
+      "after": {
+        "users": 268600,
+        "ratings": 23963380,
+        "ratings_per_user_pct": {
+          "5": 1.0,
+          "25": 8.0,
+          "50": 36.0,
+          "75": 121.0,
+          "95": 295.0,
+          "99": 640.0
+        },
+        "rating_hist": [
+          0,
+          90610,
+          124524,
+          222465,
+          541683,
+          1333153,
+          2697979,
+          5369019,
+          6002715,
+          4398672,
+          3182560
+        ]
+      }
+    }
+  },
+  "memory_note": {
+    "shape": [
+      268600,
+      23363
+    ],
+    "dense_float32_gb": 25.1,
+    "csr_float32_mb": 193.9,
+    "note": "dense user x item arrays are never materialised; CSR/CSC is used"
+  },
+  "relations": {
+    "resolved_anime_edges": 177,
+    "external_edges": 82
+  },
+  "weak_similarity_label_pairs": 2
+}

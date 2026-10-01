@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t("profile.title") }}</h1>
+<p id="account-line" class="muted"></p>
+<section class="panel" aria-labelledby="prefs-title">
+  <h2 id="prefs-title">{{ t("profile.preferences") }}</h2>
+  <form id="prefs-form">
+    <fieldset><legend>{{ t("profile.liked_tags") }}</legend><div id="liked-chips" class="chips"></div></fieldset>
+    <div class="form-grid">
+      <div><label for="length">{{ t("profile.length") }}</label>
+        <select id="length" name="length"><option value="any">{{ t("profile.length.any") }}</option><option value="short">{{ t("profile.length.short") }}</option>
+          <option value="medium">{{ t("profile.length.medium") }}</option><option value="long">{{ t("profile.length.long") }}</option></select></div>
+      <div><label class="checkbox"><input type="checkbox" id="hide-watched" name="hide_watched"> {{ t("anime.hide_watched") }}</label></div>
+      <div><button type="submit">{{ t("common.save") }}</button></div>
+    </div>
+  </form>
+</section>
+<div class="two-col">
+  <section class="panel" aria-labelledby="ratings-title"><h2 id="ratings-title">{{ t("profile.ratings") }}</h2><ul id="ratings" class="list"></ul></section>
+  <div>
+    <section class="panel" aria-labelledby="progress-title"><h2 id="progress-title">{{ t("profile.progress") }}</h2><ul id="progress" class="list"></ul></section>
+    <section class="panel" aria-labelledby="excl-title"><h2 id="excl-title">{{ t("profile.exclusions") }}</h2><ul id="exclusions" class="list"></ul></section>
+  </div>
+</div>
+{% endblock %}

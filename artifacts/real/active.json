@@ -1,0 +1,13 @@
+{
+  "dataset_mode": "real",
+  "dataset_version": "real-89bfdea00b",
+  "artifact_dir": "artifacts/real/real-89bfdea00b",
+  "manifest_sha256": "5b8290b04c4678e158d7dac88bbd025c673a4e89842bc234e7234a414d539226",
+  "activated_at": "2026-09-30T15:57:44Z",
+  "counts": {
+    "anime": 23363,
+    "documents": 42515,
+    "tags": 98717,
+    "aliases": 54003
+  }
+}

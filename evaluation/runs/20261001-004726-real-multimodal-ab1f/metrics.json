@@ -1,0 +1,8 @@
+{
+  "status": "not_run",
+  "capability": {
+    "name": "screenshot",
+    "status": "limited_by_data",
+    "detail": "No frame-level images are available. Cover art is not used as a substitute. Provide data/enriched/scene_images/manifest.jsonl to enable."
+  }
+}

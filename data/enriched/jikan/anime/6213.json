@@ -1,0 +1,333 @@
+{
+  "mal_id": 6213,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/6213/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:03:16Z",
+      "sha256": "644cc97935a9045ae894976e70e368ec595bcdc085fdce6dc0b4a1a1bc5ba4e9",
+      "data": {
+        "data": {
+          "mal_id": 6213,
+          "url": "https://myanimelist.net/anime/6213/Toaru_Kagaku_no_Railgun",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1099/106939.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1099/106939t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1099/106939l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1099/106939.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1099/106939t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1099/106939l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": null,
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Toaru Kagaku no Railgun"
+            },
+            {
+              "type": "Synonym",
+              "title": "Toaru Kagaku no Choudenjihou"
+            },
+            {
+              "type": "Japanese",
+              "title": "とある科学の超電磁砲"
+            },
+            {
+              "type": "English",
+              "title": "A Certain Scientific Railgun"
+            },
+            {
+              "type": "German",
+              "title": "A Certain Scientific Railgun"
+            },
+            {
+              "type": "Spanish",
+              "title": "A Certain Scientific Railgun"
+            },
+            {
+              "type": "French",
+              "title": "A Certain Scientific Railgun"
+            }
+          ],
+          "title": "Toaru Kagaku no Railgun",
+          "title_english": "A Certain Scientific Railgun",
+          "title_japanese": "とある科学の超電磁砲",
+          "title_synonyms": [
+            "Toaru Kagaku no Choudenjihou"
+          ],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 24,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2009-10-03T00:00:00+00:00",
+            "to": "2010-03-20T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 3,
+                "month": 10,
+                "year": 2009
+              },
+              "to": {
+                "day": 20,
+                "month": 3,
+                "year": 2010
+              }
+            },
+            "string": "Oct 3, 2009 to Mar 20, 2010"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.65,
+          "scored_by": 303581,
+          "rank": 1614,
+          "popularity": 382,
+          "members": 650991,
+          "favorites": 6161,
+          "synopsis": "The student-filled Academy City is at the forefront of scientific advancement and home to the esper development program. The seven \"Level 5\" espers are the most powerful in Academy City, and ranked third among them is middle schooler Mikoto Misaka, an electricity manipulator known as \"The Railgun.\"\n \nWhen strange incidents begin occurring throughout the city, she finds each crime to be connected to the elusive \"Level Upper,\" a legendary device that allegedly increases the esper level of its user. As the situation escalates, it becomes apparent that there is more to the Level Upper than meets the eye, and that Academy City may be a far more twisted place than the glamorous utopia it appears to be.\n\nToaru Kagaku no Railgun focuses on Mikoto and her friends—and the dangerous situations they find themselves in—as they get caught up in the matter of the Level Upper. As Mikoto says, \"There's never a dull moment in this city.\"\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "fall",
+          "year": 2009,
+          "broadcast": {
+            "day": "Saturdays",
+            "time": "01:30",
+            "timezone": "Asia/Tokyo",
+            "string": "Saturdays at 01:30 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 31,
+              "type": "anime",
+              "name": "Geneon Universal Entertainment",
+              "url": "https://myanimelist.net/anime/producer/31/Geneon_Universal_Entertainment"
+            },
+            {
+              "mal_id": 166,
+              "type": "anime",
+              "name": "Movic",
+              "url": "https://myanimelist.net/anime/producer/166/Movic"
+            },
+            {
+              "mal_id": 238,
+              "type": "anime",
+              "name": "AT-X",
+              "url": "https://myanimelist.net/anime/producer/238/AT-X"
+            },
+            {
+              "mal_id": 681,
+              "type": "anime",
+              "name": "ASCII Media Works",
+              "url": "https://myanimelist.net/anime/producer/681/ASCII_Media_Works"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "J.C.Staff",
+              "url": "https://myanimelist.net/anime/producer/7/JCStaff"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Fantasy",
+              "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+            },
+            {
+              "mal_id": 24,
+              "type": "anime",
+              "name": "Sci-Fi",
+              "url": "https://myanimelist.net/anime/genre/24/Sci-Fi"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 31,
+              "type": "anime",
+              "name": "Super Power",
+              "url": "https://myanimelist.net/anime/genre/31/Super_Power"
+            },
+            {
+              "mal_id": 82,
+              "type": "anime",
+              "name": "Urban Fantasy",
+              "url": "https://myanimelist.net/anime/genre/82/Urban_Fantasy"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 16049,
+                  "type": "anime",
+                  "name": "Toaru Kagaku no Railgun S",
+                  "url": "https://myanimelist.net/anime/16049/Toaru_Kagaku_no_Railgun_S"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 7776,
+                  "type": "manga",
+                  "name": "Toaru Majutsu no Index Gaiden: Toaru Kagaku no Railgun",
+                  "url": "https://myanimelist.net/manga/7776/Toaru_Majutsu_no_Index_Gaiden__Toaru_Kagaku_no_Railgun"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 9063,
+                  "type": "anime",
+                  "name": "Toaru Kagaku no Railgun: Entenka no Satsuei Model mo Raku Ja Arimasen wa ne.",
+                  "url": "https://myanimelist.net/anime/9063/Toaru_Kagaku_no_Railgun__Entenka_no_Satsuei_Model_mo_Raku_Ja_Arimasen_wa_ne"
+                },
+                {
+                  "mal_id": 9047,
+                  "type": "anime",
+                  "name": "Toaru Kagaku no Railgun: Misaka-san wa Ima Chuumoku no Mato desu kara",
+                  "url": "https://myanimelist.net/anime/9047/Toaru_Kagaku_no_Railgun__Misaka-san_wa_Ima_Chuumoku_no_Mato_desu_kara"
+                }
+              ]
+            },
+            {
+              "relation": "Spin-Off",
+              "entry": [
+                {
+                  "mal_id": 8023,
+                  "type": "anime",
+                  "name": "Toaru Kagaku no Railgun: Motto Marutto Railgun",
+                  "url": "https://myanimelist.net/anime/8023/Toaru_Kagaku_no_Railgun__Motto_Marutto_Railgun"
+                }
+              ]
+            },
+            {
+              "relation": "Parent Story",
+              "entry": [
+                {
+                  "mal_id": 4654,
+                  "type": "anime",
+                  "name": "Toaru Majutsu no Index",
+                  "url": "https://myanimelist.net/anime/4654/Toaru_Majutsu_no_Index"
+                }
+              ]
+            },
+            {
+              "relation": "Character",
+              "entry": [
+                {
+                  "mal_id": 27509,
+                  "type": "anime",
+                  "name": "Toaru Majutsu no Index 10-shuunen Kinen PV",
+                  "url": "https://myanimelist.net/anime/27509/Toaru_Majutsu_no_Index_10-shuunen_Kinen_PV"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "1: \"only my railgun\" by fripSide (eps 2-14)",
+              "2: \"LEVEL 5 -judgelight-\" by fripSide (eps 15-23)"
+            ],
+            "endings": [
+              "1: \"only my railgun\" by fripSide (eps 1)",
+              "2: \"Dear My Friend -Mada Minu Mirai he-\" by ELISA (eps 2-11, 13-14, 24)",
+              "3: \"Smile -You and Me-\" by ELISA (eps 12)",
+              "4: \"Real Force\" by ELISA (eps 15-23)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://toaru-project.com/railgun/"
+            },
+            {
+              "name": "@toaru_project",
+              "url": "https://twitter.com/toaru_project"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=6460"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=10706"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/A_Certain_Scientific_Railgun"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E3%81%A8%E3%81%82%E3%82%8B%E7%A7%91%E5%AD%A6%E3%81%AE%E8%B6%85%E9%9B%BB%E7%A3%81%E7%A0%B2"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-271889"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/6213/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:31:31Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/6213/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:31:32Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:31:32Z"
+}

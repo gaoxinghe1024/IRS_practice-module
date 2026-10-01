@@ -1,0 +1,280 @@
+{
+  "mal_id": 32729,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/32729/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:56:27Z",
+      "sha256": "fc0636052ecad370444957d4687873b5ca7920e945fc4fa114c76a7027ab3a88",
+      "data": {
+        "data": {
+          "mal_id": 32729,
+          "url": "https://myanimelist.net/anime/32729/Orange",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1415/102477.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1415/102477t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1415/102477l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1415/102477.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1415/102477t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1415/102477l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/RU2mPHp9Btk?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Orange"
+            },
+            {
+              "type": "Japanese",
+              "title": "orange（オレンジ）"
+            },
+            {
+              "type": "English",
+              "title": "Orange"
+            }
+          ],
+          "title": "Orange",
+          "title_english": "Orange",
+          "title_japanese": "orange（オレンジ）",
+          "title_synonyms": [],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 13,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2016-07-04T00:00:00+00:00",
+            "to": "2016-09-26T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 4,
+                "month": 7,
+                "year": 2016
+              },
+              "to": {
+                "day": 26,
+                "month": 9,
+                "year": 2016
+              }
+            },
+            "string": "Jul 4, 2016 to Sep 26, 2016"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.63,
+          "scored_by": 435372,
+          "rank": 1665,
+          "popularity": 233,
+          "members": 905803,
+          "favorites": 7499,
+          "synopsis": "Naho Takamiya's first day of her sophomore year of high school is off to an uneasy start. After waking up late, she receives a strange letter addressed to her. However, the letter is from herself—10 years in the future! At first, Naho is skeptical of the note; yet, after witnessing several events described to take place, she realizes the letter really is from her 26-year-old self.\n\nThe note details that Naho's future life is filled with regrets, and she hopes that her younger self can correct the mistakes that were made in the past. The letter also warns her to keep a close eye on the new transfer student, Kakeru Naruse. Naho must be especially careful in making decisions involving him, as Kakeru is not around in the future. With the letter as her guide, Naho now has the power to protect Kakeru before she comes to regret it once more.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "summer",
+          "year": 2016,
+          "broadcast": {
+            "day": "Mondays",
+            "time": "00:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Mondays at 00:00 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 73,
+              "type": "anime",
+              "name": "TMS Entertainment",
+              "url": "https://myanimelist.net/anime/producer/73/TMS_Entertainment"
+            },
+            {
+              "mal_id": 315,
+              "type": "anime",
+              "name": "DAX Production",
+              "url": "https://myanimelist.net/anime/producer/315/DAX_Production"
+            },
+            {
+              "mal_id": 1143,
+              "type": "anime",
+              "name": "TOHO animation",
+              "url": "https://myanimelist.net/anime/producer/1143/TOHO_animation"
+            },
+            {
+              "mal_id": 1496,
+              "type": "anime",
+              "name": "Lawson",
+              "url": "https://myanimelist.net/anime/producer/1496/Lawson"
+            },
+            {
+              "mal_id": 1500,
+              "type": "anime",
+              "name": "ABC Animation",
+              "url": "https://myanimelist.net/anime/producer/1500/ABC_Animation"
+            },
+            {
+              "mal_id": 2279,
+              "type": "anime",
+              "name": "MediaLink Entertainment Limited",
+              "url": "https://myanimelist.net/anime/producer/2279/MediaLink_Entertainment_Limited"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            },
+            {
+              "mal_id": 1468,
+              "type": "anime",
+              "name": "Crunchyroll",
+              "url": "https://myanimelist.net/anime/producer/1468/Crunchyroll"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 94,
+              "type": "anime",
+              "name": "Telecom Animation Film",
+              "url": "https://myanimelist.net/anime/producer/94/Telecom_Animation_Film"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 8,
+              "type": "anime",
+              "name": "Drama",
+              "url": "https://myanimelist.net/anime/genre/8/Drama"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            },
+            {
+              "mal_id": 24,
+              "type": "anime",
+              "name": "Sci-Fi",
+              "url": "https://myanimelist.net/anime/genre/24/Sci-Fi"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 64,
+              "type": "anime",
+              "name": "Love Polygon",
+              "url": "https://myanimelist.net/anime/genre/64/Love_Polygon"
+            },
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            },
+            {
+              "mal_id": 78,
+              "type": "anime",
+              "name": "Time Travel",
+              "url": "https://myanimelist.net/anime/genre/78/Time_Travel"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 25,
+              "type": "anime",
+              "name": "Shoujo",
+              "url": "https://myanimelist.net/anime/genre/25/Shoujo"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 34136,
+                  "type": "anime",
+                  "name": "Orange: Mirai",
+                  "url": "https://myanimelist.net/anime/34136/Orange__Mirai"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 35573,
+                  "type": "manga",
+                  "name": "Orange",
+                  "url": "https://myanimelist.net/manga/35573/Orange"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Hikari no Hahen (光の破片)\" by Yu Takahashi"
+            ],
+            "endings": [
+              "\"Mirai (未来)\" by Kobukuro"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.orange-anime.com/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=11938"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=18075"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/Orange_(%E9%AB%98%E9%87%8E%E8%8B%BA%E3%81%AE%E6%BC%AB%E7%94%BB)"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-270665"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/32729/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:24:59Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/32729/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:25:00Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:25:00Z"
+}

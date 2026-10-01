@@ -1,0 +1,195 @@
+{
+  "mal_id": 10408,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/10408/full",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:24:57Z",
+      "sha256": null,
+      "data": null
+    },
+    "recommendations": {
+      "endpoint": "/anime/10408/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:24:58Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/10408/characters",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:56:26Z",
+      "sha256": "888ee7728acd0308e0dc78b9da55986085f8765e3a0b3be39f560342cba466c3",
+      "data": {
+        "data": [
+          {
+            "character": {
+              "mal_id": 41311,
+              "url": "https://myanimelist.net/character/41311/Gin",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/2/160251.jpg?s=50d566413be76a1981778aa8a22d4592"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/2/160251.webp?s=50d566413be76a1981778aa8a22d4592",
+                  "small_image_url": "https://cdn.myanimelist.net/images/characters/2/160251t.webp?s=50d566413be76a1981778aa8a22d4592"
+                }
+              },
+              "name": "Gin"
+            },
+            "role": "Main",
+            "favorites": 3254,
+            "voice_actors": [
+              {
+                "person": {
+                  "mal_id": 1764,
+                  "url": "https://myanimelist.net/people/1764/Kouki_Uchiyama",
+                  "images": {
+                    "jpg": {
+                      "image_url": "https://cdn.myanimelist.net/images/voiceactors/1/63405.jpg?s=c6fe650dcb3f7707ec5640d053365a80"
+                    }
+                  },
+                  "name": "Uchiyama, Kouki"
+                },
+                "language": "Japanese"
+              }
+            ]
+          },
+          {
+            "character": {
+              "mal_id": 41371,
+              "url": "https://myanimelist.net/character/41371/Hotaru_Takegawa",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/16/158277.jpg?s=4f873c73f72a0ff7fef09e4c9564b913"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/16/158277.webp?s=4f873c73f72a0ff7fef09e4c9564b913",
+                  "small_image_url": "https://cdn.myanimelist.net/images/characters/16/158277t.webp?s=4f873c73f72a0ff7fef09e4c9564b913"
+                }
+              },
+              "name": "Takegawa, Hotaru"
+            },
+            "role": "Main",
+            "favorites": 138,
+            "voice_actors": [
+              {
+                "person": {
+                  "mal_id": 11622,
+                  "url": "https://myanimelist.net/people/11622/Ayane_Sakura",
+                  "images": {
+                    "jpg": {
+                      "image_url": "https://cdn.myanimelist.net/images/voiceactors/3/67809.jpg?s=f26ea762598706fc58c4b5024ce2c15f"
+                    }
+                  },
+                  "name": "Sakura, Ayane"
+                },
+                "language": "Japanese"
+              }
+            ]
+          },
+          {
+            "character": {
+              "mal_id": 187863,
+              "url": "https://myanimelist.net/character/187863/Grandfather_Takegawa",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/4/422009.jpg?s=c862a9b480ee744c9c2d7edfdd24af89"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/4/422009.webp?s=c862a9b480ee744c9c2d7edfdd24af89",
+                  "small_image_url": "https://cdn.myanimelist.net/images/characters/4/422009t.webp?s=c862a9b480ee744c9c2d7edfdd24af89"
+                }
+              },
+              "name": "Grandfather Takegawa"
+            },
+            "role": "Supporting",
+            "favorites": 2,
+            "voice_actors": [
+              {
+                "person": {
+                  "mal_id": 800,
+                  "url": "https://myanimelist.net/people/800/Shinpachi_Tsuji",
+                  "images": {
+                    "jpg": {
+                      "image_url": "https://cdn.myanimelist.net/images/voiceactors/3/63534.jpg?s=cafe43d6a105d6a4b250e544353e213b"
+                    }
+                  },
+                  "name": "Tsuji, Shinpachi"
+                },
+                "language": "Japanese"
+              }
+            ]
+          },
+          {
+            "character": {
+              "mal_id": 60689,
+              "url": "https://myanimelist.net/character/60689/Mother_Takegawa",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/9/161943.jpg?s=e3dea10d3baab0c265129debe1a8b181"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/9/161943.webp?s=e3dea10d3baab0c265129debe1a8b181",
+                  "small_image_url": "https://cdn.myanimelist.net/images/characters/9/161943t.webp?s=e3dea10d3baab0c265129debe1a8b181"
+                }
+              },
+              "name": "Mother Takegawa"
+            },
+            "role": "Supporting",
+            "favorites": 20,
+            "voice_actors": [
+              {
+                "person": {
+                  "mal_id": 12036,
+                  "url": "https://myanimelist.net/people/12036/Izumi_Sawada",
+                  "images": {
+                    "jpg": {
+                      "image_url": "https://cdn.myanimelist.net/images/voiceactors/3/11369.jpg?s=7e6be93604a6b21b560d85638fe15af0"
+                    }
+                  },
+                  "name": "Sawada, Izumi"
+                },
+                "language": "Japanese"
+              }
+            ]
+          },
+          {
+            "character": {
+              "mal_id": 60691,
+              "url": "https://myanimelist.net/character/60691/Ryouta",
+              "images": {
+                "jpg": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/6/161945.jpg?s=7301451696c3a3cf9232a88dc85e5f15"
+                },
+                "webp": {
+                  "image_url": "https://cdn.myanimelist.net/images/characters/6/161945.webp?s=7301451696c3a3cf9232a88dc85e5f15",
+                  "small_image_url": "https://cdn.myanimelist.net/images/characters/6/161945t.webp?s=7301451696c3a3cf9232a88dc85e5f15"
+                }
+              },
+              "name": "Ryouta"
+            },
+            "role": "Supporting",
+            "favorites": 18,
+            "voice_actors": [
+              {
+                "person": {
+                  "mal_id": 7697,
+                  "url": "https://myanimelist.net/people/7697/Hayato_Taya",
+                  "images": {
+                    "jpg": {
+                      "image_url": "https://cdn.myanimelist.net/images/voiceactors/2/11900.jpg?s=7b1d201fdb5bdbab737f4274a8b498f4"
+                    }
+                  },
+                  "name": "Taya, Hayato"
+                },
+                "language": "Japanese"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "fetched_at": "2026-09-30T12:24:58Z"
+}

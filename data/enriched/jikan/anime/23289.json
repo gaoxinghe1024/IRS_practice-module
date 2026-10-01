@@ -1,0 +1,279 @@
+{
+  "mal_id": 23289,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/23289/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:53:51Z",
+      "sha256": "f6db86552bf6219aa2390bd9e939b81fa0f10a2e563ff952dccfb3e6b8d8aaec",
+      "data": {
+        "data": {
+          "mal_id": 23289,
+          "url": "https://myanimelist.net/anime/23289/Gekkan_Shoujo_Nozaki-kun",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/5/66083.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/5/66083t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/5/66083l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/5/66083.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/5/66083t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/5/66083l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/8FGsSpcZ-FI?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Gekkan Shoujo Nozaki-kun"
+            },
+            {
+              "type": "Synonym",
+              "title": "Gekkan Shoujo Nozaki-kun"
+            },
+            {
+              "type": "Japanese",
+              "title": "月刊少女野崎くん"
+            },
+            {
+              "type": "English",
+              "title": "Monthly Girls' Nozaki-kun"
+            },
+            {
+              "type": "German",
+              "title": "Monthly Girls' Nozaki-kun"
+            },
+            {
+              "type": "Spanish",
+              "title": "Gekkan Shojo Nozaki-kun"
+            },
+            {
+              "type": "French",
+              "title": "Monthly Girls' Nozaki-kun"
+            }
+          ],
+          "title": "Gekkan Shoujo Nozaki-kun",
+          "title_english": "Monthly Girls' Nozaki-kun",
+          "title_japanese": "月刊少女野崎くん",
+          "title_synonyms": [
+            "Gekkan Shoujo Nozaki-kun"
+          ],
+          "type": "TV",
+          "source": "4-koma manga",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2014-07-07T00:00:00+00:00",
+            "to": "2014-09-22T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 7,
+                "month": 7,
+                "year": 2014
+              },
+              "to": {
+                "day": 22,
+                "month": 9,
+                "year": 2014
+              }
+            },
+            "string": "Jul 7, 2014 to Sep 22, 2014"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.81,
+          "scored_by": 545532,
+          "rank": 1134,
+          "popularity": 194,
+          "members": 1001342,
+          "favorites": 11338,
+          "synopsis": "Chiyo Sakura is a cheerful high school girl who has fallen head over heels for the oblivious Umetarou Nozaki. Much to Chiyo's confusion, when she confesses to her beloved Nozaki, he hands her an unfamiliar autograph. As it turns out, the stoic teenage boy is actually a respected shoujo manga artist, publishing under the pen name Sakiko Yumeno! A series of misunderstandings leads to Chiyo becoming one of Nozaki's manga assistants.\n\nThroughout the hilarious events that ensue, she befriends many of her quirky schoolmates, including her seemingly shameless fellow assistant, Mikoto Mikoshiba, and the \"Prince of the School,\" Yuu Kashima. Gekkan Shoujo Nozaki-kun follows Chiyo as she strives to help Nozaki with his manga and hopes that he will eventually notice her feelings.\n\n[Written by MAL Rewrite]",
+          "background": "The voice acting cast for the anime differs from the cast of the Drama CD adaptation which was released June 2013.",
+          "season": "summer",
+          "year": 2014,
+          "broadcast": {
+            "day": "Mondays",
+            "time": "01:05",
+            "timezone": "Asia/Tokyo",
+            "string": "Mondays at 01:05 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 16,
+              "type": "anime",
+              "name": "TV Tokyo",
+              "url": "https://myanimelist.net/anime/producer/16/TV_Tokyo"
+            },
+            {
+              "mal_id": 61,
+              "type": "anime",
+              "name": "Frontier Works",
+              "url": "https://myanimelist.net/anime/producer/61/Frontier_Works"
+            },
+            {
+              "mal_id": 108,
+              "type": "anime",
+              "name": "Media Factory",
+              "url": "https://myanimelist.net/anime/producer/108/Media_Factory"
+            },
+            {
+              "mal_id": 238,
+              "type": "anime",
+              "name": "AT-X",
+              "url": "https://myanimelist.net/anime/producer/238/AT-X"
+            },
+            {
+              "mal_id": 737,
+              "type": "anime",
+              "name": "Sony Music Communications",
+              "url": "https://myanimelist.net/anime/producer/737/Sony_Music_Communications"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 95,
+              "type": "anime",
+              "name": "Doga Kobo",
+              "url": "https://myanimelist.net/anime/producer/95/Doga_Kobo"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Comedy",
+              "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 69,
+              "type": "anime",
+              "name": "Otaku Culture",
+              "url": "https://myanimelist.net/anime/genre/69/Otaku_Culture"
+            },
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 29211,
+                  "type": "manga",
+                  "name": "Gekkan Shoujo Nozaki-kun",
+                  "url": "https://myanimelist.net/manga/29211/Gekkan_Shoujo_Nozaki-kun"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 27633,
+                  "type": "anime",
+                  "name": "Gekkan Shoujo Nozaki-kun Specials",
+                  "url": "https://myanimelist.net/anime/27633/Gekkan_Shoujo_Nozaki-kun_Specials"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Kimi ja Nakya Dame Mitai (君じゃなきゃダメみたい)\" by Masayoshi Ooishi (大石昌良)"
+            ],
+            "endings": [
+              "\"Ura Omote Fortune (ウラオモテ・フォーチュン)\" by Chiyo Sakura (CV: Ari Ozawa) (eps 1-11)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.nozakikun.tv/"
+            },
+            {
+              "name": "@nozaki_anime",
+              "url": "https://twitter.com/nozaki_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=10542"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=16036"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Monthly_Girls%27_Nozaki-kun"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-261811"
+            },
+            {
+              "name": "HIDIVE",
+              "url": "https://www.hidive.com/tv/monthly-girls-nozaki-kun"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/23289/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:22:29Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/23289/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:22:30Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:22:30Z"
+}

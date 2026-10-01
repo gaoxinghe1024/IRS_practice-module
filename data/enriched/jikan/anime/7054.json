@@ -1,0 +1,261 @@
+{
+  "mal_id": 7054,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/7054/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:50:18Z",
+      "sha256": "616db28312536dd7b5a97def25d32a5d5ed0a0a17548f81f0915b047d6259191",
+      "data": {
+        "data": {
+          "mal_id": 7054,
+          "url": "https://myanimelist.net/anime/7054/Kaichou_wa_Maid-sama",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/6/25254.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/6/25254t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/6/25254l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/6/25254.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/6/25254t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/6/25254l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": null,
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Kaichou wa Maid-sama!"
+            },
+            {
+              "type": "Synonym",
+              "title": "Class President is a Maid!"
+            },
+            {
+              "type": "Japanese",
+              "title": "会長はメイド様!"
+            },
+            {
+              "type": "English",
+              "title": "Maid Sama!"
+            }
+          ],
+          "title": "Kaichou wa Maid-sama!",
+          "title_english": "Maid Sama!",
+          "title_japanese": "会長はメイド様!",
+          "title_synonyms": [
+            "Class President is a Maid!"
+          ],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 26,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2010-04-02T00:00:00+00:00",
+            "to": "2010-09-24T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 2,
+                "month": 4,
+                "year": 2010
+              },
+              "to": {
+                "day": 24,
+                "month": 9,
+                "year": 2010
+              }
+            },
+            "string": "Apr 2, 2010 to Sep 24, 2010"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.99,
+          "scored_by": 779457,
+          "rank": 763,
+          "popularity": 114,
+          "members": 1347260,
+          "favorites": 23893,
+          "synopsis": "Misaki Ayuzawa is a unique phenomenon within Seika High School. In a predominantly male institution, she became the first-ever female student council president through her honesty and diligence. Ever since Misaki got promoted to the position, she has been working tirelessly to ensure a better school life for all girls. Despite that, Misaki is very strict with the boys, which has earned her the title \"Demon President.\" \n\nOne day, after hearing a girl cry in the hallway, Misaki encounters Takumi Usui—the most popular boy in the school—as he rejects a love confession. Enraged at what she is seeing, Misaki reprimands him for making the girl cry. However, Usui is indifferent and brushes it off as nothing.\n\nUnexpectedly, Misaki soon runs into Usui again, but this time when she is working at a maid cafe! Embarrassed that someone has found out about her secret occupation, Misaki promises herself not to let Usui destroy her reputation. However, the mysterious boy now begins to visit the same cafe regularly to observe and tease Misaki. When push comes to shove, will Usui still be able to keep the president's secret?\n\n[Written by MAL Rewrite]",
+          "background": "Kaichou wa Maid-sama! has also received a drama CD in Japan.",
+          "season": "spring",
+          "year": 2010,
+          "broadcast": {
+            "day": "Fridays",
+            "time": "01:55",
+            "timezone": "Asia/Tokyo",
+            "string": "Fridays at 01:55 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 31,
+              "type": "anime",
+              "name": "Geneon Universal Entertainment",
+              "url": "https://myanimelist.net/anime/producer/31/Geneon_Universal_Entertainment"
+            },
+            {
+              "mal_id": 145,
+              "type": "anime",
+              "name": "TBS",
+              "url": "https://myanimelist.net/anime/producer/145/TBS"
+            },
+            {
+              "mal_id": 148,
+              "type": "anime",
+              "name": "Hakusensha",
+              "url": "https://myanimelist.net/anime/producer/148/Hakusensha"
+            },
+            {
+              "mal_id": 213,
+              "type": "anime",
+              "name": "Half H.P Studio",
+              "url": "https://myanimelist.net/anime/producer/213/Half_HP_Studio"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "J.C.Staff",
+              "url": "https://myanimelist.net/anime/producer/7/JCStaff"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Comedy",
+              "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 25,
+              "type": "anime",
+              "name": "Shoujo",
+              "url": "https://myanimelist.net/anime/genre/25/Shoujo"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 2921,
+                  "type": "manga",
+                  "name": "Kaichou wa Maid-sama!",
+                  "url": "https://myanimelist.net/manga/2921/Kaichou_wa_Maid-sama"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 10298,
+                  "type": "anime",
+                  "name": "Kaichou wa Maid-sama!: Goshujinsama to Asonjao♥",
+                  "url": "https://myanimelist.net/anime/10298/Kaichou_wa_Maid-sama__Goshujinsama_to_Asonjao♥"
+                },
+                {
+                  "mal_id": 9366,
+                  "type": "anime",
+                  "name": "Kaichou wa Maid-sama!: Omake da yo!",
+                  "url": "https://myanimelist.net/anime/9366/Kaichou_wa_Maid-sama__Omake_da_yo"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"My Secret\" by Saaya Mizuno (水野佐彩)"
+            ],
+            "endings": [
+              "1: \"Yokan (予感)\" by heidi. (eps 1-15)",
+              "2: \"∞ Loop (∞ループ)\" by heidi. (eps 16-26)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.tbs.co.jp/anime/maidsama/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=7008"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=11037"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Maid-sama!"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-279712"
+            },
+            {
+              "name": "HIDIVE",
+              "url": "https://www.hidive.com/tv/maid-sama"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/7054/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:19:02Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/7054/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:19:04Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:19:04Z"
+}

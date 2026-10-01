@@ -1,0 +1,337 @@
+{
+  "mal_id": 16894,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/16894/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:55:34Z",
+      "sha256": "6104bbfbf807ee4ac5063300655ca45c3b55babf646e8e063e5d1ec3b59b9f6f",
+      "data": {
+        "data": {
+          "mal_id": 16894,
+          "url": "https://myanimelist.net/anime/16894/Kuroko_no_Basket_2nd_Season",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/9/56155.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/9/56155t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/9/56155l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/9/56155.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/9/56155t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/9/56155l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/11ROABkyews?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Kuroko no Basket 2nd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "Kuroko no Basuke 2nd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "The Basketball Which Kuroko Plays"
+            },
+            {
+              "type": "Japanese",
+              "title": "黒子のバスケ"
+            },
+            {
+              "type": "English",
+              "title": "Kuroko's Basketball 2"
+            },
+            {
+              "type": "German",
+              "title": "Kuroko's Basketball Staffel 2"
+            },
+            {
+              "type": "Spanish",
+              "title": "Kuroko no Basket Temporada 2"
+            },
+            {
+              "type": "French",
+              "title": "Kuroko's Basketball Saison 2"
+            }
+          ],
+          "title": "Kuroko no Basket 2nd Season",
+          "title_english": "Kuroko's Basketball 2",
+          "title_japanese": "黒子のバスケ",
+          "title_synonyms": [
+            "Kuroko no Basuke 2nd Season",
+            "The Basketball Which Kuroko Plays"
+          ],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 25,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2013-10-06T00:00:00+00:00",
+            "to": "2014-03-30T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 6,
+                "month": 10,
+                "year": 2013
+              },
+              "to": {
+                "day": 30,
+                "month": 3,
+                "year": 2014
+              }
+            },
+            "string": "Oct 6, 2013 to Mar 30, 2014"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 8.2,
+          "scored_by": 591660,
+          "rank": 451,
+          "popularity": 219,
+          "members": 933936,
+          "favorites": 4436,
+          "synopsis": "With the Interhigh Championship finally over, Seirin's basketball team refocuses their efforts, training harder than ever to get the chance to participate in the Winter Cup. Both Tetsuya Kuroko and Taiga Kagami see old friends walk back into their lives, providing a challenge both on and off the court.\n\nAs new skills are developed and new alliances created, enemies from various teams—giants of high school basketball such as Yousen, Shuutoku, and Touou—stand in the way of Seirin's steadfast attempts to get to the top. All of these schools prove to be formidable foes whose abilities progress exponentially, while Kuroko struggles to find a balance between his resolve to play as part of a team and his desire to win. \n\nWith old wounds reopening, new challenges to face on the court, and a new set of foes—the \"Uncrowned Kings\"—vowing to defeat the new hopefuls, will Seirin ever be able to achieve their dream of beating the Generation of Miracles?\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "fall",
+          "year": 2013,
+          "broadcast": {
+            "day": "Sundays",
+            "time": "01:58",
+            "timezone": "Asia/Tokyo",
+            "string": "Sundays at 01:58 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "Bandai Visual",
+              "url": "https://myanimelist.net/anime/producer/23/Bandai_Visual"
+            },
+            {
+              "mal_id": 104,
+              "type": "anime",
+              "name": "Lantis",
+              "url": "https://myanimelist.net/anime/producer/104/Lantis"
+            },
+            {
+              "mal_id": 139,
+              "type": "anime",
+              "name": "Nihon Ad Systems",
+              "url": "https://myanimelist.net/anime/producer/139/Nihon_Ad_Systems"
+            },
+            {
+              "mal_id": 1121,
+              "type": "anime",
+              "name": "Banpresto",
+              "url": "https://myanimelist.net/anime/producer/1121/Banpresto"
+            },
+            {
+              "mal_id": 1365,
+              "type": "anime",
+              "name": "Shueisha",
+              "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+            },
+            {
+              "mal_id": 1416,
+              "type": "anime",
+              "name": "BS11",
+              "url": "https://myanimelist.net/anime/producer/1416/BS11"
+            }
+          ],
+          "licensors": [],
+          "studios": [
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Production I.G",
+              "url": "https://myanimelist.net/anime/producer/10/Production_IG"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 30,
+              "type": "anime",
+              "name": "Sports",
+              "url": "https://myanimelist.net/anime/genre/30/Sports"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            },
+            {
+              "mal_id": 77,
+              "type": "anime",
+              "name": "Team Sports",
+              "url": "https://myanimelist.net/anime/genre/77/Team_Sports"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 27,
+              "type": "anime",
+              "name": "Shounen",
+              "url": "https://myanimelist.net/anime/genre/27/Shounen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 11771,
+                  "type": "anime",
+                  "name": "Kuroko no Basket",
+                  "url": "https://myanimelist.net/anime/11771/Kuroko_no_Basket"
+                }
+              ]
+            },
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 24415,
+                  "type": "anime",
+                  "name": "Kuroko no Basket 3rd Season",
+                  "url": "https://myanimelist.net/anime/24415/Kuroko_no_Basket_3rd_Season"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 11652,
+                  "type": "manga",
+                  "name": "Kuroko no Basket",
+                  "url": "https://myanimelist.net/manga/11652/Kuroko_no_Basket"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 22125,
+                  "type": "anime",
+                  "name": "Kuroko no Basket: Mou Ikkai Yarimasen ka",
+                  "url": "https://myanimelist.net/anime/22125/Kuroko_no_Basket__Mou_Ikkai_Yarimasen_ka"
+                }
+              ]
+            },
+            {
+              "relation": "Summary",
+              "entry": [
+                {
+                  "mal_id": 32870,
+                  "type": "anime",
+                  "name": "Kuroko no Basket Movie 2: Winter Cup - Namida no Saki e",
+                  "url": "https://myanimelist.net/anime/32870/Kuroko_no_Basket_Movie_2__Winter_Cup_-_Namida_no_Saki_e"
+                }
+              ]
+            },
+            {
+              "relation": "Other",
+              "entry": [
+                {
+                  "mal_id": 22673,
+                  "type": "anime",
+                  "name": "Kuroko no Basket 2nd Season NG-shuu",
+                  "url": "https://myanimelist.net/anime/22673/Kuroko_no_Basket_2nd_Season_NG-shuu"
+                },
+                {
+                  "mal_id": 29583,
+                  "type": "anime",
+                  "name": "Kuroko no Basket: Oshaberi Demo Shimasen ka",
+                  "url": "https://myanimelist.net/anime/29583/Kuroko_no_Basket__Oshaberi_Demo_Shimasen_ka"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "1: \"The Other self\" by GRANRODEO (eps 1-13)",
+              "2: \"Hengen Jizai no Magical Star (変幻自在のマジカルスター)\" by GRANRODEO (eps 14-24)"
+            ],
+            "endings": [
+              "1: \"WALK\" by OLDCODEX  (eps 1-13)",
+              "2: \"FANTASTIC TUNE\" by Kensho Ono (eps 14-24)",
+              "3: \"Hengen Jizai no Magical Star (変幻自在のマジカルスター)\" by GRANRODEO (eps 25)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://tv.kurobas.com/"
+            },
+            {
+              "name": "@kurobasanime",
+              "url": "https://twitter.com/kurobasanime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=9603"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=15002"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://ja.wikipedia.org/wiki/%E9%BB%92%E5%AD%90%E3%81%AE%E3%83%90%E3%82%B9%E3%82%B1"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Kuroko's_Basketball#Anime"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/3175"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-243974"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/16894/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:24:08Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/16894/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:24:09Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:24:09Z"
+}

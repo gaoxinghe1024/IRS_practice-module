@@ -1,0 +1,27 @@
+{
+  "mal_id": 33,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/33/full",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:30:53Z",
+      "sha256": null,
+      "data": null
+    },
+    "recommendations": {
+      "endpoint": "/anime/33/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:30:54Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/33/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:30:55Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:30:55Z"
+}

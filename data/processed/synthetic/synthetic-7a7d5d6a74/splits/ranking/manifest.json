@@ -1,0 +1,30 @@
+{
+  "protocol": "ranking_leave_two_high_out",
+  "dataset_version": "synthetic-7a7d5d6a74",
+  "seed": 20260930,
+  "positive_threshold": 8,
+  "min_ratings": 5,
+  "created_at": "2026-09-30T09:35:24Z",
+  "counts": {
+    "train": 18532,
+    "val": 726,
+    "test": 726
+  },
+  "users": {
+    "total": 800,
+    "eval_eligible": 726,
+    "train_only": 74
+  },
+  "user_rating_count_buckets": {
+    "1": 18,
+    "2-3": 43,
+    "4-8": 98,
+    "9-20": 272,
+    "21-50": 291,
+    "51-100": 69,
+    "101-250": 9,
+    ">250": 0
+  },
+  "fingerprint": "8c7fc0a940c29669",
+  "note": "validation and test positives are distinct high ratings of the same user; no timestamps exist"
+}

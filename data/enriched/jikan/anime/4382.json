@@ -1,0 +1,315 @@
+{
+  "mal_id": 4382,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/4382/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:06:42Z",
+      "sha256": "721fce02dc3d2d8f0ea784a98c1000e1805d26284d468a14d56bb7367bc744b2",
+      "data": {
+        "data": {
+          "mal_id": 4382,
+          "url": "https://myanimelist.net/anime/4382/Suzumiya_Haruhi_no_Yuuutsu_2009",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/8/75377.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/8/75377t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/8/75377l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/8/75377.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/8/75377t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/8/75377l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/9aOcDMV-X68?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Suzumiya Haruhi no Yuuutsu (2009)"
+            },
+            {
+              "type": "Synonym",
+              "title": "Suzumiya Haruhi no Yuutsu (2009)"
+            },
+            {
+              "type": "Synonym",
+              "title": "Endless Eight"
+            },
+            {
+              "type": "Synonym",
+              "title": "The Sigh of Haruhi Suzumiya"
+            },
+            {
+              "type": "Japanese",
+              "title": "涼宮ハルヒの憂鬱"
+            },
+            {
+              "type": "English",
+              "title": "The Melancholy of Haruhi Suzumiya (2009)"
+            },
+            {
+              "type": "German",
+              "title": "Die Melancholie der Haruhi Suzumiya: Staffel 2"
+            },
+            {
+              "type": "French",
+              "title": "La Mélancolie de Haruhi Suzumiya Saison 2"
+            }
+          ],
+          "title": "Suzumiya Haruhi no Yuuutsu (2009)",
+          "title_english": "The Melancholy of Haruhi Suzumiya (2009)",
+          "title_japanese": "涼宮ハルヒの憂鬱",
+          "title_synonyms": [
+            "Suzumiya Haruhi no Yuutsu (2009)",
+            "Endless Eight",
+            "The Sigh of Haruhi Suzumiya"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 14,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2009-05-22T00:00:00+00:00",
+            "to": "2009-09-11T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 22,
+                "month": 5,
+                "year": 2009
+              },
+              "to": {
+                "day": 11,
+                "month": 9,
+                "year": 2009
+              }
+            },
+            "string": "May 22, 2009 to Sep 11, 2009"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.23,
+          "scored_by": 324831,
+          "rank": 3562,
+          "popularity": 441,
+          "members": 571512,
+          "favorites": 2537,
+          "synopsis": "Kyon has found himself dragged through many adventures as of late—all because of the SOS Brigade club and its excitable leader, Haruhi Suzumiya. He has stopped believing in the supernatural long ago, but after being forced to join this club based solely on that, he has seen things that cannot be explained logically. \n\nJoining Kyon on his various misadventures is the shy and soft-spoken Mikuru Asahina, the bookish Yuki Nagato, and the ever-cheerful Itsuki Koizumi. Whether it is summer vacation or a school festival, things involving their club and Haruhi herself always end up becoming strange.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "spring",
+          "year": 2009,
+          "broadcast": {
+            "day": "Fridays",
+            "time": "00:40",
+            "timezone": "Asia/Tokyo",
+            "string": "Fridays at 00:40 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 104,
+              "type": "anime",
+              "name": "Lantis",
+              "url": "https://myanimelist.net/anime/producer/104/Lantis"
+            },
+            {
+              "mal_id": 113,
+              "type": "anime",
+              "name": "Kadokawa Shoten",
+              "url": "https://myanimelist.net/anime/producer/113/Kadokawa_Shoten"
+            },
+            {
+              "mal_id": 211,
+              "type": "anime",
+              "name": "Rakuonsha",
+              "url": "https://myanimelist.net/anime/producer/211/Rakuonsha"
+            },
+            {
+              "mal_id": 352,
+              "type": "anime",
+              "name": "Kadokawa Pictures Japan",
+              "url": "https://myanimelist.net/anime/producer/352/Kadokawa_Pictures_Japan"
+            },
+            {
+              "mal_id": 460,
+              "type": "anime",
+              "name": "KlockWorx",
+              "url": "https://myanimelist.net/anime/producer/460/KlockWorx"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            },
+            {
+              "mal_id": 233,
+              "type": "anime",
+              "name": "Bandai Entertainment",
+              "url": "https://myanimelist.net/anime/producer/233/Bandai_Entertainment"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 2,
+              "type": "anime",
+              "name": "Kyoto Animation",
+              "url": "https://myanimelist.net/anime/producer/2/Kyoto_Animation"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Comedy",
+              "url": "https://myanimelist.net/anime/genre/4/Comedy"
+            },
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "Mystery",
+              "url": "https://myanimelist.net/anime/genre/7/Mystery"
+            },
+            {
+              "mal_id": 24,
+              "type": "anime",
+              "name": "Sci-Fi",
+              "url": "https://myanimelist.net/anime/genre/24/Sci-Fi"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 849,
+                  "type": "anime",
+                  "name": "Suzumiya Haruhi no Yuuutsu",
+                  "url": "https://myanimelist.net/anime/849/Suzumiya_Haruhi_no_Yuuutsu"
+                }
+              ]
+            },
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 7311,
+                  "type": "anime",
+                  "name": "Suzumiya Haruhi no Shoushitsu",
+                  "url": "https://myanimelist.net/anime/7311/Suzumiya_Haruhi_no_Shoushitsu"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 1345,
+                  "type": "manga",
+                  "name": "Suzumiya Haruhi no Yuuutsu",
+                  "url": "https://myanimelist.net/manga/1345/Suzumiya_Haruhi_no_Yuuutsu"
+                },
+                {
+                  "mal_id": 3083,
+                  "type": "manga",
+                  "name": "Suzumiya Haruhi Series",
+                  "url": "https://myanimelist.net/manga/3083/Suzumiya_Haruhi_Series"
+                }
+              ]
+            },
+            {
+              "relation": "Spin-Off",
+              "entry": [
+                {
+                  "mal_id": 26351,
+                  "type": "anime",
+                  "name": "Nagato Yuki-chan no Shoushitsu",
+                  "url": "https://myanimelist.net/anime/26351/Nagato_Yuki-chan_no_Shoushitsu"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Super Driver\" by Aya Hirano"
+            ],
+            "endings": [
+              "\"Tomare! (止マレ!)\" by Aya Hirano, Yuko Goto, Minori Chihara"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.haruhi.tv/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=6367"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=10924"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/The_Melancholy_of_Haruhi_Suzumiya#Anime"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E6%B6%BC%E5%AE%AE%E3%83%8F%E3%83%AB%E3%83%92%E3%81%AE%E6%86%82%E9%AC%B1_(%E3%82%A2%E3%83%8B%E3%83%A1)"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/1639"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/4382/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:34:52Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/4382/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:34:53Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:34:53Z"
+}

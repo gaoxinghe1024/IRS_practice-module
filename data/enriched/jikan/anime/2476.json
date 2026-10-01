@@ -1,0 +1,280 @@
+{
+  "mal_id": 2476,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/2476/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:00:57Z",
+      "sha256": "766d18479faed13423a56eb0042c8f331c1cedd4546142ec84811a72f9bee47c",
+      "data": {
+        "data": {
+          "mal_id": 2476,
+          "url": "https://myanimelist.net/anime/2476/School_Days",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1593/122440.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1593/122440t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1593/122440l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1593/122440.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1593/122440t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1593/122440l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": null,
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "School Days"
+            },
+            {
+              "type": "Japanese",
+              "title": "スクールデイズ"
+            },
+            {
+              "type": "English",
+              "title": "School Days"
+            }
+          ],
+          "title": "School Days",
+          "title_english": "School Days",
+          "title_japanese": "スクールデイズ",
+          "title_synonyms": [],
+          "type": "TV",
+          "source": "Visual novel",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2007-07-04T00:00:00+00:00",
+            "to": "2007-09-27T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 4,
+                "month": 7,
+                "year": 2007
+              },
+              "to": {
+                "day": 27,
+                "month": 9,
+                "year": 2007
+              }
+            },
+            "string": "Jul 4, 2007 to Sep 27, 2007"
+          },
+          "duration": "24 min per ep",
+          "rating": "R+ - Mild Nudity",
+          "score": 5.5,
+          "scored_by": 423694,
+          "rank": 13299,
+          "popularity": 333,
+          "members": 715489,
+          "favorites": 3687,
+          "synopsis": "High school student Makoto Itou first notices Kotonoha Katsura at the start of his second semester, freshman year. Immediately, he becomes entranced by her beauty, but his bashfulness doesn't allow him to approach her, even though they ride the same train every day. Instead, he snaps a photo of her in secret and sets it as his cell phone's wallpaper: a charm that, if kept under wraps, would supposedly help you realize your love. However, classmate Sekai Saionji spots the picture, but instead of ratting him out, she offers to help set him up with Kotonoha—going so far as befriending her just for him. Thus, the trio begins a rather impromptu friendship.\n\nSchool Days follows the lives of these three teenagers as they traverse the joys and hardships that come with being a high schooler. In a story alive and brimming with romance and melancholy, the tale of these three students will linger in memory long after the momentous conclusion. \n\n[Written by MAL Rewrite]",
+          "background": "At midnight on September 18, 2007, the final episode of the TVK program was cancelled without notice, and a travelogue program showing castles and boats was shown instead with the message, \"Due to circumstances, the program has been changed.\" In fact, the day before the last episode was aired, a 16-year-old girl murdered her father in Kyoto Prefecture, which led to the postponement and cancellation of the last episode with a similar murder scene.",
+          "season": "summer",
+          "year": 2007,
+          "broadcast": {
+            "day": "Wednesdays",
+            "time": "02:15",
+            "timezone": "Asia/Tokyo",
+            "string": "Wednesdays at 02:15 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 52,
+              "type": "anime",
+              "name": "Avex Entertainment",
+              "url": "https://myanimelist.net/anime/producer/52/Avex_Entertainment"
+            },
+            {
+              "mal_id": 82,
+              "type": "anime",
+              "name": "Marvelous Entertainment",
+              "url": "https://myanimelist.net/anime/producer/82/Marvelous_Entertainment"
+            },
+            {
+              "mal_id": 104,
+              "type": "anime",
+              "name": "Lantis",
+              "url": "https://myanimelist.net/anime/producer/104/Lantis"
+            },
+            {
+              "mal_id": 144,
+              "type": "anime",
+              "name": "Pony Canyon",
+              "url": "https://myanimelist.net/anime/producer/144/Pony_Canyon"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 467,
+              "type": "anime",
+              "name": "Discotek Media",
+              "url": "https://myanimelist.net/anime/producer/467/Discotek_Media"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 120,
+              "type": "anime",
+              "name": "TNK",
+              "url": "https://myanimelist.net/anime/producer/120/TNK"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 8,
+              "type": "anime",
+              "name": "Drama",
+              "url": "https://myanimelist.net/anime/genre/8/Drama"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 35,
+              "type": "anime",
+              "name": "Harem",
+              "url": "https://myanimelist.net/anime/genre/35/Harem"
+            },
+            {
+              "mal_id": 23,
+              "type": "anime",
+              "name": "School",
+              "url": "https://myanimelist.net/anime/genre/23/School"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 1288,
+                  "type": "manga",
+                  "name": "School Days",
+                  "url": "https://myanimelist.net/manga/1288/School_Days"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 3759,
+                  "type": "anime",
+                  "name": "School Days: Valentine Days",
+                  "url": "https://myanimelist.net/anime/3759/School_Days__Valentine_Days"
+                }
+              ]
+            },
+            {
+              "relation": "Spin-Off",
+              "entry": [
+                {
+                  "mal_id": 3328,
+                  "type": "anime",
+                  "name": "School Days: Magical Heart Kokoro-chan",
+                  "url": "https://myanimelist.net/anime/3328/School_Days__Magical_Heart_Kokoro-chan"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Version",
+              "entry": [
+                {
+                  "mal_id": 756,
+                  "type": "anime",
+                  "name": "School Days ONA",
+                  "url": "https://myanimelist.net/anime/756/School_Days_ONA"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Innocent Blue (イノセント・ブルー)\" by DeviceHigh"
+            ],
+            "endings": [
+              "1: \"Usotsuki (ウソツキ)\" by CooRie (eps 1, 8)",
+              "2: \"Ai no kakera (愛のカケラ)\" by Miyuki Hashimoto (eps 2)",
+              "3: \"Waltz (ワルツ)\" by Kanako Itou (eps 3, 11)",
+              "4: \"Kioku no Umi (記憶の海])\" by yozuca* (eps 4, 7)",
+              "5: \"Look at Me\" by YURIA (eps 5)",
+              "6: \"Namida no Riyuu (涙の理由)\" by Minami Kuribayashi (eps 6, 10)",
+              "7: \"Anata ga... Inai (あなたが...いない) -Remix Ver.-\" by Minami Kuribayashi (eps 9)",
+              "8: \"Still I Love You ~Mitsumeru Yori wa Shiawase~ (～みつめるよりは幸せ～)\" by Kiriko – (eps 12)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.marv.jp/special/schooldays-anime/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=5117"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=7815"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/School_Days_%28game%29"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/School_Days_(アニメ)"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/1187"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-170864"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/2476/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:29:17Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/2476/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:29:18Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:29:18Z"
+}

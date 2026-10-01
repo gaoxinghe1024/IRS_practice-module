@@ -1,0 +1,79 @@
+{
+  "checked_at": "2026-09-30T15:24:14Z",
+  "raw_dir": "data/raw/mal_2023",
+  "files": {
+    "anime": {
+      "path": "data/raw/mal_2023/anime-dataset-2023.csv",
+      "bytes": 15924739,
+      "sha256": "60fbcd6772f0bdad1bad1824486a6a87d0df1e69a6323f8d9eca6c8bc7218115",
+      "columns": [
+        "anime_id",
+        "Name",
+        "English name",
+        "Other name",
+        "Score",
+        "Genres",
+        "Synopsis",
+        "Type",
+        "Episodes",
+        "Aired",
+        "Premiered",
+        "Status",
+        "Producers",
+        "Licensors",
+        "Studios",
+        "Source",
+        "Duration",
+        "Rating",
+        "Rank",
+        "Popularity",
+        "Favorites",
+        "Scored By",
+        "Members",
+        "Image URL"
+      ],
+      "missing_required_columns": [],
+      "missing_optional_columns": []
+    },
+    "scores": {
+      "path": "data/raw/mal_2023/users-score-2023.csv",
+      "bytes": 1157881770,
+      "sha256": "68d635154c0d9b8b601c2b3514933e3433c9ef2db0188b6c63155853cf85cea0",
+      "columns": [
+        "user_id",
+        "Username",
+        "anime_id",
+        "Anime Title",
+        "rating"
+      ],
+      "missing_required_columns": []
+    },
+    "details": {
+      "path": "data/raw/mal_2023/users-details-2023.csv",
+      "bytes": 73927314,
+      "sha256": "a7ea0f4922c153bbe86093ec01921b4dfa2fe7a0d58278cefb65306e71feafca",
+      "columns": [
+        "Mal ID",
+        "Username",
+        "Gender",
+        "Birthday",
+        "Location",
+        "Joined",
+        "Days Watched",
+        "Mean Score",
+        "Watching",
+        "Completed",
+        "On Hold",
+        "Dropped",
+        "Plan to Watch",
+        "Total Entries",
+        "Rewatched",
+        "Episodes Watched"
+      ],
+      "missing_required_columns": []
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "ok": true
+}

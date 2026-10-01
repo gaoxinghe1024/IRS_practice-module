@@ -1,0 +1,27 @@
+{
+  "mal_id": 877,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/877/full",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:30:26Z",
+      "sha256": null,
+      "data": null
+    },
+    "recommendations": {
+      "endpoint": "/anime/877/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:30:27Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/877/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:30:28Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:30:28Z"
+}

@@ -1,0 +1,320 @@
+{
+  "mal_id": 36475,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/36475/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:03:10Z",
+      "sha256": "2d30af93aa9385f33e0ca869c332311355590794ce3a081ce81079780374eedb",
+      "data": {
+        "data": {
+          "mal_id": 36475,
+          "url": "https://myanimelist.net/anime/36475/Sword_Art_Online_Alternative__Gun_Gale_Online",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1141/93288.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1141/93288t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1141/93288l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1141/93288.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1141/93288t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1141/93288l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/ZoEtBn_6KOI?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Sword Art Online Alternative: Gun Gale Online"
+            },
+            {
+              "type": "Synonym",
+              "title": "SAO Alternative Gun Gale Online"
+            },
+            {
+              "type": "Japanese",
+              "title": "ソードアート・オンライン オルタナティブ ガンゲイル・オンライン"
+            }
+          ],
+          "title": "Sword Art Online Alternative: Gun Gale Online",
+          "title_english": null,
+          "title_japanese": "ソードアート・オンライン オルタナティブ ガンゲイル・オンライン",
+          "title_synonyms": [
+            "SAO Alternative Gun Gale Online"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2018-04-08T00:00:00+00:00",
+            "to": "2018-07-01T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 8,
+                "month": 4,
+                "year": 2018
+              },
+              "to": {
+                "day": 1,
+                "month": 7,
+                "year": 2018
+              }
+            },
+            "string": "Apr 8, 2018 to Jul 1, 2018"
+          },
+          "duration": "23 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 7.01,
+          "scored_by": 378231,
+          "rank": 4812,
+          "popularity": 361,
+          "members": 678189,
+          "favorites": 1654,
+          "synopsis": "Clad in desert pink and the size of a mere child, the infamous \"Pink Devil\" mercilessly hunts down other players in the firearm-centered world of the virtual reality game Gun Gale Online. But in real life, this feared player killer is not quite who anyone would expect.\n \nA shy university student in Tokyo, Karen Kohiruimaki stands in stark contrast to her in-game avatar—in fact, she happens to stand above everyone else too, much to her dismay. Towering above all the people around her, Karen's insecurities over her height reach the point where she turns to the virtual world for an escape. Starting game after game in hopes of manifesting as a cute, short character, she finally obtains her ideal self in the world of Gun Gale Online. Overjoyed by her new persona, she pours her time into the game as LLENN, garnering her reputation as the legendary player killer.\n \nHowever, when one of LLENN's targets gets the best of her, she ends up meeting Pitohui, a skilled yet eccentric woman. Quickly becoming friends with Karen, Pitohui insists that LLENN participates in Squad Jam, a battle royale that pits teams against one another, fighting until only one remains. Thrust into the heated competition, LLENN must fight with all her wit and will if she hopes to shoot her way to the top.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "spring",
+          "year": 2018,
+          "broadcast": {
+            "day": "Sundays",
+            "time": "00:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Sundays at 00:00 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 17,
+              "type": "anime",
+              "name": "Aniplex",
+              "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+            },
+            {
+              "mal_id": 79,
+              "type": "anime",
+              "name": "Genco",
+              "url": "https://myanimelist.net/anime/producer/79/Genco"
+            },
+            {
+              "mal_id": 681,
+              "type": "anime",
+              "name": "ASCII Media Works",
+              "url": "https://myanimelist.net/anime/producer/681/ASCII_Media_Works"
+            },
+            {
+              "mal_id": 1233,
+              "type": "anime",
+              "name": "Bandai Namco Entertainment",
+              "url": "https://myanimelist.net/anime/producer/1233/Bandai_Namco_Entertainment"
+            },
+            {
+              "mal_id": 1444,
+              "type": "anime",
+              "name": "Egg Firm",
+              "url": "https://myanimelist.net/anime/producer/1444/Egg_Firm"
+            },
+            {
+              "mal_id": 1683,
+              "type": "anime",
+              "name": "Straight Edge",
+              "url": "https://myanimelist.net/anime/producer/1683/Straight_Edge"
+            },
+            {
+              "mal_id": 1696,
+              "type": "anime",
+              "name": "Kadokawa",
+              "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 493,
+              "type": "anime",
+              "name": "Aniplex of America",
+              "url": "https://myanimelist.net/anime/producer/493/Aniplex_of_America"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 1127,
+              "type": "anime",
+              "name": "Studio 3Hz",
+              "url": "https://myanimelist.net/anime/producer/1127/Studio_3Hz"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 38,
+              "type": "anime",
+              "name": "Military",
+              "url": "https://myanimelist.net/anime/genre/38/Military"
+            },
+            {
+              "mal_id": 79,
+              "type": "anime",
+              "name": "Video Game",
+              "url": "https://myanimelist.net/anime/genre/79/Video_Game"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 55994,
+                  "type": "anime",
+                  "name": "Sword Art Online Alternative: Gun Gale Online II",
+                  "url": "https://myanimelist.net/anime/55994/Sword_Art_Online_Alternative__Gun_Gale_Online_II"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 92625,
+                  "type": "manga",
+                  "name": "Sword Art Online Alternative: Gun Gale Online",
+                  "url": "https://myanimelist.net/manga/92625/Sword_Art_Online_Alternative__Gun_Gale_Online"
+                },
+                {
+                  "mal_id": 82795,
+                  "type": "manga",
+                  "name": "Sword Art Online Alternative: Gun Gale Online",
+                  "url": "https://myanimelist.net/manga/82795/Sword_Art_Online_Alternative__Gun_Gale_Online"
+                }
+              ]
+            },
+            {
+              "relation": "Summary",
+              "entry": [
+                {
+                  "mal_id": 37831,
+                  "type": "anime",
+                  "name": "Sword Art Online Alternative: Gun Gale Online - Refrain",
+                  "url": "https://myanimelist.net/anime/37831/Sword_Art_Online_Alternative__Gun_Gale_Online_-_Refrain"
+                },
+                {
+                  "mal_id": 59968,
+                  "type": "anime",
+                  "name": "Sword Art Online Alternative: Gun Gale Online II - Gala",
+                  "url": "https://myanimelist.net/anime/59968/Sword_Art_Online_Alternative__Gun_Gale_Online_II_-_Gala"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Setting",
+              "entry": [
+                {
+                  "mal_id": 21881,
+                  "type": "anime",
+                  "name": "Sword Art Online II",
+                  "url": "https://myanimelist.net/anime/21881/Sword_Art_Online_II"
+                }
+              ]
+            },
+            {
+              "relation": "Other",
+              "entry": [
+                {
+                  "mal_id": 37278,
+                  "type": "anime",
+                  "name": "Sword Art Online Fatal Bullet: The Third Episode - Pilot-ban",
+                  "url": "https://myanimelist.net/anime/37278/Sword_Art_Online_Fatal_Bullet__The_Third_Episode_-_Pilot-ban"
+                },
+                {
+                  "mal_id": 37362,
+                  "type": "anime",
+                  "name": "Sword Art Online Fatal Bullet: The Third Episode",
+                  "url": "https://myanimelist.net/anime/37362/Sword_Art_Online_Fatal_Bullet__The_Third_Episode"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Ryuusei (流星)\" by Eir Aoi"
+            ],
+            "endings": [
+              "\"To see the future\" by Karen Kohiruimaki (Tomori Kusunoki)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "https://www.gungale-online.net/1st/"
+            },
+            {
+              "name": "Official Site",
+              "url": "https://www.gungale-onlineusa.com/1st/"
+            },
+            {
+              "name": "@ggo_anime",
+              "url": "https://twitter.com/ggo_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=13494"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=20514"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Sword_Art_Online_Alternative_Gun_Gale_Online"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/ソードアート・オンライン_オルタナティブ_ガンゲイル・オンライン"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/36475/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:31:26Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/36475/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:31:27Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:31:27Z"
+}

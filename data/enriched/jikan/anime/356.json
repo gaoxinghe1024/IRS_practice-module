@@ -1,0 +1,365 @@
+{
+  "mal_id": 356,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/356/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:53:34Z",
+      "sha256": "58a3091e04f68ba845387805f3c6f187f3d445f93af342d7d148b74472a4f3ee",
+      "data": {
+        "data": {
+          "mal_id": 356,
+          "url": "https://myanimelist.net/anime/356/Fate_stay_night",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/4/30327.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/4/30327t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/4/30327l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/4/30327.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/4/30327t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/4/30327l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/gy1MP1j_oXM?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Fate/stay night"
+            },
+            {
+              "type": "Synonym",
+              "title": "Fate - Stay Night"
+            },
+            {
+              "type": "Japanese",
+              "title": "Fate/stay night"
+            },
+            {
+              "type": "English",
+              "title": "Fate/stay night"
+            }
+          ],
+          "title": "Fate/stay night",
+          "title_english": "Fate/stay night",
+          "title_japanese": "Fate/stay night",
+          "title_synonyms": [
+            "Fate - Stay Night"
+          ],
+          "type": "TV",
+          "source": "Visual novel",
+          "episodes": 24,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2006-01-07T00:00:00+00:00",
+            "to": "2006-06-17T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 7,
+                "month": 1,
+                "year": 2006
+              },
+              "to": {
+                "day": 17,
+                "month": 6,
+                "year": 2006
+              }
+            },
+            "string": "Jan 7, 2006 to Jun 17, 2006"
+          },
+          "duration": "24 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 7.27,
+          "scored_by": 549892,
+          "rank": 3284,
+          "popularity": 190,
+          "members": 1009458,
+          "favorites": 7706,
+          "synopsis": "After a mysterious inferno kills his family, Shirou is saved and adopted by Kiritsugu Emiya, who teaches him the ways of magic and justice.\n\nOne night, years after Kiritsugu's death, Shirou is cleaning at school, when he finds himself caught in the middle of a deadly encounter between two superhumans known as Servants. During his attempt to escape, the boy is caught by one of the Servants and receives a life-threatening injury. Miraculously, he survives, but the same Servant returns to finish what he started. In desperation, Shirou summons a Servant of his own, a knight named Saber. The two must now participate in the Fifth Holy Grail War, a battle royale of seven Servants and the mages who summoned them, with the grand prize being none other than the omnipotent Holy Grail itself.\n\nFate/stay night follows Shirou as he struggles to find the fine line between a hero and a killer, his ideals clashing with the harsh reality around him. Will the boy become a hero like his foster father, or die trying?\n\n[Written by MAL Rewrite]",
+          "background": "Fate/stay night is based on the first route of Type-Moon's visual novel of the same title, with elements from the second and third route combined in. Originally released in 2004 for Microsoft Windows, the visual novel later received an enhanced port―titled Fate/stay night: Réalta Nua―for the PS2 in 2007, the PS Vita in 2012, and Android and iOS in 2015.",
+          "season": "winter",
+          "year": 2006,
+          "broadcast": {
+            "day": "Saturdays",
+            "time": "01:30",
+            "timezone": "Asia/Tokyo",
+            "string": "Saturdays at 01:30 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 61,
+              "type": "anime",
+              "name": "Frontier Works",
+              "url": "https://myanimelist.net/anime/producer/61/Frontier_Works"
+            },
+            {
+              "mal_id": 145,
+              "type": "anime",
+              "name": "TBS",
+              "url": "https://myanimelist.net/anime/producer/145/TBS"
+            },
+            {
+              "mal_id": 460,
+              "type": "anime",
+              "name": "KlockWorx",
+              "url": "https://myanimelist.net/anime/producer/460/KlockWorx"
+            },
+            {
+              "mal_id": 703,
+              "type": "anime",
+              "name": "Notes",
+              "url": "https://myanimelist.net/anime/producer/703/Notes"
+            },
+            {
+              "mal_id": 2956,
+              "type": "anime",
+              "name": "Geneon Entertainment",
+              "url": "https://myanimelist.net/anime/producer/2956/Geneon_Entertainment"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            },
+            {
+              "mal_id": 1459,
+              "type": "anime",
+              "name": "Geneon Entertainment USA",
+              "url": "https://myanimelist.net/anime/producer/1459/Geneon_Entertainment_USA"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 37,
+              "type": "anime",
+              "name": "Studio Deen",
+              "url": "https://myanimelist.net/anime/producer/37/Studio_Deen"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Fantasy",
+              "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 82,
+              "type": "anime",
+              "name": "Urban Fantasy",
+              "url": "https://myanimelist.net/anime/genre/82/Urban_Fantasy"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 11741,
+                  "type": "anime",
+                  "name": "Fate/Zero 2nd Season",
+                  "url": "https://myanimelist.net/anime/11741/Fate_Zero_2nd_Season"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 715,
+                  "type": "manga",
+                  "name": "Fate/stay night",
+                  "url": "https://myanimelist.net/manga/715/Fate_stay_night"
+                }
+              ]
+            },
+            {
+              "relation": "Spin-Off",
+              "entry": [
+                {
+                  "mal_id": 37033,
+                  "type": "anime",
+                  "name": "Emiya-san Chi no Kyou no Gohan",
+                  "url": "https://myanimelist.net/anime/37033/Emiya-san_Chi_no_Kyou_no_Gohan"
+                }
+              ]
+            },
+            {
+              "relation": "Summary",
+              "entry": [
+                {
+                  "mal_id": 7559,
+                  "type": "anime",
+                  "name": "Fate/stay night TV Reproduction",
+                  "url": "https://myanimelist.net/anime/7559/Fate_stay_night_TV_Reproduction"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Version",
+              "entry": [
+                {
+                  "mal_id": 6922,
+                  "type": "anime",
+                  "name": "Fate/stay night Movie: Unlimited Blade Works",
+                  "url": "https://myanimelist.net/anime/6922/Fate_stay_night_Movie__Unlimited_Blade_Works"
+                },
+                {
+                  "mal_id": 12565,
+                  "type": "anime",
+                  "name": "Fate/Prototype",
+                  "url": "https://myanimelist.net/anime/12565/Fate_Prototype"
+                },
+                {
+                  "mal_id": 22297,
+                  "type": "anime",
+                  "name": "Fate/stay night: Unlimited Blade Works",
+                  "url": "https://myanimelist.net/anime/22297/Fate_stay_night__Unlimited_Blade_Works"
+                },
+                {
+                  "mal_id": 25537,
+                  "type": "anime",
+                  "name": "Fate/stay night Movie: Heaven's Feel - I. Presage Flower",
+                  "url": "https://myanimelist.net/anime/25537/Fate_stay_night_Movie__Heavens_Feel_-_I_Presage_Flower"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Setting",
+              "entry": [
+                {
+                  "mal_id": 14829,
+                  "type": "anime",
+                  "name": "Fate/kaleid liner Prisma☆Illya",
+                  "url": "https://myanimelist.net/anime/14829/Fate_kaleid_liner_Prisma☆Illya"
+                },
+                {
+                  "mal_id": 34321,
+                  "type": "anime",
+                  "name": "Fate/Grand Order: First Order",
+                  "url": "https://myanimelist.net/anime/34321/Fate_Grand_Order__First_Order"
+                },
+                {
+                  "mal_id": 34662,
+                  "type": "anime",
+                  "name": "Fate/Apocrypha",
+                  "url": "https://myanimelist.net/anime/34662/Fate_Apocrypha"
+                },
+                {
+                  "mal_id": 33047,
+                  "type": "anime",
+                  "name": "Fate/Extra: Last Encore",
+                  "url": "https://myanimelist.net/anime/33047/Fate_Extra__Last_Encore"
+                },
+                {
+                  "mal_id": 53127,
+                  "type": "anime",
+                  "name": "Fate/strange Fake: Whispers of Dawn",
+                  "url": "https://myanimelist.net/anime/53127/Fate_strange_Fake__Whispers_of_Dawn"
+                }
+              ]
+            },
+            {
+              "relation": "Character",
+              "entry": [
+                {
+                  "mal_id": 10012,
+                  "type": "anime",
+                  "name": "Carnival Phantasm",
+                  "url": "https://myanimelist.net/anime/10012/Carnival_Phantasm"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "1: \"disillusion\" by Tainaka Sachi (eps 1-14)",
+              "2: \"Kirameku Namida wa Hoshi ni (きらめく涙は星に)\" by Tainaka Sachi (eps 15-23)"
+            ],
+            "endings": [
+              "1: \"Anata ga Ita Mori (あなたがいた森)\" by Jyukai (eps 1-13,15-23)",
+              "2: \"Hikari (ヒカリ)\" by Jyukai (eps 14)",
+              "3: \"Kimi to no Ashita (君との明日)\" by Tainaka Sachi (eps 24)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "https://www.nbcuni.co.jp/rondorobe/anime/staynight/top.html"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=3348"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=5394"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Fate/Stay_Night"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "HIDIVE",
+              "url": "https://www.hidive.com/tv/fate-stay-night"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/356/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:22:13Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/356/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:22:14Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:22:14Z"
+}

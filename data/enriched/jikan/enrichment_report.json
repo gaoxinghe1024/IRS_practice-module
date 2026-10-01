@@ -1,0 +1,16 @@
+{
+  "targets": 400,
+  "fetched_ok": 0,
+  "skipped_cached": 0,
+  "failed": 400,
+  "passes": 4,
+  "client": {
+    "requests": 4673,
+    "retries": 0,
+    "rate_limited": 0,
+    "errors": 4636
+  },
+  "min_interval_s": 1.1,
+  "finished_at": "2026-09-30T12:34:56Z",
+  "cache_dir": "/Users/yuyuchen/Desktop/IRS PM/IRS_practice-module/data/enriched/jikan/anime"
+}

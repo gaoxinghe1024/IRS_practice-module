@@ -1,0 +1,262 @@
+{
+  "mal_id": 4181,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/4181/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:50:55Z",
+      "sha256": "4e97c44496183d46ab30b0ee906b829dccb786cd6be66fd586f909a2589bd722",
+      "data": {
+        "data": {
+          "mal_id": 4181,
+          "url": "https://myanimelist.net/anime/4181/Clannad__After_Story",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1299/110774.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1299/110774t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1299/110774l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1299/110774.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1299/110774t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1299/110774l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/WiTwXIAcm5Q?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Clannad: After Story"
+            },
+            {
+              "type": "Japanese",
+              "title": "CLANNAD〜AFTER STORY〜 クラナド アフターストーリー"
+            },
+            {
+              "type": "English",
+              "title": "Clannad: After Story"
+            },
+            {
+              "type": "German",
+              "title": "Clannad ~After Story~"
+            },
+            {
+              "type": "Spanish",
+              "title": "Clannad ~After Story~"
+            },
+            {
+              "type": "French",
+              "title": "Clannad ~After Story~"
+            }
+          ],
+          "title": "Clannad: After Story",
+          "title_english": "Clannad: After Story",
+          "title_japanese": "CLANNAD〜AFTER STORY〜 クラナド アフターストーリー",
+          "title_synonyms": [],
+          "type": "TV",
+          "source": "Visual novel",
+          "episodes": 24,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2008-10-03T00:00:00+00:00",
+            "to": "2009-03-27T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 3,
+                "month": 10,
+                "year": 2008
+              },
+              "to": {
+                "day": 27,
+                "month": 3,
+                "year": 2009
+              }
+            },
+            "string": "Oct 3, 2008 to Mar 27, 2009"
+          },
+          "duration": "24 min per ep",
+          "rating": "PG-13 - Teens 13 or older",
+          "score": 8.93,
+          "scored_by": 703444,
+          "rank": 19,
+          "popularity": 124,
+          "members": 1293269,
+          "favorites": 74501,
+          "synopsis": "Tomoya Okazaki and Nagisa Furukawa have graduated from high school, and together, they experience the emotional rollercoaster of growing up. Unable to decide on a course for his future, Tomoya learns the value of a strong work ethic and discovers the strength of Nagisa's support. Through the couple's dedication and unity of purpose, they push forward to confront their personal problems, deepen their old relationships, and create new bonds.\n\nTime also moves on in the Illusionary World. As the plains grow cold with the approach of winter, the Illusionary Girl and the Garbage Doll are presented with a difficult situation that reveals the World's true purpose.\n\n[Written by MAL Rewrite]",
+          "background": "",
+          "season": "fall",
+          "year": 2008,
+          "broadcast": {
+            "day": "Fridays",
+            "time": "01:59",
+            "timezone": "Asia/Tokyo",
+            "string": "Fridays at 01:59 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 144,
+              "type": "anime",
+              "name": "Pony Canyon",
+              "url": "https://myanimelist.net/anime/producer/144/Pony_Canyon"
+            },
+            {
+              "mal_id": 145,
+              "type": "anime",
+              "name": "TBS",
+              "url": "https://myanimelist.net/anime/producer/145/TBS"
+            },
+            {
+              "mal_id": 211,
+              "type": "anime",
+              "name": "Rakuonsha",
+              "url": "https://myanimelist.net/anime/producer/211/Rakuonsha"
+            },
+            {
+              "mal_id": 929,
+              "type": "anime",
+              "name": "Animation Do",
+              "url": "https://myanimelist.net/anime/producer/929/Animation_Do"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 376,
+              "type": "anime",
+              "name": "Sentai Filmworks",
+              "url": "https://myanimelist.net/anime/producer/376/Sentai_Filmworks"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 2,
+              "type": "anime",
+              "name": "Kyoto Animation",
+              "url": "https://myanimelist.net/anime/producer/2/Kyoto_Animation"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 8,
+              "type": "anime",
+              "name": "Drama",
+              "url": "https://myanimelist.net/anime/genre/8/Drama"
+            },
+            {
+              "mal_id": 22,
+              "type": "anime",
+              "name": "Romance",
+              "url": "https://myanimelist.net/anime/genre/22/Romance"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 2167,
+                  "type": "anime",
+                  "name": "Clannad",
+                  "url": "https://myanimelist.net/anime/2167/Clannad"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Version",
+              "entry": [
+                {
+                  "mal_id": 1723,
+                  "type": "anime",
+                  "name": "Clannad Movie",
+                  "url": "https://myanimelist.net/anime/1723/Clannad_Movie"
+                }
+              ]
+            },
+            {
+              "relation": "Alternative Setting",
+              "entry": [
+                {
+                  "mal_id": 6351,
+                  "type": "anime",
+                  "name": "Clannad: After Story - Mou Hitotsu no Sekai, Kyou-hen",
+                  "url": "https://myanimelist.net/anime/6351/Clannad__After_Story_-_Mou_Hitotsu_no_Sekai_Kyou-hen"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Toki wo Kizamu Uta (時を刻む唄)\" by Lia"
+            ],
+            "endings": [
+              "1: \"TORCH\" by Lia (eps 1-21)",
+              "2: \"Chiisana Te no Hira (小さなてのひら)\" by riya (eps 22)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://www.tbs.co.jp/clannad/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=5841"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=9701"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "http://en.wikipedia.org/wiki/Clannad_(visual_novel)"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/CLANNAD_%2528%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0%2529"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/1462"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Shahid",
+              "url": "https://shahid.mbc.net/en/series/Clannad:-After-Story/series-896062"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/4181/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:19:38Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/4181/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:19:39Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:19:39Z"
+}

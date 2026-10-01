@@ -1,0 +1,337 @@
+{
+  "mal_id": 38003,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/38003/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:03:33Z",
+      "sha256": "7425d25bcb39104e3d209162e13b202477d913610df08d9ac811085441d35cbf",
+      "data": {
+        "data": {
+          "mal_id": 38003,
+          "url": "https://myanimelist.net/anime/38003/Bungou_Stray_Dogs_3rd_Season",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1037/100463.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1037/100463t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1037/100463l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1037/100463.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1037/100463t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1037/100463l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/Bro64355Kws?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Bungou Stray Dogs 3rd Season"
+            },
+            {
+              "type": "Japanese",
+              "title": "文豪ストレイドッグス 第3期"
+            },
+            {
+              "type": "English",
+              "title": "Bungo Stray Dogs 3"
+            },
+            {
+              "type": "German",
+              "title": "Bungo Stray Dogs Staffel 3"
+            },
+            {
+              "type": "Spanish",
+              "title": "Bungo Stray Dogs Temporada 3"
+            },
+            {
+              "type": "French",
+              "title": "Bungou Stray Dogs Saison 3"
+            }
+          ],
+          "title": "Bungou Stray Dogs 3rd Season",
+          "title_english": "Bungo Stray Dogs 3",
+          "title_japanese": "文豪ストレイドッグス 第3期",
+          "title_synonyms": [],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2019-04-12T00:00:00+00:00",
+            "to": "2019-06-28T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 12,
+                "month": 4,
+                "year": 2019
+              },
+              "to": {
+                "day": 28,
+                "month": 6,
+                "year": 2019
+              }
+            },
+            "string": "Apr 12, 2019 to Jun 28, 2019"
+          },
+          "duration": "23 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 8.19,
+          "scored_by": 380472,
+          "rank": 463,
+          "popularity": 335,
+          "members": 714570,
+          "favorites": 5100,
+          "synopsis": "Following the conclusion of the three-way organizational war, government bureaucrat Ango Sakaguchi recalls an event that transpired years ago, after the death of the former Port Mafia boss. Osamu Dazai, still a new recruit at the time, was tasked with investigating rumors related to a mysterious explosion that decimated part of the city years ago—and its connection to the alleged reappearance of the former boss.\n\nDue to circumstances out of his control, he is partnered with Chuuya Nakahara, the gifted yet impulsive leader of a rival clan known as the Sheep, to uncover the truth behind the case and shine a light on the myth of Arahabaki—the god of fire who might just lead Dazai to the case's solution.\n\nMeanwhile, in the present day, it is business as usual once again for the Armed Detective Agency. Their peaceful break will not last for long, however, as enemies old and new gather their strength and prepare for another face-off.\n\n[Written by MAL Rewrite]",
+          "background": "This season adapts chapters 38 through 53 of the manga.",
+          "season": "spring",
+          "year": 2019,
+          "broadcast": {
+            "day": "Fridays",
+            "time": "22:30",
+            "timezone": "Asia/Tokyo",
+            "string": "Fridays at 22:30 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 33,
+              "type": "anime",
+              "name": "WOWOW",
+              "url": "https://myanimelist.net/anime/producer/33/WOWOW"
+            },
+            {
+              "mal_id": 104,
+              "type": "anime",
+              "name": "Lantis",
+              "url": "https://myanimelist.net/anime/producer/104/Lantis"
+            },
+            {
+              "mal_id": 166,
+              "type": "anime",
+              "name": "Movic",
+              "url": "https://myanimelist.net/anime/producer/166/Movic"
+            },
+            {
+              "mal_id": 687,
+              "type": "anime",
+              "name": "Bandai Namco Live Creative",
+              "url": "https://myanimelist.net/anime/producer/687/Bandai_Namco_Live_Creative"
+            },
+            {
+              "mal_id": 757,
+              "type": "anime",
+              "name": "Sony Music Entertainment",
+              "url": "https://myanimelist.net/anime/producer/757/Sony_Music_Entertainment"
+            },
+            {
+              "mal_id": 1255,
+              "type": "anime",
+              "name": "Glovision",
+              "url": "https://myanimelist.net/anime/producer/1255/Glovision"
+            },
+            {
+              "mal_id": 1551,
+              "type": "anime",
+              "name": "Kadokawa Media House",
+              "url": "https://myanimelist.net/anime/producer/1551/Kadokawa_Media_House"
+            },
+            {
+              "mal_id": 1696,
+              "type": "anime",
+              "name": "Kadokawa",
+              "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+            },
+            {
+              "mal_id": 1840,
+              "type": "anime",
+              "name": "Bandai Namco Arts",
+              "url": "https://myanimelist.net/anime/producer/1840/Bandai_Namco_Arts"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Bones",
+              "url": "https://myanimelist.net/anime/producer/4/Bones"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "Mystery",
+              "url": "https://myanimelist.net/anime/genre/7/Mystery"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 50,
+              "type": "anime",
+              "name": "Adult Cast",
+              "url": "https://myanimelist.net/anime/genre/50/Adult_Cast"
+            },
+            {
+              "mal_id": 39,
+              "type": "anime",
+              "name": "Detective",
+              "url": "https://myanimelist.net/anime/genre/39/Detective"
+            },
+            {
+              "mal_id": 68,
+              "type": "anime",
+              "name": "Organized Crime",
+              "url": "https://myanimelist.net/anime/genre/68/Organized_Crime"
+            },
+            {
+              "mal_id": 31,
+              "type": "anime",
+              "name": "Super Power",
+              "url": "https://myanimelist.net/anime/genre/31/Super_Power"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 42,
+              "type": "anime",
+              "name": "Seinen",
+              "url": "https://myanimelist.net/anime/genre/42/Seinen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 32867,
+                  "type": "anime",
+                  "name": "Bungou Stray Dogs 2nd Season",
+                  "url": "https://myanimelist.net/anime/32867/Bungou_Stray_Dogs_2nd_Season"
+                }
+              ]
+            },
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 50330,
+                  "type": "anime",
+                  "name": "Bungou Stray Dogs 4th Season",
+                  "url": "https://myanimelist.net/anime/50330/Bungou_Stray_Dogs_4th_Season"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 165085,
+                  "type": "manga",
+                  "name": "Anime Bungou Stray Dogs Shousetsuban",
+                  "url": "https://myanimelist.net/manga/165085/Anime_Bungou_Stray_Dogs_Shousetsuban"
+                },
+                {
+                  "mal_id": 56529,
+                  "type": "manga",
+                  "name": "Bungou Stray Dogs",
+                  "url": "https://myanimelist.net/manga/56529/Bungou_Stray_Dogs"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"Setsuna no Ai (セツナの愛)\" by GRANRODEO"
+            ],
+            "endings": [
+              "\"Lily\" by Luck Life"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://bungo-stray-dogs.jp/"
+            },
+            {
+              "name": "@bungosd_anime",
+              "url": "https://twitter.com/bungosd_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=14230"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=21733"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Bungo_Stray_Dogs"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E6%96%87%E8%B1%AA%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%83%89%E3%83%83%E3%82%B0%E3%82%B9"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/5271"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-269799"
+            },
+            {
+              "name": "Netflix",
+              "url": "https://www.netflix.com/"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/38003/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:31:47Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/38003/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:31:48Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:31:48Z"
+}

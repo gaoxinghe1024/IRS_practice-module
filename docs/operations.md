@@ -23,6 +23,35 @@ on the editable-install `.pth` file inside `.venv`, and Python then ignores it (
 `make setup` clears the flag (`chflags nohidden .venv/lib/python*/site-packages/*.pth`), and every Makefile target
 uses `python -m ...` from the project root, which does not depend on the `.pth` file.
 
+### Cloning and deploying the shipped state
+
+The repository carries the state the delivered app runs on, so a clone serves the same catalogue, models and
+accounts without running any pipeline:
+
+| Path | Content | Storage |
+|---|---|---|
+| `data/raw/mal_2023/` | Kaggle files (1.2 GB) | Git LFS |
+| `data/processed/<mode>/<active version>/` | processed Parquet + split manifests of the active version | Parquet in Git LFS |
+| `artifacts/<mode>/<active version>/`, `artifacts/<mode>/active.json` | trained models and indexes | `.pt` / `.npy` / `.npz` / `.joblib` in Git LFS |
+| `var/<mode>/anilogic.sqlite3` | activated business databases (login sessions cleared) | Git LFS |
+| `data/enriched/`, `data/synthetic/` | Jikan cache, synthetic world | plain git |
+
+```bash
+git lfs install                    # once per machine, before cloning; without it the large files are pointers
+git clone -b yyc-v1 <repo-url> anilogic && cd anilogic
+git lfs pull                       # only needed if git-lfs was installed after the clone
+uv sync --extra ml --extra llm     # pinned by uv.lock; no Playwright needed on a server
+make serve-real HOST=0.0.0.0       # or: make serve (synthetic)
+```
+
+- Only the active version of each mode is shipped (`.gitignore` lists them). A retrained version stays local
+  until it is activated and its directories are added to `.gitignore` and committed.
+- The first request that needs BGE downloads `BAAI/bge-small-en-v1.5` from Hugging Face; on a server without
+  internet access, copy `~/.cache/huggingface` over and set `HF_HUB_OFFLINE=1`.
+- Serving writes to `var/<mode>/anilogic.sqlite3`, so git shows it as modified once the app has been used.
+  Commit it only on purpose; `git checkout -- var/` returns to the shipped state.
+- GitHub's free Git LFS bandwidth is limited per month; each full clone downloads about 1.8 GB.
+
 ## 2. Configuration
 
 Layers: `configs/base.yaml` → `configs/<mode>.yaml` → environment variables `ANILOGIC_<SECTION>__<KEY>` (double

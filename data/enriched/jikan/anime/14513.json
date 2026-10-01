@@ -1,0 +1,27 @@
+{
+  "mal_id": 14513,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/14513/full",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:15Z",
+      "sha256": null,
+      "data": null
+    },
+    "recommendations": {
+      "endpoint": "/anime/14513/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:17Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/14513/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:21:18Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:21:18Z"
+}

@@ -1,0 +1,316 @@
+{
+  "mal_id": 40540,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/40540/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T11:03:56Z",
+      "sha256": "ebea04c306c5dce85ee0ccd3d508fcfe1068338f0e9602cde03420d3c17120e2",
+      "data": {
+        "data": {
+          "mal_id": 40540,
+          "url": "https://myanimelist.net/anime/40540/Sword_Art_Online__Alicization_-_War_of_Underworld_2nd_Season",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1438/105106.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1438/105106t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1438/105106l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/1438/105106.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/1438/105106t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/1438/105106l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/BJyjHqacEpY?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Sword Art Online: Alicization - War of Underworld 2nd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "Sword Art Online: Alicization 3rd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "Sword Art Online III 3rd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "SAO Alicization 3rd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "Sword Art Online 3 3rd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "SAO 3 3rd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "SAO III 3rd Season"
+            },
+            {
+              "type": "Synonym",
+              "title": "Sword Art Online: Alicization - War of Underworld - The Last Season"
+            },
+            {
+              "type": "Japanese",
+              "title": "ソードアート・オンライン アリシゼーション War of Underworld"
+            },
+            {
+              "type": "English",
+              "title": "Sword Art Online: Alicization - War of Underworld Part 2"
+            },
+            {
+              "type": "German",
+              "title": "Sword Art Online Alicization War of Underworld Teil 2"
+            },
+            {
+              "type": "French",
+              "title": "Sword Art Online Alicization War of Underworld Partie 2"
+            }
+          ],
+          "title": "Sword Art Online: Alicization - War of Underworld 2nd Season",
+          "title_english": "Sword Art Online: Alicization - War of Underworld Part 2",
+          "title_japanese": "ソードアート・オンライン アリシゼーション War of Underworld",
+          "title_synonyms": [
+            "Sword Art Online: Alicization 3rd Season",
+            "Sword Art Online III 3rd Season",
+            "SAO Alicization 3rd Season",
+            "Sword Art Online 3 3rd Season",
+            "SAO 3 3rd Season",
+            "SAO III 3rd Season",
+            "Sword Art Online: Alicization - War of Underworld - The Last Season"
+          ],
+          "type": "TV",
+          "source": "Light novel",
+          "episodes": 11,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2020-07-12T00:00:00+00:00",
+            "to": "2020-09-20T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 12,
+                "month": 7,
+                "year": 2020
+              },
+              "to": {
+                "day": 20,
+                "month": 9,
+                "year": 2020
+              }
+            },
+            "string": "Jul 12, 2020 to Sep 20, 2020"
+          },
+          "duration": "24 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 7.51,
+          "scored_by": 398461,
+          "rank": 2148,
+          "popularity": 351,
+          "members": 693367,
+          "favorites": 3361,
+          "synopsis": "The final battle against the Dark Territory drags on, as players from all over the world flood the Underworld's servers and plunge the Human Empire into utter chaos. Asuna Yuuki and her friends defend their new allies with everything they have, but their numbers are falling. Meanwhile, Alice Zuberg heads toward the World's End Altar while Gabriel \"Vecta\" Miller relentlessly pursues her.\n\nMeanwhile, members of Rath strategize a plan in an attempt to restore Kirito's damaged fluctlight. However, the intruders occupying the main control room have other plans. Surrounded by death and despair, when all hope seems to be lost, one voice reaches out to Kirito—a familiar one saying, \"I will always be by your side.\"\n\nSword Art Online: Alicization - War of Underworld 2nd Season is the epic conclusion to Akihiko Kayaba's dream of creating artificial human intelligence. Now it is up to Kirito and his friends to protect this collapsing world from the people that still think it is just a game.\n\n[Written by MAL Rewrite]",
+          "background": "Sword Art Online: Alicization - War of Underworld is an adaptation of volumes 15 through 18 of Reki Kawahara's Sword Art Online light novel series.",
+          "season": "summer",
+          "year": 2020,
+          "broadcast": {
+            "day": "Sundays",
+            "time": "00:00",
+            "timezone": "Asia/Tokyo",
+            "string": "Sundays at 00:00 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 17,
+              "type": "anime",
+              "name": "Aniplex",
+              "url": "https://myanimelist.net/anime/producer/17/Aniplex"
+            },
+            {
+              "mal_id": 1233,
+              "type": "anime",
+              "name": "Bandai Namco Entertainment",
+              "url": "https://myanimelist.net/anime/producer/1233/Bandai_Namco_Entertainment"
+            },
+            {
+              "mal_id": 1444,
+              "type": "anime",
+              "name": "Egg Firm",
+              "url": "https://myanimelist.net/anime/producer/1444/Egg_Firm"
+            },
+            {
+              "mal_id": 1683,
+              "type": "anime",
+              "name": "Straight Edge",
+              "url": "https://myanimelist.net/anime/producer/1683/Straight_Edge"
+            },
+            {
+              "mal_id": 1696,
+              "type": "anime",
+              "name": "Kadokawa",
+              "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 493,
+              "type": "anime",
+              "name": "Aniplex of America",
+              "url": "https://myanimelist.net/anime/producer/493/Aniplex_of_America"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 56,
+              "type": "anime",
+              "name": "A-1 Pictures",
+              "url": "https://myanimelist.net/anime/producer/56/A-1_Pictures"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 2,
+              "type": "anime",
+              "name": "Adventure",
+              "url": "https://myanimelist.net/anime/genre/2/Adventure"
+            },
+            {
+              "mal_id": 10,
+              "type": "anime",
+              "name": "Fantasy",
+              "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 79,
+              "type": "anime",
+              "name": "Video Game",
+              "url": "https://myanimelist.net/anime/genre/79/Video_Game"
+            }
+          ],
+          "demographics": [],
+          "relations": [
+            {
+              "relation": "Prequel",
+              "entry": [
+                {
+                  "mal_id": 39597,
+                  "type": "anime",
+                  "name": "Sword Art Online: Alicization - War of Underworld",
+                  "url": "https://myanimelist.net/anime/39597/Sword_Art_Online__Alicization_-_War_of_Underworld"
+                },
+                {
+                  "mal_id": 41341,
+                  "type": "anime",
+                  "name": "Sword Art Online: Alicization - War of Underworld Recap",
+                  "url": "https://myanimelist.net/anime/41341/Sword_Art_Online__Alicization_-_War_of_Underworld_Recap"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 99386,
+                  "type": "manga",
+                  "name": "Sword Art Online: Project Alicization",
+                  "url": "https://myanimelist.net/manga/99386/Sword_Art_Online__Project_Alicization"
+                },
+                {
+                  "mal_id": 21479,
+                  "type": "manga",
+                  "name": "Sword Art Online",
+                  "url": "https://myanimelist.net/manga/21479/Sword_Art_Online"
+                }
+              ]
+            },
+            {
+              "relation": "Side Story",
+              "entry": [
+                {
+                  "mal_id": 53529,
+                  "type": "anime",
+                  "name": "Sword Art Online Movie: Integral Domain",
+                  "url": "https://myanimelist.net/anime/53529/Sword_Art_Online_Movie__Integral_Domain"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"ANIMA\" by ReoNa (eps 1-10)"
+            ],
+            "endings": [
+              "1: \"I will...\" by Eir Aoi (eps 1-10)",
+              "2: \"ANIMA\" by ReoNa (eps 11)"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "https://sao-alicization.net/"
+            },
+            {
+              "name": "@sao_anime",
+              "url": "https://twitter.com/sao_anime"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=15146"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=23030"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Sword_Art_Online:_Alicization"
+            }
+          ],
+          "streaming": []
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/40540/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:32:09Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/40540/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:32:10Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:32:10Z"
+}

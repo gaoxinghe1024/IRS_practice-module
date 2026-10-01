@@ -26,6 +26,21 @@ the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a
 Relations, scene search and screenshot identification are built to data contracts and switch on when the data
 exists; otherwise the status page says `limited_by_data`. See [docs/delivery-status.md](docs/delivery-status.md).
 
+## Run from a clone (shipped state, no pipeline run)
+
+The repository ships the raw Kaggle files, the active processed version of each mode, its trained artifacts and
+both activated databases (about 1.8 GB, large files in Git LFS), so a clone serves exactly what the authors serve.
+
+```bash
+git lfs install                  # once per machine, before cloning (brew / apt install git-lfs)
+git clone -b yyc-v1 <repo-url> && cd <repo>
+uv sync --extra ml --extra llm   # same pinned packages as uv.lock
+make serve-real                  # http://127.0.0.1:8000  (MAL 2023 data)
+make serve                       # http://127.0.0.1:8000  (synthetic world, demo accounts: docs/user-guide.md)
+```
+
+Details: [docs/operations.md](docs/operations.md#cloning-and-deploying-the-shipped-state).
+
 ## Quick start (synthetic world, no downloads)
 
 Requires Python 3.11-3.13 and [uv](https://docs.astral.sh/uv/).

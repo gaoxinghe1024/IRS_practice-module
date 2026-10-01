@@ -1,0 +1,13 @@
+{
+  "provider": "bge",
+  "model": "BAAI/bge-small-en-v1.5",
+  "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "dim": 384,
+  "max_seq_length": 512,
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "doc_count": 681,
+  "doc_ids_sha256": "d37e3932b40ad8560f8efb213c6c32896fbb11c56cce7887b9ba6d555ff6ed5d",
+  "encode_seconds": 2.1,
+  "device": "mps",
+  "created_at": "2026-09-30T15:08:18Z"
+}

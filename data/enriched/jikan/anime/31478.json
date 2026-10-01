@@ -1,0 +1,346 @@
+{
+  "mal_id": 31478,
+  "endpoints": {
+    "full": {
+      "endpoint": "/anime/31478/full",
+      "status": 200,
+      "fetched_at": "2026-09-30T10:49:42Z",
+      "sha256": "f54118353a3452835602d1edcfae0c55735c2200491efffdd4954affb2e48b63",
+      "data": {
+        "data": {
+          "mal_id": 31478,
+          "url": "https://myanimelist.net/anime/31478/Bungou_Stray_Dogs",
+          "images": {
+            "jpg": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/3/79409.jpg",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/3/79409t.jpg",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/3/79409l.jpg"
+            },
+            "webp": {
+              "image_url": "https://cdn.myanimelist.net/images/anime/3/79409.webp",
+              "small_image_url": "https://cdn.myanimelist.net/images/anime/3/79409t.webp",
+              "large_image_url": "https://cdn.myanimelist.net/images/anime/3/79409l.webp"
+            }
+          },
+          "trailer": {
+            "youtube_id": null,
+            "url": null,
+            "embed_url": "https://www.youtube-nocookie.com/embed/GGsohezPRXU?enablejsapi=1&wmode=opaque&autoplay=1",
+            "images": {
+              "image_url": null,
+              "small_image_url": null,
+              "medium_image_url": null,
+              "large_image_url": null,
+              "maximum_image_url": null
+            }
+          },
+          "approved": true,
+          "titles": [
+            {
+              "type": "Default",
+              "title": "Bungou Stray Dogs"
+            },
+            {
+              "type": "Synonym",
+              "title": "Literary Stray Dogs"
+            },
+            {
+              "type": "Synonym",
+              "title": "BSD"
+            },
+            {
+              "type": "Japanese",
+              "title": "文豪ストレイドッグス"
+            },
+            {
+              "type": "English",
+              "title": "Bungo Stray Dogs"
+            },
+            {
+              "type": "German",
+              "title": "Bungo Stray Dogs"
+            },
+            {
+              "type": "Spanish",
+              "title": "Bungo Stray Dogs"
+            },
+            {
+              "type": "French",
+              "title": "Bungo Stray Dogs"
+            }
+          ],
+          "title": "Bungou Stray Dogs",
+          "title_english": "Bungo Stray Dogs",
+          "title_japanese": "文豪ストレイドッグス",
+          "title_synonyms": [
+            "Literary Stray Dogs",
+            "BSD"
+          ],
+          "type": "TV",
+          "source": "Manga",
+          "episodes": 12,
+          "status": "Finished Airing",
+          "airing": false,
+          "aired": {
+            "from": "2016-04-07T00:00:00+00:00",
+            "to": "2016-06-23T00:00:00+00:00",
+            "prop": {
+              "from": {
+                "day": 7,
+                "month": 4,
+                "year": 2016
+              },
+              "to": {
+                "day": 23,
+                "month": 6,
+                "year": 2016
+              }
+            },
+            "string": "Apr 7, 2016 to Jun 23, 2016"
+          },
+          "duration": "23 min per ep",
+          "rating": "R - 17+ (violence & profanity)",
+          "score": 7.8,
+          "scored_by": 794204,
+          "rank": 1157,
+          "popularity": 91,
+          "members": 1563830,
+          "favorites": 29320,
+          "synopsis": "For weeks, Atsushi Nakajima's orphanage has been plagued by a mystical tiger that only he seems to be unaware of. Suspected to be behind the strange incidents, the 18-year-old is abruptly kicked out of the orphanage and left hungry, homeless, and wandering through the city.\n\nWhile starving on a riverbank, Atsushi saves a rather eccentric man named Osamu Dazai from drowning. Whimsical suicide enthusiast and supernatural detective, Dazai has been investigating the same tiger that has been terrorizing the boy. Together with Dazai's partner Doppo Kunikida, they solve the mystery, but its resolution leaves Atsushi in a tight spot. As various odd events take place, Atsushi is coerced into joining their firm of supernatural investigators, taking on unusual cases the police cannot handle, alongside his numerous enigmatic co-workers.\n\n[Written by MAL Rewrite]",
+          "background": "This season adapts chapters 1 through 14 of the manga.",
+          "season": "spring",
+          "year": 2016,
+          "broadcast": {
+            "day": "Thursdays",
+            "time": "01:05",
+            "timezone": "Asia/Tokyo",
+            "string": "Thursdays at 01:05 (JST)"
+          },
+          "producers": [
+            {
+              "mal_id": 104,
+              "type": "anime",
+              "name": "Lantis",
+              "url": "https://myanimelist.net/anime/producer/104/Lantis"
+            },
+            {
+              "mal_id": 166,
+              "type": "anime",
+              "name": "Movic",
+              "url": "https://myanimelist.net/anime/producer/166/Movic"
+            },
+            {
+              "mal_id": 460,
+              "type": "anime",
+              "name": "KlockWorx",
+              "url": "https://myanimelist.net/anime/producer/460/KlockWorx"
+            },
+            {
+              "mal_id": 687,
+              "type": "anime",
+              "name": "Bandai Namco Live Creative",
+              "url": "https://myanimelist.net/anime/producer/687/Bandai_Namco_Live_Creative"
+            },
+            {
+              "mal_id": 1255,
+              "type": "anime",
+              "name": "Glovision",
+              "url": "https://myanimelist.net/anime/producer/1255/Glovision"
+            },
+            {
+              "mal_id": 1309,
+              "type": "anime",
+              "name": "Lawson HMV Entertainment",
+              "url": "https://myanimelist.net/anime/producer/1309/Lawson_HMV_Entertainment"
+            },
+            {
+              "mal_id": 1516,
+              "type": "anime",
+              "name": "Sony PCL",
+              "url": "https://myanimelist.net/anime/producer/1516/Sony_PCL"
+            },
+            {
+              "mal_id": 1696,
+              "type": "anime",
+              "name": "Kadokawa",
+              "url": "https://myanimelist.net/anime/producer/1696/Kadokawa"
+            }
+          ],
+          "licensors": [
+            {
+              "mal_id": 102,
+              "type": "anime",
+              "name": "Funimation",
+              "url": "https://myanimelist.net/anime/producer/102/Funimation"
+            },
+            {
+              "mal_id": 1468,
+              "type": "anime",
+              "name": "Crunchyroll",
+              "url": "https://myanimelist.net/anime/producer/1468/Crunchyroll"
+            }
+          ],
+          "studios": [
+            {
+              "mal_id": 4,
+              "type": "anime",
+              "name": "Bones",
+              "url": "https://myanimelist.net/anime/producer/4/Bones"
+            }
+          ],
+          "genres": [
+            {
+              "mal_id": 1,
+              "type": "anime",
+              "name": "Action",
+              "url": "https://myanimelist.net/anime/genre/1/Action"
+            },
+            {
+              "mal_id": 7,
+              "type": "anime",
+              "name": "Mystery",
+              "url": "https://myanimelist.net/anime/genre/7/Mystery"
+            }
+          ],
+          "explicit_genres": [],
+          "themes": [
+            {
+              "mal_id": 50,
+              "type": "anime",
+              "name": "Adult Cast",
+              "url": "https://myanimelist.net/anime/genre/50/Adult_Cast"
+            },
+            {
+              "mal_id": 39,
+              "type": "anime",
+              "name": "Detective",
+              "url": "https://myanimelist.net/anime/genre/39/Detective"
+            },
+            {
+              "mal_id": 68,
+              "type": "anime",
+              "name": "Organized Crime",
+              "url": "https://myanimelist.net/anime/genre/68/Organized_Crime"
+            },
+            {
+              "mal_id": 31,
+              "type": "anime",
+              "name": "Super Power",
+              "url": "https://myanimelist.net/anime/genre/31/Super_Power"
+            }
+          ],
+          "demographics": [
+            {
+              "mal_id": 42,
+              "type": "anime",
+              "name": "Seinen",
+              "url": "https://myanimelist.net/anime/genre/42/Seinen"
+            }
+          ],
+          "relations": [
+            {
+              "relation": "Sequel",
+              "entry": [
+                {
+                  "mal_id": 32867,
+                  "type": "anime",
+                  "name": "Bungou Stray Dogs 2nd Season",
+                  "url": "https://myanimelist.net/anime/32867/Bungou_Stray_Dogs_2nd_Season"
+                }
+              ]
+            },
+            {
+              "relation": "Adaptation",
+              "entry": [
+                {
+                  "mal_id": 56529,
+                  "type": "manga",
+                  "name": "Bungou Stray Dogs",
+                  "url": "https://myanimelist.net/manga/56529/Bungou_Stray_Dogs"
+                },
+                {
+                  "mal_id": 165085,
+                  "type": "manga",
+                  "name": "Anime Bungou Stray Dogs Shousetsuban",
+                  "url": "https://myanimelist.net/manga/165085/Anime_Bungou_Stray_Dogs_Shousetsuban"
+                }
+              ]
+            },
+            {
+              "relation": "Spin-Off",
+              "entry": [
+                {
+                  "mal_id": 42250,
+                  "type": "anime",
+                  "name": "Bungou Stray Dogs Wan!",
+                  "url": "https://myanimelist.net/anime/42250/Bungou_Stray_Dogs_Wan"
+                },
+                {
+                  "mal_id": 62883,
+                  "type": "anime",
+                  "name": "Bungou Stray Dogs Wan! 2",
+                  "url": "https://myanimelist.net/anime/62883/Bungou_Stray_Dogs_Wan_2"
+                }
+              ]
+            }
+          ],
+          "theme": {
+            "openings": [
+              "\"TRASH CANDY\" by GRANRODEO"
+            ],
+            "endings": [
+              "\"Namae wo Yobu yo (名前を呼ぶよ)\" by Luck Life"
+            ]
+          },
+          "external": [
+            {
+              "name": "Official Site",
+              "url": "http://bungo-stray-dogs.jp/tv/"
+            },
+            {
+              "name": "AniDB",
+              "url": "https://anidb.net/perl-bin/animedb.pl?show=anime&aid=11523"
+            },
+            {
+              "name": "ANN",
+              "url": "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=17693"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Bungo_Stray_Dogs#Anime"
+            },
+            {
+              "name": "Wikipedia",
+              "url": "https://ja.wikipedia.org/wiki/%E6%96%87%E8%B1%AA%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%83%89%E3%83%83%E3%82%B0%E3%82%B9#%E3%83%86%E3%83%AC%E3%83%93%E3%82%A2%E3%83%8B%E3%83%A1"
+            },
+            {
+              "name": "Syoboi",
+              "url": "https://cal.syoboi.jp/tid/4119"
+            }
+          ],
+          "streaming": [
+            {
+              "name": "Crunchyroll",
+              "url": "http://www.crunchyroll.com/series-269799"
+            }
+          ]
+        }
+      }
+    },
+    "recommendations": {
+      "endpoint": "/anime/31478/recommendations",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:18:27Z",
+      "sha256": null,
+      "data": null
+    },
+    "characters": {
+      "endpoint": "/anime/31478/characters",
+      "status": "504",
+      "fetched_at": "2026-09-30T12:18:28Z",
+      "sha256": null,
+      "data": null
+    }
+  },
+  "fetched_at": "2026-09-30T12:18:28Z"
+}

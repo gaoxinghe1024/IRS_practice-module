@@ -2,29 +2,45 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
-.venv/
+.venv
 venv/
 env/
 .pytest_cache/
 .ruff_cache/
 
-# === Local databases (rebuilt by `make seed` / activation) ===
+# === Shipped state ===
+# The repository carries everything needed to serve exactly what the authors serve: the raw Kaggle files, the
+# active processed version, its trained artifacts and both activated business databases (large files in Git LFS,
+# see .gitattributes). Only the active version of each mode is shipped; retraining writes new version
+# directories, which stay local until they are activated and listed here.
+
+# === Local databases: only the two activated business databases are committed ===
 *.db
 *.sqlite
 *.sqlite3
 *.sqlite3-*
-var/
+var/*
+!var/real/
+!var/synthetic/
+var/real/*
+var/synthetic/*
+!var/real/anilogic.sqlite3
+!var/synthetic/anilogic.sqlite3
 
-# === Data: raw Kaggle files, caches and generated/processed data are never committed ===
-data/raw/
-data/enriched/
-data/processed/
-data/synthetic/
+# === Data: raw Kaggle files, Jikan cache and synthetic world are committed; processed data only for the active version ===
+data/processed/*/*
+!data/processed/*/latest.json
+!data/processed/real/validation_report.json
+!data/processed/real/real-89bfdea00b/
+!data/processed/synthetic/synthetic-7a7d5d6a74/
 !data/**/README.md
 !data/**/.gitkeep
 
-# === Trained models / indexes (reproducible from the pipelines) ===
-artifacts/
+# === Trained models / indexes: only the active version of each mode is committed ===
+artifacts/*/*
+!artifacts/*/active.json
+!artifacts/real/real-89bfdea00b/
+!artifacts/synthetic/synthetic-7a7d5d6a74/
 
 # === Evaluation: large per-case files stay local; reports and metrics are committed ===
 evaluation/runs/**/predictions.csv

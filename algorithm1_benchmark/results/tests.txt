@@ -1,4 +1,4 @@
-UTC: 2026-09-30T08:52:06.928979+00:00
+UTC: 2026-10-01T03:38:59.507088+00:00
 Command: python -m unittest discover -s tests -v
 
 test_catalog_size_and_training_separation (test_artifacts.ArtifactTests.test_catalog_size_and_training_separation) ... ok
@@ -28,6 +28,7 @@ test_before_after_share_targets_truth_and_fixed_baseline (test_optimization.Opti
 test_both_training_sets_exclude_every_evaluation_target (test_optimization.OptimizationArtifactTests.test_both_training_sets_exclude_every_evaluation_target) ... ok
 test_expanded_cohort_is_new_and_split_before_selection (test_optimization.OptimizationArtifactTests.test_expanded_cohort_is_new_and_split_before_selection) ... ok
 test_selected_models_are_from_registered_candidates (test_optimization.OptimizationArtifactTests.test_selected_models_are_from_registered_candidates) ... ok
+test_showcase_is_separate_and_explicitly_posthoc (test_optimization.OptimizationArtifactTests.test_showcase_is_separate_and_explicitly_posthoc) ... ok
 test_validation_selection_never_uses_fresh_test_targets (test_optimization.OptimizationArtifactTests.test_validation_selection_never_uses_fresh_test_targets) ... ok
 test_centering_removes_shared_offset_and_preserves_dimension (test_optimization.OptimizationUnitTests.test_centering_removes_shared_offset_and_preserves_dimension) ... ok
 test_constrained_logistic_is_monotone (test_optimization.OptimizationUnitTests.test_constrained_logistic_is_monotone) ... ok
@@ -38,7 +39,7 @@ test_semantic_calibration_is_bounded_and_keeps_order (test_optimization.Optimiza
 test_templates_preserve_five_fields_and_ignore_forbidden_fields (test_optimization.OptimizationUnitTests.test_templates_preserve_five_fields_and_ignore_forbidden_fields) ... ok
 
 ----------------------------------------------------------------------
-Ran 35 tests in 26.944s
+Ran 36 tests in 8.449s
 
 OK
 

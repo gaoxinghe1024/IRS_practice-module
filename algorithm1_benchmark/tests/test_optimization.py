@@ -124,6 +124,19 @@ class OptimizationArtifactTests(unittest.TestCase):
             if identity[-1] == "A":
                 self.assertEqual(before[identity]["predicted_ids"], after[identity]["predicted_ids"])
 
+    def test_showcase_is_separate_and_explicitly_posthoc(self):
+        showcase = read_json(ROOT / "results/showcase/summary.json")
+        targets = list(read_rows(ROOT / "data/showcase_targets.jsonl"))
+        self.assertEqual(showcase["n_targets"], 40)
+        self.assertEqual(len(targets), 40)
+        self.assertTrue(showcase["selection"]["posthoc_truth_selection"])
+        self.assertFalse(showcase["selection"]["model_selection_used"])
+        self.assertTrue(all(row["split"] == "showcase" and row["source_split"] == "test" for row in targets))
+        self.assertEqual(set(showcase["target_ids"]), {row["target_id"] for row in targets})
+        rows = list(read_rows(ROOT / "results/showcase/per_query_metrics.jsonl"))
+        self.assertEqual(len(rows), 40 * 4 * 2)
+        self.assertTrue(all(row["source"] == "mal_recommendations" for row in rows))
+
 
 if __name__ == "__main__":
     unittest.main()

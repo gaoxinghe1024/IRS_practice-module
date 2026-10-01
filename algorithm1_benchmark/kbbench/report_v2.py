@@ -82,6 +82,11 @@ def report(output=None):
              "|---|---:|---:|---:|---:|---:|"]
     for m in METHODS:
         lines.append(f"| {m} | {before[m]['coverage_at_5']:.2%} | {after[m]['coverage_at_5']:.2%} | {improvements[m]['coverage_delta_pp']:+.2f} | {before[m]['ndcg_at_5']:.4f} | {after[m]['ndcg_at_5']:.4f} |")
+    showcase_path = ROOT / "results/showcase/REPORT.md"
+    if showcase_path.exists():
+        showcase = read_json(ROOT / "results/showcase/summary.json")
+        lines += ["", "### 课堂展示子集（单独统计）", "",
+                  f"为了展示逐例推荐效果，另保存了 [高一致性展示子集](showcase/REPORT.md)：{showcase['n_targets']} 部目标，D 优化配方覆盖率@5 为 {showcase['after']['D']['coverage_at_5']:.2%}、NDCG@5 为 {showcase['after']['D']['ndcg_at_5']:.4f}。该子集从已评测的测试目标中按四种方法的平均 `coverage@5 + NDCG@5` 事后筛选，使用了真值，因此只用于课堂演示，不能替代上面的总体测试结果或用于模型选择。", ""]
     lines += ["", "A 的输入、权重和公式完全固定，因此前后结果相同。B/C/D 的配置只由新验证集决定，测试结果没有反过来用于调参。", "",
               "本轮 B 的两项测试指标均有提高；C 的验证集提升没有在新测试集复现；D 的 NDCG 略升而覆盖率略降。各方案前后差值的 95% 区间均跨零，尚不能确认稳定提升，区间详见第 4 节。依据既定门槛，仍建议保留 A 作为系统基线。", "",
               "![同一测试集上的优化前后对比](comparison.png)", "",

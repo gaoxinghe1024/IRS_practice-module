@@ -10,6 +10,8 @@
 
 实际有效新测试目标为 **234 部（原来的 6.2 倍）**，新验证目标 102 部。同集比较中，B 的覆盖率 3.18%→4.00%、NDCG 0.0328→0.0406；C 略降，D 的两项指标一升一降。各方案前后差值区间均跨零，尚无方案通过相对 A 的正式替换门槛，保留 A 为系统基线。
 
+另有 [课堂展示子集报告](results/showcase/REPORT.md) 和 [展示子集指标](results/showcase/metrics.csv)：从 234 部已评测目标中按四种方法的平均 `coverage@5 + NDCG@5` 事后取前 40 部，D 优化配方约为覆盖率 22.33%、NDCG 0.2466。它是为了展示推荐案例而保存的高一致性子集，不代表随机总体效果，也不参与模型选择或正式替换判断；完整总体结果仍以本报告为准。
+
 **人工标注暂缺**是用户确认的本轮边界。本包提供可填写的 [人工标注表](data/human_annotations_template.csv) 和导入评测工具；没有用 AI 编造人工标注，也没有把共同高分作品对当作评测真值。
 
 ## 1. 直接运行（离线复现）
@@ -60,6 +62,8 @@ python baseline.py --anime-id 1
 | `models/optimization_selection.json` | 选定配置、冻结时间、验证真值及选定文件哈希 |
 | `results/`、`results/baseline/` | 优化/原配方指标、逐目标预测、成对对比、测试与交互页 |
 | `results/validation_trials.json`、`selection_ground_truth.jsonl` | 验证选型得分与当时的真值快照 |
+| `kbbench/showcase.py`、`data/showcase_targets.jsonl` | 生成并冻结课堂展示子集；明确记录事后筛选及其局限 |
+| `results/showcase/` | 40 部展示目标的真值、逐目标指标、前后对比和报告 |
 | `history/v1/` | V1 报告、模型及目标快照；完整旧实现保存在提交 d0824db |
 | `tests/` | 核心算法边界与实际交付数据验收 |
 

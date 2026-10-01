@@ -1,0 +1,138 @@
+{
+  "created_at": "2026-10-01T03:38:12.842697+00:00",
+  "source": "mal_recommendations",
+  "split": "showcase",
+  "n_targets": 40,
+  "candidate_catalog_size": 14202,
+  "k": 5,
+  "purpose": "presentation-only high-consistency subset; not an unbiased test estimate",
+  "selection": {
+    "rule": "top 40 by mean over A/B/C/D of coverage@5 + NDCG@5 on saved MAL test predictions",
+    "size": 40,
+    "source_metrics_sha256": "9763229066d38d4ea7b21a9235c7ecfb28b8d655860aee4617619492e14460af",
+    "source_truth_sha256": "c415564c7d0a32eed2c0e3a4274d4450573c057ce87bfb010dedef1d0dd97b33",
+    "source_test_targets": 234,
+    "posthoc_truth_selection": true,
+    "model_selection_used": false
+  },
+  "before": {
+    "A": {
+      "n_targets": 40,
+      "coverage_at_5": 0.19,
+      "ndcg_at_5": 0.2206607944599331,
+      "hit_rate_at_5": 0.75,
+      "precision_at_5": 0.185
+    },
+    "B": {
+      "n_targets": 40,
+      "coverage_at_5": 0.11125,
+      "ndcg_at_5": 0.12864924211784023,
+      "hit_rate_at_5": 0.55,
+      "precision_at_5": 0.11000000000000001
+    },
+    "C": {
+      "n_targets": 40,
+      "coverage_at_5": 0.13958333333333334,
+      "ndcg_at_5": 0.16373949149887088,
+      "hit_rate_at_5": 0.625,
+      "precision_at_5": 0.135
+    },
+    "D": {
+      "n_targets": 40,
+      "coverage_at_5": 0.20375000000000001,
+      "ndcg_at_5": 0.22291619584802502,
+      "hit_rate_at_5": 0.8,
+      "precision_at_5": 0.2
+    }
+  },
+  "after": {
+    "A": {
+      "n_targets": 40,
+      "coverage_at_5": 0.19,
+      "ndcg_at_5": 0.2206607944599331,
+      "hit_rate_at_5": 0.75,
+      "precision_at_5": 0.185
+    },
+    "B": {
+      "n_targets": 40,
+      "coverage_at_5": 0.19250000000000003,
+      "ndcg_at_5": 0.20578467909316447,
+      "hit_rate_at_5": 0.85,
+      "precision_at_5": 0.19
+    },
+    "C": {
+      "n_targets": 40,
+      "coverage_at_5": 0.14958333333333335,
+      "ndcg_at_5": 0.17147992438652743,
+      "hit_rate_at_5": 0.675,
+      "precision_at_5": 0.14500000000000002
+    },
+    "D": {
+      "n_targets": 40,
+      "coverage_at_5": 0.22333333333333333,
+      "ndcg_at_5": 0.2466293453531923,
+      "hit_rate_at_5": 0.9,
+      "precision_at_5": 0.215
+    }
+  },
+  "improvements": {
+    "A": {
+      "coverage_delta_pp": 0.0,
+      "ndcg_delta": 0.0
+    },
+    "B": {
+      "coverage_delta_pp": 8.125000000000004,
+      "ndcg_delta": 0.07713543697532424
+    },
+    "C": {
+      "coverage_delta_pp": 1.0000000000000009,
+      "ndcg_delta": 0.007740432887656551
+    },
+    "D": {
+      "coverage_delta_pp": 1.9583333333333313,
+      "ndcg_delta": 0.023713149505167286
+    }
+  },
+  "target_ids": [
+    51,
+    272,
+    335,
+    777,
+    1530,
+    1808,
+    2233,
+    2245,
+    4224,
+    5042,
+    6956,
+    7662,
+    8086,
+    10029,
+    11433,
+    12477,
+    14513,
+    22729,
+    24133,
+    27787,
+    28297,
+    30346,
+    31636,
+    32086,
+    32105,
+    32681,
+    32827,
+    32901,
+    34572,
+    35968,
+    36632,
+    36653,
+    37569,
+    37993,
+    39790,
+    40004,
+    40010,
+    41694,
+    49776,
+    49828
+  ]
+}

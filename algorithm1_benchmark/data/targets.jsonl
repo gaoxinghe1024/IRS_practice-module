@@ -1,0 +1,720 @@
+{"anime_id": 1, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 6, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 20, "sampling_group": "anchor", "split": "historical", "original_split": "validation"}
+{"anime_id": 21, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 30, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 1535, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 5114, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 9253, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 11061, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 16498, "sampling_group": "anchor", "split": "historical", "original_split": "validation"}
+{"anime_id": 30276, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 32281, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 40028, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 37510, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 33352, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 20583, "sampling_group": "anchor", "split": "historical", "original_split": "validation"}
+{"anime_id": 1575, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 2001, "sampling_group": "anchor", "split": "historical", "original_split": "validation"}
+{"anime_id": 199, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 431, "sampling_group": "anchor", "split": "historical", "original_split": "test"}
+{"anime_id": 6518, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 7449, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 8669, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 15749, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 24883, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 25871, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 28197, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 29770, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 29954, "sampling_group": "popularity_q1", "split": "historical", "original_split": "validation"}
+{"anime_id": 30122, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 30743, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 32745, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 35263, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 35386, "sampling_group": "popularity_q1", "split": "historical", "original_split": "validation"}
+{"anime_id": 35405, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 35554, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 35786, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 37334, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 38112, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 38794, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 39659, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 41335, "sampling_group": "popularity_q1", "split": "historical", "original_split": "validation"}
+{"anime_id": 42246, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 44256, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 49090, "sampling_group": "popularity_q1", "split": "historical", "original_split": "test"}
+{"anime_id": 675, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 1208, "sampling_group": "popularity_q2", "split": "historical", "original_split": "validation"}
+{"anime_id": 2049, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 2309, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 2662, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 2765, "sampling_group": "popularity_q2", "split": "historical", "original_split": "validation"}
+{"anime_id": 2980, "sampling_group": "popularity_q2", "split": "historical", "original_split": "validation"}
+{"anime_id": 3069, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 4563, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 7290, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 8949, "sampling_group": "popularity_q2", "split": "historical", "original_split": "validation"}
+{"anime_id": 9163, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 10859, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 25267, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 25857, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 34244, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 35709, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 36404, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 36544, "sampling_group": "popularity_q2", "split": "historical", "original_split": "validation"}
+{"anime_id": 37408, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 38767, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 41519, "sampling_group": "popularity_q2", "split": "historical", "original_split": "validation"}
+{"anime_id": 48869, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 51465, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 54035, "sampling_group": "popularity_q2", "split": "historical", "original_split": "test"}
+{"anime_id": 8, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 29, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 1128, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 1435, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 1929, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 2044, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 2217, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 2495, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 6330, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 10359, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 10916, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 15617, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 30952, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 31139, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 31827, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 33184, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 36369, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 37902, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 38921, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 40807, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 42344, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 42516, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 45782, "sampling_group": "popularity_q3", "split": "historical", "original_split": "test"}
+{"anime_id": 53540, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 53587, "sampling_group": "popularity_q3", "split": "historical", "original_split": "validation"}
+{"anime_id": 512, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 558, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 634, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 763, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 903, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 1689, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 3470, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 6127, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 8676, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 8937, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 11013, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 11633, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 21881, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 24873, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 26023, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 26213, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 30123, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 35120, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 35330, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 35823, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 36432, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 40730, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 44042, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 49235, "sampling_group": "popularity_q4", "split": "historical", "original_split": "test"}
+{"anime_id": 52973, "sampling_group": "popularity_q4", "split": "historical", "original_split": "validation"}
+{"anime_id": 7, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 25, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 27, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 51, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 60, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 63, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 76, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 93, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 94, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 114, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 157, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 163, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 177, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 182, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 185, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 205, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 255, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 272, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 284, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 288, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 304, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 308, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 325, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 335, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 351, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 387, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 391, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 457, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 485, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 495, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 520, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 529, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 535, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 536, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 543, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 552, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 570, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 627, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 642, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 740, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 759, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 773, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 777, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 801, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 856, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 900, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 902, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 904, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 906, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 907, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 918, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 934, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1008, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 1117, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1124, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 1150, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 1172, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1211, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 1236, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 1250, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1268, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 1396, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 1412, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1424, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 1430, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1526, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1530, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1538, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1557, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1594, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1621, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 1726, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1735, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 1740, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 1808, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 1855, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 2029, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 2052, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2098, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 2159, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 2228, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 2233, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2245, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 2428, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2456, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2525, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 2561, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 2579, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 2605, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 2633, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 2666, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2671, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 2674, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 2682, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2696, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2702, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 2819, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 2923, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 2966, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 2981, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 3070, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 3092, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 3175, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 3229, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 3533, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 3570, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 3655, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 3659, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 3736, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 3755, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 3784, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 3841, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 3866, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 3901, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 3905, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 3974, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 4059, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 4063, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 4088, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 4106, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 4119, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 4147, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 4155, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 4177, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 4224, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 4280, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 4415, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 4928, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 4966, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 4985, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 5019, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 5040, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 5042, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 5177, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 5196, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 5203, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 5300, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 5342, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 5351, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 5504, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 5530, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 5667, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 5760, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 5813, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 5909, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 6117, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 6163, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 6187, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 6305, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 6375, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 6384, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 6413, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 6444, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 6637, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 6682, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 6695, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 6793, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 6802, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 6867, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 6956, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 7059, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 7524, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 7662, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 7674, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 7769, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 7818, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 7875, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 7972, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 8086, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 8314, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 8372, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 8408, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 8536, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 8538, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 8705, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 8768, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 8774, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 8894, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 9135, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 9239, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 9289, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 9367, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 9600, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 9734, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 9834, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 9880, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 9919, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 9950, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 9999, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 10029, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 10155, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 10161, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 10163, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 10209, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 10258, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 10262, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 10276, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 10408, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 10418, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 10447, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 10448, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 10460, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 10481, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 10483, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 10490, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 10568, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 10604, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 10638, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 10721, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 10905, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 11019, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 11255, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 11339, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 11433, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 11695, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 11701, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 11751, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 11771, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 11785, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 11843, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 12355, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 12361, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 12365, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 12477, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 12505, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 12599, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 12685, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 12979, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 12993, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 13259, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 14293, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 14345, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 14513, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 14527, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 14669, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 14719, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 14837, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 15051, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 15059, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 15197, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 15431, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 15609, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 15613, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 15687, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 15699, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 15875, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 15933, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 16001, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 16528, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 16732, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 16756, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 17397, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 17741, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 17787, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 18119, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 18179, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 18277, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 18745, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 18753, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 18799, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 18841, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 19111, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 19233, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 19429, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 19703, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 19727, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 19843, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 20021, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 20587, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 20767, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 20787, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 20903, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 20919, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 20977, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 20999, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 21085, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 21105, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 21185, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 21405, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 21479, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 21511, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 21641, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 21659, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 21681, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 21821, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 21851, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 22013, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 22071, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 22265, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 22433, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 22535, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 22565, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 22729, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 23369, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 23387, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 23421, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 23673, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 24133, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 24199, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 24231, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 24415, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 24437, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 24695, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 24991, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 25015, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 25079, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 25159, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 25161, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 25389, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 25397, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 26243, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 26441, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 27619, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 27775, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 27787, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 27821, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 28077, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 28103, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 28237, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 28297, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 28497, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 28621, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 28685, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 28987, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 29093, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 29095, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 29821, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 29854, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 29905, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 29926, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 29984, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 30059, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 30187, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30206, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30241, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 30346, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30363, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30382, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 30385, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30450, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 30647, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 30736, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 30778, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 30806, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30829, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 30901, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 30925, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 30988, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 31098, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 31107, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 31109, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 31158, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 31163, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31259, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 31348, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 31374, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31389, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31404, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31427, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 31440, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 31559, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31636, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31658, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 31831, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 31859, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32013, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32086, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 32094, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32105, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32188, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 32271, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 32370, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32380, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 32491, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32542, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32668, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32681, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32827, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32828, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32853, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 32901, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 32935, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 33010, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 33253, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 33339, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 33358, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 33541, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 33548, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 33760, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 33878, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 33934, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 34012, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34034, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34102, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 34134, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 34281, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34350, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34451, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34561, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 34572, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34577, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 34626, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 34662, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 35062, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 35078, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 35079, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 35248, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 35285, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 35400, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 35459, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 35557, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 35639, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 35683, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 35842, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 35968, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36016, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 36038, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 36098, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 36106, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36214, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36275, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 36289, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 36316, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 36494, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 36616, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 36632, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36633, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36649, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36652, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36653, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36714, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 36765, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 36792, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 36793, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 36862, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 36868, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 37007, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37065, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 37141, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37210, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 37328, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 37346, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 37349, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37403, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37490, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 37569, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37596, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 37599, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 37742, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 37779, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37787, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 37806, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37826, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 37914, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 37956, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 37985, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37993, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 37999, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38000, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38003, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38051, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 38249, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38256, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 38329, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38397, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38456, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 38472, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38489, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 38524, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38551, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 38573, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38594, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 38680, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38735, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38759, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 38800, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 38803, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 38883, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38940, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38959, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 38977, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 39026, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 39469, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 39565, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 39576, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 39587, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 39597, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 39697, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 39705, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 39736, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 39790, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 39815, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 39917, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 40004, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 40010, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 40046, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 40059, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 40151, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 40174, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 40334, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 40348, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 40392, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 40417, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 40497, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 40532, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 40540, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 40591, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 40748, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 40838, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 40881, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 41023, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 41053, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 41061, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 41094, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 41103, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 41120, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 41221, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 41226, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 41421, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 41433, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 41471, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 41694, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 42340, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 42395, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 42454, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 42627, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 42825, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 42865, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 42923, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 43007, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 43325, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 43439, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 43756, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 44200, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 44223, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 44516, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 44524, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 44752, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 45560, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 47159, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 47162, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 47164, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 47257, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 47790, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 48406, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 48413, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 48414, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 48580, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 48849, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 48864, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 49026, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 49310, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 49387, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 49398, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 49491, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 49739, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 49776, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 49827, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 49828, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 49952, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 50029, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 50325, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 50330, "sampling_group": "random_q4", "split": "validation"}
+{"anime_id": 50346, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 50410, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 50430, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 50505, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 50512, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 50602, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 50709, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 50710, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 50796, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 50854, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 50932, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 50963, "sampling_group": "random_q2", "split": "test"}
+{"anime_id": 50964, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 51009, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 51096, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 51128, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 51133, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 51139, "sampling_group": "random_q3", "split": "test"}
+{"anime_id": 51213, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 51438, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 51580, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 51632, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 51693, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 51837, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 52131, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 52530, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 52543, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 52708, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 52832, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 52942, "sampling_group": "random_q1", "split": "test"}
+{"anime_id": 52955, "sampling_group": "popular_supplement", "split": "test"}
+{"anime_id": 53111, "sampling_group": "popular_supplement", "split": "validation"}
+{"anime_id": 53393, "sampling_group": "random_q4", "split": "test"}
+{"anime_id": 53405, "sampling_group": "random_q2", "split": "validation"}
+{"anime_id": 53874, "sampling_group": "random_q3", "split": "validation"}
+{"anime_id": 54725, "sampling_group": "random_q1", "split": "validation"}
+{"anime_id": 54932, "sampling_group": "random_q1", "split": "test"}

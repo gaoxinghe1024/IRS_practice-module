@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "frozen_at": "2026-09-30T08:16:13.691438+00:00",
+  "seed": 20261001,
+  "historical_targets": 120,
+  "fresh_targets": 600,
+  "planned_validation": 200,
+  "planned_test": 400,
+  "targets_sha256": "194945a268bad51bcf9e046636fdc2c9ca8e1a361b8693e264857d2ac62fb337",
+  "source_metadata_sha256": "4a2e38e69be5da034c6be81870b2dc952835113b304c6eb91e34849a3cd8cd6e",
+  "sampling": "300 uniform stratified titles (75 per membership quartile), plus 300 random titles from the top-2000 membership band; all exclude v1 targets",
+  "allowed_inputs": [
+    "genres",
+    "themes",
+    "demographic",
+    "studio",
+    "episodes"
+  ],
+  "A": "unchanged repository weights and episode function",
+  "B_candidates": [
+    "uniform_free",
+    "uniform_monotone",
+    "marginal_free",
+    "marginal_monotone"
+  ],
+  "B_fixed": {
+    "positive_count": 50000,
+    "rating_threshold": 8,
+    "C": 1.0,
+    "features": 5,
+    "marginal_negative": "random endpoints drawn from positive-item frequency; reject self and sampled positive pairs",
+    "monotone": "nonnegative five logistic coefficients; intercept free"
+  },
+  "C_candidates": [
+    "original_raw",
+    "original_centered",
+    "compact_raw",
+    "compact_centered",
+    "natural_raw",
+    "natural_centered"
+  ],
+  "C_fixed": {
+    "model": "BAAI/bge-small-en-v1.5",
+    "dimensions": 384,
+    "pooling": "CLS",
+    "similarity": "cosine",
+    "centering": "optional unlabeled full-catalog mean subtraction followed by L2 normalization"
+  },
+  "D_candidates": [
+    "affine",
+    "corpus_quantile"
+  ],
+  "D_fixed": {
+    "tag_weight": 0.6,
+    "semantic_weight": 0.4,
+    "tag_path": "A",
+    "semantic_path": "validation-selected C",
+    "corpus_quantile": "unlabeled random-pair cosine 1st/99th percentile linear clipping; no extra supervised training"
+  },
+  "selection": "maximize 0.5*(validation coverage@5 + validation NDCG@5); stable candidate order breaks exact ties",
+  "truth_policy": "unchanged: top 5 MAL recommendations by votes/ID, minimum 3; no co-rating ground truth",
+  "candidate_pool": "all 14,202 titles except the query; no popularity/series filters",
+  "test_policy": "do not evaluate fresh test rankings until optimization_selection.json is written",
+  "replacement_rule": "test coverage at least +2pp relative to A AND test NDCG not lower",
+  "forbidden": [
+    "synopsis",
+    "title semantics",
+    "user features at inference",
+    "MAL recommendation edges as algorithm input",
+    "changing K or truth definition to inflate scores"
+  ]
+}

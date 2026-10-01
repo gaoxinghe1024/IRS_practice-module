@@ -1,0 +1,38 @@
+{
+  "catalog_version": "20260918_A_final_v1_4a2e38e69be5",
+  "catalog_count": 14202,
+  "seed": 20260930,
+  "source_files": {
+    "data/canonical/anime_runtime.jsonl": "4a2e38e69be5da034c6be81870b2dc952835113b304c6eb91e34849a3cd8cd6e",
+    "DATASET_INDEX.json": "f0904efb518efcd6079b6ffa9f198909d25361e62b4b43516773db432cdee5b7",
+    "PACKAGE_MANIFEST.json": "cd6e22e67fee77e64d60b7e462bad3092331002f9e7296cb43f9f041aac066d2"
+  },
+  "source_selection": "C-drive final release supersedes E-drive provisional B handoff; original inputs unchanged",
+  "projection": {
+    "genre_theme": "deduplicated sorted sets",
+    "demographic": "first lexicographic non-empty label",
+    "studio": "first declared studio name, exact casefolded match",
+    "length": "episode count",
+    "empty_labels": "similarity 0 even if both empty",
+    "missing_length": "0.5 as in repository baseline",
+    "semantic_text": "five dimensions only; no title, synopsis, ratings or relations"
+  },
+  "audit": {
+    "multi_demographic": 45,
+    "multi_studio": 910,
+    "missing_or_empty_genres": 1402,
+    "missing_or_empty_themes": 4413,
+    "missing_or_empty_demographic": 8917,
+    "missing_or_empty_studio": 3014,
+    "missing_or_empty_episodes": 23
+  },
+  "vocabulary_sizes": {
+    "genres": 20,
+    "themes": 53
+  },
+  "target_count": 720,
+  "sampling": "300 uniform stratified titles (75 per membership quartile), plus 300 random titles from the top-2000 membership band; all exclude v1 targets",
+  "ground_truth": "MAL recommendation votes, independent of co-high-rating training pairs; human labels initially absent",
+  "original_target_count": 120,
+  "optimization_protocol": "data/optimization_protocol.json"
+}

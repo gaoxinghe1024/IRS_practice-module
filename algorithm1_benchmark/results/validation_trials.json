@@ -1,0 +1,132 @@
+[
+  {
+    "family": "A",
+    "variant": "fixed",
+    "n_targets": 102,
+    "coverage_at_5": 0.03169934640522876,
+    "hit_rate_at_5": 0.13725490196078433,
+    "ndcg_at_5": 0.03346022734778897,
+    "precision_at_5": 0.029411764705882353,
+    "selection_utility": 0.032579786876508865
+  },
+  {
+    "family": "B",
+    "variant": "uniform_free",
+    "n_targets": 102,
+    "coverage_at_5": 0.018137254901960786,
+    "hit_rate_at_5": 0.08823529411764706,
+    "ndcg_at_5": 0.020300893618928124,
+    "precision_at_5": 0.01764705882352941,
+    "selection_utility": 0.019219074260444453
+  },
+  {
+    "family": "B",
+    "variant": "uniform_monotone",
+    "n_targets": 102,
+    "coverage_at_5": 0.014215686274509805,
+    "hit_rate_at_5": 0.06862745098039216,
+    "ndcg_at_5": 0.01700145379752487,
+    "precision_at_5": 0.013725490196078433,
+    "selection_utility": 0.015608570036017337
+  },
+  {
+    "family": "B",
+    "variant": "marginal_free",
+    "n_targets": 102,
+    "coverage_at_5": 0.020588235294117647,
+    "hit_rate_at_5": 0.09803921568627451,
+    "ndcg_at_5": 0.01859289461046109,
+    "precision_at_5": 0.0196078431372549,
+    "selection_utility": 0.01959056495228937
+  },
+  {
+    "family": "B",
+    "variant": "marginal_monotone",
+    "n_targets": 102,
+    "coverage_at_5": 0.020588235294117647,
+    "hit_rate_at_5": 0.09803921568627451,
+    "ndcg_at_5": 0.01859289461046109,
+    "precision_at_5": 0.0196078431372549,
+    "selection_utility": 0.01959056495228937
+  },
+  {
+    "family": "C",
+    "variant": "original_raw",
+    "n_targets": 102,
+    "coverage_at_5": 0.03709150326797386,
+    "hit_rate_at_5": 0.1568627450980392,
+    "ndcg_at_5": 0.03574388471901004,
+    "precision_at_5": 0.03529411764705883,
+    "selection_utility": 0.036417693993491956
+  },
+  {
+    "family": "C",
+    "variant": "original_centered",
+    "n_targets": 102,
+    "coverage_at_5": 0.042973856209150334,
+    "hit_rate_at_5": 0.17647058823529413,
+    "ndcg_at_5": 0.040936381946598696,
+    "precision_at_5": 0.041176470588235294,
+    "selection_utility": 0.04195511907787451
+  },
+  {
+    "family": "C",
+    "variant": "compact_raw",
+    "n_targets": 102,
+    "coverage_at_5": 0.024019607843137256,
+    "hit_rate_at_5": 0.11764705882352941,
+    "ndcg_at_5": 0.023210378442033157,
+    "precision_at_5": 0.023529411764705885,
+    "selection_utility": 0.02361499314258521
+  },
+  {
+    "family": "C",
+    "variant": "compact_centered",
+    "n_targets": 102,
+    "coverage_at_5": 0.03120915032679739,
+    "hit_rate_at_5": 0.14705882352941177,
+    "ndcg_at_5": 0.028936037535812253,
+    "precision_at_5": 0.029411764705882356,
+    "selection_utility": 0.03007259393130482
+  },
+  {
+    "family": "C",
+    "variant": "natural_raw",
+    "n_targets": 102,
+    "coverage_at_5": 0.02647058823529412,
+    "hit_rate_at_5": 0.11764705882352941,
+    "ndcg_at_5": 0.02385372243727959,
+    "precision_at_5": 0.02549019607843138,
+    "selection_utility": 0.025162155336286855
+  },
+  {
+    "family": "C",
+    "variant": "natural_centered",
+    "n_targets": 102,
+    "coverage_at_5": 0.02647058823529412,
+    "hit_rate_at_5": 0.12745098039215685,
+    "ndcg_at_5": 0.023562285724919495,
+    "precision_at_5": 0.025490196078431372,
+    "selection_utility": 0.025016436980106808
+  },
+  {
+    "family": "D",
+    "variant": "affine",
+    "n_targets": 102,
+    "coverage_at_5": 0.032352941176470584,
+    "hit_rate_at_5": 0.13725490196078433,
+    "ndcg_at_5": 0.035469744736660445,
+    "precision_at_5": 0.03137254901960784,
+    "selection_utility": 0.03391134295656552
+  },
+  {
+    "family": "D",
+    "variant": "corpus_quantile",
+    "n_targets": 102,
+    "coverage_at_5": 0.03431372549019608,
+    "hit_rate_at_5": 0.13725490196078433,
+    "ndcg_at_5": 0.03637984328948276,
+    "precision_at_5": 0.03333333333333334,
+    "selection_utility": 0.03534678438983942
+  }
+]

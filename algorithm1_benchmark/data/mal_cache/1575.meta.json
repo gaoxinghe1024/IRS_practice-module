@@ -1,0 +1,8 @@
+{
+  "url": "https://myanimelist.net/anime/1575/_/userrecs",
+  "retrieved_at": "2026-09-30T07:42:17.382186+00:00",
+  "sha256": "50fb7e19e7a52ebce29ce8438474a9ed3fd6351bf24b70a1bcc9d7f7a3eaed5d",
+  "retrieval": "MAL HTML fallback",
+  "raw_page": "1575.html.gz",
+  "jikan_error": "Invoke-WebRequest: C:\\IRS_practice-module-main\\algorithm-lab-repo\\algorithm1_benchmark\\kbbench\\fetch.ps1:8\r\nLine |\r\n   8 |  Invoke-WebRequest -UseBasicParsing -Uri $Url -OutFile $OutFile -Timeo …\r\n     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     |  {   \"status\": 504,   \"type\": \"BadResponseException\",   \"message\":\r\n     | \"Jikan failed to connect to MyAnimeList. MyAnimeList may be\r\n     | down/unavailable or refuses to connect\",   \"error\": null }\r\n"
+}

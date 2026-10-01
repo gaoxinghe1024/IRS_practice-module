@@ -124,6 +124,10 @@ configs/      layered configuration
 migrations/   Alembic schema (incl. FTS5)
 tests/        unit, integration, e2e
 docs/         documentation, screenshots, evaluation results
+data/         raw Kaggle files, processed active versions, Jikan cache, synthetic world (large files in Git LFS)
+artifacts/    trained models and indexes of the active version per mode (Git LFS)
+var/          activated business databases (Git LFS); logs and pipeline run records stay local
+algorithm1_benchmark/  standalone Algorithm 1 similarity benchmark (own README; needs no app, database or LFS)
 ```
 
 ## Data and licences

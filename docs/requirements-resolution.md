@@ -43,12 +43,12 @@ retrieval resources prepared offline.
 
 ## 3. Comparison scope (what "alternative" means here)
 
-| Algorithm | Default (served) | Alternatives, all runnable and evaluated | Data gate |
+| Algorithm | Default (served) | Alternatives (runnable and evaluated unless the last column says otherwise) | Data gate |
 |---|---|---|---|
 | 1 Similar | A: weighted attributes | B: logistic regression; C: BGE attribute embeddings; D: tag x semantic hybrid | B needs >= 20 train / 5 validation label queries (`logistic_min_*`) |
 | 2 Collection | `collection_profile_v1` | `manual_slides_v0` (the slides' formula); GBDT; two-tower | GBDT and two-tower need collection events; two-tower also needs `min_interactions` and a validation gain |
 | 3 Home | ICF recall + GA | MF, NCF recall; relevance-greedy, MMR, exhaustive oracle | NCF needs the `ml` extra |
-| 4 Chat | local grounded templates (plus LLM when configured) | lexical / dense / hybrid retrieval; Plain LLM vs RAG with the same LLM | Plain LLM vs RAG needs an LLM key (`blocked_by_credentials` otherwise) |
+| 4 Chat | local grounded templates (plus LLM when configured) | lexical / dense / hybrid retrieval; Plain LLM vs RAG with the same LLM | Plain LLM vs RAG: comparison harness not implemented yet, and it needs an LLM key (`blocked_by_credentials` otherwise) |
 
 Without similarity labels or real collections, a supervised model is never reported as trained on real data.
 In synthetic mode every supervised model still goes through the full train, load, infer and evaluate loop.

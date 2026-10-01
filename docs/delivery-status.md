@@ -95,7 +95,8 @@ invalid JSON, empty, refusal) fall back to local answers; a failing dense encode
 
 * **Human evaluation** (similarity labels, chat relevance, task-success sessions): protocol ready in
   `data/evaluation/human-evaluation-protocol.md`; not run. Status: human_evaluation_pending.
-* **LLM answers and Plain LLM vs RAG:** needs `ANILOGIC_LLM__PROVIDER` / `ANILOGIC_LLM__MODEL` / `ANILOGIC_LLM_API_KEY`.
+* **LLM answers:** the adapters and the answer validation are implemented and tested against stubbed responses; a real
+  run needs `ANILOGIC_LLM__PROVIDER` / `ANILOGIC_LLM__MODEL` / `ANILOGIC_LLM_API_KEY`. **Plain LLM vs RAG:** the Plain LLM baseline (same model, no retrieval) and its comparison harness are **not implemented yet**; the chat experiment only records the status. Both need a model key and a budget approval.
   No paid calls were made.
 * **Jikan enrichment:** MyAnimeList returned HTTP 504 for most requests on 2026-09-30; `make enrich-jikan` resumes.
 * **Scenes, frames, real collections:** no data in the snapshot; contracts, validators and pipelines are ready.

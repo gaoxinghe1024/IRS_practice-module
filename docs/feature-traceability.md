@@ -39,7 +39,7 @@ in `docs/evaluation-results-real.md`.
 | Two-tower collection model | `app/recommendation/collection/two_tower.py` | admin comparison | trained and evaluated on synthetic collections | implemented, tested_synthetic; **limited_by_data** (`data/evaluation/collection_events.jsonl`, >= 10,000 interactions and a validation gain) |
 | Logistic similarity scorer (algorithm 1 B) | `similarity/logistic.py` | `scorer=logistic_similarity` | synthetic training and evaluation | implemented, tested_synthetic; **limited_by_data** on real data (2 weak-label queries; needs >= 20 / 5 query titles; see the human-evaluation protocol) |
 | GBDT collection scorer | `collection/gradient_boosting.py` | `scorer=gbdt` | synthetic training and evaluation | implemented, tested_synthetic; **limited_by_data** (collection events) |
-| LLM answers and Plain LLM vs RAG | `app/chat/llm.py`, `grounded_answer.py` | chat | `test_llm_and_validation.py` (stubbed HTTP / SDK), failure injection | implemented; **limited_by_credentials** (`ANILOGIC_LLM__PROVIDER`, `ANILOGIC_LLM_API_KEY`); local mode is the fallback |
+| LLM answers and Plain LLM vs RAG | `app/chat/llm.py`, `grounded_answer.py` | chat | `test_llm_and_validation.py` (stubbed HTTP / SDK), failure injection | LLM answer path implemented, **limited_by_credentials**; Plain LLM vs RAG comparison **not_implemented** (`ANILOGIC_LLM__PROVIDER`, `ANILOGIC_LLM_API_KEY`); local mode is the fallback |
 
 ## Legacy features kept or replaced
 

@@ -131,7 +131,8 @@ this project:** MyAnimeList behind Jikan returned HTTP 504 for most requests (20
 
 Set `ANILOGIC_LLM__PROVIDER` (`openai_compatible` with `BASE_URL` + `MODEL`, or `anthropic` with `MODEL`) and
 `ANILOGIC_LLM_API_KEY`, then restart. Without them chat runs in local mode, and every feature still works. The
-evaluation's Plain LLM vs RAG comparison is `blocked_by_credentials` until a key is configured. Running it calls
+evaluation's Plain LLM vs RAG comparison is not implemented yet (the chat experiment reports `blocked_by_credentials` /
+`not_run`). Any LLM evaluation calls
 a paid API, so it is started only with explicit approval.
 
 ### Legacy account migration

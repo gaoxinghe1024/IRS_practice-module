@@ -142,3 +142,22 @@ def test_parse_json_object_handles_fences():
     assert parse_json_object('```json\n{"a": 1}\n```') == {"a": 1}
     assert parse_json_object("prefix {\"b\": 2} suffix") == {"b": 2}
     assert parse_json_object("[1, 2]") is None
+
+
+def test_dotenv_supplies_llm_settings_and_real_environment_wins(tmp_path, monkeypatch):
+    from app.core import config
+
+    (tmp_path / ".env").write_text(
+        "# comment\nANILOGIC_LLM__PROVIDER=openai_compatible\nexport ANILOGIC_LLM__MODEL='deepseek-chat'\n"
+        "ANILOGIC_LLM__BASE_URL=https://api.deepseek.com/v1  # inline comment\nANILOGIC_LLM_API_KEY=sk-test\n"
+        "OTHER_VAR=ignored\n", encoding="utf-8")
+    monkeypatch.setattr(config, "PROJECT_ROOT", tmp_path)
+    for k in list(__import__("os").environ):
+        if k.startswith("ANILOGIC_"):
+            monkeypatch.delenv(k)
+    s = config.load_settings("synthetic")
+    assert (s.llm.provider, s.llm.model, s.llm.base_url) == ("openai_compatible", "deepseek-chat", "https://api.deepseek.com/v1")
+    assert s.llm_api_key == "sk-test"
+    monkeypatch.setenv("ANILOGIC_LLM__PROVIDER", "none")              # an exported variable overrides .env
+    assert config.load_settings("synthetic").llm.provider == "none"
+    assert config.load_settings("synthetic", environ={}).llm.provider == "none"   # explicit environ: .env not read

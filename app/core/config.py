@@ -1,4 +1,4 @@
-"""Layered configuration: configs/base.yaml -> configs/<mode>.yaml -> environment.
+"""Layered configuration: configs/base.yaml -> configs/<mode>.yaml -> .env -> environment.
 
 Environment overrides use ``ANILOGIC_<SECTION>__<KEY>`` (double underscore for
 nesting), e.g. ``ANILOGIC_RECOMMENDATION__HOME__RERANKER=greedy``. The dataset
@@ -192,9 +192,33 @@ def _read_yaml(path: Path) -> dict:
         return yaml.safe_load(fh) or {}
 
 
+def read_dotenv(path: Path) -> dict[str, str]:
+    """ANILOGIC_* assignments from a .env file (KEY=value, optional quotes, # comments, optional `export`)."""
+    out: dict[str, str] = {}
+    if not path.is_file():
+        return out
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip().removeprefix("export ").strip()
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+            value = value[1:-1]
+        elif " #" in value:
+            value = value.split(" #", 1)[0].rstrip()
+        if key.startswith(ENV_PREFIX) and value:
+            out[key] = value
+    return out
+
+
 def load_settings(mode: str | None = None, environ: dict[str, str] | None = None,
                   extra_files: list[Path] | None = None) -> Settings:
-    environ = dict(os.environ if environ is None else environ)
+    if environ is None:
+        # the project's .env fills in what the process environment does not set (real variables win)
+        environ = {**read_dotenv(PROJECT_ROOT / ".env"), **os.environ}
+    environ = dict(environ)
     mode = mode or environ.get(ENV_PREFIX + "DATASET_MODE") or _read_yaml(CONFIG_DIR / "base.yaml").get(
         "dataset", {}).get("mode", "synthetic")
     if mode not in ("synthetic", "real"):

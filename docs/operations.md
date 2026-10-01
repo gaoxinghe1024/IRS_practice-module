@@ -56,8 +56,9 @@ make serve-real HOST=0.0.0.0       # or: make serve (synthetic)
 
 Layers: `configs/base.yaml` → `configs/<mode>.yaml` → environment variables `ANILOGIC_<SECTION>__<KEY>` (double
 underscore for nesting), for example `ANILOGIC_RECOMMENDATION__HOME__RERANKER=greedy`. The mode comes from
-`ANILOGIC_DATASET_MODE` (`synthetic` | `real`). Secrets are read from the environment only
-(`ANILOGIC_LLM_API_KEY`); see `.env.example`. Never commit `.env`.
+`ANILOGIC_DATASET_MODE` (`synthetic` | `real`). `ANILOGIC_*` lines in a `.env` file at the project root are
+read at startup; variables exported in the shell override them. Secrets (`ANILOGIC_LLM_API_KEY`) come only from
+the environment or `.env`, never from YAML; see `.env.example`. `.env` is git-ignored: never commit it.
 
 ## 3. Synthetic mode (no downloads needed)
 

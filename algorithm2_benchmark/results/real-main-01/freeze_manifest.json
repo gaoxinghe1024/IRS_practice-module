@@ -1,0 +1,263 @@
+{
+  "frozen_at": "2026-10-01T23:03:57Z",
+  "run_id": "real-main-01",
+  "level": "main",
+  "git": {
+    "commit": "3cda03a90a77125b80809d02a3738a233bc4ed42",
+    "branch": "yyc-algorithm2-selection",
+    "dirty_code_files": [
+      ".gitignore",
+      "app/recommendation/constraints.py",
+      "app/schemas/requests.py",
+      "app/services/recommend.py",
+      "app/services/serving.py",
+      "app/web/i18n/en.json",
+      "app/web/static/js/pages/collection.js",
+      "configs/base.yaml",
+      "docs/screenshots/e2e/j01-home-starter.png",
+      "docs/screenshots/e2e/j01-welcome.png",
+      "docs/screenshots/e2e/j04-collection-no-match.png",
+      "docs/screenshots/e2e/j04-collection-relaxed.png",
+      "docs/screenshots/e2e/j05-home-personalised.png",
+      "docs/screenshots/e2e/j07-chat-refinement.png",
+      "docs/screenshots/e2e/j09-plan-edited.png",
+      "pyproject.toml",
+      "uv.lock",
+      "app/recommendation/algorithm2/",
+      "docs/algorithm2/",
+      "evaluation/algorithm2/",
+      "tests/integration/test_algorithm2_pipeline.py",
+      "tests/unit/test_algorithm2.py"
+    ],
+    "code_diff_sha256": "6640e7a1a9975ef76821b5bd865f9e64a8d5673f84b072b4e3c32a97afa275ad"
+  },
+  "gbdt_serving_engine": {
+    "engine": "numpy reader of the LightGBM text model (app/recommendation/algorithm2/gbdt_tree.py)",
+    "check_vs_native": {
+      "rows": 564740,
+      "queries": 40,
+      "models": {
+        "B0_seed42": 0.0,
+        "B0_seed2026": 0.0,
+        "B0_seed7": 0.0,
+        "B1_seed42": 0.0,
+        "B1_seed2026": 0.0,
+        "B1_seed7": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "equal_within_1e-9": true
+    }
+  },
+  "catalog_hash": "24c831926b61bb8e4e693abd82ed069958128d503b229106b40510b7aa1d987a",
+  "feature_schema": {
+    "version": "alg2-features-v1",
+    "names": [
+      "rating_norm",
+      "hits",
+      "genre_affinity",
+      "theme_affinity",
+      "demographic_affinity",
+      "studio_affinity",
+      "length_affinity",
+      "max_tag_similarity"
+    ],
+    "dtype": "float32",
+    "missing": "NaN",
+    "definitions": {
+      "rating_norm": "catalogue_score / 10 (public catalogue score; never a personal rating)",
+      "hits": "count of the candidate's namespaced genre/theme tags among the profile's top-10 namespaced tags (frequency desc, ties by label asc)",
+      "genre_affinity": "mean of profile frequency over the candidate's genres; NaN if candidate has none or no visible item has a genre",
+      "theme_affinity": "as genre_affinity for themes",
+      "demographic_affinity": "as genre_affinity for demographics",
+      "studio_affinity": "as genre_affinity for studios",
+      "length_affinity": "exp(-|log1p(episodes) - log1p(median visible episodes)|); NaN if unknown",
+      "max_tag_similarity": "max over visible items of 0.5*Jaccard(genres) + 0.5*Jaccard(themes); empty union -> 0; NaN only for an empty history"
+    },
+    "profile": "frequencies are counts over the visible history H divided by |H|"
+  },
+  "feature_version": "alg2-features-v1",
+  "encoder": {
+    "version": "alg2-tower-encoder-v1",
+    "studio_min_count": 5,
+    "dims": {
+      "genre": 21,
+      "theme": 53,
+      "demographic": 5,
+      "studio": 292
+    },
+    "vocab_sha256": "d78a04ccb39fabf44f780ee2c89472f3271b28e0b7de0eea2c6d362c69989d94",
+    "d_item": 378,
+    "d_coll": 380
+  },
+  "formula": {
+    "A0": {
+      "hits_weight": 0.15
+    },
+    "A1": {
+      "hits_weight": 0.05
+    }
+  },
+  "models": [
+    {
+      "family": "B0",
+      "seed": 42,
+      "file": "models/B0_seed42.txt",
+      "sha256": "6c2f00c79ef7ff4788b917eaff700902aa7eea092d2a1293e25cf9a8beda218c",
+      "bytes": 1739721
+    },
+    {
+      "family": "B0",
+      "seed": 2026,
+      "file": "models/B0_seed2026.txt",
+      "sha256": "1a315da3d52e9447a0f7747778c2a15054b55d73a317dc7343270e4c9a50c6b4",
+      "bytes": 1758758
+    },
+    {
+      "family": "B0",
+      "seed": 7,
+      "file": "models/B0_seed7.txt",
+      "sha256": "63b5440714a39b23d0115825260b42ab5f906009cfab73fe5aac9c2f1ab88469",
+      "bytes": 1750096
+    },
+    {
+      "family": "B1",
+      "seed": 42,
+      "file": "models/B1_seed42.txt",
+      "sha256": "7a3c1fa582a88da196658934c63d9ff214d95fcbc28b7c1acda6c55cc50b33e2",
+      "bytes": 1754709
+    },
+    {
+      "family": "B1",
+      "seed": 2026,
+      "file": "models/B1_seed2026.txt",
+      "sha256": "5d6c9f7a143c8bbb220471980533635b6c4a4e30e7821bb1957e095f5291ffb7",
+      "bytes": 1753646
+    },
+    {
+      "family": "B1",
+      "seed": 7,
+      "file": "models/B1_seed7.txt",
+      "sha256": "cc43d43959e8a2f96253ef0b103a0ac7b40f58bb8f5921ea0eae953298dd1f01",
+      "bytes": 1752809
+    },
+    {
+      "family": "C0",
+      "seed": 42,
+      "file": "models/C0_seed42.pt",
+      "sha256": "36f71dac455908c1271e05befa3d527d670cac9bd01e403825f7f806d42fd0aa",
+      "bytes": 493987
+    },
+    {
+      "family": "C0",
+      "seed": 2026,
+      "file": "models/C0_seed2026.pt",
+      "sha256": "0a834eba17fac1bfcdea87cb5d36dcbb7e9a1f75ce19aa1c879fecb28d72579e",
+      "bytes": 494023
+    },
+    {
+      "family": "C0",
+      "seed": 7,
+      "file": "models/C0_seed7.pt",
+      "sha256": "bac4abd84bc573b0bbccf2c4afc3490eb8077d4e13a9aca8569efcd2701e9b30",
+      "bytes": 493905
+    }
+  ],
+  "configs": {
+    "B0": {
+      "params": {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_child_samples": 100,
+        "num_leaves": 31,
+        "reg_lambda": 5.0
+      },
+      "trial": 0,
+      "val_HR@8": 0.05733333333333333,
+      "features": [
+        "rating_norm",
+        "hits"
+      ]
+    },
+    "B1": {
+      "params": {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_child_samples": 100,
+        "num_leaves": 31,
+        "reg_lambda": 5.0
+      },
+      "trial": 0,
+      "val_HR@8": 0.132,
+      "features": null
+    },
+    "C0": {
+      "params": {
+        "dropout": 0.0,
+        "learning_rate": 0.0003,
+        "out_dim": 64,
+        "weight_decay": 1e-05
+      },
+      "trial": 0,
+      "val_HR@8": 0.10533333333333333,
+      "features": null
+    }
+  },
+  "genre_entropy_threshold": 3.3267101049423218,
+  "genre_entropy_rule": "median genre entropy of the validation queries' visible histories (fixed before test)",
+  "validation": {
+    "A1": {
+      "val_HR@8": 0.02666666666666667,
+      "val_NDCG@8": 0.0147757636067152,
+      "seeds": null
+    },
+    "B0": {
+      "val_HR@8": 0.0548888888888889,
+      "val_HR@8_sd": 0.0017497795275581794,
+      "val_NDCG@8": 0.03269844084114117,
+      "seeds": {
+        "42": 0.05733333333333333,
+        "2026": 0.054,
+        "7": 0.05333333333333334
+      }
+    },
+    "B1": {
+      "val_HR@8": 0.1301111111111111,
+      "val_HR@8_sd": 0.002216659704806667,
+      "val_NDCG@8": 0.07728933978511945,
+      "seeds": {
+        "42": 0.132,
+        "2026": 0.13133333333333333,
+        "7": 0.127
+      }
+    },
+    "C0": {
+      "val_HR@8": 0.10511111111111111,
+      "val_HR@8_sd": 0.0019116278371205833,
+      "val_NDCG@8": 0.05929176282045253,
+      "seeds": {
+        "42": 0.10533333333333333,
+        "2026": 0.10266666666666667,
+        "7": 0.10733333333333334
+      }
+    }
+  },
+  "pre_selected": "B1",
+  "pre_selection_rule": "the candidate to deploy is the family with the highest validation HR@8 among A1, B0, B1, C0 (learned families: mean over training seeds); within the margin the tie-break order above",
+  "deploy_seed": 42,
+  "deploy_artifact": {
+    "family": "B1",
+    "seed": 42,
+    "file": "models/B1_seed42.txt",
+    "sha256": "7a3c1fa582a88da196658934c63d9ff214d95fcbc28b7c1acda6c55cc50b33e2",
+    "bytes": 1754709
+  },
+  "fallback": "A1",
+  "protocol_sha256": "534bbedd9bd0d8d2e5acd471c80c9f4998093b12ce831394c2437b46b814c7a2",
+  "inputs": {
+    "data_manifest.json": "52609e97594d8f10ff09b5b971854eb082136384bee68f816e1f5e0241cbfee0",
+    "split_manifest.json": "a4b0f32a21f423a2a095392b8febbdb8b63fcb54d9e7a4725d84c96232404320",
+    "tuning.json": "a7dc97ddea1723ef47c01058396ad14d11ca7a3241943ba6e25204c8aa10b68f",
+    "models_manifest.json": "8d0db1736ae2681fab0d116d6a9e5f7679312177b5548e18d08b663ce1dbd4ec"
+  },
+  "note": "test users have not been evaluated by any model at freeze time"
+}

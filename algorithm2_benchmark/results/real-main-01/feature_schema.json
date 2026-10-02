@@ -1,0 +1,26 @@
+{
+  "version": "alg2-features-v1",
+  "names": [
+    "rating_norm",
+    "hits",
+    "genre_affinity",
+    "theme_affinity",
+    "demographic_affinity",
+    "studio_affinity",
+    "length_affinity",
+    "max_tag_similarity"
+  ],
+  "dtype": "float32",
+  "missing": "NaN",
+  "definitions": {
+    "rating_norm": "catalogue_score / 10 (public catalogue score; never a personal rating)",
+    "hits": "count of the candidate's namespaced genre/theme tags among the profile's top-10 namespaced tags (frequency desc, ties by label asc)",
+    "genre_affinity": "mean of profile frequency over the candidate's genres; NaN if candidate has none or no visible item has a genre",
+    "theme_affinity": "as genre_affinity for themes",
+    "demographic_affinity": "as genre_affinity for demographics",
+    "studio_affinity": "as genre_affinity for studios",
+    "length_affinity": "exp(-|log1p(episodes) - log1p(median visible episodes)|); NaN if unknown",
+    "max_tag_similarity": "max over visible items of 0.5*Jaccard(genres) + 0.5*Jaccard(themes); empty union -> 0; NaN only for an empty history"
+  },
+  "profile": "frequencies are counts over the visible history H divided by |H|"
+}

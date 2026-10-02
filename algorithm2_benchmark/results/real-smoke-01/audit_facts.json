@@ -1,0 +1,93 @@
+{
+  "created_at": "2026-10-01T20:47:07Z",
+  "git": {
+    "commit": "3cda03a90a77125b80809d02a3738a233bc4ed42",
+    "branch": "yyc-algorithm2-selection",
+    "dirty_code_files": [
+      "gitignore",
+      "app/recommendation/constraints.py",
+      "app/schemas/requests.py",
+      "app/services/recommend.py",
+      "app/services/serving.py",
+      "app/web/i18n/en.json",
+      "app/web/static/js/pages/collection.js",
+      "configs/base.yaml",
+      "docs/screenshots/e2e/j01-home-starter.png",
+      "docs/screenshots/e2e/j01-welcome.png",
+      "docs/screenshots/e2e/j04-collection-no-match.png",
+      "docs/screenshots/e2e/j04-collection-relaxed.png",
+      "docs/screenshots/e2e/j05-home-personalised.png",
+      "docs/screenshots/e2e/j07-chat-refinement.png",
+      "docs/screenshots/e2e/j09-plan-edited.png",
+      "pyproject.toml",
+      "uv.lock",
+      "app/recommendation/algorithm2/",
+      "docs/algorithm2/",
+      "evaluation/algorithm2/"
+    ],
+    "code_diff_sha256": "1bea26166751c419fadaa189b385b30bd2dc11d6447caca20bda7e35c18f2b97"
+  },
+  "remotes": [
+    "mine\thttps://github.com/yuyuchen0204/AniLogic-IRS-PM.git (fetch)",
+    "mine\thttps://github.com/yuyuchen0204/AniLogic-IRS-PM.git (push)",
+    "origin\thttps://github.com/gaoxinghe1024/IRS_practice-module.git (fetch)",
+    "origin\thttps://github.com/gaoxinghe1024/IRS_practice-module.git (push)"
+  ],
+  "origin_main": "3cda03a90a77125b80809d02a3738a233bc4ed42",
+  "upstream": "origin/yyc-algorithm2-selection",
+  "code_locations": {
+    "collection_page": [
+      "app/web/templates/collection.html",
+      "app/web/static/js/pages/collection.js"
+    ],
+    "api": [
+      "app/api/v1/collections.py::recommendations"
+    ],
+    "service": [
+      "app/services/recommend.py::collection"
+    ],
+    "rules": [
+      "app/recommendation/constraints.py::ConstraintEngine"
+    ],
+    "algorithm2": [
+      "app/recommendation/algorithm2/"
+    ],
+    "legacy_scorers": [
+      "app/recommendation/collection/manual.py",
+      "app/recommendation/profiles.py"
+    ],
+    "data_import": [
+      "pipelines/real_ingest.py",
+      "pipelines/activate.py"
+    ]
+  },
+  "code_locations_exist": {
+    "collection_page": true,
+    "api": true,
+    "service": true,
+    "rules": true,
+    "algorithm2": true,
+    "legacy_scorers": true,
+    "data_import": true
+  },
+  "configured_collection": {
+    "k": 8,
+    "scorer": "A0",
+    "algorithm2_run": null,
+    "supplement": "algorithm1_benchmark/data/catalog.jsonl.gz",
+    "alpha": 0.7,
+    "exclude_statuses": [
+      "completed"
+    ]
+  },
+  "business_db": {
+    "path": "var/real/anilogic.sqlite3",
+    "anime": 23363,
+    "anime_in_catalog": 23363,
+    "users": 1,
+    "collections": 0,
+    "collection_items": 0,
+    "app_ratings": 0
+  },
+  "active_real_version": "real-89bfdea00b"
+}

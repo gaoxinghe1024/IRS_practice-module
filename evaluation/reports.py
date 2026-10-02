@@ -44,6 +44,22 @@ def latest_runs(settings: Settings) -> dict[str, dict]:
     return found
 
 
+def _algorithm2_note(settings: Settings) -> list[str]:
+    """Algorithm 2 is selected by its own frozen-protocol experiment (algorithm2_benchmark/); point to it."""
+    root = PROJECT_ROOT / "algorithm2_benchmark" / "results"
+    rows = []
+    for d in sorted(root.glob("*/decision.json")) if settings.mode == "real" else []:
+        cfg = json.loads((d.parent / "config.json").read_text())
+        dec = json.loads(d.read_text())
+        rows.append(f"`{d.parent.name}` ({cfg.get('level')}): default `{dec.get('default_scorer')}`, "
+                    f"confirmed {dec.get('confirmed')}")
+    if not rows:
+        return []
+    return ["> **Collection recommendations (algorithm 2)** are selected by the frozen-protocol experiment in "
+            "`algorithm2_benchmark/` (see `algorithm2_benchmark/README.md` and each run's `final_report.md`): "
+            + "; ".join(rows) + ". The `collection` section below is the earlier benchmark.", ""]
+
+
 def export_summary(settings: Settings) -> str:
     runs = latest_runs(settings)
     lines = [f"# Evaluation results - {settings.mode} data", "",
@@ -52,6 +68,7 @@ def export_summary(settings: Settings) -> str:
     if settings.mode == "synthetic":
         lines += ["> **Synthetic mode.** These runs verify that the pipelines and algorithms work end to end on a "
                   "generated, fictional world. They say nothing about real recommendation quality.", ""]
+    lines += _algorithm2_note(settings)
     for name in ORDER:
         r = runs.get(name)
         if r is None or r["manifest"] is None:

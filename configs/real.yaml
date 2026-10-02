@@ -19,6 +19,11 @@ pipeline:
   sample_users_fraction: null
 
 recommendation:
+  collection:
+    # algorithm 2: B1 was pre-selected on validation and confirmed on test by the pre-registered rule
+    # (algorithm2_benchmark/results/real-main-01/decision.json); the service verifies the frozen bundle before use
+    scorer: B1
+    algorithm2_run: algorithm2_benchmark/results/real-main-01
   home:
     content_popularity_weight: 0.9  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
   icf:

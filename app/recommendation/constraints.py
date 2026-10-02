@@ -23,6 +23,7 @@ from app.recommendation.features import CatalogSnapshot
 RULES: dict[str, dict] = {
     "content.explicit": {"relaxable": False, "label": "Content policy"},
     "pool.recommendable": {"relaxable": False, "label": "Has a catalogue score and genre"},
+    "pool.scored": {"relaxable": False, "label": "Has a catalogue score"},
     "pool.planner_eligible": {"relaxable": False, "label": "Reliable episode count and duration"},
     "user.excluded_item": {"relaxable": False, "label": "You marked it not interested"},
     "user.excluded_tag": {"relaxable": False, "label": "You excluded this tag"},
@@ -51,6 +52,7 @@ class ConstraintSet:
     keywords: list[str] = field(default_factory=list)                   # contains-match on genre or title/alias
     max_total_minutes: float | None = None
     require_recommendable: bool = True
+    require_scored: bool = False                                        # catalogue score known (algorithm 2 pool)
     require_planner_eligible: bool = False
     exclude_items: set[int] = field(default_factory=set)                # dedupe (saved / rated / reference)
     user_excluded_items: set[int] = field(default_factory=set)
@@ -61,6 +63,8 @@ class ConstraintSet:
         r = ["content.explicit"]
         if self.require_recommendable:
             r.append("pool.recommendable")
+        if self.require_scored:
+            r.append("pool.scored")
         if self.require_planner_eligible:
             r.append("pool.planner_eligible")
         if self.user_excluded_items:
@@ -114,10 +118,22 @@ class ConstraintEngine:
         self.snap = snap
         self._kw_text: list[str] | None = None
         self._aliases: dict[int, list[str]] = {}
+        self._kw_masks: dict[str, np.ndarray] = {}
 
     def set_aliases(self, aliases: dict[int, list[str]]) -> None:
         self._aliases = aliases
         self._kw_text = None
+        self._kw_masks = {}
+
+    def keyword_mask(self, keyword: str) -> np.ndarray:
+        """Titles whose genre text or title / alias text contains the (normalised) keyword. Cached per keyword."""
+        m = self._kw_masks.get(keyword)
+        if m is None:
+            texts = self._keyword_text()
+            gtexts = self._genre_text
+            m = np.array([(keyword in gtexts[i]) or (keyword in texts[i]) for i in range(self.snap.n)], dtype=bool)
+            self._kw_masks[keyword] = m
+        return m
 
     def _keyword_text(self) -> list[str]:
         if self._kw_text is None:
@@ -150,6 +166,8 @@ class ConstraintEngine:
         masks["content.explicit"] = snap.in_catalog & ~snap.explicit
         if cs.require_recommendable:
             masks["pool.recommendable"] = snap.recommendable.copy()
+        if cs.require_scored:
+            masks["pool.scored"] = np.isfinite(snap.score)
         if cs.require_planner_eligible:
             masks["pool.planner_eligible"] = snap.planner_eligible.copy()
         if cs.user_excluded_items:
@@ -192,9 +210,9 @@ class ConstraintEngine:
                 m &= known & ~has    # unknown namespace cannot be verified -> fails
             masks["filter.exclude_tags"] = m
         if cs.keywords:
-            texts = self._keyword_text()
-            gtexts = self._genre_text
-            m = np.array([all((k in gtexts[i]) or (k in texts[i]) for k in cs.keywords) for i in range(snap.n)])
+            m = np.ones(snap.n, dtype=bool)
+            for k in cs.keywords:                 # every keyword must match (AND)
+                m &= self.keyword_mask(k)
             masks["filter.keywords"] = m
         if cs.max_total_minutes is not None:
             masks["filter.max_total_minutes"] = np.nan_to_num(snap.total_minutes, nan=np.inf) <= cs.max_total_minutes
@@ -287,3 +305,21 @@ class ConstraintEngine:
                                           f"{n_new} eligible titles (content rules and your exclusions stay)."})
         options.sort(key=lambda o: (-min(o["candidate_count"], k), o["rule_id"]))
         return options[:max_options]
+
+
+def alias_map(snap: CatalogSnapshot, aliases) -> dict[int, list[str]]:
+    """Catalogue index -> alternative titles (an `aliases` table with item_key / alias columns)."""
+    out: dict[int, list[str]] = {}
+    for key, alias in zip(aliases["item_key"], aliases["alias"], strict=True):
+        i = snap.index.get(key)
+        if i is not None and alias != snap.titles[i]:
+            out.setdefault(i, []).append(alias)
+    return out
+
+
+def build_engine(snap: CatalogSnapshot, aliases=None) -> ConstraintEngine:
+    """The engine used by serving and by offline experiments (same keyword text, same rules)."""
+    ce = ConstraintEngine(snap)
+    if aliases is not None:
+        ce.set_aliases(alias_map(snap, aliases))
+    return ce

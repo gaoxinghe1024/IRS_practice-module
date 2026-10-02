@@ -1,0 +1,112 @@
+{
+  "created_at": "2026-10-01T20:47:22Z",
+  "level": "smoke",
+  "seeds": {
+    "split_seed": 42,
+    "negative_seed": 42
+  },
+  "catalog_hash": "24c831926b61bb8e4e693abd82ed069958128d503b229106b40510b7aa1d987a",
+  "main_split": {
+    "users": 24000,
+    "users_sha256": "134885c18be704eeaee32e8063dfa9e263933527afa1deebeaf2003defe62f07",
+    "by_group_partition": {
+      "main / test": 3000,
+      "main / train": 14000,
+      "main / val": 3000,
+      "sparse / test": 600,
+      "sparse / train": 2800,
+      "sparse / val": 600
+    },
+    "by_bucket": {
+      "10-19 / test": 529,
+      "10-19 / train": 2471,
+      "10-19 / val": 530,
+      "100+ / test": 668,
+      "100+ / train": 3121,
+      "100+ / val": 669,
+      "2-5 / test": 600,
+      "2-5 / train": 2800,
+      "2-5 / val": 600,
+      "20-49 / test": 831,
+      "20-49 / train": 3874,
+      "20-49 / val": 830,
+      "50-99 / test": 635,
+      "50-99 / train": 2961,
+      "50-99 / val": 634,
+      "6-9 / test": 337,
+      "6-9 / train": 1573,
+      "6-9 / val": 337
+    }
+  },
+  "level_users": {
+    "users": 1200,
+    "by_partition_group": {
+      "main": {
+        "test": 150,
+        "train": 700,
+        "val": 150
+      },
+      "sparse": {
+        "test": 30,
+        "train": 140,
+        "val": 30
+      }
+    },
+    "nested_in_main_split": true
+  },
+  "partition_overlap_users": {
+    "train&val": 0,
+    "train&test": 0,
+    "val&test": 0
+  },
+  "queries": {
+    "rows": 2837,
+    "by_partition_group": {
+      "main": {
+        "test": 150,
+        "train": 2100,
+        "val": 150
+      },
+      "sparse": {
+        "test": 30,
+        "train": 377,
+        "val": 30
+      }
+    },
+    "query_manifest_sha256": "729b3776d1ebf94510f072522919f5159a11397034d00d94c4b854b80bc72975",
+    "rules": {
+      "train": [
+        "R0"
+      ],
+      "val": [
+        "R0",
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "test": [
+        "R0",
+        "R1",
+        "R2",
+        "R3"
+      ]
+    },
+    "r1_keyword_missing": 0
+  },
+  "pairs": {
+    "rows": 13285,
+    "by_partition_label": {
+      "train / 0": 9908,
+      "train / 1": 2477,
+      "val / 0": 720,
+      "val / 1": 180
+    },
+    "negatives_shortfall": 0,
+    "sha256": "ceed02aa469078aca98886c46db5adba70c843292eca5ce7742f3ed85210c28a"
+  },
+  "files": {
+    "users_split": "work/users_split.parquet",
+    "query_manifest": "work/query_manifest.parquet",
+    "sampled_pairs": "work/sampled_pairs.parquet"
+  }
+}

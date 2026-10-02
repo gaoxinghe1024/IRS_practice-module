@@ -1,0 +1,227 @@
+{
+  "verified_at": "2026-10-02T05:04:17Z",
+  "level": "main",
+  "run_id": "real-main-01",
+  "status": "passed",
+  "default_scorer": "B1",
+  "database": "throwaway copy of the activated real database (evaluation/sandbox.py); the business database was not modified",
+  "seconds": 48.2,
+  "checks": [
+    {
+      "check": "catalogue_in_app_db",
+      "passed": true,
+      "catalogue_members": 14182,
+      "missing": 0,
+      "examples": [],
+      "database": "throwaway copy of the activated real database"
+    },
+    {
+      "check": "service_loaded",
+      "passed": true,
+      "status": "ready",
+      "default": "B1",
+      "expected_default": "B1",
+      "catalog_hash": "24c831926b61",
+      "scorers": [
+        "A0",
+        "A1",
+        "AUX_profile_v1",
+        "AUX_slides_v0",
+        "B0",
+        "B1",
+        "C0"
+      ],
+      "capability": "ready"
+    },
+    {
+      "check": "offline_online_top8",
+      "passed": true,
+      "compared": 1000,
+      "identical": 1000,
+      "mismatches": [],
+      "queries": {
+        "main": 40,
+        "sparse": 10
+      },
+      "rule_requests_without_keyword_skipped": 0,
+      "offline_labels": {
+        "A0": "A0",
+        "A1": "A1",
+        "B0": "B0_seed42",
+        "B1": "B1_seed42",
+        "C0": "C0_seed42"
+      },
+      "note": "offline B0/B1 rows were scored by native LightGBM, the service uses the NumPy reader of the same model files"
+    },
+    {
+      "check": "collection_change",
+      "passed": true,
+      "history_size": 3,
+      "added": "mal:28851",
+      "profile_before": [
+        "genre:Action",
+        "genre:Adventure",
+        "genre:Fantasy",
+        "genre:Comedy",
+        "genre:Supernatural",
+        "genre:Suspense",
+        "theme:Coming of Age",
+        "theme:Historical",
+        "theme:Isekai",
+        "theme:Mythology"
+      ],
+      "profile_after": [
+        "genre:Action",
+        "genre:Adventure",
+        "genre:Fantasy",
+        "genre:Award Winning",
+        "genre:Comedy",
+        "genre:Drama",
+        "genre:Supernatural",
+        "genre:Suspense",
+        "theme:Coming of Age",
+        "theme:Historical"
+      ],
+      "top8_changed_by_scorer": {
+        "A0": true,
+        "A1": true,
+        "B0": true,
+        "B1": true,
+        "C0": true
+      },
+      "default_scorer": "B1",
+      "default_top8_changed": true,
+      "removal_restores_every_scorer": true,
+      "note": "the profile is rebuilt from the current collection on every request; whether the Top-8 moves depends on how strongly the scorer weighs the profile"
+    },
+    {
+      "check": "strict_short_list",
+      "passed": true,
+      "keyword": "tengoku",
+      "eligible": 4,
+      "returned": 4,
+      "warnings": [
+        "Only 4 titles meet the filters."
+      ]
+    },
+    {
+      "check": "strict_no_match_keyword",
+      "passed": true,
+      "status": "no_match",
+      "options": [
+        {
+          "rule_id": "filter.keywords",
+          "change": {
+            "keywords": []
+          },
+          "candidate_count": 14110,
+          "reason": "Dropping the keyword \"zzqx no such title\".",
+          "original": {
+            "keywords": [
+              "zzqx no such title"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "strict_no_match",
+      "passed": true,
+      "status": "no_match",
+      "options": [
+        {
+          "rule_id": "filter.min_score",
+          "change": {
+            "min_score": 8.7
+          },
+          "candidate_count": 8,
+          "reason": "Lowering the minimum score from 9.9 to 8.7 gives 8 eligible titles.",
+          "original": {
+            "min_score": 9.9
+          }
+        }
+      ],
+      "warnings": [
+        "No titles meet all of the selected filters."
+      ]
+    },
+    {
+      "check": "explicit_relaxation",
+      "passed": true,
+      "option": {
+        "rule_id": "filter.min_score",
+        "change": {
+          "min_score": 8.7
+        },
+        "candidate_count": 8,
+        "reason": "Lowering the minimum score from 9.9 to 8.7 gives 8 eligible titles.",
+        "original": {
+          "min_score": 9.9
+        }
+      },
+      "relaxed": true,
+      "relaxed_rules": [
+        "filter.min_score"
+      ],
+      "strict_result_count": 0,
+      "returned": 8,
+      "items_within_relaxed_filters": true
+    },
+    {
+      "check": "detail_pages",
+      "passed": true,
+      "checked": 75,
+      "failures": []
+    },
+    {
+      "check": "collection_page_renders",
+      "passed": true
+    },
+    {
+      "check": "incompatible_bundle:model_file_changed",
+      "passed": true,
+      "status": "degraded",
+      "default": "A0",
+      "loaded": [
+        "A0",
+        "AUX_profile_v1",
+        "AUX_slides_v0"
+      ],
+      "detail": "frozen run not loaded (BundleMismatch: models/B1_seed42.txt is missing or its SHA-256 differs from the freeze manifest); formula A0 in use; configured scorer B1 unavailable -> A0; default scorer A0"
+    },
+    {
+      "check": "incompatible_bundle:catalogue_hash_changed",
+      "passed": true,
+      "status": "degraded",
+      "default": "A0",
+      "loaded": [
+        "A0",
+        "AUX_profile_v1",
+        "AUX_slides_v0"
+      ],
+      "detail": "frozen run not loaded (BundleMismatch: catalogue hash differs from the one the models were trained on (000000000000 != 24c831926b61)); formula A0 in use; configured scorer B1 unavailable -> A0; default scorer A0"
+    },
+    {
+      "check": "missing_bundle_fallback",
+      "passed": true,
+      "service_status": "degraded",
+      "default": "A0",
+      "capability": "degraded",
+      "request": {
+        "keywords": "romance",
+        "min_score": 7.0,
+        "max_episodes": 26
+      },
+      "returned": 8,
+      "strict_filters_held": true,
+      "user_warnings": [
+        "The trained collection model is unavailable, so the slides formula is used. Your filters are applied as usual."
+      ]
+    },
+    {
+      "check": "missing_bundle_no_silent_relaxation",
+      "passed": true,
+      "status": "no_match"
+    }
+  ]
+}

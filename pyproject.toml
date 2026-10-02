@@ -38,6 +38,7 @@ dependencies = [
 ml = [
   "torch>=2.4,<3.0",
   "sentence-transformers>=3.0,<7.0",
+  "lightgbm>=4.5,<5",
 ]
 # Optional Anthropic provider for the chat adapter (official SDK).
 llm = [

@@ -221,12 +221,36 @@ class CollectionFilters:
                 "min_score": self.min_score, "max_episodes": self.max_episodes, "types": self.types}
 
 
+RELAX_FIELDS = {"max_episodes", "min_score", "min_episodes", "keywords", "include_tags", "types", "statuses"}
+
+
+def _with_original(cs: ConstraintSet, original: dict | None) -> ConstraintSet | None:
+    """The user's filters before a relaxation was applied (as sent back with the relaxation)."""
+    if not original:
+        return None
+    out = cs.copy()
+    for key, val in original.items():
+        if key not in RELAX_FIELDS:
+            continue
+        if key == "include_tags":
+            val = [tuple(x) for x in (val or [])]
+        setattr(out, key, val)
+    return out
+
+
 def collection(state: ServingState, db: Session, user: User, collection_id: int, filters: CollectionFilters,
                k: int | None = None, scorer_id: str | None = None, relaxation: dict | None = None) -> dict:
+    """Algorithm 2: collection H -> profile -> strict rules -> scorer -> Top-k (app/recommendation/algorithm2)."""
+    from app.recommendation.algorithm2.scorers import LABELS
+    from app.recommendation.algorithm2.service import profile_summary, reasons_for
+    from app.recommendation.profiles import is_negative
     from app.services.user_data import get_collection
 
     t0 = time.perf_counter()
     snap = _require(state)
+    svc = state.algorithm2
+    if svc is None:
+        raise CapabilityUnavailable("Collection recommendations are not available right now.", code="not_configured")
     cfg = state.settings.recommendation.get("collection", {})
     k = int(k or cfg.get("k", 8))
     if not 1 <= k <= 20:
@@ -234,27 +258,33 @@ def collection(state: ServingState, db: Session, user: User, collection_id: int,
     coll, rows = get_collection(db, user, collection_id)
     items = [snap.index[a.item_key] for _, a in rows if a.item_key in snap.index]
     us = load_user_state(db, user, snap)
-    requested = scorer_id or cfg.get("scorer", "collection_profile_v1")
-    fallback = None
-    scorer = state.collection_scorers.get(requested)
-    if requested == "two_tower_v1" and state.cap("two_tower").status != "ready":
-        scorer, fallback = None, "two_tower_v1 is not deployed (limited_by_data)"
-    if scorer is None:
-        fallback = fallback or f"{requested} unavailable"
-        fallback += " -> collection_profile_v1"
-        scorer = state.collection_scorers["collection_profile_v1"]
-    profile = build_collection_profile(snap, items, us.ratings, us.rating_mean, us.excluded_items)
+    mu = us.rating_mean
+    use, skipped = [], []
+    for i in items:                       # titles the user rated low / marked not interested are not taste seeds
+        if i in us.excluded_items:
+            skipped.append((i, "not_interested"))
+        elif i in us.ratings and is_negative(us.ratings[i], mu):
+            skipped.append((i, "rated_low"))
+        else:
+            use.append(i)
+    label, scorer, fallback = svc.resolve(scorer_id)
     request_id = new_request_id()
-    base_meta = {"collection": {"id": coll.id, "name": coll.name, "size": len(items)},
-                 "profile": _profile_summary(snap, profile), "filters": filters.public(),
-                 "relaxation_applied": relaxation}
-    if profile.empty:
-        out = {"request_id": request_id, "items": [], "status": "empty_profile", "relaxation_options": [],
-               "constraints_satisfied": True, **base_meta,
-               "meta": _meta(state, k, 0, scorer.scorer_id, scorer.version, fallback,
-                             ["This collection has no positive titles yet. Add a few titles you like to get "
-                              "collection-based suggestions."])}
-        return out
+    from app.recommendation.algorithm2.profiles import build_profile
+
+    prof = build_profile(svc.cat, use)
+    summary = profile_summary(svc.cat, prof)
+    summary["skipped_items"] = [{"item_key": str(snap.keys[i]), "reason": r} for i, r in skipped]
+    status_info = svc.public_status()
+    scorer_meta = {"scorer_label": LABELS.get(label, label), "scorer_status": status_info["status"]}
+    base_meta = {"collection": {"id": coll.id, "name": coll.name, "size": len(items)}, "profile": summary,
+                 "filters": filters.public(), "relaxation_applied": relaxation, "relaxed": bool(relaxation),
+                 "relaxed_rules": [relaxation["rule_id"]] if relaxation else [], "strict_result_count": None}
+    if not use:
+        return {"request_id": request_id, "items": [], "status": "empty_profile", "relaxation_options": [],
+                "constraints_satisfied": True, **base_meta,
+                "meta": _meta(state, k, 0, label, scorer.version, fallback,
+                              ["This collection has no positive titles yet. Add a few titles you like to get "
+                               "collection-based suggestions."]) | scorer_meta}
     cs = ConstraintSet(min_score=filters.min_score, max_episodes=filters.max_episodes, types=filters.types,
                        include_tags=filters.include_tags, keywords=filters.keywords)
     for rid, v in (("filter.min_score", filters.min_score), ("filter.max_episodes", filters.max_episodes),
@@ -265,44 +295,58 @@ def collection(state: ServingState, db: Session, user: User, collection_id: int,
     cs.exclude_items = set(items) | us.items_with_status(list(cfg.get("exclude_statuses", ["completed"])))
     cs.sources["dedupe.excluded_items"] = "already in this collection / completed"
     _account_rules(cs, us)
-    elig = state.constraints.evaluate(cs)
-    warnings = []
+    if relaxation:
+        orig = _with_original(cs, relaxation.get("original"))
+        if orig is not None:
+            base_meta["strict_result_count"] = svc.candidates(use, orig)[1].count
+    res = svc.recommend(use, cs, label, k)
+    elig = res.eligibility
+    warnings = [] if svc.status == "ready" else [   # details (run, error) stay in the capability status and logs
+        f"The trained collection model is unavailable, so the {LABELS.get(label, label).lower()} is used. "
+        "Your filters are applied as usual."]
     if elig.count == 0:
-        options = state.constraints.suggest_relaxations(cs, k)
-        warnings.append("No titles meet all of the selected filters." if cs.active_rules() else
-                        "No eligible titles.")
+        pool_cs = cs.copy(require_recommendable=False, require_scored=True)
+        pool_cs.exclude_items = set(cs.exclude_items) | set(use)
+        options = state.constraints.suggest_relaxations(pool_cs, k)
+        for opt in options:
+            opt["original"] = {key: (getattr(cs, key) if key != "include_tags" else [list(t) for t in cs.include_tags])
+                               for key in opt["change"] if key in RELAX_FIELDS}
+        warnings.append("No titles meet all of the selected filters." if cs.active_rules() else "No eligible titles.")
         if elig.unknown_tag_namespaces:
             warnings.append("Titles with unknown tags cannot be verified against tag filters and were excluded.")
         return {"request_id": request_id, "items": [], "status": "no_match", "constraints_satisfied": True,
                 "relaxation_options": options, "rule_failures": elig.fail_counts, **base_meta,
-                "meta": _meta(state, k, 0, scorer.scorer_id, scorer.version, fallback, warnings)}
-    cand = np.flatnonzero(elig.mask)
-    scores, comps = scorer.score(snap, profile, cand)
-    order = stable_order(scores, snap.keys[cand])[:k]
-    out_items = []
+                "meta": _meta(state, k, 0, label, scorer.version, fallback, warnings) | scorer_meta}
     met = [f for f, v in (("keywords " + "/".join(filters.keywords), filters.keywords),
                           (f"score >= {filters.min_score}", filters.min_score),
                           (f"<= {filters.max_episodes} episodes", filters.max_episodes),
                           ("tags " + "/".join(t[1] for t in filters.include_tags), filters.include_tags),
                           ("type " + "/".join(filters.types or []), filters.types)) if v not in (None, [])]
-    for p in order:
-        i = int(cand[p])
-        reasons = X.profile_reasons(snap, profile, i)
+    from app.recommendation.algorithm2.features import FEATURE_NAMES
+
+    out_items = []
+    for pos, i in enumerate(res.items.tolist()):
+        reasons = reasons_for(svc.cat, prof, i, X.reason)
         if met:
             reasons.append(X.reason("filters_met", filters=", ".join(met)))
-        c = {name: (None if not np.isfinite(v[p]) else round(float(v[p]), 4)) for name, v in comps.items()}
-        out_items.append({**card(snap, i), "score": round(float(scores[p]), 4), "reasons": reasons,
-                          "evidence_refs": [], "components": c, "candidate_source": scorer.scorer_id,
+        comps = {}
+        if res.features is not None:
+            comps = {n: (None if not np.isfinite(v) else round(float(v), 4))
+                     for n, v in zip(FEATURE_NAMES, res.features[pos].tolist(), strict=True)}
+        out_items.append({**card(snap, i), "score": round(float(res.scores[pos]), 6), "reasons": reasons,
+                          "evidence_refs": [], "components": comps, "candidate_source": label,
                           "constraints_passed": True})
     if len(out_items) < k:
         warnings.append(f"Only {len(out_items)} titles meet the filters.")
     out = {"request_id": request_id, "items": out_items, "status": "ok", "constraints_satisfied": True,
            "relaxation_options": [], "rule_failures": elig.fail_counts, **base_meta,
-           "meta": _meta(state, k, len(out_items), scorer.scorer_id, scorer.version, fallback, warnings)
-           | {"eligible_candidates": elig.count, "latency_ms": round((time.perf_counter() - t0) * 1000, 1)}}
-    log_run(db, request_id, user, "collection", {"collection": coll.id, **filters.public(), "k": k},
-            scorer.scorer_id, scorer.version, state, k, out_items, [], {"eligible": elig.count,
-                                                                         "rule_failures": elig.fail_counts})
+           "meta": _meta(state, k, len(out_items), label, scorer.version, fallback, warnings)
+           | scorer_meta | {"eligible_candidates": elig.count, "latency_ms": round((time.perf_counter() - t0) * 1000, 1)}}
+    log_run(db, request_id, user, "collection", {"collection": coll.id, **filters.public(), "k": k,
+                                                 "relaxation": relaxation},
+            label, scorer.version, state, k, out_items, [], {"eligible": elig.count, "rule_failures": elig.fail_counts,
+                                                              "profile_top_tags": prof.top_labels(svc.cat),
+                                                              "catalog_hash": svc.cat.catalog_hash[:12]})
     return out
 
 

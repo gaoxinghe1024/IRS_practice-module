@@ -1,0 +1,33 @@
+run_id,level,layer,model,rule,n_warmup,n,p50_ms,p95_ms,mean_ms,max_ms,threads,device,engine,cache,batching,model_bytes,fit_seconds,request_list_sha
+real-smoke-01,smoke,scoring,A0,R0,20,150,0.023,0.028,0.024,0.033,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,service,A0,R0,20,150,6.537,10.46,7.264,37.481,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,A1,R0,20,150,0.023,0.027,0.024,0.047,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,service,A1,R0,20,150,6.498,10.164,6.914,16.321,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,B0,R0,20,150,40.919,43.207,41.527,65.77,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),494897,0.8,de76a3c3a486ee85
+real-smoke-01,smoke,service,B0,R0,20,150,47.723,52.064,48.435,57.795,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),494897,0.8,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,B1,R0,20,150,58.172,66.575,60.723,154.781,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),446714,1.0,de76a3c3a486ee85
+real-smoke-01,smoke,service,B1,R0,20,150,65.148,74.504,67.27,127.754,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),446714,1.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,C0,R0,20,150,0.328,0.345,0.331,0.405,1,cpu,PyTorch CPU (item vectors precomputed at load),none (rule masks per keyword are cached),none (one request at a time),493987,1.6,de76a3c3a486ee85
+real-smoke-01,smoke,service,C0,R0,20,150,0.849,0.93,0.853,1.289,1,cpu,PyTorch CPU (item vectors precomputed at load),none (rule masks per keyword are cached),none (one request at a time),493987,1.6,de76a3c3a486ee85
+real-smoke-01,smoke,features,A0-B1 (shared eight features),R0,20,150,5.98,9.833,6.42,14.66,1,cpu,NumPy,none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,A0,R3,20,150,0.004,0.005,0.004,0.006,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,service,A0,R3,20,150,1.648,2.567,1.776,4.284,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,A1,R3,20,150,0.004,0.005,0.004,0.005,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,service,A1,R3,20,150,1.62,2.336,1.684,3.303,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,B0,R3,20,150,3.614,4.298,3.345,7.259,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),494897,0.8,de76a3c3a486ee85
+real-smoke-01,smoke,service,B0,R3,20,150,5.459,6.453,5.269,17.213,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),494897,0.8,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,B1,R3,20,150,5.17,5.618,4.665,11.16,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),446714,1.0,de76a3c3a486ee85
+real-smoke-01,smoke,service,B1,R3,20,150,6.972,7.792,6.592,21.925,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),446714,1.0,de76a3c3a486ee85
+real-smoke-01,smoke,scoring,C0,R3,20,150,0.14,0.273,0.164,1.578,1,cpu,PyTorch CPU (item vectors precomputed at load),none (rule masks per keyword are cached),none (one request at a time),493987,1.6,de76a3c3a486ee85
+real-smoke-01,smoke,service,C0,R3,20,150,0.749,1.326,0.904,6.399,1,cpu,PyTorch CPU (item vectors precomputed at load),none (rule masks per keyword are cached),none (one request at a time),493987,1.6,de76a3c3a486ee85
+real-smoke-01,smoke,features,A0-B1 (shared eight features),R3,20,150,1.033,1.703,1.085,2.577,1,cpu,NumPy,none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,A0,R0,20,150,20.295,31.7,24.31,269.264,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,A1,R0,20,150,20.398,29.459,22.127,142.891,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,B0,R0,20,150,61.665,74.495,64.828,203.579,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),494897,0.8,de76a3c3a486ee85
+real-smoke-01,smoke,api,B1,R0,20,150,80.524,111.253,86.485,309.142,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),446714,1.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,C0,R0,20,150,13.876,19.454,15.648,135.342,1,cpu,PyTorch CPU (item vectors precomputed at load),none (rule masks per keyword are cached),none (one request at a time),493987,1.6,de76a3c3a486ee85
+real-smoke-01,smoke,api,A0,R3,20,150,16.396,25.694,19.99,322.662,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,A1,R3,20,150,15.81,21.819,17.537,137.214,1,cpu,formula (NumPy),none (rule masks per keyword are cached),none (one request at a time),0,0.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,B0,R3,20,150,19.466,27.205,21.491,148.854,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),494897,0.8,de76a3c3a486ee85
+real-smoke-01,smoke,api,B1,R3,20,150,21.235,40.332,26.532,260.093,1,cpu,"LightGBM text model, NumPy reader",none (rule masks per keyword are cached),none (one request at a time),446714,1.0,de76a3c3a486ee85
+real-smoke-01,smoke,api,C0,R3,20,150,13.616,18.506,15.126,159.518,1,cpu,PyTorch CPU (item vectors precomputed at load),none (rule masks per keyword are cached),none (one request at a time),493987,1.6,de76a3c3a486ee85

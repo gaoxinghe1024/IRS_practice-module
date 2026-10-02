@@ -14332,11 +14332,6 @@
       "sha256": "9ab0b3254a40a1cd09a0a82117e5a4dcaba3bc1b331504131b6cf6c2561a56c0"
     },
     {
-      "path": "history/v1/README.md",
-      "bytes": 401,
-      "sha256": "2b5deee7da10fc702ebf3715cc97b9b56a8a01a252f52c53c880109ea649de0f"
-    },
-    {
       "path": "history/v1/results/comparison.png",
       "bytes": 54590,
       "sha256": "8978b6b4293209550afc9b1e46e30f289c611dbd525aaaa9333cb335048da369"
@@ -14370,11 +14365,6 @@
       "path": "history/v1/results/predictions.jsonl",
       "bytes": 344786,
       "sha256": "5c4c95a35370879f39a4e640994fb3561cf5abb395554113c72f8f67581314de"
-    },
-    {
-      "path": "history/v1/results/REPORT.md",
-      "bytes": 8717,
-      "sha256": "9cb2050cad1302dbf41a332c91a573693180cd665cbd412d92f68c6ab3575fba"
     },
     {
       "path": "history/v1/results/summary.json",
@@ -14532,11 +14522,6 @@
       "sha256": "1e4d8f0d59f8f5ed8428fcaf1fad5b691f90da7f5bf2b3b2f481867203576140"
     },
     {
-      "path": "README.md",
-      "bytes": 11356,
-      "sha256": "0e4281c251c53fb12cc12f167978c3406cc54209ce9c61d84701ebe42e8f7214"
-    },
-    {
       "path": "requirements.lock.txt",
       "bytes": 647,
       "sha256": "86ecbd6e10163d8aac9faab2f00b749d93c6d183820555a195cb4ba0bc8aef7c"
@@ -14617,11 +14602,6 @@
       "sha256": "4ea5b6ef803715a454cd52529388db90ea47539342e2bd6bd0bb0a24b74f439d"
     },
     {
-      "path": "results/REPORT.md",
-      "bytes": 9289,
-      "sha256": "f181f9223670db4e174e636831b82f01cd625173f065925d2485846e050d94e7"
-    },
-    {
       "path": "results/selection_ground_truth.jsonl",
       "bytes": 30364,
       "sha256": "cdd36bbb9752020ac4ecd2ca5b4102f3f6f702d873d7a659477123a8e3f4b7c2"
@@ -14655,11 +14635,6 @@
       "path": "results/showcase/predictions.jsonl",
       "bytes": 357077,
       "sha256": "72fd951b1c781e9bd95529e0cfbd071a060bd80b23c86d0247cfc8c0dafd30ce"
-    },
-    {
-      "path": "results/showcase/REPORT.md",
-      "bytes": 1143,
-      "sha256": "89aaad9110311f8d3faee8ffe563af4ba6692e3666ff77ca4e87efcfe21e69c5"
     },
     {
       "path": "results/showcase/summary.json",

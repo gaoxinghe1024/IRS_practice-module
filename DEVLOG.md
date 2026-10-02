@@ -305,3 +305,21 @@
 - 标签是代理标签（评分 ≥ 8 的集合），应用数据库中还没有真实收藏，也没有线上实验，网站上的实际效果尚未验证。
 - macOS 需要 `brew install libomp` 才能导入 LightGBM（只影响训练与离线评估；网站服务不加载原生 LightGBM）。
 - 补记：提交 `fee53c9` 起，`app/core/config.py` 会从项目根目录 `.env` 读取 `ANILOGIC_*` 设置（进程环境变量优先），当时未写日志，在此补记。
+
+## [2026-10-02] 算法② 实验材料集中到 `algorithm2_benchmark/`（与 `algorithm1_benchmark/` 同样的组织方式）
+
+**变更内容：**
+1. 实验流程代码 `evaluation/algorithm2/` → `algorithm2_benchmark/pipeline/`；运行记录 `evaluation/algorithm2/runs/` → `algorithm2_benchmark/results/`；说明与仓库审计 `docs/algorithm2/` → `algorithm2_benchmark/README.md`、`algorithm2_benchmark/docs/repo_audit.md`（`git mv`，保留历史）。
+2. 入口改为 `python -m algorithm2_benchmark <stage> --run <id>`；新增 `run_checks.py`（运行算法② 测试并把实际输出写入 `results/tests.txt`）、`verify_delivery.py` 与 `DELIVERY_MANIFEST.json`（交付文件 SHA-256 清单）、`.gitattributes`（禁止换行符转换，保证清单按字节校验）。
+3. 测试按保护对象拆分：实验自身的测试（指标定义、fixture 全流程）移到 `algorithm2_benchmark/tests/`（13 项）；保护网站行为的测试留在主测试集，改名为 `tests/unit/test_collection_algorithm2.py`（6 项）与 `tests/integration/test_collection_algorithm2.py`（2 项）。
+4. `configs/real.yaml` 的 `algorithm2_run` 改为 `algorithm2_benchmark/results/real-main-01`；Makefile（`alg2-run` / `alg2-stage` / `alg2-fixture`，新增 `alg2-checks`、`alg2-verify`，`make lint` 包含新文件夹）、`.gitignore`、`evaluation/reports.py`、README 与各文档的路径同步更新；两次运行的报告重新生成。
+5. 修正：报告与接入阶段在没有 `work/`（例如新克隆的仓库）时读取运行目录中已发布的 query / pair 清单；复现说明里的运行路径改为相对仓库根目录计算。
+6. 网站运行用的代码 `app/recommendation/algorithm2/` 位置不变（网站启动时导入）。
+
+**涉及文件：** `algorithm2_benchmark/`（新）、`evaluation/algorithm2/` 与 `docs/algorithm2/`（移走）、`tests/unit/test_collection_algorithm2.py`、`tests/integration/test_collection_algorithm2.py`、`configs/base.yaml`、`configs/real.yaml`、`Makefile`、`.gitignore`、`evaluation/reports.py`、`app/recommendation/algorithm2/__init__.py`、`README.md`、`docs/`。
+
+**原因：** 按用户要求，像算法① 一样把算法② 的尝试过程、测试与结论集中在一个单独的文件夹，方便查找。
+
+**验证方式：** `pytest tests` 148 项通过；`algorithm2_benchmark/run_checks.py` 21 项通过；`make lint` 无告警；本地真实模式网站从新路径加载冻结模型（`collection_scorer: ready`，默认 B1）；`verify_delivery.py` 核对通过。
+
+**注意事项：** 两次运行在整理之前完成，运行记录（`run_metadata.json`、`audit_facts.json`、`freeze_manifest.json`）里的 `evaluation/algorithm2/` 是当时的代码位置，作为历史记录保持原样。

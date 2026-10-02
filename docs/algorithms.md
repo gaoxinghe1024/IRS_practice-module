@@ -66,8 +66,8 @@ not lower than A, on the *validation* query group. Test numbers are only reporte
 ## 2. Collection recommendations — `app/recommendation/algorithm2/`
 
 `collection H -> profile -> fixed rule layer -> scorer -> Top-8`. The web page and the offline experiments
-(`evaluation/algorithm2/`) call the same catalogue, profile, rule engine, features and scorer objects; the
-protocol, the runs and the selection are documented in [algorithm2/README.md](algorithm2/README.md).
+(`algorithm2_benchmark/`) call the same catalogue, profile, rule engine, features and scorer objects; the
+protocol, the runs and the selection are documented in [algorithm2_benchmark/README.md](../algorithm2_benchmark/README.md).
 
 **Catalogue** (`catalog.py`): served titles (no Hentai / Erotica / Rx; Ecchi and R+ stay) that have a
 catalogue score, identified by MAL id. In real mode, theme and demographic tags are completed from

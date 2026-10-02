@@ -49,7 +49,7 @@ recommendation:
     replacement_min_val_queries: 20  # the default-replacement rule decides only with >= this many validation queries
   collection:
     k: 8
-    scorer: A0                 # algorithm 2: A0 / A1 / B0 / B1 / C0 (see docs/algorithm2); mode files set the frozen choice
+    scorer: A0                 # algorithm 2: A0 / A1 / B0 / B1 / C0 (see algorithm2_benchmark/README.md); mode files set the frozen choice
     algorithm2_run: null       # frozen run directory (models + freeze_manifest.json); null = formulas only
     supplement: algorithm1_benchmark/data/catalog.jsonl.gz   # theme / demographic tags for real mode (MAL ids)
     alpha: 0.7                 # previous collection_profile_v1 (auxiliary reference and evaluation/experiments)

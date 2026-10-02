@@ -1,0 +1,35 @@
+UTC: 2026-10-02T08:47:45+00:00
+Command: python -m pytest -vv -rs algorithm2_benchmark/tests tests/unit/test_collection_algorithm2.py tests/integration/test_collection_algorithm2.py
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- /Users/yuyuchen/Desktop/IRS PM/IRS_practice-module/.venv/bin/python
+rootdir: /Users/yuyuchen/Desktop/IRS PM/IRS_practice-module
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 21 items
+
+algorithm2_benchmark/tests/test_metrics.py::test_metrics_match_hand_computed_values PASSED [  4%]
+algorithm2_benchmark/tests/test_metrics.py::test_tie_break_is_deterministic_and_auc_ignores_ids PASSED [  9%]
+algorithm2_benchmark/tests/test_metrics.py::test_user_macro_and_paired_bootstrap_resample_users PASSED [ 14%]
+algorithm2_benchmark/tests/test_pipeline.py::test_partitions_are_user_disjoint_and_collections_stay_in_one_partition PASSED [ 19%]
+algorithm2_benchmark/tests/test_pipeline.py::test_hidden_target_is_never_part_of_the_profile_input PASSED [ 23%]
+algorithm2_benchmark/tests/test_pipeline.py::test_training_pairs_come_from_training_users_and_negatives_are_not_known_positives PASSED [ 28%]
+algorithm2_benchmark/tests/test_pipeline.py::test_every_model_ranks_the_same_candidates PASSED [ 33%]
+algorithm2_benchmark/tests/test_pipeline.py::test_learned_models_were_really_fitted PASSED [ 38%]
+algorithm2_benchmark/tests/test_pipeline.py::test_lightgbm_learns_a_learnable_signal_in_a_separate_process PASSED [ 42%]
+algorithm2_benchmark/tests/test_pipeline.py::test_two_tower_takes_real_gradient_steps PASSED [ 47%]
+algorithm2_benchmark/tests/test_pipeline.py::test_service_top8_equals_the_offline_prediction PASSED [ 52%]
+algorithm2_benchmark/tests/test_pipeline.py::test_frozen_run_cannot_be_retuned_and_reevaluation_reproduces PASSED [ 57%]
+algorithm2_benchmark/tests/test_pipeline.py::test_records_and_reports_are_written PASSED [ 61%]
+tests/unit/test_collection_algorithm2.py::test_served_order_breaks_ties_by_ascending_id PASSED [ 66%]
+tests/unit/test_collection_algorithm2.py::test_keyword_and_normalisation_and_score_episode_boundaries PASSED [ 71%]
+tests/unit/test_collection_algorithm2.py::test_service_excludes_collection_never_pads_and_never_relaxes PASSED [ 76%]
+tests/unit/test_collection_algorithm2.py::test_profile_is_built_from_visible_history_only PASSED [ 80%]
+tests/unit/test_collection_algorithm2.py::test_features_follow_the_schema_and_mark_missing_values PASSED [ 85%]
+tests/unit/test_collection_algorithm2.py::test_incompatible_bundles_fail_loudly_and_the_service_falls_back PASSED [ 90%]
+tests/integration/test_collection_algorithm2.py::test_numpy_tree_reader_reproduces_native_lightgbm_exactly PASSED [ 95%]
+tests/integration/test_collection_algorithm2.py::test_collection_api_strict_short_list_no_match_and_explicit_relaxation PASSED [100%]
+
+============================= 21 passed in 49.07s ==============================
+
+Exit code: 0

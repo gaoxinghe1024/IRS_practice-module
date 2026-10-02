@@ -13,7 +13,7 @@ Nothing here is described as production ready: this is a course system evaluated
 | Catalogue search / detail / sources / missing fields | implemented, tested_synthetic, tested_real | journeys 1-2, `test_real_data.py`, system eval (search p50 3.0 ms) | - |
 | Ratings, collections, progress, exclusions | implemented, tested_synthetic, tested_real | `test_user_data_and_recs.py` (incl. restart persistence), journeys 3, 5, 11 | - |
 | Algorithm 1 — similar titles (A default; B, C, D) | implemented, tested_synthetic, tested_real, real_data_evaluated (franchise sanity + weak labels) | `similar` runs; A Hits@5 0.652 on 23 franchise queries | human similarity labels (`data/evaluation/similarity_labels.jsonl`); B is limited_by_data on real data (2 weak-label queries) |
-| Algorithm 2 — collection recommendations (A0 / A1 formulas, B0 / B1 LightGBM, C0 two-tower; B1 default in real mode) | implemented, tested_synthetic, tested_real, real_data_evaluated on a proxy label (rating >= 8 sets, not collections) | `evaluation/algorithm2/runs/real-main-01` (24,000 users, frozen protocol, test confirmation); `integration_report.json`; `test_algorithm2*.py`; journey 4 | real collection events for a non-proxy evaluation; online feedback |
+| Algorithm 2 — collection recommendations (A0 / A1 formulas, B0 / B1 LightGBM, C0 two-tower; B1 default in real mode) | implemented, tested_synthetic, tested_real, real_data_evaluated on a proxy label (rating >= 8 sets, not collections) | `algorithm2_benchmark/results/real-main-01` (24,000 users, frozen protocol, test confirmation); `integration_report.json`; `algorithm2_benchmark/tests/`, `test_collection_algorithm2.py`; journey 4 | real collection events for a non-proxy evaluation; online feedback |
 | Algorithm 3 — home: cold start, ICF Top-20 recall, GA Top-10 | implemented, tested_synthetic, tested_real, real_data_evaluated | `homepage`, `explicit`, `ga_ablation` runs; journeys 5-6 | - (see §2 for what the numbers say) |
 | Algorithm 4 — chat-to-find | implemented, tested_synthetic, tested_real, real_data_evaluated (auto query sets) | `chat` and `system` runs; journeys 7, 8, 10 | human query set (`data/evaluation/rag_queries.jsonl`); **LLM answers limited_by_credentials** (local mode works without them) |
 | Viewing plan | implemented, tested_synthetic, tested_real, real_data_evaluated | `planner` run: 0 infeasible among 2,400 plans (greedy + 3 GA seeds, 120 users x 5 requests); journey 9 | - |
@@ -69,7 +69,7 @@ pre-selected on validation and passed every pre-registered check on test: +11.1 
 most of the gain (B1 − B0 +7.9 [+6.8, +9.0]); the two-tower ranks below B1 (−1.9 [−3.0, −0.7]). Serving cost on
 this machine: B1 120 ms p50 for a full-catalogue request in the service (formulas 7 ms, C0 1 ms). The smoke run
 (150 test users) chose differently (A1 kept), which is why only the main run decides. Details:
-`evaluation/algorithm2/runs/real-main-01/final_report.md`.
+`algorithm2_benchmark/results/real-main-01/final_report.md`.
 
 **Rating prediction (explicit protocol, 239,937 test pairs):** MF MAE 0.872 / RMSE 1.168; NCF 0.920 / 1.241; ICF
 (exact formula) 0.966 / 1.347; user mean 1.100 / 1.435. The damping that helps ICF ranking makes its rating
@@ -118,6 +118,6 @@ invalid JSON, empty, refusal) fall back to local answers; a failing dense encode
 
 `docs/test-report.md` (tests), `docs/evaluation-results-real.md` and `docs/evaluation-results-synthetic.md`
 (generated summaries), `evaluation/runs/<run_id>/` (config, manifest, metrics, per-case rows, failures, report),
-`evaluation/algorithm2/runs/<run_id>/` (algorithm 2: protocol, models, predictions, reports; see `docs/algorithm2/`),
+`algorithm2_benchmark/` (algorithm 2: pipeline, runs with protocol, models, predictions and reports, its own tests),
 `docs/screenshots/` (real-mode pages) and `docs/screenshots/e2e/` (browser journeys), `var/<mode>/pipeline_runs/`
 (pipeline records; local).

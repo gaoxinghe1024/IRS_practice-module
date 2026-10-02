@@ -45,8 +45,8 @@ def latest_runs(settings: Settings) -> dict[str, dict]:
 
 
 def _algorithm2_note(settings: Settings) -> list[str]:
-    """Algorithm 2 is selected by its own frozen-protocol experiment (evaluation/algorithm2/); point to it."""
-    root = PROJECT_ROOT / "evaluation" / "algorithm2" / "runs"
+    """Algorithm 2 is selected by its own frozen-protocol experiment (algorithm2_benchmark/); point to it."""
+    root = PROJECT_ROOT / "algorithm2_benchmark" / "results"
     rows = []
     for d in sorted(root.glob("*/decision.json")) if settings.mode == "real" else []:
         cfg = json.loads((d.parent / "config.json").read_text())
@@ -56,7 +56,7 @@ def _algorithm2_note(settings: Settings) -> list[str]:
     if not rows:
         return []
     return ["> **Collection recommendations (algorithm 2)** are selected by the frozen-protocol experiment in "
-            "`evaluation/algorithm2/` (see `docs/algorithm2/README.md` and each run's `final_report.md`): "
+            "`algorithm2_benchmark/` (see `algorithm2_benchmark/README.md` and each run's `final_report.md`): "
             + "; ".join(rows) + ". The `collection` section below is the earlier benchmark.", ""]
 
 

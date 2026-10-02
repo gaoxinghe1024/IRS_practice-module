@@ -162,6 +162,7 @@
   "collection.no_match": "No titles meet all of these filters. The strict result stays empty; you can choose one of these changes:",
   "collection.no_options": "No single change helps. Try removing a keyword or filter.",
   "collection.relaxed_label": "Showing results with a filter you relaxed: {reason}",
+  "collection.strict_count": "With your original filters there were {n} matching titles; the list below uses the relaxed filter.",
   "collection.scorer": "Scorer",
   "collection.eligible": "{n} titles passed the filters",
 

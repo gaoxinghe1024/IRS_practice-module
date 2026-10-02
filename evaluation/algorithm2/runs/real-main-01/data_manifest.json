@@ -1,0 +1,238 @@
+{
+  "prepare_version": "alg2-prepare-v1",
+  "created_at": "2026-10-01T20:54:54Z",
+  "level": "main",
+  "source": {
+    "kind": "real",
+    "dataset_version": "real-89bfdea00b",
+    "processed_root": "data/processed/real/real-89bfdea00b"
+  },
+  "processed_dataset": {
+    "pipeline_version": "2.0.0",
+    "raw_source_sha256": {
+      "anime": "60fbcd6772f0bdad1bad1824486a6a87d0df1e69a6323f8d9eca6c8bc7218115",
+      "scores": "68d635154c0d9b8b601c2b3514933e3433c9ef2db0188b6c63155853cf85cea0",
+      "jikan_layer": "a1a3e575453b5bd2bd7c0bf39d862134f4eabdaa8389d9a91eb51295cebd40ac"
+    },
+    "config_fingerprint": "41b916dff34e5698:{\"sample_seed\": 7, \"sample_users_fraction\": null}:preprocess-v2"
+  },
+  "file_checks": {
+    "catalog.parquet": {
+      "sha256": "57cf08163386c1ef6ae5e48df75482aed4746d6e48b02a9140d044a36a4933af",
+      "matches_manifest": true
+    },
+    "item_tags.parquet": {
+      "sha256": "4da375dd75e0bea1ab5684712928738852bd5b391cf4b13c5efb8f5d0baf0208",
+      "matches_manifest": true
+    },
+    "aliases.parquet": {
+      "sha256": "4df68845ed144d5e93c25c279ebb2a3c100679809394cbd3758894eacfb69c95",
+      "matches_manifest": true
+    },
+    "ratings/part-000.parquet": {
+      "sha256": "fbc534854ecd4cfe331530874d123d7ecd8ff79b4aa0c8febe9b908b6416305d",
+      "matches_manifest": true
+    },
+    "ratings/part-001.parquet": {
+      "sha256": "f592cd4960f3eaa958e919f7bab02c3eab5d6386f474201b80ea7bc57e305398",
+      "matches_manifest": true
+    },
+    "ratings/part-002.parquet": {
+      "sha256": "c32038e653161313cdf067cd7afd7e93f760dc0d8e346774732fbd37ccc97cea",
+      "matches_manifest": true
+    },
+    "ratings/part-003.parquet": {
+      "sha256": "0f2c7b6dcc7e726834660e1c847ba17a28656d38ce5cbb99a7c499e1251bffb7",
+      "matches_manifest": true
+    },
+    "ratings/part-004.parquet": {
+      "sha256": "f79713e7ad3e2a56dcae0d5dc072fdc72d7e26fa1f730e834376cf13850766fb",
+      "matches_manifest": true
+    },
+    "ratings/part-005.parquet": {
+      "sha256": "2fa8a6bc6cee49becd76a063c67a2a4eb054d3d7972cbd196091efc30f93086e",
+      "matches_manifest": true
+    },
+    "ratings/part-006.parquet": {
+      "sha256": "d4b871baec694cf729413e68c8973622c3413895d1ffab0943aa26248c923315",
+      "matches_manifest": true
+    },
+    "ratings/part-007.parquet": {
+      "sha256": "24f2b80f1b3ab66c7e630490cb2befe79e25f980a16a899a806329f450c085e6",
+      "matches_manifest": true
+    },
+    "ratings/part-008.parquet": {
+      "sha256": "d92ff9a9b9dd7f442246a5659d1834a47a6b7eebb1f481d6e3c64c3c8d534f00",
+      "matches_manifest": true
+    },
+    "ratings/part-009.parquet": {
+      "sha256": "b461467d702052f1b84538fc30100bbd2467a579dfc29af32f7e664bf0936ac7",
+      "matches_manifest": true
+    },
+    "ratings/part-010.parquet": {
+      "sha256": "4ab9db7de1568d5e291d530b4ca824ad468f5813ab80c76eebcd6c57892139c7",
+      "matches_manifest": true
+    },
+    "ratings/part-011.parquet": {
+      "sha256": "74e30f05768d097d852f8e72c6c7685088bb62047bda27aeb0954fda9a5e17b3",
+      "matches_manifest": true
+    },
+    "ratings/part-012.parquet": {
+      "sha256": "11241574ed38e4d85f26aafc4b179b3fdf0a53529c92872823bb93c83a7cbd7b",
+      "matches_manifest": true
+    },
+    "ratings/part-013.parquet": {
+      "sha256": "810942739e7ccd0b63107bc1b96b77d16c3fc3f0a5e5c166dca401237c6e4892",
+      "matches_manifest": true
+    },
+    "ratings/part-014.parquet": {
+      "sha256": "7daf37c3fc26c0cc61991724e94c9668c650ff189dad19b11dbdb3c87d6dfd52",
+      "matches_manifest": true
+    },
+    "ratings/part-015.parquet": {
+      "sha256": "bac6e70fd5053854b8ceaaff5acf2bd60d514c0b82b4e9f9d89e674780a19395",
+      "matches_manifest": true
+    },
+    "ratings/part-016.parquet": {
+      "sha256": "8b7ea9bb3278feb1351c555bc94c0b136ced5d8d5099ff4d7a4195891212e9f6",
+      "matches_manifest": true
+    },
+    "ratings/part-017.parquet": {
+      "sha256": "8d7378f84e1bf9a6edd16410baf5b240dc969f71693b40491bec8133b979884e",
+      "matches_manifest": true
+    },
+    "ratings/part-018.parquet": {
+      "sha256": "2be1407262cc560cd2dd2821d2b2cceebf7ed14334b1656b5ba0e2d022ee5430",
+      "matches_manifest": true
+    },
+    "ratings/part-019.parquet": {
+      "sha256": "01837b2a01a8bccebdc06cb8674213c718e9dc030ed0430e924c214a4bee3142",
+      "matches_manifest": true
+    },
+    "ratings/part-020.parquet": {
+      "sha256": "16c56a648d622dfca3cb4b85d03767d7a8d1700cdb30cb82433be1380ea5ff67",
+      "matches_manifest": true
+    },
+    "ratings/part-021.parquet": {
+      "sha256": "c7ccb27ca15b8ba25141ca3e911a226c1d2605a0f3852082e28bea29f4f951fa",
+      "matches_manifest": true
+    },
+    "ratings/part-022.parquet": {
+      "sha256": "c6eca2d71dc19ca261a6b4e16cf7bc9bc161d2efec09919623982fde0af665f3",
+      "matches_manifest": true
+    },
+    "ratings/part-023.parquet": {
+      "sha256": "8ba73170fb22b9b594884a330951bfcbe17d4ebf31d1669c0729a616cbcc9d7e",
+      "matches_manifest": true
+    },
+    "ratings/part-024.parquet": {
+      "sha256": "6b8b4b0006e211c1ebb658725d9f41855f8b09018bfb16eacf175ac09d063228",
+      "matches_manifest": true
+    },
+    "ratings/part-025.parquet": {
+      "sha256": "7e91c21722c5d8822ccfd937b1c1ea5f742af59ca3cbfb3ab223df4ebc0fbbd0",
+      "matches_manifest": true
+    },
+    "ratings/part-026.parquet": {
+      "sha256": "95543c1a19264b8d1af664cc24a8c2c1f4e6d720021688dda3b9ecc63f49c6a2",
+      "matches_manifest": true
+    },
+    "ratings/part-027.parquet": {
+      "sha256": "7c44778cb0afd6d077cfa0571fa229700d9aaaba2e4ae18d30f2b0658c38264e",
+      "matches_manifest": true
+    },
+    "ratings/part-028.parquet": {
+      "sha256": "2165a85a08557b9a079d9a0bde7aae5b9f034c5b2b5022d6b8cfec0767a34936",
+      "matches_manifest": true
+    },
+    "ratings/part-029.parquet": {
+      "sha256": "d47b3c745a822136d1ffc5cd6cb42ea0330b63886906ca2ffcceb5de2f950541",
+      "matches_manifest": true
+    },
+    "ratings/part-030.parquet": {
+      "sha256": "c67e8df4c2c43e10ca55057bc10bee97bed5d34f773290610c335a6e00273eba",
+      "matches_manifest": true
+    },
+    "ratings/part-031.parquet": {
+      "sha256": "41f9090f652eb0ce7b6bb78c85bf23cc9c008c585a1b9579c8a3bb278f03477d",
+      "matches_manifest": true
+    }
+  },
+  "catalogue": {
+    "catalog_hash": "24c831926b61bb8e4e693abd82ed069958128d503b229106b40510b7aa1d987a",
+    "snapshot_rows": 24905,
+    "members": 14182,
+    "membership_rule": "served (content rule: no Hentai / Erotica / Rx) and catalogue score known",
+    "field_coverage": {
+      "genre": 0.8764,
+      "theme": 0.6891,
+      "demographic": 0.372,
+      "studio": 0.7624,
+      "episodes": 0.9963,
+      "score": 1.0
+    },
+    "vocab_sizes": {
+      "genre": 21,
+      "theme": 53,
+      "demographic": 5,
+      "studio": 1042
+    },
+    "sources": {
+      "catalog_version": "alg2-catalog-v1",
+      "dataset_version": "real-89bfdea00b",
+      "dataset_mode": "real",
+      "members": 14182,
+      "supplement": {
+        "path": "algorithm1_benchmark/data/catalog.jsonl.gz",
+        "sha256": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921",
+        "namespaces": [
+          "theme",
+          "demographic"
+        ],
+        "rule": "union with snapshot values; MAL id join"
+      },
+      "supplement_values_added": {
+        "theme": 9760,
+        "demographic": 5260
+      }
+    }
+  },
+  "interactions": {
+    "rows_read": 23963380,
+    "invalid_rating": 0,
+    "unknown_item": 0,
+    "outside_catalogue": 9051,
+    "conflicting_pairs_excluded": 0,
+    "identical_duplicates_removed": 0,
+    "rows_kept": 23954329,
+    "positive_rows": 13580272,
+    "users_with_positive": 264020,
+    "outside_catalogue_reasons": {
+      "not_served": 0,
+      "explicit": 0,
+      "no_catalogue_score": 9051
+    }
+  },
+  "labels": {
+    "type": "proxy: high-rating preference set",
+    "positive_rule": "personal rating >= 8 on a catalogue member",
+    "note": "no real collections exist; unrated / lower-rated titles are unobserved weak negatives"
+  },
+  "positive_set_size_distribution": {
+    "1-1": 23055,
+    "2-5": 38763,
+    "6-9": 22955,
+    "10-19": 35764,
+    "20-49": 55889,
+    "50-99": 43083,
+    "100-1000000000": 44511
+  },
+  "id_mapping": {
+    "items": "snapshot index <-> item_key (`mal:<MAL id>`); tie-break id = MAL id",
+    "users": "Kaggle offline user_id; never joined with application users"
+  },
+  "outputs": {
+    "positives.parquet": "26b826ba573eadf54f0334644fc2e10b6fdd61428f343dda33d7e51eca8d54d1",
+    "user_sizes.parquet": "62c27e4b6c8b05ed989de6cd2b23ec8ddc13bbd8f5bcad7821718c2a9dc8071f"
+  }
+}

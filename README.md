@@ -17,7 +17,7 @@ the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a
 | Surface | What you get | Method (default) |
 |---|---|---|
 | Title page | 5 similar titles, each with reasons | weighted five-attribute similarity; logistic, BGE-embedding and hybrid alternatives |
-| Collection page | 8 recommendations matching the collection's taste and your strict filters | rule layer + profile scorer; GBDT / two-tower alternatives when collection data exists |
+| Collection page | 8 recommendations matching the collection's taste and your strict filters | strict rule layer + LightGBM on eight profile features (B1, selected and confirmed by a frozen protocol; formulas and a two-tower as compared alternatives; see `docs/algorithm2/`) |
 | Home | 10 personalised titles | item-based CF (exact adjusted cosine) recall → genetic-algorithm list optimisation; MF / NCF / greedy / MMR alternatives; cold-start modes |
 | Chat | answers with title cards and cited sources; multi-turn constraints | deterministic intent parsing, FTS5 + dense hybrid retrieval (RRF), grounded answers; LLM optional and validated |
 | Plan | titles, episode ranges, minutes, order and a budget check; save, edit, export | budgeted GA with prerequisites and progress; exact oracle for small pools |

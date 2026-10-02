@@ -278,3 +278,30 @@
 - 演示账号只存在于模拟模式（`make seed`），密码 `anilogic-demo`，见 `docs/user-guide.md`；真实模式没有任何预置账号。
 - 运行方式见 `README.md`；各功能状态见 `docs/delivery-status.md`。
 - ICF 的 damping、用户均值先验 k 与首页冷启动热度权重 g 由 `make apply-tuning` 写入 `configs/<mode>.yaml`，注释中记录对应评估 run id。
+
+## [2026-10-02] 算法②：五组模型比较、预注册选型与收藏夹接入（分支 yyc-algorithm2-selection）
+
+**状态：** 按《AniLogic 算法②：测试、验证、模型选择与系统接入执行提示词》完成。正式运行 `real-main-01`（真实数据，代理标签）选出 B1（LightGBM 八特征），测试确认通过，网站真实模式默认评分器改为 B1；合成模式仍为 A0。未推送远程、未调用付费接口。
+
+**变更内容：**
+
+1. **算法② 包** `app/recommendation/algorithm2/`：只用 MAL id 的推荐目录（可服务、非露骨、有公开评分，14,182 部；theme / demographic 按 MAL id 并入 `algorithm1_benchmark/data/catalog.jsonl.gz`）与目录哈希；画像（频率 = 计数 / |H|，top-10 命名空间标签）；固定八特征；评分器 A0 / A1（公式）、B0 / B1（LightGBM）、C0（PyTorch 内容双塔）及旧评分器的辅助对照；模型包校验（模型 SHA-256、目录哈希、特征版本、编码器），不兼容时退回公式并记录状态。
+2. **LightGBM 服务端求值** `gbdt_tree.py`：macOS 上 LightGBM（Homebrew libomp）与 PyTorch（自带 libomp）同进程会卡死或崩溃，服务改为用 NumPy 读取 LightGBM 文本模型；按位掩码逐树求值（QuickScorer 思路），原始分数与原生 LightGBM 逐位一致（freeze 时在 56 万行上核对，最大差 0），完整目录一次请求约 0.1 s。
+3. **规则层** `constraints.py`：新增 `pool.scored`（无公开评分不进入推荐池）；关键词掩码缓存；`build_engine` 供服务与离线评估共用。
+4. **收藏夹接口与页面**：从当前收藏读取 H，走与离线完全相同的代码路径得到 Top-8；严格结果不足不补齐，无结果只给放宽选项；放宽后响应带 `relaxed`、`relaxed_rules`、`strict_result_count`，页面显示原条件下的结果数；`scorer` 请求字段仅供实验 / 运维；降级提示不向普通用户暴露运行目录或异常。
+5. **实验流程** `evaluation/algorithm2/`：audit / prepare / split / tune / train / freeze / evaluate-test / benchmark / verify-integration / report 与 run-all；用户级 70/15/15 切分（seed 42，按规模分层）、留一目标、R0–R3 严格规则、完整目录候选、1:4 共用弱负例、三个训练 seed、用户级配对 bootstrap；`selection_protocol.json` 在任何训练之前写入，冻结后不能再调参；LightGBM 与 PyTorch 分别在独立子进程中运行。
+6. **运行记录**：`evaluation/algorithm2/runs/real-main-01`（24,000 用户，正式结论）与 `real-smoke-01`（1,200 用户，流程检查；该级别保留 A1，说明小样本结论不稳定）；大文件放在各运行的 `work/`（已加入 `.gitignore`）。
+7. **配置与文档**：`configs/base.yaml`（scorer / algorithm2_run / supplement）、`configs/real.yaml`（B1 + 冻结运行）、`docs/algorithm2/`（README、仓库审计）、`docs/algorithms.md`、`docs/api.md`、`docs/delivery-status.md`、`docs/feature-traceability.md`、`docs/requirements-resolution.md`、`docs/evaluation-protocol.md`、`docs/evaluation-results-real.md`（生成器加入算法② 指引）、`README.md`、`Makefile`（`alg2-run` / `alg2-stage` / `alg2-fixture`）；`pyproject.toml` 的 `ml` extra 新增 `lightgbm`，`requirements.txt` 重新导出。
+
+**结果（测试集 3,000 个主组用户，完整目录，R0，用户级 HR@8）：** A0 0.021、A1 0.032、B0 0.053、**B1 0.132**、C0 0.113（B、C 为三 seed 均值）。B1 相对 A0 +11.1 个百分点 [+9.8, +12.3]、相对 A1 +10.0 [+8.7, +11.2]，AUC 0.953，规则违反 0；B1 − B0 = +7.9 [+6.8, +9.0]，C0 − B1 = −1.9 [−3.0, −0.7]。完整报告：`evaluation/algorithm2/runs/real-main-01/final_report.md`。
+
+**涉及文件：** `app/recommendation/algorithm2/`（新）、`app/recommendation/constraints.py`、`app/services/recommend.py`、`app/services/serving.py`、`app/schemas/requests.py`、`app/web/static/js/pages/collection.js`、`app/web/i18n/en.json`、`evaluation/algorithm2/`（新）、`evaluation/reports.py`、`configs/`、`tests/unit/test_algorithm2.py`（新）、`tests/integration/test_algorithm2_pipeline.py`（新）、`tests/e2e/test_journeys.py`、`docs/`、`README.md`、`Makefile`、`.gitignore`、`pyproject.toml`、`uv.lock`、`requirements.txt`。
+
+**原因：** 原收藏夹默认评分器 `collection_profile_v1` 没有经过固定协议的比较，PPT 中的 GBDT / 双塔方案也没有在真实数据上训练与确认；本次按提示词用同一切分、候选、规则与评估器真实比较五组方案，并按预注册规则决定网站默认值。
+
+**验证方式：** `pytest tests` 共 160 项全部通过（含新增算法② 测试 20 项与 8 个浏览器旅程），`make lint` 无告警；`verify-integration` 在真实数据库副本上 14 项检查全部通过（接口 Top-8 与离线预测 1,000 / 1,000 一致、收藏变化改变输出、严格不足不补齐、无结果不静默放宽、显式放宽契约、推荐 id 可打开详情页、模型包缺失或被改动时退回公式且筛选仍严格）；`evaluate-test` 重复执行结果完全一致。
+
+**注意事项：**
+- 标签是代理标签（评分 ≥ 8 的集合），应用数据库中还没有真实收藏，也没有线上实验，网站上的实际效果尚未验证。
+- macOS 需要 `brew install libomp` 才能导入 LightGBM（只影响训练与离线评估；网站服务不加载原生 LightGBM）。
+- 补记：提交 `fee53c9` 起，`app/core/config.py` 会从项目根目录 `.env` 读取 `ANILOGIC_*` 设置（进程环境变量优先），当时未写日志，在此补记。

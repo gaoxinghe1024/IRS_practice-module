@@ -1,0 +1,10 @@
+{
+  "stage": "report",
+  "finished_at": "2026-10-02T05:13:45Z",
+  "cases": 13,
+  "records_copied": [
+    "query_manifest.parquet",
+    "sampled_pairs.parquet",
+    "users_split.parquet"
+  ]
+}

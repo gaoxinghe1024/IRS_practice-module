@@ -1,0 +1,70 @@
+{
+  "created_at": "2026-10-01T22:20:52Z",
+  "selected": {
+    "A1": {
+      "hits_weight": 0.05,
+      "val_HR@8": 0.02666666666666667,
+      "val_NDCG@8": 0.014775763606715292
+    },
+    "B0": {
+      "params": {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_child_samples": 100,
+        "num_leaves": 31,
+        "reg_lambda": 5.0
+      },
+      "trial": 0,
+      "val_HR@8": 0.05733333333333333,
+      "features": [
+        "rating_norm",
+        "hits"
+      ]
+    },
+    "B1": {
+      "params": {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "min_child_samples": 100,
+        "num_leaves": 31,
+        "reg_lambda": 5.0
+      },
+      "trial": 0,
+      "val_HR@8": 0.132,
+      "features": [
+        "rating_norm",
+        "hits",
+        "genre_affinity",
+        "theme_affinity",
+        "demographic_affinity",
+        "studio_affinity",
+        "length_affinity",
+        "max_tag_similarity"
+      ]
+    },
+    "C0": {
+      "params": {
+        "dropout": 0.0,
+        "learning_rate": 0.0003,
+        "out_dim": 64,
+        "weight_decay": 1e-05
+      },
+      "trial": 0,
+      "val_HR@8": 0.10533333333333333
+    }
+  },
+  "encoder": {
+    "version": "alg2-tower-encoder-v1",
+    "studio_min_count": 5,
+    "dims": {
+      "genre": 21,
+      "theme": 53,
+      "demographic": 5,
+      "studio": 292
+    },
+    "vocab_sha256": "d78a04ccb39fabf44f780ee2c89472f3271b28e0b7de0eea2c6d362c69989d94",
+    "d_item": 378,
+    "d_coll": 380
+  },
+  "note": "trial selection by full-catalogue validation HR@8 (primary set); early stopping by validation pair log-loss"
+}

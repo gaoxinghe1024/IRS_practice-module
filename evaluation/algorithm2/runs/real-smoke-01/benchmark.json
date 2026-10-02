@@ -1,0 +1,137 @@
+{
+  "measured_at": "2026-10-02T05:11:32Z",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 8,
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "lightgbm": "4.7.0",
+    "torch": "2.14.0",
+    "sklearn": "1.9.1",
+    "pyarrow": "25.0.1",
+    "memory_bytes": 17179869184
+  },
+  "threads": 1,
+  "device": "cpu",
+  "gpu": false,
+  "request_list": {
+    "measured": "main-group test queries in query_id order",
+    "n": 150,
+    "warmup": "main-group validation queries in query_id order",
+    "warmup_n": 20,
+    "rules": [
+      "R0",
+      "R3"
+    ],
+    "query_ids_sha": "de76a3c3a486ee85",
+    "R3_requests_without_keyword_skipped": 0
+  },
+  "load_seconds": {
+    "catalogue_and_rule_engine": 0.56,
+    "A0+A1": 0.0001,
+    "B0": 0.0339,
+    "B1": 0.0178,
+    "C0": 0.8121,
+    "C0_breakdown": {
+      "read_weights_s": 0.0019,
+      "encode_catalogue_s": 0.0131,
+      "item_vectors_s": 0.0057,
+      "items": 24905
+    }
+  },
+  "model_files": {
+    "files": [
+      {
+        "label": "B0_seed42",
+        "file": "models/B0_seed42.txt",
+        "bytes": 494897,
+        "fit_seconds": 0.8,
+        "deployed_artifact": true
+      },
+      {
+        "label": "B0_seed2026",
+        "file": "models/B0_seed2026.txt",
+        "bytes": 494898,
+        "fit_seconds": 1.0,
+        "deployed_artifact": false
+      },
+      {
+        "label": "B0_seed7",
+        "file": "models/B0_seed7.txt",
+        "bytes": 494895,
+        "fit_seconds": 0.9,
+        "deployed_artifact": false
+      },
+      {
+        "label": "B1_seed42",
+        "file": "models/B1_seed42.txt",
+        "bytes": 446714,
+        "fit_seconds": 1.0,
+        "deployed_artifact": true
+      },
+      {
+        "label": "B1_seed2026",
+        "file": "models/B1_seed2026.txt",
+        "bytes": 446715,
+        "fit_seconds": 1.1,
+        "deployed_artifact": false
+      },
+      {
+        "label": "B1_seed7",
+        "file": "models/B1_seed7.txt",
+        "bytes": 446712,
+        "fit_seconds": 1.0,
+        "deployed_artifact": false
+      },
+      {
+        "label": "C0_seed42",
+        "file": "models/C0_seed42.pt",
+        "bytes": 493987,
+        "fit_seconds": 1.6,
+        "deployed_artifact": true
+      },
+      {
+        "label": "C0_seed2026",
+        "file": "models/C0_seed2026.pt",
+        "bytes": 494023,
+        "fit_seconds": 1.7,
+        "deployed_artifact": false
+      },
+      {
+        "label": "C0_seed7",
+        "file": "models/C0_seed7.pt",
+        "bytes": 493905,
+        "fit_seconds": 1.6,
+        "deployed_artifact": false
+      }
+    ],
+    "deploy_seed": 42
+  },
+  "api": {
+    "app_startup_s": 6.02,
+    "service_status": {
+      "status": "ready",
+      "default": "A1",
+      "label": "Tuned formula",
+      "detail": "frozen algorithm-2 run real-smoke-01; default scorer A1"
+    },
+    "catalog_hash_match": true,
+    "setup_collections_s": 23.6,
+    "collections": 170
+  },
+  "peak_rss_mb": {
+    "after_catalogue": 231.0,
+    "after_models": 531.4,
+    "after_inprocess": 613.5,
+    "after_api": 822.5
+  },
+  "notes": [
+    "P50/P95 are single-request wall-clock times on this machine; they are observations, not an SLO (the project has no agreed latency SLO).",
+    "scoring = scorer only; service = profile + strict rules + features + scoring + Top-8 with H given; api = the collection endpoint in-process (database read of H, reasons, run log, JSON).",
+    "peak RSS is the whole benchmark process (catalogue, all five scorers and, for api, the full app).",
+    "B0/B1 are served by the NumPy reader of the LightGBM text model (no native LightGBM next to PyTorch); freeze_manifest.json records the equivalence check against native LightGBM."
+  ]
+}

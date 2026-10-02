@@ -13,7 +13,7 @@ Nothing here is described as production ready: this is a course system evaluated
 | Catalogue search / detail / sources / missing fields | implemented, tested_synthetic, tested_real | journeys 1-2, `test_real_data.py`, system eval (search p50 3.0 ms) | - |
 | Ratings, collections, progress, exclusions | implemented, tested_synthetic, tested_real | `test_user_data_and_recs.py` (incl. restart persistence), journeys 3, 5, 11 | - |
 | Algorithm 1 — similar titles (A default; B, C, D) | implemented, tested_synthetic, tested_real, real_data_evaluated (franchise sanity + weak labels) | `similar` runs; A Hits@5 0.652 on 23 franchise queries | human similarity labels (`data/evaluation/similarity_labels.jsonl`); B is limited_by_data on real data (2 weak-label queries) |
-| Algorithm 2 — collection recommendations (profile_v1 default; slides baseline; GBDT; two-tower) | implemented, tested_synthetic, tested_real, real_data_evaluated on a proxy only | `collection` runs; strict-empty + explicit relaxation tests; journey 4 | real collection events (`data/evaluation/collection_events.jsonl`); GBDT and two-tower limited_by_data |
+| Algorithm 2 — collection recommendations (A0 / A1 formulas, B0 / B1 LightGBM, C0 two-tower; B1 default in real mode) | implemented, tested_synthetic, tested_real, real_data_evaluated on a proxy label (rating >= 8 sets, not collections) | `evaluation/algorithm2/runs/real-main-01` (24,000 users, frozen protocol, test confirmation); `integration_report.json`; `test_algorithm2*.py`; journey 4 | real collection events for a non-proxy evaluation; online feedback |
 | Algorithm 3 — home: cold start, ICF Top-20 recall, GA Top-10 | implemented, tested_synthetic, tested_real, real_data_evaluated | `homepage`, `explicit`, `ga_ablation` runs; journeys 5-6 | - (see §2 for what the numbers say) |
 | Algorithm 4 — chat-to-find | implemented, tested_synthetic, tested_real, real_data_evaluated (auto query sets) | `chat` and `system` runs; journeys 7, 8, 10 | human query set (`data/evaluation/rag_queries.jsonl`); **LLM answers limited_by_credentials** (local mode works without them) |
 | Viewing plan | implemented, tested_synthetic, tested_real, real_data_evaluated | `planner` run: 0 infeasible among 2,400 plans (greedy + 3 GA seeds, 120 users x 5 requests); journey 9 | - |
@@ -60,6 +60,17 @@ are 95 % bootstrap intervals.
   on popularity-biased positives does not reward. Raising the warm gate, or adding a popularity prior to warm-mode
   relevance, are data-supported options left as product decisions.
 
+**Collection recommendations (algorithm 2, run `real-main-01`, 3,000 test users, full catalogue of 14,182 titles,
+user-macro HR@8 on rule R0).** The label is a proxy: the user's titles rated >= 8 act as the collection, one is
+hidden. A0 (the slides' formula) 0.021, A1 (validation weight 0.05) 0.032, B0 (LightGBM on the same two features)
+0.053, **B1 (LightGBM, eight features) 0.132**, C0 (two-tower) 0.113 (three-seed means for B and C). B1 was
+pre-selected on validation and passed every pre-registered check on test: +11.1 points over A0 [+9.8, +12.3] and
++10.0 over A1 [+8.7, +11.2], AUC 0.953, no rule violations. It is the real-mode default. The extra features carry
+most of the gain (B1 − B0 +7.9 [+6.8, +9.0]); the two-tower ranks below B1 (−1.9 [−3.0, −0.7]). Serving cost on
+this machine: B1 120 ms p50 for a full-catalogue request in the service (formulas 7 ms, C0 1 ms). The smoke run
+(150 test users) chose differently (A1 kept), which is why only the main run decides. Details:
+`evaluation/algorithm2/runs/real-main-01/final_report.md`.
+
 **Rating prediction (explicit protocol, 239,937 test pairs):** MF MAE 0.872 / RMSE 1.168; NCF 0.920 / 1.241; ICF
 (exact formula) 0.966 / 1.347; user mean 1.100 / 1.435. The damping that helps ICF ranking makes its rating
 predictions worse (MAE 1.034), so the two protocols are reported separately. NCF did not overfit: it is
@@ -85,7 +96,7 @@ invalid JSON, empty, refusal) fall back to local answers; a failing dense encode
 | Surface | Default | Why |
 |---|---|---|
 | Similar titles | A: weighted attributes | Always available and explainable; the alternatives cannot yet be judged on real data (no human labels; the replacement rule makes no decision with fewer than 20 validation queries) |
-| Collection | `collection_profile_v1` | Normalised, explainable profile match. The only real benchmark is a proxy that rewards popularity, which the brief's collection task is not about |
+| Collection | B1 (LightGBM, eight features; real mode) / A0 (synthetic mode) | Pre-selected on validation and confirmed on test by the pre-registered rule (beats A0 and the tuned formula A1 with paired 95 % intervals above zero); falls back to the formula, with the filters still strict, if the frozen run cannot be verified. The label is a proxy (high-rating sets), not real collections |
 | Home recall | ICF (damping 20, prior weight 5) | Best personalised engine on the real ranking protocol, and works for new users without retraining; MF folds in users but ranks lower; NCF cannot serve new users (ID-only) |
 | Home list | GA (proposal weights) | Improves the stated list objective at a small, measured accuracy cost; greedy is one click away on `/dev` for comparison |
 | Chat | deterministic parser + hybrid retrieval + local grounded answers | Works without credentials; an LLM adds wording only after validation |
@@ -99,12 +110,14 @@ invalid JSON, empty, refusal) fall back to local answers; a failing dense encode
   run needs `ANILOGIC_LLM__PROVIDER` / `ANILOGIC_LLM__MODEL` / `ANILOGIC_LLM_API_KEY`. **Plain LLM vs RAG:** the Plain LLM baseline (same model, no retrieval) and its comparison harness are **not implemented yet**; the chat experiment only records the status. Both need a model key and a budget approval.
   No paid calls were made.
 * **Jikan enrichment:** MyAnimeList returned HTTP 504 for most requests on 2026-09-30; `make enrich-jikan` resumes.
-* **Scenes, frames, real collections:** no data in the snapshot; contracts, validators and pipelines are ready.
+* **Scenes, frames, real collections:** no data in the snapshot; contracts, validators and pipelines are ready. The
+  collection recommender is therefore selected on a proxy label; its effect on real collections is not measured.
 * **Docker:** not run on the delivery machine.
 
 ## 5. Where the evidence is
 
 `docs/test-report.md` (tests), `docs/evaluation-results-real.md` and `docs/evaluation-results-synthetic.md`
 (generated summaries), `evaluation/runs/<run_id>/` (config, manifest, metrics, per-case rows, failures, report),
+`evaluation/algorithm2/runs/<run_id>/` (algorithm 2: protocol, models, predictions, reports; see `docs/algorithm2/`),
 `docs/screenshots/` (real-mode pages) and `docs/screenshots/e2e/` (browser journeys), `var/<mode>/pipeline_runs/`
 (pipeline records; local).

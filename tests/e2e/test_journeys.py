@@ -112,6 +112,7 @@ def test_j03_j04_two_collections_strict_filters_and_relaxation(page, live_server
     btn = page.locator("#rec-status button").first
     btn.click()
     page.wait_for_selector("#rec-status .notice.warn >> text=relaxed")
+    page.wait_for_selector("#rec-status >> text=With your original filters there were 0 matching titles")
     shot(page, "j04-collection-relaxed")
     assert not page.errors
 

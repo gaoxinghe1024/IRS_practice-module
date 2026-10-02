@@ -10,7 +10,7 @@ source materials. The system implements the decisions below, not the conflicting
 | Capability | Entry point | Method | Default output | Status |
 |---|---|---|---|---|
 | Similar titles (algorithm 1) | anime detail page | knowledge-based attribute matching | Top-5 (5-10 configurable) | implemented |
-| Collection recommendations (algorithm 2) | collection page | rule filter + knowledge-based scoring | Top-8 | implemented |
+| Collection recommendations (algorithm 2) | collection page | strict rule filter + scorer selected by a frozen protocol (formula, LightGBM or two-tower) | Top-8 | implemented |
 | Personalised home (algorithm 3) | home page | ICF recall (Top-20) + GA list optimisation | Top-10 | implemented |
 | Chat-to-find (algorithm 4) | chat page | intent parsing + hybrid retrieval + grounded answer (LLM optional) | answer, title cards, sources | implemented |
 | Viewing plan | plan page (also from chat) | budgeted combinatorial optimisation (GA, exact oracle for small pools) | titles, episode ranges, minutes, order, budget check | implemented |
@@ -46,7 +46,7 @@ retrieval resources prepared offline.
 | Algorithm | Default (served) | Alternatives (runnable and evaluated unless the last column says otherwise) | Data gate |
 |---|---|---|---|
 | 1 Similar | A: weighted attributes | B: logistic regression; C: BGE attribute embeddings; D: tag x semantic hybrid | B needs >= 20 train / 5 validation label queries (`logistic_min_*`) |
-| 2 Collection | `collection_profile_v1` | `manual_slides_v0` (the slides' formula); GBDT; two-tower | GBDT and two-tower need collection events; two-tower also needs `min_interactions` and a validation gain |
+| 2 Collection | B1: LightGBM on eight features (real mode; A0 in synthetic mode) | A0 (the slides' formula), A1 (tuned weight), B0 (LightGBM, two features), C0 (two-tower); previous `collection_profile_v1` and `manual_slides_v0` as references | the default follows the frozen run's test confirmation (`evaluation/algorithm2/runs/real-main-01/decision.json`); evaluated on a proxy label (no real collections) |
 | 3 Home | ICF recall + GA | MF, NCF recall; relevance-greedy, MMR, exhaustive oracle | NCF needs the `ml` extra |
 | 4 Chat | local grounded templates (plus LLM when configured) | lexical / dense / hybrid retrieval; Plain LLM vs RAG with the same LLM | Plain LLM vs RAG: comparison harness not implemented yet, and it needs an LLM key (`blocked_by_credentials` otherwise) |
 

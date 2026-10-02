@@ -1,0 +1,49 @@
+{
+  "written_at": "2026-10-01T20:55:02Z",
+  "status": "pre-registered before any model training or test evaluation",
+  "primary_metric": "user-macro HR@8 on rule R0, main group (visible history >= 5), queries with more than 8 candidates, full-catalogue candidate ranking",
+  "validation_use": "A1 weight, GBDT / two-tower hyper-parameters, early stopping and the pre-selection of the candidate to deploy use validation users only; test users are evaluated once, after freeze",
+  "tie_break": {
+    "margin": 0.005,
+    "order": [
+      "higher NDCG@8",
+      "lower P95 scoring latency (same machine)",
+      "lower complexity (A1 < B0 < B1 < C0; fewer trees x leaves)"
+    ]
+  },
+  "a1": {
+    "grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.3
+    ],
+    "rule": "highest validation HR@8; within the margin: higher NDCG@8, then the weight closest to 0.15, then the smaller weight"
+  },
+  "trial_selection": "per model family: highest validation HR@8 (training seed 42); within the margin the tie-break order above",
+  "pre_selection": "the candidate to deploy is the family with the highest validation HR@8 among A1, B0, B1, C0 (learned families: mean over training seeds); within the margin the tie-break order above",
+  "conservative_fallback": "A1 (validation-tuned formula; identical to A0 when the chosen weight is 0.15)",
+  "deployed_artifact": "training seed 42 of the pre-selected family; its own test metrics are reported next to the seed mean and decide the confirmation",
+  "seeds": [
+    42,
+    2026,
+    7
+  ],
+  "confirmation_on_test": {
+    "vs_A0": [
+      "user-macro AUC >= 0.65",
+      "HR@8 - A0 HR@8 >= 0.02",
+      "strict rule violation rate = 0",
+      "paired user bootstrap 95% CI of (HR@8 - A0 HR@8) has lower bound > 0"
+    ],
+    "vs_A1": "the learned candidate also needs a paired 95% CI lower bound > 0 for (HR@8 - A1 HR@8); otherwise the extra complexity is not justified and A1 is kept",
+    "bootstrap": {
+      "unit": "user",
+      "replicates": 2000,
+      "seed": 42
+    }
+  },
+  "if_not_confirmed": "deploy the conservative fallback A1; no other model is promoted because of test results",
+  "latency": "no latency SLO exists for this project; measured costs are reported, not used as a gate"
+}

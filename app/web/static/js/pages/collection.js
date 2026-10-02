@@ -66,10 +66,16 @@ async function loadRecs() {
   status.replaceChildren();
   try {
     const res = await api(`/collections/${id}/recommendations`, { method: "POST",
-      body: { ...filters(), relaxation_applied: relaxation && { rule_id: relaxation.rule_id, change: relaxation.change } } });
+      body: { ...filters(), relaxation_applied: relaxation && { rule_id: relaxation.rule_id, change: relaxation.change,
+        original: relaxation.original || null } } });
     renderProfile(res.profile);
     recs.replaceChildren();
-    if (relaxation) status.append(el("p", { class: "notice warn" }, t("collection.relaxed_label", { reason: relaxation.reason })));
+    if (relaxation) {
+      status.append(el("p", { class: "notice warn" }, t("collection.relaxed_label", { reason: relaxation.reason })));
+      if (Number.isInteger(res.strict_result_count)) {
+        status.append(el("p", { class: "muted" }, t("collection.strict_count", { n: res.strict_result_count })));
+      }
+    }
     for (const w of res.meta.warnings || []) if (res.status !== "no_match") status.append(el("p", { class: "muted" }, w));
     if (res.status === "empty_profile") { showState(recs, "empty", res.meta.warnings[0]); return; }
     if (res.status === "no_match") {
@@ -78,7 +84,7 @@ async function loadRecs() {
       for (const opt of res.relaxation_options) {
         box.append(el("p", {}, el("button", { type: "button", class: "small", onclick: () => {
           applyChange(opt.change);
-          relaxation = { rule_id: opt.rule_id, change: opt.change, reason: opt.reason };
+          relaxation = { rule_id: opt.rule_id, change: opt.change, reason: opt.reason, original: opt.original };
           loadRecs();
         } }, `${t("common.apply")}: ${opt.reason}`)));
       }
@@ -86,7 +92,7 @@ async function loadRecs() {
       return;
     }
     status.append(el("p", { class: "muted" }, `${t("collection.eligible", { n: res.meta.eligible_candidates })} · `
-      + `${t("collection.scorer")}: ${res.meta.algorithm}`));
+      + `${t("collection.scorer")}: ${res.meta.scorer_label || res.meta.algorithm}`));
     for (const item of res.items) {
       recs.append(animeCard(item, { actions: [saveButton(item), notInterestedButton(item, { requestId: res.request_id,
         surface: "collection", algorithm: res.meta.algorithm, onDone: () => loadRecs() })] }));

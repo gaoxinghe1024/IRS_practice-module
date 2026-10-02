@@ -8,6 +8,7 @@ Chromium, ruff 0.16.9), 2026-10-01, on the final code. Raw logs are under `var/l
 |---|---|---|
 | Unit + integration, including the real-data and model checks | `make test` | **131 passed**, 0 failed, 16.7 s |
 | Browser journeys 1-12 | `make e2e` | **8 passed** (12 journeys), 0 failed, 17.2 s |
+| Everything after the algorithm 2 work (2026-10-02, branch `yyc-algorithm2-selection`) | `pytest tests` | **160 passed** (152 unit + integration incl. 20 new algorithm 2 tests, 8 browser), 0 failed, 60 s |
 | Lint | `make lint` (ruff: E, F, W, I, B, UP) | clean |
 | Front-end syntax | `node --check` on every page module | clean |
 
@@ -36,6 +37,8 @@ touch the developer's data.
 | `integration/test_user_data_and_recs.py` | 9 | Idempotent ratings bump the profile version; collection semantics; progress bounds; deterministic similar; home excludes rated / excluded items and updates; negative ratings are never positive seeds; labelled cold start; strict-empty then explicit relaxation; **data and plans survive an application restart** |
 | `integration/test_chat_plans_pages.py` | 6 | Chat constraints enforced and refined; no invented scene episodes or relations; LLM failure → local answer; LLM answers validated; plan budget, edits, revisions and export (including export of an edited plan); pages render and private routes are protected |
 | `integration/test_pipeline_integrity.py` | 5 | Activation is idempotent, tampered artifacts are refused, a manifest mismatch degrades serving, manifests record versions and hashes, synthetic generation is reproducible |
+| `unit/test_algorithm2.py` | 8 | Hand-computed HR@8 / NDCG@8 / AUC (rank 1, 8, 9; ties 0.5; one candidate → null); id tie-break deterministic while AUC ignores ids; user-macro and user-level paired bootstrap; keyword AND with case / comma normalisation, score and episode boundaries, unknown episodes, unscored and explicit titles excluded; saved titles excluded, short strict lists not padded, no match never relaxed; the profile ignores the hidden target (changing its metadata changes nothing); feature schema and NaN handling; changed model file / catalogue hash / feature version are refused and the service falls back to A0 |
+| `integration/test_algorithm2_pipeline.py` (`ml`) | 12 | The whole algorithm 2 pipeline on fixture data (`run-all` in a subprocess): user-disjoint partitions, one partition per collection, targets never in H, training pairs only from training users and negatives never known positives, identical candidates for every model, models really fitted; LightGBM learns a learnable signal (separate process); the NumPy tree reader reproduces native LightGBM bit for bit (NaN and zero rules, values on thresholds); the two-tower takes real gradient steps; service Top-8 = offline Top-8 for every model and rule; a frozen run refuses retuning and re-evaluation reproduces; all records written; the collection API contract (strict, no match, explicit relaxation with `strict_result_count`, scorer fallback keeps filters) |
 | `integration/test_legacy_migration.py` | 3 | Legacy ids are verified against catalogue titles (and corrected only by a unique exact title), the shipped id table is the legacy one, a dry run reports every row and writes nothing, apply takes a backup, reruns are idempotent |
 
 Slowest steps: building the miniature world (about 4 s once per session) and loading the BGE model (about 5 s).
@@ -51,7 +54,7 @@ style) fails them too. The isolation test deliberately requests another account'
 |---|---|---|
 | `test_j01_j11_new_user_discovery_then_not_interested` | 1, 11 | `j01-welcome.png`, `j01-home-starter.png` |
 | `test_j02_detail_top5_with_sources_and_reasons` | 2 | `j02-detail-similar.png` |
-| `test_j03_j04_two_collections_strict_filters_and_relaxation` | 3, 4 | `j04-collection-no-match.png`, `j04-collection-relaxed.png` |
+| `test_j03_j04_two_collections_strict_filters_and_relaxation` | 3, 4 (incl. the strict result count after a relaxation) | `j04-collection-no-match.png`, `j04-collection-relaxed.png` |
 | `test_j05_rating_cold_to_warm_and_undo` | 5 | `j05-home-personalised.png` |
 | `test_j06_ga_vs_greedy_on_the_same_pool` | 6 | `j06-dev-ga-vs-greedy.png` |
 | `test_j07_j08_j10_chat_constraints_refinement_local_mode` | 7, 8, 10 | `j07-chat-refinement.png` |
@@ -77,6 +80,11 @@ model.
 
 The full real pipeline (validate → preprocess → split → train → build-index → activate) and all nine real-data
 experiments were also run end to end; see `docs/evaluation-results-real.md` and `docs/operations.md` for timings.
+
+The algorithm 2 stage `verify-integration` adds 14 checks on a throwaway copy of the real database for the frozen
+run (`evaluation/algorithm2/runs/real-main-01/integration_report.json`): API Top-8 = offline Top-8 for 1,000
+requests, collection changes reach the output, strict and relaxed contracts, detail pages, and formula fallback
+for a missing or changed model bundle.
 
 ## 4. What is not covered by automated tests
 

@@ -63,7 +63,7 @@ session required; **admin** = `is_admin` account (there is no default admin; see
 | GET / POST | `/collections` | user | list / create `{name, description}` |
 | GET / PATCH / DELETE | `/collections/{id}` | user | read (items + profile) / rename / delete (ratings are kept) |
 | PUT / DELETE | `/collections/{id}/items/{item_key}` | user | idempotent membership |
-| POST | `/collections/{id}/recommendations` | user | algorithm 2: `{keywords, include_tags, min_score, max_episodes, types, k, scorer, relaxation_applied?: {rule_id, change}}` |
+| POST | `/collections/{id}/recommendations` | user | algorithm 2: `{keywords, include_tags, min_score, max_episodes, types, k, scorer?, relaxation_applied?: {rule_id, change, original}}`; `scorer` (A0 / A1 / B0 / B1 / C0) is for experiments and operations, the page never sends it |
 | POST | `/feedback` | user | `{event_type, item_key, request_id, surface, algorithm, value, context}`; event types: click, save, unsave, rate, not_interested, undo_not_interested, helpful, unhelpful, plan_saved, relaxation_applied; `not_interested` creates an exclusion |
 | GET / POST | `/exclusions` | user | list / add `{kind: item|tag, item_key? , tag?}` |
 | DELETE | `/exclusions/{id}` | user | undo (revokes; the history is kept) |
@@ -134,15 +134,22 @@ PUT /api/v1/anime/synthetic:42:094/rating        X-CSRF-Token: wMlN...
 **Collection recommendations with no match** (`{"max_episodes": 1, "min_score": 9.9}`)
 
 ```json
-{"status": "no_match", "items": [],
+{"status": "no_match", "items": [], "relaxed": false, "relaxed_rules": [], "strict_result_count": null,
  "relaxation_options": [{"rule_id": "filter.min_score", "change": {"min_score": 7.4}, "candidate_count": 8,
-                         "reason": "Lowering the minimum score from 9.9 to 7.4 gives 8 eligible titles."}],
- "rule_failures": {"filter.min_score": 216, "filter.max_episodes": 177, "dedupe.excluded_items": 5}}
+                         "reason": "Lowering the minimum score from 9.9 to 7.4 gives 8 eligible titles.",
+                         "original": {"min_score": 9.9}}],
+ "rule_failures": {"filter.min_score": 216, "filter.max_episodes": 177, "dedupe.excluded_items": 5},
+ "meta": {"algorithm": "A0", "scorer_label": "Slides formula", "scorer_status": "ready",
+          "fallback": null, "warnings": ["No titles meet all of the selected filters."]}}
 ```
 
-To apply the option, repeat the request with `"min_score": 7.4` and
-`"relaxation_applied": {"rule_id": "filter.min_score", "change": {"min_score": 7.4}}`. The response then labels
-the rule "relaxed by you".
+Nothing is relaxed automatically, and a short strict list is returned as it is ("Only 4 titles meet the
+filters."). To apply the option, repeat the request with `"min_score": 7.4` and
+`"relaxation_applied": {"rule_id": "filter.min_score", "change": {"min_score": 7.4}, "original": {"min_score": 9.9}}`.
+The response then has `"relaxed": true`, `"relaxed_rules": ["filter.min_score"]` and `"strict_result_count": 0`
+(the result count under the original filters), and the page says which filter was relaxed. Items carry the eight
+feature values in `components`. If the configured model bundle cannot be verified, `meta.scorer_status` is
+`degraded`, the formula A0 is used and the filters stay strict.
 
 **Home** (`POST /recommendations/home`): items carry reasons such as
 `"Because you rated The Restless Labyrinth 10/10 (similarity 0.36 across 15 shared raters)"`, and the response has

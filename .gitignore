@@ -45,6 +45,8 @@ artifacts/*/*
 # === Evaluation: large per-case files stay local; reports and metrics are committed ===
 evaluation/runs/**/predictions.csv
 evaluation/runs/**/per_case.jsonl
+# Algorithm-2 runs: features, sampled pairs, per-pass predictions and logs are regenerable and stay local
+evaluation/algorithm2/runs/*/work/
 
 # === Browser test output ===
 test-results/

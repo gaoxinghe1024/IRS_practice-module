@@ -49,6 +49,7 @@ class CollectionUpdate(Strict):
 class Relaxation(Strict):
     rule_id: str
     change: dict
+    original: dict | None = None        # the filter values before the change (to report the strict result count)
 
 
 class CollectionRecRequest(Strict):

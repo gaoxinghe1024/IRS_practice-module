@@ -25,7 +25,7 @@ from app.core.config import PROJECT_ROOT, Settings
 from app.core.logging import get_logger, log_event
 from app.db import models as M
 from app.db.session import get_engine
-from app.recommendation.constraints import ConstraintEngine
+from app.recommendation.constraints import ConstraintEngine, build_engine
 from app.recommendation.features import CatalogSnapshot, build_snapshot
 from app.retrieval.titles import TitleResolver
 
@@ -62,7 +62,7 @@ class ServingState:
     mf: Any = None
     ncf: Any = None
     similarity: dict[str, Any] = field(default_factory=dict)
-    collection_scorers: dict[str, Any] = field(default_factory=dict)
+    algorithm2: Any = None
     dense: Any = None
     images: Any = None
     capabilities: dict[str, Capability] = field(default_factory=dict)
@@ -129,14 +129,7 @@ def load_state(settings: Settings) -> ServingState:
     snap.with_train_interactions(np.load(counts_path) if _verify(art, manifest, "stats/train_interactions.npy") else None)
     state.snap = snap
     served = set(snap.keys[snap.in_catalog & ~snap.explicit].tolist())
-    ce = ConstraintEngine(snap)
-    alias_map: dict[int, list[str]] = {}
-    for key, alias in zip(aliases["item_key"], aliases["alias"], strict=True):
-        i = snap.index.get(key)
-        if i is not None and alias != snap.titles[i]:
-            alias_map.setdefault(i, []).append(alias)
-    ce.set_aliases(alias_map)
-    state.constraints = ce
+    state.constraints = build_engine(snap, aliases)
     pop = {k: float(m) for k, m in zip(snap.keys, np.nan_to_num(snap.members), strict=True)}
     state.titles = TitleResolver(list(aliases[["item_key", "alias", "kind"]].itertuples(index=False, name=None)),
                                  dict(zip(snap.keys, snap.titles, strict=True)), pop, served)
@@ -204,33 +197,25 @@ def load_state(settings: Settings) -> ServingState:
         detail += f". logistic_similarity is {lg.get('status', 'unavailable')}: {lg['reason']}"
     state.set_cap("similar", "ready", detail)
 
-    # ---------------------------------------------------------------- collection scorers
-    from app.recommendation.collection.manual import CollectionProfileScorer, ManualSlidesScorer
+    # ---------------------------------------------------------------- collection recommendations (algorithm 2)
+    from app.recommendation.algorithm2.service import build_service
 
     cc = rec.get("collection", {})
-    state.collection_scorers["collection_profile_v1"] = CollectionProfileScorer(float(cc.get("alpha", 0.7)))
-    state.collection_scorers["manual_slides_v0"] = ManualSlidesScorer()
-    gb = manifest.get("components", {}).get("gbdt", {})
-    if gb.get("status") == "trained" and _verify(art, manifest, "models/gbdt_collection.joblib"):
-        import joblib
-
-        from app.recommendation.collection.gradient_boosting import GBDTCollectionScorer
-
-        state.collection_scorers["gradient_boosting_v1"] = GBDTCollectionScorer(
-            joblib.load(art / "models" / "gbdt_collection.joblib"), gb)
-    tt = manifest.get("components", {}).get("two_tower", {})
-    if tt.get("status") == "trained" and _verify(art, manifest, "models/two_tower.pt"):
-        try:
-            from app.recommendation.collection.two_tower import TwoTowerScorer
-
-            state.collection_scorers["two_tower_v1"] = TwoTowerScorer.load(art / "models" / "two_tower.pt", snap)
-        except Exception as exc:  # layout mismatch / torch missing
-            log_event(log, "two-tower not loaded", error=str(exc)[:200])
-    tt_enabled = bool(rec.get("two_tower", {}).get("enabled", False)) and tt.get("meets_data_gate")
-    state.set_cap("two_tower", "ready" if tt_enabled else "limited_by_data",
-                  "enabled" if tt_enabled else "trained for comparison only; real collection data below the gate "
-                  "or no validated gain (not the default scorer)" if tt.get("status") == "trained"
-                  else tt.get("reason", "not trained"))
+    try:
+        svc = build_service(snap, state.constraints, cc, PROJECT_ROOT,
+                            lambda m: log_event(log, "algorithm2 bundle", detail=m[:300]))
+        state.algorithm2 = svc
+        state.set_cap("collection_scorer", "ready" if svc.status == "ready" else "degraded", svc.detail,
+                      default=svc.default, catalog_hash=svc.cat.catalog_hash[:12])
+        if "C0" in svc.scorers:
+            state.set_cap("two_tower", "ready", "C0 is the collection default" if svc.default == "C0" else
+                          f"C0 loaded as an alternative (scorer=C0); the frozen comparison selected {svc.default}")
+        else:
+            state.set_cap("two_tower", "not_configured", "no frozen algorithm-2 run with a two-tower model is configured "
+                          "(recommendation.collection.algorithm2_run)")
+    except Exception as exc:  # pragma: no cover - recorded; the rest of the app keeps working
+        log_event(log, "algorithm2 service failed", error=f"{type(exc).__name__}: {str(exc)[:200]}")
+        state.set_cap("collection_scorer", "failed", f"collection recommendations unavailable: {type(exc).__name__}")
 
     # ---------------------------------------------------------------- dense retrieval
     idx_dir = art / "index"

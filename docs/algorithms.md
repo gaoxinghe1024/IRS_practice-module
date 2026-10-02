@@ -63,23 +63,51 @@ not lower than A, on the *validation* query group. Test numbers are only reporte
 
 ---
 
-## 2. Collection recommendations — `app/recommendation/collection/`
+## 2. Collection recommendations — `app/recommendation/algorithm2/`
 
-**Profile** (`profiles.py`): per namespace, the share of collection titles carrying each tag, plus the
-typical episode count. Titles the user rated low (<= 5, or more than 1.5 below their own mean) or marked not-interested are
-skipped from the profile, and the skip is reported.
+`collection H -> profile -> fixed rule layer -> scorer -> Top-8`. The web page and the offline experiments
+(`evaluation/algorithm2/`) call the same catalogue, profile, rule engine, features and scorer objects; the
+protocol, the runs and the selection are documented in [algorithm2/README.md](algorithm2/README.md).
 
-**Fixed rule layer:** served and recommendable, not already in the collection, not excluded, and passing the
-user's filters with AND semantics: keywords (each must match a genre or the title), include tags, minimum
-score, maximum episodes, types. An empty strict result returns `status: no_match` plus relaxation options.
-Choosing an option re-runs the request with the rule marked "relaxed by you".
+**Catalogue** (`catalog.py`): served titles (no Hentai / Erotica / Rx; Ecchi and R+ stay) that have a
+catalogue score, identified by MAL id. In real mode, theme and demographic tags are completed from
+`algorithm1_benchmark/data/catalog.jsonl.gz` (union, joined by MAL id); nothing is invented. The catalogue
+hash ties trained models to the exact titles, scores, episode counts and tags they were trained on.
 
-| Scorer | Formula / model | Role |
+**Profile** (`profiles.py`): per namespace (genre, theme, demographic, studio) the share of the collection's
+titles carrying each tag (`count / |H|`), the median known episode count, and the ten most frequent namespaced
+genre / theme tags (ties by label). Titles the user rated low (<= 5, or more than 1.5 below their own mean) or
+marked not-interested are skipped from H, and the skip is reported.
+
+**Fixed rule layer** (`app/recommendation/constraints.py`): served, not explicit, scored (`pool.scored`), not
+in the collection, not completed, not excluded, and the user's filters with AND semantics: keywords (each must
+match a genre or the title; case- and comma-normalised), include tags, minimum score, maximum episodes (an
+unknown episode count fails the cap), types. Strict: a short list is never padded; no match returns
+`status: no_match` with relaxation options, and only an option the user picks is applied (`relaxed: true`,
+`relaxed_rules`, `strict_result_count` in the response).
+
+**Features** (`features.py`): `rating_norm` (catalogue score / 10), `hits` (candidate genre / theme tags among
+the profile's top 10), genre / theme / demographic / studio affinity (mean profile share of the candidate's
+tags), length affinity, maximum tag similarity to a collection title. Missing values stay NaN.
+
+| ID | Scorer | Role |
 |---|---|---|
-| `collection_profile_v1` (default) | `affinity_d(j) = Σ_{t∈tags_d(j)} profile_d(t) / max(1, |tags_d(j)|)`; `profile_match` = availability-weighted mean of the affinities and length fit; `score = α · profile_match + (1-α) · score_j/10`, α = 0.7 | served |
-| `manual_slides_v0` | `score_j/10 + 0.15 · tag_hits` (the slides' formula, reproduced as written; its scale grows with tag counts) | baseline |
-| GBDT | `HistGradientBoostingClassifier` (200 iterations, lr 0.05) over collection-preference features plus missingness masks; trained on leave-one-out cases (hidden item vs 4 sampled unobserved items per positive), grouped by owner | alternative, needs collection events |
-| Two-tower | collection tower = pooled content vectors of the visible items; item tower = the title's own tags, length and score bucket; L2-normalised, `score = temperature · dot`; sampled-softmax loss | extension, deployed only with >= 10,000 collection interactions **and** a validation gain |
+| A0 | `rating_norm + 0.15 · hits` (the slides' formula with the canonical hits) | baseline |
+| A1 | `rating_norm + w · hits`, `w` chosen on validation from {0.05, 0.10, 0.15, 0.20, 0.30} | conservative fallback |
+| B0 | LightGBM binary classifier on (`rating_norm`, `hits`) | two-feature control |
+| B1 | LightGBM binary classifier on the eight features | **real-mode default** (confirmed on test, run `real-main-01`); synthetic mode serves A0 |
+| C0 | content two-tower (PyTorch): multi-hot tags and studios, numeric features and missing masks; 128 -> 64 -> 32/64 per tower; dot-product logits, BCEWithLogitsLoss on the shared 1:4 sampled pairs | evaluated, not the default |
+| `AUX_slides_v0`, `AUX_profile_v1` | the previous `manual_slides_v0` and `collection_profile_v1` | auxiliary references |
+
+B0 / B1 are served by a NumPy evaluator of the saved LightGBM text model (`gbdt_tree.py`, bit masks per tree;
+raw scores identical to native LightGBM, checked at freeze), because native LightGBM and PyTorch cannot share
+a process on macOS. The configured run is verified before use (model SHA-256, catalogue hash, feature version,
+two-tower encoder); if anything is missing or different, the service serves A0, reports
+`collection_scorer: degraded` and still applies the user's filters strictly.
+
+The earlier experimental collection scorers in `app/recommendation/collection/` (HistGradientBoosting GBDT,
+sampled-softmax two-tower) are kept for the older `evaluation/experiments/collection.py` benchmark and are not
+served.
 
 ---
 

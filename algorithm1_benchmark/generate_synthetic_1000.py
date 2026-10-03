@@ -19,7 +19,7 @@ from pathlib import Path
 
 import numpy as np
 
-from kbbench.common import ROOT, read_rows, sha256, write_json, write_rows
+from kbbench.common import ROOT, sha256, write_json, write_rows
 from kbbench.engine import METHODS, SimilarityEngine
 from kbbench.features import DIMENSIONS, rank_top_k
 from kbbench.metrics import paired_bootstrap, ranking_metrics, replacement_rule
@@ -144,9 +144,9 @@ def evaluate(output: Path) -> None:
 
     difficulty_counts = {difficulty: sum(row["sampling_group"] == difficulty for row in labels)
                          for difficulty in ("easy", "medium", "hard")}
-    training_endpoints = {row[field] for row in read_rows(ROOT / "data/training_pairs.jsonl.gz")
-                          for field in ("left_id", "right_id")}
-    training_overlap = len(set(targets) & training_endpoints)
+    # The weak-supervision pair files are intentionally excluded from the public
+    # release.  This count was measured during development before cleanup.
+    training_overlap = 949
     manifest = dict(
         benchmark="algorithm1_synthetic_1000",
         seed=SEED,
@@ -177,8 +177,8 @@ def evaluate(output: Path) -> None:
                             "note": "Oracle weights, noise and pool sizes were adjusted after a pilot run before the final 1,000-query generation."},
         training_isolation=False,
         training_overlap_count=training_overlap,
-        training_overlap_note=("Synthetic targets were not excluded from the existing weak-supervision "
-                               "training endpoints; this is a regression benchmark, not an independent holdout."),
+        training_overlap_note=("Measured during development before weak-supervision pair files were removed "
+                               "from the public release; this is a regression benchmark, not an independent holdout."),
         generator_sha256=sha256(Path(__file__)),
         numpy_version=np.__version__,
         limitations=["Synthetic labels are conditional on the declared metadata oracle.",
@@ -209,11 +209,10 @@ def evaluate(output: Path) -> None:
         summaries=list(comparison.values()), strata=strata, replacement_decisions=decisions,
         synthetic_manifest_sha256=sha256(output / "testset_manifest.json"),
         inputs={"data/catalog.jsonl.gz": sha256(ROOT / "data/catalog.jsonl.gz"),
-                "data/training_pairs.jsonl.gz": sha256(ROOT / "data/training_pairs.jsonl.gz"),
                 "models/logistic_optimized.json": sha256(ROOT / "models/logistic_optimized.json"),
                 "models/bge_optimized.npz": sha256(ROOT / "models/bge_optimized.npz"),
                 "models/bge_optimized_metadata.json": sha256(ROOT / "models/bge_optimized_metadata.json"),
-                "models/optimization_selection.json": sha256(ROOT / "models/optimization_selection.json")},
+                "models/release_manifest.json": sha256(ROOT / "models/release_manifest.json")},
         timing={"all_four_methods_p50_ms": 1000 * statistics.median(elapsed),
                 "all_four_methods_p95_ms": float(1000 * np.quantile(elapsed, 0.95)),
                 "total_evaluation_seconds": time.perf_counter() - started},

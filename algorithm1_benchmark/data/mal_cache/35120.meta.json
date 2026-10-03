@@ -1,8 +1,0 @@
-{
-  "url": "https://api.jikan.moe/v4/anime/35120/recommendations",
-  "retrieved_at": "2026-09-30T07:53:01.070284+00:00",
-  "sha256": "29583f1a878c7c4bf774c6fa3fca6b301a9439914cf7124182e20b9efe9f0bbc",
-  "retrieval": "Jikan API",
-  "raw_page": null,
-  "jikan_error": null
-}

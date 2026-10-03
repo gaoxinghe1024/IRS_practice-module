@@ -1,4 +1,4 @@
-UTC: 2026-10-03T15:50:34.724643+00:00
+UTC: 2026-10-03T17:04:25.394119+00:00
 Command: python -m unittest discover -s tests -v
 
 test_each_target_has_five_labels_and_each_method_ranking (test_artifacts.ArtifactTests.test_each_target_has_five_labels_and_each_method_ranking) ... ok
@@ -13,10 +13,6 @@ test_set_duplicates_do_not_change_overlap (test_core.FeatureTests.test_set_dupli
 test_single_label_is_not_split_at_comma (test_core.FeatureTests.test_single_label_is_not_split_at_comma) ... ok
 test_unknowns_do_not_create_tag_matches (test_core.FeatureTests.test_unknowns_do_not_create_tag_matches) ... ok
 test_unseen_item_needs_no_user_history (test_core.FeatureTests.test_unseen_item_needs_no_user_history) ... ok
-test_mal_challenge_is_not_empty_ground_truth (test_core.GroundTruthTests.test_mal_challenge_is_not_empty_ground_truth) ... ok
-test_mal_html_card_count_and_unrelated_links (test_core.GroundTruthTests.test_mal_html_card_count_and_unrelated_links) ... ok
-test_pending_human_labels_cannot_be_evaluated (test_core.GroundTruthTests.test_pending_human_labels_cannot_be_evaluated) ... ok
-test_verified_human_labels_and_target_leakage_guard (test_core.GroundTruthTests.test_verified_human_labels_and_target_leakage_guard) ... ok
 test_duplicate_predictions_rejected (test_core.RankingTests.test_duplicate_predictions_rejected) ... ok
 test_invalid_scores_rejected (test_core.RankingTests.test_invalid_scores_rejected) ... ok
 test_perfect_ranking_and_empty_truth (test_core.RankingTests.test_perfect_ranking_and_empty_truth) ... ok
@@ -28,7 +24,7 @@ test_manifest_hash_is_recorded_in_summary (test_optimization.SyntheticProtocolTe
 test_synthetic_cohort_is_frozen_before_ranking (test_optimization.SyntheticProtocolTests.test_synthetic_cohort_is_frozen_before_ranking) ... ok
 
 ----------------------------------------------------------------------
-Ran 25 tests in 0.906s
+Ran 21 tests in 1.150s
 
 OK
 

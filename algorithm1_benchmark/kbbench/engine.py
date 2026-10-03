@@ -18,7 +18,7 @@ class SimilarityEngine:
         self.index = {int(aid): index for index, aid in enumerate(self.ids)}
         if len(self.index) != len(self.items):
             raise ValueError("Duplicate catalog IDs")
-        selection_path = root / "models/optimization_selection.json"
+        selection_path = root / "models/release_manifest.json"
         self.selection = read_json(selection_path) if variant == "optimized" and selection_path.exists() else None
         self.variant = "optimized" if self.selection else "baseline"
         model_file = "models/logistic_optimized.json" if self.selection else "models/logistic.json"

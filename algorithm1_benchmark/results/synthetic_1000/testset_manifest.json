@@ -39,9 +39,9 @@
   },
   "training_isolation": false,
   "training_overlap_count": 949,
-  "training_overlap_note": "Synthetic targets were not excluded from the existing weak-supervision training endpoints; this is a regression benchmark, not an independent holdout.",
-  "generator_sha256": "390fa3509ffe0579b3d7393ebf0022e6a57afb1e69699ca8e5f7ddadb5dcf0b9",
-  "numpy_version": "2.5.3",
+  "training_overlap_note": "Measured during development before weak-supervision pair files were removed from the public release; this is a regression benchmark, not an independent holdout.",
+  "generator_sha256": "c5293c955303f8192bf9876ad8f3fdb248aeb73e9f2c92efd945b1f56b1ab138",
+  "numpy_version": "2.3.5",
   "limitations": [
     "Synthetic labels are conditional on the declared metadata oracle.",
     "The result is a regression/stress benchmark, not a real-user accuracy estimate.",

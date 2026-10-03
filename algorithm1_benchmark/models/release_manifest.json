@@ -1,0 +1,17 @@
+{
+  "schema": "algorithm1-synthetic-1000-release-v1",
+  "variant": "optimized",
+  "D": "corpus_quantile",
+  "semantic_calibration": {
+    "low": -0.4277303645014763,
+    "high": 0.6674779903888689,
+    "seed": 20261001,
+    "pairs": 20000,
+    "source": "unlabeled catalog vectors"
+  },
+  "files": {
+    "models/logistic_optimized.json": "6ccfbe26444f3440e6d2f49eeca104c38ce303b5c7fe30aeed037d4a5ef4e082",
+    "models/bge_optimized.npz": "c0c420b3554caae4281ca0a2e12ce322bbd93aa831beb1399881aae332c6b1c8",
+    "models/bge_optimized_metadata.json": "38627cc47b82954bdfe79b03fe027713f1f83b5a3990123022800255b53c5181"
+  }
+}

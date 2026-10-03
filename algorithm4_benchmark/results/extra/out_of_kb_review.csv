@@ -1,0 +1,11 @@
+﻿qid,model,residual_title,category,disclosed,evidence
+C03,Deepseek-V4.1-Flash,L,short_form_of_in_kb_title,n/a,short form of in-KB L: Change the World
+S04h,Deepseek-V4.1-Flash,勇者,episode_title,yes,episode title; reply cites own knowledge
+X03,GLM-5.3,紫罗兰永恒花园,kb_gap_suggestion,yes,named as a title to add; KB gap stated
+S04h,GLM-5.3-Flash,铁槌,episode_title,yes,episode title; reply cites own knowledge
+M05,MiniMax-M3,糖分摄入不足,song_title,n/a,"song title, not a work"
+X02,MiniMax-M3,L,short_form_of_in_kb_title,n/a,short form of in-KB L: Change the World
+X03,MiniMax-M3,妖精森林的小不点;来自风平浪静的明天;请问您今天要来点兔子吗？;悠哉日常大王,kb_gap_suggestion,yes,4 titles to add; KB gap stated
+X10,MiniMax-M3,L,short_form_of_in_kb_title,n/a,short form of in-KB L: Change the World
+M06,Kimi-K3,辉夜大小姐想让我告白;月色真美,kb_gap_suggestion,yes,2 titles to add; KB gap stated
+X03,Kimi-K3,三月的狮子,kb_gap_suggestion,yes,named as not in KB; asks before lookup

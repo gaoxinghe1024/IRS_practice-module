@@ -1,0 +1,13 @@
+﻿model,metric,qtypes,n_pairs,mean_diff,ci95,significant,pos/zero/neg
+Hy3,fact_ok (final),fact,8,-0.625,"[-0.875, -0.250]",yes,0 / 3 / 5
+Deepseek-V4.1-Flash,fact_ok (final),fact,8,-0.625,"[-0.875, -0.250]",yes,0 / 3 / 5
+GLM-5.3,fact_ok (final),fact,8,-0.625,"[-0.875, -0.250]",yes,0 / 3 / 5
+GLM-5.3-Flash,fact_ok (final),fact,8,-0.625,"[-0.875, -0.250]",yes,0 / 3 / 5
+MiniMax-M3,fact_ok (final),fact,8,-0.625,"[-0.875, -0.250]",yes,0 / 3 / 5
+Kimi-K3,fact_ok (final),fact,8,-0.500,"[-0.875, -0.125]",yes,0 / 4 / 4
+Hy3,"rule_frank (fixed-regex, T10 excl.)",trap (T10 excl.),11,0.636,"[0.364, 0.909]",yes,7 / 4 / 0
+Deepseek-V4.1-Flash,"rule_frank (fixed-regex, T10 excl.)",trap (T10 excl.),11,0.636,"[0.364, 0.909]",yes,7 / 4 / 0
+GLM-5.3,"rule_frank (fixed-regex, T10 excl.)",trap (T10 excl.),11,0.636,"[0.364, 0.909]",yes,7 / 4 / 0
+GLM-5.3-Flash,"rule_frank (fixed-regex, T10 excl.)",trap (T10 excl.),11,0.636,"[0.364, 0.909]",yes,7 / 4 / 0
+MiniMax-M3,"rule_frank (fixed-regex, T10 excl.)",trap (T10 excl.),11,0.636,"[0.364, 0.909]",yes,7 / 4 / 0
+Kimi-K3,"rule_frank (fixed-regex, T10 excl.)",trap (T10 excl.),11,0.545,"[0.273, 0.818]",yes,6 / 5 / 0

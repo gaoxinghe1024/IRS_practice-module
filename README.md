@@ -128,6 +128,7 @@ data/         raw Kaggle files, processed active versions, Jikan cache, syntheti
 artifacts/    trained models and indexes of the active version per mode (Git LFS)
 var/          activated business databases (Git LFS); logs and pipeline run records stay local
 algorithm1_benchmark/  standalone Algorithm 1 similarity benchmark (own README; needs no app, database or LFS)
+algorithm4_benchmark/  standalone Algorithm 4 benchmark, chat to find anime: LLM + KB + RAG vs no retrieval vs template (own README; needs no app, database or LFS)
 ```
 
 ## Data and licences

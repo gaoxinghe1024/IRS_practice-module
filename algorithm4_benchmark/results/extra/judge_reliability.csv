@@ -1,0 +1,4 @@
+﻿judge,n_scores,mean,std
+hy3,4160,3.57,1.441
+deepseek-v4.1-flash,4160,3.679,1.257
+glm-5.3,4160,3.824,1.262

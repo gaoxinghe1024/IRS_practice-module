@@ -1,10 +1,9 @@
-"""Replay delivered models/data without network access or the application system."""
-from kbbench.evaluate import evaluate
-from kbbench.report import report
-from kbbench.common import ROOT
+"""Run the published Algorithm 1 synthetic 1,000-query benchmark."""
+from pathlib import Path
+
+from generate_synthetic_1000 import evaluate
+
+ROOT = Path(__file__).resolve().parent
 
 if __name__ == "__main__":
-    if (ROOT / "data/optimization_protocol.json").exists():
-        evaluate(output=ROOT / "results/baseline", variant="baseline")
-    evaluate()
-    report()
+    evaluate(ROOT / "results/synthetic_1000")

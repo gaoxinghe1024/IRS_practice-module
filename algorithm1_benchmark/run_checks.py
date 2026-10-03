@@ -11,7 +11,8 @@ if __name__ == "__main__":
                             env={**os.environ, "PYTHONIOENCODING": "utf-8"})
     text = f"UTC: {utc_now()}\nCommand: python -m unittest discover -s tests -v\n\n" + result.stdout + result.stderr
     text += f"\nExit code: {result.returncode}\n"
-    (ROOT / "results").mkdir(exist_ok=True)
-    (ROOT / "results/tests.txt").write_text(text, encoding="utf-8")
+    output = ROOT / "results/synthetic_1000"
+    output.mkdir(parents=True, exist_ok=True)
+    (output / "tests.txt").write_text(text, encoding="utf-8")
     print(text)
     raise SystemExit(result.returncode)

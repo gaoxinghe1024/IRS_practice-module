@@ -1,0 +1,21 @@
+{
+  "benchmark": "algorithm1_synthetic_1000",
+  "seed": 20261003,
+  "target_count": 1000,
+  "candidate_catalog_size": 14202,
+  "k": 5,
+  "label_source": "synthetic_metadata_oracle",
+  "label_policy": "For each target, score every other catalog item with 0.50 genre Jaccard + 0.30 theme Jaccard + 0.10 demographic exact + 0.10 length similarity, add seeded N(0, 0.05) noise, then sample five without replacement from a fixed easy/medium/hard pool. Studio is intentionally excluded from the oracle.",
+  "difficulty_policy": "40% easy pool=8; 40% medium pool=20; 20% hard pool=60",
+  "target_selection": "stable SHA-256 ordering of catalog IDs; no result-based filtering",
+  "posthoc_selection": false,
+  "model_selection_used": false,
+  "generator_sha256": "08d6c3e4f5b95ed482fc645d329a955a790796a077c2b72763fea8a49277bef5",
+  "numpy_version": "2.5.3",
+  "limitations": [
+    "Synthetic labels are conditional on the declared metadata oracle.",
+    "The result is a regression/stress benchmark, not a real-user accuracy estimate.",
+    "Human or independent expert labels are still required for deployment decisions."
+  ],
+  "catalog_sha256": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921"
+}

@@ -1,0 +1,598 @@
+{
+ "Death Note": [
+  {
+   "alias": "Death Note",
+   "norm": "deathnote"
+  },
+  {
+   "alias": "デスノート",
+   "norm": "デスノート"
+  },
+  {
+   "alias": "死亡笔记",
+   "norm": "死亡笔记"
+  },
+  {
+   "alias": "死亡筆記",
+   "norm": "死亡筆記"
+  }
+ ],
+ "L: Change the World": [
+  {
+   "alias": "L: Change the World",
+   "norm": "lchangetheworld"
+  },
+  {
+   "alias": "L：最后的23天",
+   "norm": "l最后的23天"
+  },
+  {
+   "alias": "L的最后23天",
+   "norm": "l的最后23天"
+  }
+ ],
+ "Shingeki no Kyojin": [
+  {
+   "alias": "Shingeki no Kyojin",
+   "norm": "shingekinokyojin"
+  },
+  {
+   "alias": "Attack on Titan",
+   "norm": "attackontitan"
+  },
+  {
+   "alias": "进击的巨人",
+   "norm": "进击的巨人"
+  },
+  {
+   "alias": "進擊的巨人",
+   "norm": "進擊的巨人"
+  },
+  {
+   "alias": "AoT",
+   "norm": "aot"
+  },
+  {
+   "alias": "巨人",
+   "norm": "巨人"
+  }
+ ],
+ "Fullmetal Alchemist: Brotherhood": [
+  {
+   "alias": "Fullmetal Alchemist: Brotherhood",
+   "norm": "fullmetalalchemistbrotherhood"
+  },
+  {
+   "alias": "钢之炼金术师 FULLMETAL ALCHEMIST",
+   "norm": "钢之炼金术师fullmetalalchemist"
+  },
+  {
+   "alias": "钢之炼金术师FA",
+   "norm": "钢之炼金术师fa"
+  },
+  {
+   "alias": "钢之炼金术师",
+   "norm": "钢之炼金术师"
+  },
+  {
+   "alias": "鋼之鍊金術師",
+   "norm": "鋼之鍊金術師"
+  },
+  {
+   "alias": "鋼之煉金術師",
+   "norm": "鋼之煉金術師"
+  },
+  {
+   "alias": "FMAB",
+   "norm": "fmab"
+  },
+  {
+   "alias": "ハガレン",
+   "norm": "ハガレン"
+  },
+  {
+   "alias": "FMA",
+   "norm": "fma"
+  },
+  {
+   "alias": "钢炼",
+   "norm": "钢炼"
+  }
+ ],
+ "Steins;Gate": [
+  {
+   "alias": "Steins;Gate",
+   "norm": "steinsgate"
+  },
+  {
+   "alias": "シュタインズ・ゲート",
+   "norm": "シュタインズゲート"
+  },
+  {
+   "alias": "命运石之门",
+   "norm": "命运石之门"
+  },
+  {
+   "alias": "命運石之門",
+   "norm": "命運石之門"
+  },
+  {
+   "alias": "石头门",
+   "norm": "石头门"
+  },
+  {
+   "alias": "石頭門",
+   "norm": "石頭門"
+  }
+ ],
+ "Code Geass: Hangyaku no Lelouch": [
+  {
+   "alias": "Code Geass: Hangyaku no Lelouch",
+   "norm": "codegeasshangyakunolelouch"
+  },
+  {
+   "alias": "Lelouch of the Rebellion",
+   "norm": "lelouchoftherebellion"
+  },
+  {
+   "alias": "Code Geass",
+   "norm": "codegeass"
+  },
+  {
+   "alias": "コードギアス",
+   "norm": "コードギアス"
+  },
+  {
+   "alias": "反叛的鲁路修",
+   "norm": "反叛的鲁路修"
+  },
+  {
+   "alias": "反叛的魯路修",
+   "norm": "反叛的魯路修"
+  },
+  {
+   "alias": "叛逆的鲁路修",
+   "norm": "叛逆的鲁路修"
+  },
+  {
+   "alias": "叛逆的魯路修",
+   "norm": "叛逆的魯路修"
+  },
+  {
+   "alias": "鲁路修",
+   "norm": "鲁路修"
+  },
+  {
+   "alias": "魯路修",
+   "norm": "魯路修"
+  }
+ ],
+ "Monster": [
+  {
+   "alias": "Monster",
+   "norm": "monster"
+  },
+  {
+   "alias": "モンスター",
+   "norm": "モンスター"
+  },
+  {
+   "alias": "怪物",
+   "norm": "怪物"
+  },
+  {
+   "alias": "魔物",
+   "norm": "魔物"
+  }
+ ],
+ "Hunter x Hunter (2011)": [
+  {
+   "alias": "Hunter x Hunter (2011)",
+   "norm": "hunterhunter"
+  },
+  {
+   "alias": "全职猎人",
+   "norm": "全职猎人"
+  },
+  {
+   "alias": "全職獵人",
+   "norm": "全職獵人"
+  },
+  {
+   "alias": "HxH",
+   "norm": "hh"
+  },
+  {
+   "alias": "猎人",
+   "norm": "猎人"
+  },
+  {
+   "alias": "獵人",
+   "norm": "獵人"
+  }
+ ],
+ "Kimetsu no Yaiba": [
+  {
+   "alias": "Kimetsu no Yaiba",
+   "norm": "kimetsunoyaiba"
+  },
+  {
+   "alias": "Demon Slayer",
+   "norm": "demonslayer"
+  },
+  {
+   "alias": "鬼灭之刃",
+   "norm": "鬼灭之刃"
+  },
+  {
+   "alias": "鬼滅之刃",
+   "norm": "鬼滅之刃"
+  },
+  {
+   "alias": "鬼滅の刃",
+   "norm": "鬼滅の刃"
+  }
+ ],
+ "Jujutsu Kaisen": [
+  {
+   "alias": "Jujutsu Kaisen",
+   "norm": "jujutsukaisen"
+  },
+  {
+   "alias": "咒术回战",
+   "norm": "咒术回战"
+  },
+  {
+   "alias": "咒術回戰",
+   "norm": "咒術回戰"
+  },
+  {
+   "alias": "呪術廻戦",
+   "norm": "呪術廻戦"
+  },
+  {
+   "alias": "JJK",
+   "norm": "jjk"
+  }
+ ],
+ "Vinland Saga": [
+  {
+   "alias": "Vinland Saga",
+   "norm": "vinlandsaga"
+  },
+  {
+   "alias": "ヴィンランド・サガ",
+   "norm": "ヴィンランドサガ"
+  },
+  {
+   "alias": "海盗战记",
+   "norm": "海盗战记"
+  },
+  {
+   "alias": "海盜戰記",
+   "norm": "海盜戰記"
+  },
+  {
+   "alias": "冰海战记",
+   "norm": "冰海战记"
+  },
+  {
+   "alias": "冰海戰記",
+   "norm": "冰海戰記"
+  }
+ ],
+ "Cowboy Bebop": [
+  {
+   "alias": "Cowboy Bebop",
+   "norm": "cowboybebop"
+  },
+  {
+   "alias": "カウボーイビバップ",
+   "norm": "カウボーイビバップ"
+  },
+  {
+   "alias": "星际牛仔",
+   "norm": "星际牛仔"
+  },
+  {
+   "alias": "星際牛仔",
+   "norm": "星際牛仔"
+  }
+ ],
+ "Neon Genesis Evangelion": [
+  {
+   "alias": "Neon Genesis Evangelion",
+   "norm": "neongenesisevangelion"
+  },
+  {
+   "alias": "Evangelion",
+   "norm": "evangelion"
+  },
+  {
+   "alias": "エヴァンゲリオン",
+   "norm": "エヴァンゲリオン"
+  },
+  {
+   "alias": "新世纪福音战士",
+   "norm": "新世纪福音战士"
+  },
+  {
+   "alias": "新世紀福音戰士",
+   "norm": "新世紀福音戰士"
+  },
+  {
+   "alias": "福音战士",
+   "norm": "福音战士"
+  },
+  {
+   "alias": "EVA",
+   "norm": "eva"
+  },
+  {
+   "alias": "NGE",
+   "norm": "nge"
+  }
+ ],
+ "Mushishi": [
+  {
+   "alias": "Mushishi",
+   "norm": "mushishi"
+  },
+  {
+   "alias": "アヤカシ",
+   "norm": "アヤカシ"
+  },
+  {
+   "alias": "虫师",
+   "norm": "虫师"
+  },
+  {
+   "alias": "蟲師",
+   "norm": "蟲師"
+  },
+  {
+   "alias": "虫師",
+   "norm": "虫師"
+  }
+ ],
+ "Natsume Yuujinchou": [
+  {
+   "alias": "Natsume's Book of Friends",
+   "norm": "natsumesbookoffriends"
+  },
+  {
+   "alias": "Natsume Yuujinchou",
+   "norm": "natsumeyuujinchou"
+  },
+  {
+   "alias": "Natsume",
+   "norm": "natsume"
+  },
+  {
+   "alias": "夏目友人帐",
+   "norm": "夏目友人帐"
+  },
+  {
+   "alias": "夏目友人帳",
+   "norm": "夏目友人帳"
+  },
+  {
+   "alias": "夏目",
+   "norm": "夏目"
+  }
+ ],
+ "One Punch Man": [
+  {
+   "alias": "One Punch Man",
+   "norm": "onepunchman"
+  },
+  {
+   "alias": "一拳超人",
+   "norm": "一拳超人"
+  },
+  {
+   "alias": "OPM",
+   "norm": "opm"
+  },
+  {
+   "alias": "一擊男",
+   "norm": "一擊男"
+  }
+ ],
+ "Spy x Family": [
+  {
+   "alias": "Spy x Family",
+   "norm": "spyfamily"
+  },
+  {
+   "alias": "间谍过家家",
+   "norm": "间谍过家家"
+  },
+  {
+   "alias": "間諜過家家",
+   "norm": "間諜過家家"
+  },
+  {
+   "alias": "間諜家家酒",
+   "norm": "間諜家家酒"
+  },
+  {
+   "alias": "间谍家家酒",
+   "norm": "间谍家家酒"
+  }
+ ],
+ "Mob Psycho 100": [
+  {
+   "alias": "Mob Psycho 100",
+   "norm": "mobpsycho100"
+  },
+  {
+   "alias": "Mob Psycho",
+   "norm": "mobpsycho"
+  },
+  {
+   "alias": "路人超能100",
+   "norm": "路人超能100"
+  },
+  {
+   "alias": "灵能100%",
+   "norm": "灵能100%"
+  },
+  {
+   "alias": "靈能100%",
+   "norm": "靈能100%"
+  },
+  {
+   "alias": "灵能百分百",
+   "norm": "灵能百分百"
+  },
+  {
+   "alias": "靈能百分百",
+   "norm": "靈能百分百"
+  }
+ ],
+ "Higurashi no Naku Koro ni": [
+  {
+   "alias": "Higurashi no Naku Koro ni",
+   "norm": "higurashinonakukoroni"
+  },
+  {
+   "alias": "When They Cry",
+   "norm": "whentheycry"
+  },
+  {
+   "alias": "Higurashi",
+   "norm": "higurashi"
+  },
+  {
+   "alias": "寒蝉鸣泣之时",
+   "norm": "寒蝉鸣泣之时"
+  },
+  {
+   "alias": "寒蟬鳴泣之時",
+   "norm": "寒蟬鳴泣之時"
+  },
+  {
+   "alias": "寒蝉",
+   "norm": "寒蝉"
+  },
+  {
+   "alias": "寒蟬",
+   "norm": "寒蟬"
+  }
+ ],
+ "Gintama": [
+  {
+   "alias": "Gintama",
+   "norm": "gintama"
+  },
+  {
+   "alias": "ギンタマ",
+   "norm": "ギンタマ"
+  },
+  {
+   "alias": "银魂",
+   "norm": "银魂"
+  },
+  {
+   "alias": "銀魂",
+   "norm": "銀魂"
+  }
+ ],
+ "Kimi no Na wa": [
+  {
+   "alias": "Kimi no Na wa",
+   "norm": "kiminonawa"
+  },
+  {
+   "alias": "Your Name",
+   "norm": "yourname"
+  },
+  {
+   "alias": "你的名字",
+   "norm": "你的名字"
+  },
+  {
+   "alias": "君の名は",
+   "norm": "君の名は"
+  }
+ ],
+ "Re:Zero kara Hajimeru Isekai Seikatsu": [
+  {
+   "alias": "Re:Zero kara Hajimeru Isekai Seikatsu",
+   "norm": "rezerokarahajimeruisekaiseikatsu"
+  },
+  {
+   "alias": "Re:从零开始的异世界生活",
+   "norm": "re从零开始的异世界生活"
+  },
+  {
+   "alias": "Re:從零開始的異世界生活",
+   "norm": "re從零開始的異世界生活"
+  },
+  {
+   "alias": "从零开始的异世界生活",
+   "norm": "从零开始的异世界生活"
+  },
+  {
+   "alias": "Re:Zero",
+   "norm": "rezero"
+  },
+  {
+   "alias": "Re:ゼロ",
+   "norm": "reゼロ"
+  },
+  {
+   "alias": "Re:0",
+   "norm": "re0"
+  }
+ ],
+ "Shigatsu wa Kimi no Uso": [
+  {
+   "alias": "Shigatsu wa Kimi no Uso",
+   "norm": "shigatsuwakiminouso"
+  },
+  {
+   "alias": "Your Lie in April",
+   "norm": "yourlieinapril"
+  },
+  {
+   "alias": "四月是你的谎言",
+   "norm": "四月是你的谎言"
+  },
+  {
+   "alias": "四月是你的謊言",
+   "norm": "四月是你的謊言"
+  },
+  {
+   "alias": "四谎",
+   "norm": "四谎"
+  },
+  {
+   "alias": "四謊",
+   "norm": "四謊"
+  }
+ ],
+ "Hataraku Saibou": [
+  {
+   "alias": "Hataraku Saibou",
+   "norm": "hatarakusaibou"
+  },
+  {
+   "alias": "Cells at Work",
+   "norm": "cellsatwork"
+  },
+  {
+   "alias": "はたらく細胞",
+   "norm": "はたらく細胞"
+  },
+  {
+   "alias": "工作细胞",
+   "norm": "工作细胞"
+  },
+  {
+   "alias": "工作細胞",
+   "norm": "工作細胞"
+  }
+ ]
+}

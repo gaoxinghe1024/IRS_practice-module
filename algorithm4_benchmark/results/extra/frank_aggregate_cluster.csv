@@ -1,0 +1,7 @@
+﻿slice,caliber,point,ci_lo,ci_hi,n_questions
+all_11q,rule_v2,0.6212,0.3485,0.8939,11
+all_11q,judge,0.6212,0.3485,0.8939,11
+ex_real_6q,rule_v2,0.3056,0.0000,0.6389,6
+ex_real_6q,judge,0.3333,0.0000,0.6667,6
+only_real_5q,rule_v2,1.0000,1.0000,1.0000,5
+only_real_5q,judge,0.9667,0.9000,1.0000,5

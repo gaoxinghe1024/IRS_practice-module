@@ -1,0 +1,2 @@
+# Keep bytes exact (checksums in MANIFEST.txt, byte-for-byte table tests).
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

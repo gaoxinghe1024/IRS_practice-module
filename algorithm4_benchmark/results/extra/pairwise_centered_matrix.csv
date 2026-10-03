@@ -1,0 +1,16 @@
+﻿model_a,model_b,mean_diff,ci_lo,ci_hi,significant
+Hy3,Deepseek-V4.1-Flash,-0.02,-0.183,0.163,no
+Hy3,GLM-5.3,-0.166,-0.281,-0.045,yes
+Hy3,GLM-5.3-Flash,-0.178,-0.292,-0.058,yes
+Hy3,MiniMax-M3,-0.058,-0.171,0.063,no
+Hy3,Kimi-K3,-0.15,-0.257,-0.038,yes
+Deepseek-V4.1-Flash,GLM-5.3,-0.146,-0.282,-0.028,yes
+Deepseek-V4.1-Flash,GLM-5.3-Flash,-0.158,-0.307,-0.032,yes
+Deepseek-V4.1-Flash,MiniMax-M3,-0.038,-0.2,0.106,no
+Deepseek-V4.1-Flash,Kimi-K3,-0.13,-0.278,-0.002,yes
+GLM-5.3,GLM-5.3-Flash,-0.013,-0.067,0.037,no
+GLM-5.3,MiniMax-M3,0.108,0.017,0.195,yes
+GLM-5.3,Kimi-K3,0.015,-0.047,0.076,no
+GLM-5.3-Flash,MiniMax-M3,0.12,0.031,0.21,yes
+GLM-5.3-Flash,Kimi-K3,0.028,-0.03,0.086,no
+MiniMax-M3,Kimi-K3,-0.093,-0.176,-0.009,yes

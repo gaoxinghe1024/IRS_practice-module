@@ -1,0 +1,25 @@
+﻿qid,type,title,raw_score,score_in_filtered_list,pre_demotion_rank,post_demotion_pos,in_top5,exit_stage,demoted_out_of_top5,own_work_row,scene_line_hit,in_prompt_any,hit_method,named_by,in_named_set
+F01,fact,Natsume Yuujinchou,0.3333,0.3333,0,22,False,demoted_out_of_top5,True,False,False,False,,title,True
+F02,fact,Spy x Family,0.4286,0.4286,0,20,False,demoted_out_of_top5,True,False,False,False,,title,True
+F03,fact,Kimi no Na wa,0.5455,0.5455,0,0,True,in_top5,False,True,True,True,title_cn in work-row header,title,True
+F04,fact,Cowboy Bebop,0.2857,0.2857,0,0,True,in_top5,False,True,False,True,title_cn in work-row header,title,True
+F05,fact,Jujutsu Kaisen,0.381,0.381,0,19,False,demoted_out_of_top5,True,False,False,False,,title,True
+F06,fact,Hunter x Hunter (2011),0.5263,0.5263,0,0,True,in_top5,False,True,False,True,EN title in work-row header,short_title,True
+F07,fact,Neon Genesis Evangelion,0.56,0.56,0,20,False,demoted_out_of_top5,True,False,False,False,; alias/keyword also occurs INSIDE another work row (Shingeki no Kyojin synopsis/header),title,True
+F08,fact,Gintama,0.2353,0.2353,0,18,False,demoted_out_of_top5,True,False,False,False,,title,True
+S03e,scene,Shingeki no Kyojin,0.3103,0.3103,0,0,True,in_top5,False,True,True,True,title_cn in work-row header; not in named set (query matches only the generic noun 巨人),generic_alias,False
+S03h,scene,Shingeki no Kyojin,0.1806,0.1806,0,0,True,in_top5,False,True,True,True,"answer work is the first work row in the R prompt; the query's generic noun 怪物 matched Monster (its title_cn), whose candidate entry was demoted 1 → 23 (distractor, not the answer work)",generic_alias,False
+S04e,scene,Shingeki no Kyojin,0.3077,0.3077,0,0,True,in_top5,False,True,True,True,title_cn in work-row header; not in named set (query matches only the generic noun 巨人),generic_alias,False
+S04h,scene,Shingeki no Kyojin,0.1412,0.1412,2,2,True,in_top5,False,True,False,True,title_cn in work-row header; not in named set (query matches only the generic noun 巨人),generic_alias,False
+S06e,scene,Code Geass,0.35,0.35,0,0,True,in_top5,False,True,True,True,title_cn in work-row header; not in named set (query matches only the character name 鲁路修),character_alias,False
+S10e,scene,Code Geass,0.2973,0.2973,0,0,True,in_top5,False,True,True,True,title_cn in work-row header; not in named set (query matches only the character name 鲁路修),character_alias,False
+X01,similar,Shingeki no Kyojin,0.5238,0.5238,0,18,False,demoted_out_of_top5,True,False,True,True,via famous-scene line (名场面[...]),title,True
+X02,similar,Death Note,0.3333,0.0,,,False,constraint_filtered,False,False,True,True,via famous-scene line (名场面[...]); alias/keyword also occurs INSIDE another work row (L: Change the World synopsis/header),title,True
+X03,similar,Natsume Yuujinchou,0.3333,0.3333,0,17,False,demoted_out_of_top5,True,False,False,False,,title,True
+X04,similar,Gintama,0.3478,0.3478,0,23,False,demoted_out_of_top5,True,False,False,False,,title,True
+X05,similar,Steins;Gate,0.4857,0.4857,0,23,False,demoted_out_of_top5,True,False,True,True,via famous-scene line (名场面[...]),title,True
+X06,similar,Kimi no Na wa,0.5,0.5,0,0,True,in_top5,False,True,True,True,title_cn in work-row header,short_title,True
+X07,similar,Kimetsu no Yaiba,0.4,0.4,0,18,False,demoted_out_of_top5,True,False,False,False,,title,True
+X08,similar,Mob Psycho 100,0.5,0.5,0,7,False,demoted_out_of_top5,True,False,False,False,,title,True
+X09,similar,Cowboy Bebop,0.5,0.5,0,23,False,demoted_out_of_top5,True,False,False,False,,title,True
+X10,similar,Monster,0.2941,0.0,,,False,constraint_filtered,False,False,False,False,,title,True

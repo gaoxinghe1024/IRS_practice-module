@@ -108,7 +108,7 @@ invalid JSON, empty, refusal) fall back to local answers; a failing dense encode
   `data/evaluation/human-evaluation-protocol.md`; not run. Status: human_evaluation_pending.
 * **LLM answers:** the adapters and the answer validation are implemented and tested against stubbed responses; a real
   run needs `ANILOGIC_LLM__PROVIDER` / `ANILOGIC_LLM__MODEL` / `ANILOGIC_LLM_API_KEY`. **Plain LLM vs RAG:** the Plain LLM baseline (same model, no retrieval) and its comparison harness are **not implemented yet**; the chat experiment only records the status. Both need a model key and a budget approval.
-  No paid calls were made.
+  No paid calls were made. A Plain LLM vs RAG vs template benchmark of the AnimeFinder v1.4.1 chat pipeline is in `algorithm4_benchmark/` (its model answers came through a CLI channel, not vendor API keys); the same comparison for `app/chat` is still open.
 * **Jikan enrichment:** MyAnimeList returned HTTP 504 for most requests on 2026-09-30; `make enrich-jikan` resumes.
 * **Scenes, frames, real collections:** no data in the snapshot; contracts, validators and pipelines are ready. The
   collection recommender is therefore selected on a proxy label; its effect on real collections is not measured.

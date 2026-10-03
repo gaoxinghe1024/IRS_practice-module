@@ -323,3 +323,23 @@
 **验证方式：** `pytest tests` 148 项通过；`algorithm2_benchmark/run_checks.py` 21 项通过；`make lint` 无告警；本地真实模式网站从新路径加载冻结模型（`collection_scorer: ready`，默认 B1）；`verify_delivery.py` 核对通过。
 
 **注意事项：** 两次运行在整理之前完成，运行记录（`run_metadata.json`、`audit_facts.json`、`freeze_manifest.json`）里的 `evaluation/algorithm2/` 是当时的代码位置，作为历史记录保持原样。
+
+## [2026-10-03] 算法④：聊天找番（LLM + 知识库 + RAG）评测包 `algorithm4_benchmark/`（分支 algorithm-4-benchmark）
+
+**变更内容：**
+1. 新增 `algorithm4_benchmark/`（263 个文件，约 3.0 MB，纯标准库 + unittest，出图可选 matplotlib；离线可复现，无需 app / 数据库服务 / LFS）：80 条查询 × 6 个 LLM × {R：检索增强，N：无检索，T：模板}；3 个 LLM 评审（按各评审自己的均值居中后的分数）、按问题重采样的 bootstrap 置信区间、按题型分层。表 1–2、`scored.csv` 和评审聚合由包内代码从保存的原始回复与评审输出离线重算；其余表和图以保存下来的输出随包提供。
+2. 被评测对象是 AnimeFinder v1.4.1 页④的聊天管线（`backend/services/rag.py`，git blob `3b5f6dc`，提交 `426db20`），冻结在 `algo/rag_snapshot.py`，知识库为它的 24 部作品 + 12 条名场面种子数据。本次不包含 AniLogic 的 `app/chat`：方法（R/N/T 三种条件、评分、置信区间）可以迁移，数字不能。
+3. 新增 `algorithm4_benchmark/.gitattributes`（`* -text`，保持字节不变；包内有逐文件 SHA-256 清单和逐字节比对的测试）与 `.gitignore`（根目录的 `*.db` 规则会忽略 `data/kb/anime.db`，这里放行；并忽略脚本生成的 `results/replay/`）。
+4. `README.md` 目录表、`docs/delivery-status.md` 第 4 节、`docs/evaluation-protocol.md` 的 Plain LLM vs RAG 一行各加一句指向该目录的说明。
+
+**涉及文件：** `algorithm4_benchmark/`（新）、`README.md`、`docs/delivery-status.md`、`docs/evaluation-protocol.md`、`DEVLOG.md`。未改 `app/`、`evaluation/`、`pipelines/`、Makefile、根目录 `.gitignore` / `.gitattributes`。
+
+**原因：** `docs/delivery-status.md` 与 `docs/evaluation-protocol.md` 记录 Plain LLM vs RAG 对比“尚未实现”；本包用 AnimeFinder v1.4.1 的管线给出该对比的方法与结果，针对 AniLogic `app/chat` 的同类对比仍待实现。
+
+**验证方式：** 在 `algorithm4_benchmark/` 下运行 `python -m unittest discover -s tests`（100 项通过，约 2 分钟）与 `python tools/presubmit_check.py`（无告警）；`MANIFEST.txt` 的逐文件 SHA-256 与磁盘一致；提交内容与测试时的文件逐字节相同。
+
+**注意事项：**
+- 单次运行；LLM 评审没有人工标注；6 个模型通过 CLI 通道调用，延迟不是端到端结果；知识库只含 24 部知名作品，存在天花板效应（均已写入 `algorithm4_benchmark/REPORT.md`）。
+- 只在 Windows 11 + Python 3.10 上测过。
+- `algorithm4_benchmark/` 下的 `.md` 全部为英文（包内测试限制）。
+- `data/kb/anime.db` 只保留 `anime` 与 `scenes` 两张表，行内容不变。

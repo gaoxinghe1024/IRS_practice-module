@@ -101,12 +101,12 @@ C 将五维字段组成固定文本，使用 `BAAI/bge-small-en-v1.5` 编码为 
 在 `algorithm1_benchmark` 目录执行：
 
 ```text
-python generate_synthetic_1000.py --output results/synthetic_1000
-python run_checks.py
+python generate_synthetic_1000.py --output results/replay_synthetic_1000
+python run_checks.py --output results/replay_synthetic_1000
 python verify_delivery.py
 ```
 
-结果目录包含 `testset.jsonl`、`ground_truth_used.jsonl`、`predictions.jsonl`、`per_query_metrics.jsonl`、`metrics.csv`、`summary.json` 和 `testset_manifest.json`。
+重放写入单独的 `results/replay_synthetic_1000`，不会覆盖发布目录；发布结果目录包含 `testset.jsonl`、`ground_truth_used.jsonl`、`predictions.jsonl`、`per_query_metrics.jsonl`、`metrics.csv`、`summary.json` 和 `testset_manifest.json`。
 
 ## 8. 结果可信度和限制
 

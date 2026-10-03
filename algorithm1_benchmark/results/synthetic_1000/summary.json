@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-03T17:02:00Z",
+  "created_at": "2026-10-03T17:47:31Z",
   "source": "synthetic_oracle",
   "variant": "optimized",
   "k": 5,
@@ -208,7 +208,7 @@
       "automatic_system_replacement": false
     }
   },
-  "synthetic_manifest_sha256": "c6b3a86f70e00b3c7e7c347ee8dc081cec59d838dbbb15c69c4f05733882d40c",
+  "synthetic_manifest_sha256": "3318bee230a690ead04d529febcee06b3d1b33fcde5db1de88c9aefc4d5cabc3",
   "inputs": {
     "data/catalog.jsonl.gz": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921",
     "models/logistic_optimized.json": "6ccfbe26444f3440e6d2f49eeca104c38ce303b5c7fe30aeed037d4a5ef4e082",
@@ -217,9 +217,9 @@
     "models/release_manifest.json": "08be1e99c2ef751c5548db71129a8c4e4505f305d73872570c97ae7ca4cbced7"
   },
   "timing": {
-    "all_four_methods_p50_ms": 87.4137500031793,
-    "all_four_methods_p95_ms": 96.28138999687508,
-    "total_evaluation_seconds": 88.54755370000203
+    "all_four_methods_p50_ms": 40.25709999768878,
+    "all_four_methods_p95_ms": 43.78440000255068,
+    "total_evaluation_seconds": 40.51069080000161
   },
   "environment": {
     "python": "3.12.14",

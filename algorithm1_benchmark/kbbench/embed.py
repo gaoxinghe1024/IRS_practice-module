@@ -80,14 +80,14 @@ def encode(batch_size=64, threads=4):
     texts = [semantic_text(item) for item in items]
     result, truncated, seconds = encode_texts(texts, batch_size, threads)
     (ROOT / "models").mkdir(exist_ok=True)
-    np.savez_compressed(ROOT / "models/bge_embeddings.npz", anime_ids=np.array([row["anime_id"] for row in items]), vectors=result)
+    np.savez_compressed(ROOT / "models/bge_optimized.npz", anime_ids=np.array([row["anime_id"] for row in items]), vectors=result)
     metadata = dict(model=MODEL, revision=REVISION, backend="original ONNX float32; CPUExecutionProvider",
                     dimensions=384, pooling="CLS", l2_normalized=True, max_length=128,
                     batch_size=batch_size, threads=threads, instruction_prefix=None,
                     justification="Symmetric item-to-item similarity; five attributes only; no retrieval instruction prefix",
                     catalog_sha256=sha256(ROOT / "data/catalog.jsonl.gz"),
                     text_sha256=hashlib.sha256("\n".join(texts).encode()).hexdigest(),
-                    vector_sha256=sha256(ROOT / "models/bge_embeddings.npz"),
+                    vector_sha256=sha256(ROOT / "models/bge_optimized.npz"),
                     onnx_sha256=sha256(MODEL_DIR / "onnx/model.onnx"),
                     tokenizer_sha256=sha256(MODEL_DIR / "tokenizer.json"),
                     titles=len(items), truncated_titles=truncated, encode_seconds=seconds)

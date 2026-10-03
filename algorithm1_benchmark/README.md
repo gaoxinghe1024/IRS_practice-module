@@ -17,8 +17,13 @@ published run); this is a regression benchmark, not a leakage-free holdout.
 Run from this directory with the repository virtual environment:
 
 ```text
-python generate_synthetic_1000.py --output results/synthetic_1000
+python generate_synthetic_1000.py --output results/replay_synthetic_1000
+python run_checks.py --output results/replay_synthetic_1000
+python verify_delivery.py
 ```
+
+The replay command writes to a separate directory so the published
+`results/synthetic_1000` files and their delivery hashes remain unchanged.
 
 The published outputs are `results/synthetic_1000/testset.jsonl`,
 `predictions.jsonl`, `per_query_metrics.jsonl`, `metrics.csv`, `summary.json`,

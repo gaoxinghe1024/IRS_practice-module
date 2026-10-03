@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 PROVENANCE.md
+results/replay_synthetic_1000/
 !data/*.jsonl
 !results/*.jsonl
 !results/**/*.jsonl

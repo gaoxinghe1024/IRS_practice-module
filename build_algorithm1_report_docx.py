@@ -39,6 +39,31 @@ def borders(table, color="CBCDD1", size="6"):
         item.set(qn("w:color"), color)
 
 
+def clear_paragraph_borders(element):
+    p_pr = element.find(qn("w:pPr"))
+    if p_pr is None:
+        return
+    paragraph_borders = p_pr.find(qn("w:pBdr"))
+    if paragraph_borders is not None:
+        p_pr.remove(paragraph_borders)
+
+
+def add_page_number(paragraph):
+    run = paragraph.add_run()
+    begin = OxmlElement("w:fldChar")
+    begin.set(qn("w:fldCharType"), "begin")
+    instruction = OxmlElement("w:instrText")
+    instruction.set(qn("xml:space"), "preserve")
+    instruction.text = " PAGE "
+    separate = OxmlElement("w:fldChar")
+    separate.set(qn("w:fldCharType"), "separate")
+    placeholder = OxmlElement("w:t")
+    placeholder.text = "1"
+    end = OxmlElement("w:fldChar")
+    end.set(qn("w:fldCharType"), "end")
+    run._r.extend((begin, instruction, separate, placeholder, end))
+
+
 def set_cell_text(cell, text, bold=False, color="000000", size=9.5):
     cell.text = ""
     paragraph = cell.paragraphs[0]
@@ -107,9 +132,11 @@ for name, size in (("Title", 22), ("Heading 1", 16), ("Heading 2", 13.5), ("Head
     styles[name]._element.rPr.rFonts.set(qn("w:eastAsia"), "Microsoft YaHei")
     styles[name].font.size = Pt(size)
     styles[name].font.color.rgb = RGBColor(0, 0, 0)
+clear_paragraph_borders(styles["Title"]._element)
 
 title = doc.add_paragraph(style="Title")
 title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+clear_paragraph_borders(title._p)
 title.add_run("算法一技术路线与课程评测报告")
 subtitle = doc.add_paragraph()
 subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -175,9 +202,9 @@ add_table(doc, ["排名", "方法", "目标数", "coverage@5\nRecall", "NDCG@5",
 doc.add_paragraph("在该合成协议下，A 的四项总体指标均高于 D，因此本 benchmark 不支持自动用 D 替换 A。D 仍可作为带有语义补充的候选路线，但不能把本次合成结果直接表述为 MAL 或真实用户效果。")
 
 add_heading(doc, "7 系统技术路线和复现", 1)
-doc.add_paragraph("运行命令：python generate_synthetic_1000.py --output results/synthetic_1000。生成目录包含 testset.jsonl、ground_truth_used.jsonl、predictions.jsonl、per_query_metrics.jsonl、metrics.csv、summary.json 和 testset_manifest.json。")
+doc.add_paragraph("运行命令：python generate_synthetic_1000.py --output results/replay_synthetic_1000；随后执行 python run_checks.py --output results/replay_synthetic_1000 和 python verify_delivery.py。重放写入独立目录，不覆盖发布的 results/synthetic_1000。发布目录包含 testset.jsonl、ground_truth_used.jsonl、predictions.jsonl、per_query_metrics.jsonl、metrics.csv、summary.json 和 testset_manifest.json。")
 doc.add_paragraph("引擎加载目录、逻辑回归模型和 BGE 向量，针对每个目标一次计算四种分数并进行稳定 Top-5 排序。每个推荐项保存 anime_id、标题、分数和五维特征，逐目标指标可由 ranking_metrics 复算。")
-doc.add_paragraph("验证命令：python run_checks.py。当前测试覆盖 1,000 条标签、4,000 条方法预测、指标复算、目标自排除、manifest 哈希和离线推荐重放。")
+doc.add_paragraph("验证命令：python run_checks.py --output results/replay_synthetic_1000。当前测试覆盖 1,000 条标签、4,000 条方法预测、指标复算、目标自排除、manifest 哈希和离线推荐重放。")
 
 add_heading(doc, "8 结果可信度和限制", 1)
 add_bullet(doc, "合成 oracle 与输入字段存在结构关系，A/D 可能受益；参数经过首轮试跑后校准，指标只适用于本协议，不能外推为真实用户效果。")
@@ -186,6 +213,11 @@ add_bullet(doc, "五维字段无法表达剧情、画风、叙事、节奏和个
 add_bullet(doc, "部署前应建立独立人工标注或真实用户离线集，预先固定抽样、真值和替换门槛，并报告置信区间。")
 add_bullet(doc, "合成目标与既有弱监督训练端点可能重叠，当前结果用于回归测试，不承担独立泛化验证。")
 add_bullet(doc, "本报告只引用当前 1,000 条合成测试集的结果；独立人工标注或真实用户离线评测仍需另行建立。")
+
+footer = section.footer
+footer_paragraph = footer.paragraphs[0]
+footer_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+add_page_number(footer_paragraph)
 
 doc.save(OUT)
 print(OUT)

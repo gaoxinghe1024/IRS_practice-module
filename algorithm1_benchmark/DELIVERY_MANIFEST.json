@@ -158,8 +158,8 @@
     },
     {
       "path": "run_checks.py",
-      "bytes": 1114,
-      "sha256": "4d8db4ee64671478ad6b81ec6c01dce2f5632ccbe8a7d1d9540d008380c8cfb8"
+      "bytes": 1121,
+      "sha256": "2d129f8d4f05bb58ca6aaa517ab6af448cd9a8dd8f36eba9be1da3185c9a6c26"
     },
     {
       "path": "tests/test_artifacts.py",

@@ -9,7 +9,7 @@ from kbbench.common import ROOT, utc_now
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=ROOT / "results/synthetic_1000",
+    parser.add_argument("--output", type=Path, default=ROOT / "results/replay_synthetic_1000",
                         help="Directory for the test log; checks read the published artifact set")
     args = parser.parse_args()
     result = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],

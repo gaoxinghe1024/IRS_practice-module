@@ -4,11 +4,15 @@ This directory contains the reproducible Algorithm 1 comparison on 1,000
 synthetic query targets. The four methods share the same five catalog fields:
 genre, theme, demographic, studio, and episode count.
 
-The labels are generated before ranking from the declared metadata oracle in
-`generate_synthetic_1000.py`. They are not scraped MAL recommendations and do
-not estimate real-user accuracy. The oracle uses seeded noise, fixed easy /
-medium / hard pools, and a different weighting from method A. No target is
-selected after observing predictions (`posthoc_selection=false`).
+The labels are generated before ranking from the separately specified metadata
+oracle in `generate_synthetic_1000.py`. They are not scraped MAL
+recommendations and do not estimate real-user accuracy. The oracle uses seeded
+noise, fixed easy / medium / hard pools, and a different weighting from method
+A. Its parameters were adjusted after an initial pilot run, so the final score
+is not an independent pre-registered estimate. No target is selected after
+observing final predictions (`posthoc_selection=false`). Synthetic targets may
+overlap weak-supervision training endpoints (949 of 1,000 targets in the
+published run); this is a regression benchmark, not a leakage-free holdout.
 
 Run from this directory with the repository virtual environment:
 

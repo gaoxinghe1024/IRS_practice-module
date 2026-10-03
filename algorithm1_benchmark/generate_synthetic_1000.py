@@ -21,7 +21,7 @@ import numpy as np
 
 from kbbench.common import ROOT, read_rows, sha256, write_json, write_rows
 from kbbench.engine import METHODS, SimilarityEngine
-from kbbench.features import DIMENSIONS, pair_features, rank_top_k
+from kbbench.features import DIMENSIONS, rank_top_k
 from kbbench.metrics import paired_bootstrap, ranking_metrics, replacement_rule
 
 SEED = 20261003
@@ -142,6 +142,11 @@ def evaluate(output: Path) -> None:
                 for metric in ("coverage_at_5", "ndcg_at_5", "hit_rate_at_5", "precision_at_5")
             }))
 
+    difficulty_counts = {difficulty: sum(row["sampling_group"] == difficulty for row in labels)
+                         for difficulty in ("easy", "medium", "hard")}
+    training_endpoints = {row[field] for row in read_rows(ROOT / "data/training_pairs.jsonl.gz")
+                          for field in ("left_id", "right_id")}
+    training_overlap = len(set(targets) & training_endpoints)
     manifest = dict(
         benchmark="algorithm1_synthetic_1000",
         seed=SEED,
@@ -152,12 +157,28 @@ def evaluate(output: Path) -> None:
         label_policy=("For each target, score every other catalog item with "
                       "0.50 genre Jaccard + 0.30 theme Jaccard + 0.10 demographic exact "
                       "+ 0.10 length similarity, add seeded N(0, 0.05) noise, then "
-                      "sample five without replacement from a fixed easy/medium/hard pool. "
+                      "sample five without replacement from a fixed easy/medium/hard pool "
+                      "with softmax temperature 0.035. "
                       "Studio is intentionally excluded from the oracle."),
         difficulty_policy="40% easy pool=8; 40% medium pool=20; 20% hard pool=60",
+        realized_difficulty_counts=difficulty_counts,
         target_selection="stable SHA-256 ordering of catalog IDs; no result-based filtering",
         posthoc_selection=False,
         model_selection_used=False,
+        oracle_parameter_tuning_posthoc=True,
+        exploratory_round={"initial_oracle_parameters": {
+                              "weights": {"genre": 0.50, "theme": 0.25,
+                                          "demographic": 0.10, "length": 0.15},
+                              "noise_sd": 0.12,
+                              "pool_sizes": {"easy": 12, "medium": 40, "hard": 200},
+                          },
+                            "initial_oracle_metrics": {"D_coverage_at_5": 0.0964,
+                                                        "D_hit_rate_at_5": 0.37},
+                            "note": "Oracle weights, noise and pool sizes were adjusted after a pilot run before the final 1,000-query generation."},
+        training_isolation=False,
+        training_overlap_count=training_overlap,
+        training_overlap_note=("Synthetic targets were not excluded from the existing weak-supervision "
+                               "training endpoints; this is a regression benchmark, not an independent holdout."),
         generator_sha256=sha256(Path(__file__)),
         numpy_version=np.__version__,
         limitations=["Synthetic labels are conditional on the declared metadata oracle.",
@@ -188,8 +209,11 @@ def evaluate(output: Path) -> None:
         summaries=list(comparison.values()), strata=strata, replacement_decisions=decisions,
         synthetic_manifest_sha256=sha256(output / "testset_manifest.json"),
         inputs={"data/catalog.jsonl.gz": sha256(ROOT / "data/catalog.jsonl.gz"),
+                "data/training_pairs.jsonl.gz": sha256(ROOT / "data/training_pairs.jsonl.gz"),
                 "models/logistic_optimized.json": sha256(ROOT / "models/logistic_optimized.json"),
-                "models/bge_optimized.npz": sha256(ROOT / "models/bge_optimized.npz")},
+                "models/bge_optimized.npz": sha256(ROOT / "models/bge_optimized.npz"),
+                "models/bge_optimized_metadata.json": sha256(ROOT / "models/bge_optimized_metadata.json"),
+                "models/optimization_selection.json": sha256(ROOT / "models/optimization_selection.json")},
         timing={"all_four_methods_p50_ms": 1000 * statistics.median(elapsed),
                 "all_four_methods_p95_ms": float(1000 * np.quantile(elapsed, 0.95)),
                 "total_evaluation_seconds": time.perf_counter() - started},

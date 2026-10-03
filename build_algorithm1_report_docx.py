@@ -112,12 +112,12 @@ subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
 run = subtitle.add_run("1,000 条合成测试集版本")
 run.bold = True
 run.font.size = Pt(12)
-run.font.color.rgb = RGBColor(31, 78, 121)
-doc.add_paragraph("本报告依据原技术路线文档重写，结果入口已切换为固定协议的 1,000 条合成 benchmark。")
+run.font.color.rgb = RGBColor(0, 0, 0)
+doc.add_paragraph("本报告依据原技术路线文档重写，结果入口已切换为当前协议固定但非预注册的 1,000 条合成 benchmark。")
 
 add_heading(doc, "摘要", 1)
 doc.add_paragraph(
-    "本版本对算法一的四种相似动漫方法进行离线 Top-5 评测。测试目标由目录 ID 的固定 SHA-256 规则选择 1,000 个，候选库为 14,202 部目录作品。相关作品由预先声明的五维元数据 oracle 生成，标签在模型排序前固定，且不按预测结果事后筛选。"
+    "本版本对算法一的四种相似动漫方法进行离线 Top-5 评测。测试目标由目录 ID 的固定 SHA-256 规则选择 1,000 个，候选库为 14,202 部目录作品。相关作品由单独声明的五维元数据 oracle 生成，标签在模型排序前固定，且不按最终预测结果事后筛选。oracle 参数在开发阶段一次试跑后校准，因此本结果不是预注册的独立估计。"
 )
 doc.add_paragraph(
     "D 方法在该合成协议上的 coverage@5 为 25.80%，标准二值 hit_rate@5 为 63.20%，NDCG@5 为 0.2855，precision@5 为 25.80%。这里的 coverage@5 是 Recall@5，不等于“至少命中一个”的 hit_rate@5。由于合成标签与五维元数据同源，这些结果用于可复现回归和受控方法比较，不能解释为 MAL 或真实用户准确率。"
@@ -138,19 +138,19 @@ add_table(doc, ["字段", "投影规则", "缺失处理"], [
 
 add_heading(doc, "3 四种最终算法", 1)
 add_heading(doc, "3.1 A 五维加权相似度", 2)
-doc.add_paragraph("A = 0.35 x genre + 0.30 x theme + 0.15 x demographic + 0.10 x studio + 0.10 x length。权重和长度函数沿用仓库基线。")
+doc.add_paragraph("A = 0.35 × genre + 0.30 × theme + 0.15 × demographic + 0.10 × studio + 0.10 × length。权重和长度函数沿用仓库基线。")
 add_heading(doc, "3.2 B 五维逻辑回归", 2)
-doc.add_paragraph("B 使用相同的五维数值特征训练逻辑回归，排序分数为 sigmoid(w x + b)。模型来自既有弱监督训练产物；本次合成评测不重新用测试标签调参。")
+doc.add_paragraph("B 使用相同的五维数值特征训练逻辑回归，排序分数为 sigmoid(w^T x + b)。模型来自既有弱监督训练产物；本次合成评测不重新用测试标签调参。")
 add_heading(doc, "3.3 C BGE 语义方法", 2)
 doc.add_paragraph("C 将五维属性写成固定文本，使用 BAAI/bge-small-en-v1.5 的 384 维向量，CLS 池化、全目录均值中心化并 L2 归一化，按余弦相似度排序。")
 add_heading(doc, "3.4 D 标签与语义融合", 2)
-doc.add_paragraph("D = 0.6 x A + 0.4 x semantic。语义余弦使用冻结的全目录 1% 和 99% 分位点线性校准到 [0, 1]，不按查询重新归一化。")
+doc.add_paragraph("D = 0.6 × A + 0.4 × semantic。语义余弦使用冻结的全目录 1% 和 99% 分位点线性校准到 [0, 1]，不按查询重新归一化。")
 doc.add_paragraph("每个目标从除自身外的 14,201 个候选中选择 Top-5，按分数降序、anime_id 升序稳定处理并列。")
 
 add_heading(doc, "4 测试集和合成真值协议", 1)
-doc.add_paragraph("目标选择：对目录 ID 计算 SHA-256(key = target:20261003:<anime_id>)，按摘要排序取前 1,000 个。该规则只使用目录 ID，不读取任何预测结果。")
-doc.add_paragraph("标签 oracle：对每个目标的全部候选计算 0.50 x genre Jaccard + 0.30 x theme Jaccard + 0.10 x demographic exact + 0.10 x length similarity，并加入固定随机种子的 N(0, 0.05) 噪声。studio 有意不进入 oracle。按目标固定随机数划分 easy（40%，候选池 8）、medium（40%，候选池 20）和 hard（20%，候选池 60），再按 oracle 分数加权无放回抽取 5 个相关作品。")
-doc.add_paragraph("该真值是程序生成的元数据标签，不是 MAL 推荐、人工标注或用户行为标签。manifest 明确记录 seed、规则、目录哈希、posthoc_selection=false 和 model_selection_used=false。")
+doc.add_paragraph("目标选择：对目录 ID 计算 SHA-256(key = target:20261003:<anime_id>)，取摘要前 8 字节的大端整数排序后选前 1,000 个。该规则只使用目录 ID，不读取最终预测结果。")
+doc.add_paragraph("标签 oracle：对每个目标的全部候选计算 0.50 x genre Jaccard + 0.30 x theme Jaccard + 0.10 x demographic exact + 0.10 x length similarity，并加入固定随机种子的 N(0, 0.05) 噪声。studio 有意不进入 oracle。按目标固定随机数划分 easy（40%，候选池 8）、medium（40%，候选池 20）和 hard（20%，候选池 60），再以 temperature=0.035 按 oracle 分数加权无放回抽取 5 个相关作品。开发阶段先试跑一次（D coverage@5=9.64%、标准 hit_rate@5=37.00%），随后调整 oracle 权重、噪声和候选池参数再生成最终数据，因此这不是预注册的独立估计。")
+doc.add_paragraph("该真值是程序生成的元数据标签，不是 MAL 推荐、人工标注或用户行为标签。发布的 1,000 个目标中有 949 个与既有弱监督训练端点重叠，因此不是 leakage-free holdout。manifest 记录 seed、规则、目录哈希、posthoc_selection=false、oracle_parameter_tuning_posthoc=true 和 training_isolation=false。")
 
 add_heading(doc, "5 指标定义", 1)
 add_table(doc, ["指标", "定义", "解释"], [
@@ -176,10 +176,11 @@ doc.add_paragraph("引擎加载目录、逻辑回归模型和 BGE 向量，针�
 doc.add_paragraph("验证命令：python run_checks.py。当前测试覆盖 1,000 条标签、4,000 条方法预测、指标复算、目标自排除、manifest 哈希和离线推荐重放。")
 
 add_heading(doc, "8 结果可信度和限制", 1)
-add_bullet(doc, "合成 oracle 与输入字段存在结构关系，A/D 可能受益；指标只适用于本协议，不能外推为真实用户效果。")
+add_bullet(doc, "合成 oracle 与输入字段存在结构关系，A/D 可能受益；参数经过首轮试跑后校准，指标只适用于本协议，不能外推为真实用户效果。")
 add_bullet(doc, "MAL 推荐和用户行为没有参与本版本标签，无法回答真实用户是否会点击或喜欢推荐。")
 add_bullet(doc, "五维字段无法表达剧情、画风、叙事、节奏和个人偏好；缺失字段也会降低区分度。")
 add_bullet(doc, "部署前应建立独立人工标注或真实用户离线集，预先固定抽样、真值和替换门槛，并报告置信区间。")
+add_bullet(doc, "合成目标与既有弱监督训练端点可能重叠，当前结果用于回归测试，不承担独立泛化验证。")
 add_bullet(doc, "原附件中 234 个 MAL 有效目标和 40 个事后 showcase 的旧输出已从当前发布结果入口移除；其历史提交仍可追溯，但不参与本报告结论。")
 
 doc.save(OUT)

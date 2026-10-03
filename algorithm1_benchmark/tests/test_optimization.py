@@ -10,6 +10,8 @@ class SyntheticProtocolTests(unittest.TestCase):
         self.assertEqual(manifest["target_count"], 1000)
         self.assertFalse(manifest["posthoc_selection"])
         self.assertFalse(manifest["model_selection_used"])
+        self.assertTrue(manifest["oracle_parameter_tuning_posthoc"])
+        self.assertFalse(manifest["training_isolation"])
 
     def test_labels_are_distinct_from_predictions(self):
         labels = {row["target_id"]: set(row["relevant_ids"])

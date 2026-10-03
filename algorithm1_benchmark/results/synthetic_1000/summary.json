@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-03T15:13:51Z",
+  "created_at": "2026-10-03T15:49:56Z",
   "source": "synthetic_oracle",
   "variant": "optimized",
   "k": 5,
@@ -208,16 +208,19 @@
       "automatic_system_replacement": false
     }
   },
-  "synthetic_manifest_sha256": "b70cb58dc566f48d6341397e889612fef038304c460d087271b12b57d6d904ca",
+  "synthetic_manifest_sha256": "9085e1461cdcd35e7a659ee87ebbfdd356c0fe952a6b43ba99f6584ed81b8def",
   "inputs": {
     "data/catalog.jsonl.gz": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921",
+    "data/training_pairs.jsonl.gz": "14411294ca63cca9411ff7943ae11d60c55eeada765456ebae11e910ecdc4578",
     "models/logistic_optimized.json": "57f0edc6b6751f89424afd5ffed77bdbe957a5484999ffd6b7dc34e70d22421b",
-    "models/bge_optimized.npz": "c0c420b3554caae4281ca0a2e12ce322bbd93aa831beb1399881aae332c6b1c8"
+    "models/bge_optimized.npz": "c0c420b3554caae4281ca0a2e12ce322bbd93aa831beb1399881aae332c6b1c8",
+    "models/bge_optimized_metadata.json": "38627cc47b82954bdfe79b03fe027713f1f83b5a3990123022800255b53c5181",
+    "models/optimization_selection.json": "1e4d8f0d59f8f5ed8428fcaf1fad5b691f90da7f5bf2b3b2f481867203576140"
   },
   "timing": {
-    "all_four_methods_p50_ms": 41.34724999676109,
-    "all_four_methods_p95_ms": 45.6831349983986,
-    "total_evaluation_seconds": 41.84819649999554
+    "all_four_methods_p50_ms": 103.6658000011812,
+    "all_four_methods_p95_ms": 137.40023000354995,
+    "total_evaluation_seconds": 105.19261199999892
   },
   "environment": {
     "python": "3.12.14",

@@ -21,6 +21,14 @@ class ArtifactTests(unittest.TestCase):
         self.assertEqual(self.manifest["label_source"], "synthetic_metadata_oracle")
         self.assertFalse(self.manifest["posthoc_selection"])
         self.assertFalse(self.manifest["model_selection_used"])
+        self.assertTrue(self.manifest["oracle_parameter_tuning_posthoc"])
+        self.assertFalse(self.manifest["training_isolation"])
+        self.assertGreater(self.manifest["training_overlap_count"], 0)
+        self.assertEqual(sum(self.manifest["realized_difficulty_counts"].values()), 1000)
+        self.assertEqual(self.manifest["catalog_sha256"], sha256(ROOT / "data/catalog.jsonl.gz"))
+        self.assertEqual(self.manifest["generator_sha256"], sha256(ROOT / "generate_synthetic_1000.py"))
+        for relative, digest in self.summary["inputs"].items():
+            self.assertEqual(digest, sha256(ROOT / relative))
         self.assertEqual(self.summary["synthetic_manifest_sha256"],
                          sha256(self.output / "testset_manifest.json"))
 

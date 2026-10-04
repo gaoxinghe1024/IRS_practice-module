@@ -5,9 +5,9 @@
   "dim": 384,
   "max_seq_length": 512,
   "query_instruction": "Represent this sentence for searching relevant passages: ",
-  "doc_count": 42515,
-  "doc_ids_sha256": "68250d890c52b715d165e31510c09d3b71804143ba3af331ae9e40fbeaa31398",
-  "encode_seconds": 150.3,
+  "doc_count": 64914,
+  "doc_ids_sha256": "80de749deab9b6cc27c68e9f24c4cecfb38c00f3348def00554a7b1ed8cd8ea3",
+  "encode_seconds": 218.6,
   "device": "mps",
-  "created_at": "2026-09-30T15:39:59Z"
+  "created_at": "2026-10-02T10:04:07Z"
 }

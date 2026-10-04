@@ -1,8 +1,8 @@
 {
-  "dataset_version": "real-89bfdea00b",
-  "generated_at": "2026-09-30T15:24:28Z",
-  "elapsed_s": 14.4,
-  "peak_rss_mb": 505.7,
+  "dataset_version": "real-034ebd6a74",
+  "generated_at": "2026-10-02T09:47:13Z",
+  "elapsed_s": 16.1,
+  "peak_rss_mb": 477.8,
   "chunks": 244,
   "chunk_rows": 100000,
   "catalog": {
@@ -11,11 +11,11 @@
     "quarantined": 0,
     "in_catalog": 23363,
     "explicit_excluded": 1542,
-    "recommendable": 12429,
-    "planner_eligible": 12313,
+    "recommendable": 13798,
+    "planner_eligible": 13677,
     "reasons": {
       "content_rule_explicit": 1542,
-      "not_recommendable_missing_genre": 4929,
+      "not_recommendable_missing_genre_and_theme": 2069,
       "not_recommendable_missing_score": 9181
     },
     "missing_rate": {
@@ -24,7 +24,7 @@
       "genres": 0.1979,
       "episodes": 0.0245,
       "duration": 0.0369,
-      "synopsis": 0.1821
+      "synopsis": 0.1483
     },
     "jikan_cached_titles": 400,
     "jikan_enriched_titles": 40,
@@ -109,8 +109,41 @@
     "note": "dense user x item arrays are never materialised; CSR/CSC is used"
   },
   "relations": {
-    "resolved_anime_edges": 177,
-    "external_edges": 82
+    "resolved_anime_edges": 19478,
+    "external_edges": 127
   },
-  "weak_similarity_label_pairs": 2
+  "weak_similarity_label_pairs": 2,
+  "supplementary_files": {
+    "tags.jsonl": {
+      "rows": 30737,
+      "sha256": "35c4a9d9d551e296123ed6d61176a248d2e91316e7eaba7365386c44e0ec9ff7"
+    },
+    "synopses.jsonl": {
+      "rows": 843,
+      "sha256": "d696be23227738fdf7478c16f0dd692a93dcd0511024421ad422ee26d8fdb85f"
+    },
+    "relations.jsonl": {
+      "rows": 20121,
+      "kept": 20121,
+      "outside_catalogue": 0,
+      "sha256": "586e013a5c13e2172dceb865e95f1319175f44b12d151049827a262339b35905"
+    },
+    "characters.jsonl": {
+      "rows": 40248,
+      "kept": 37593,
+      "outside_catalogue": 2655,
+      "sha256": "87393302c7fac33a40dac8066687f36e8a0a664a40ba46b96b7d06ebff1f7dbf"
+    },
+    "scenes.jsonl": {
+      "rows": 300,
+      "kept": 300,
+      "outside_catalogue": 0,
+      "sha256": "8c0f43489d28a16e51f0417000a4e7923524453df16b76302051d84acb5816bb"
+    }
+  },
+  "supplementary_values_used": {
+    "tags.theme": 20310,
+    "tags.demographic": 10381,
+    "synopses": 843
+  }
 }

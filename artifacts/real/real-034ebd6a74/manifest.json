@@ -1,6 +1,6 @@
 {
   "dataset_mode": "real",
-  "dataset_version": "real-89bfdea00b",
+  "dataset_version": "real-034ebd6a74",
   "split": {
     "protocol": "ranking",
     "fingerprint": "68311d2b7d552b98"
@@ -17,7 +17,7 @@
     "torch": "2.14.0",
     "sentence-transformers": "6.1.0"
   },
-  "updated_at": "2026-09-30T15:56:15Z",
+  "updated_at": "2026-10-02T09:48:18Z",
   "components": {
     "icf": {
       "status": "trained",
@@ -30,7 +30,7 @@
         "global_train_mean": 7.615476131439209
       },
       "nnz": 1785915,
-      "seconds": 75.3,
+      "seconds": 85.3,
       "avg_neighbours": 119.3,
       "file": "models/icf.npz",
       "sha256": "918ef7a718d0a1c85800559aeec3c2e21f7b410c01d3544c107db624b035590f"
@@ -53,43 +53,43 @@
           "epoch": 1,
           "train_rmse": 1.3933,
           "val_rmse": 1.2553,
-          "elapsed_s": 15.7
+          "elapsed_s": 15.6
         },
         {
           "epoch": 2,
           "train_rmse": 1.2193,
           "val_rmse": 1.2129,
-          "elapsed_s": 31.8
+          "elapsed_s": 30.4
         },
         {
           "epoch": 3,
           "train_rmse": 1.17,
           "val_rmse": 1.192,
-          "elapsed_s": 47.8
+          "elapsed_s": 45.4
         },
         {
           "epoch": 4,
           "train_rmse": 1.1327,
           "val_rmse": 1.1792,
-          "elapsed_s": 63.6
+          "elapsed_s": 60.2
         },
         {
           "epoch": 5,
           "train_rmse": 1.1026,
           "val_rmse": 1.1722,
-          "elapsed_s": 79.2
+          "elapsed_s": 75.8
         },
         {
           "epoch": 6,
           "train_rmse": 1.0789,
           "val_rmse": 1.1687,
-          "elapsed_s": 94.8
+          "elapsed_s": 93.6
         },
         {
           "epoch": 7,
           "train_rmse": 1.0608,
           "val_rmse": 1.1673,
-          "elapsed_s": 110.4
+          "elapsed_s": 109.5
         },
         {
           "epoch": 8,
@@ -101,25 +101,25 @@
           "epoch": 9,
           "train_rmse": 1.0369,
           "val_rmse": 1.167,
-          "elapsed_s": 142.1
+          "elapsed_s": 142.0
         },
         {
           "epoch": 10,
           "train_rmse": 1.0288,
           "val_rmse": 1.1675,
-          "elapsed_s": 157.8
+          "elapsed_s": 157.6
         },
         {
           "epoch": 11,
           "train_rmse": 1.0225,
           "val_rmse": 1.168,
-          "elapsed_s": 173.7
+          "elapsed_s": 173.9
         }
       ],
-      "seconds": 175.6,
+      "seconds": 175.9,
       "early_stopping": "2% seeded slice of ranking-train",
       "file": "models/mf.npz",
-      "sha256": "b4324214fb6d498f920228a562f33b1e36d79cc86be90daf8e24aa58e997de70"
+      "sha256": "06574205cd56d84069ffff039632e7af1cb150c65a3cab63198d6be31244a468"
     },
     "ncf": {
       "status": "trained",
@@ -146,79 +146,79 @@
           "epoch": 1,
           "train_loss": 0.664,
           "val_rmse": 1.2961,
-          "elapsed_s": 33.7
+          "elapsed_s": 36.8
         },
         {
           "epoch": 2,
           "train_loss": 0.5889,
           "val_rmse": 1.2728,
-          "elapsed_s": 67.9
+          "elapsed_s": 72.7
         },
         {
           "epoch": 3,
           "train_loss": 0.5743,
           "val_rmse": 1.2643,
-          "elapsed_s": 102.0
+          "elapsed_s": 107.8
         },
         {
           "epoch": 4,
           "train_loss": 0.5677,
           "val_rmse": 1.2601,
-          "elapsed_s": 136.4
+          "elapsed_s": 142.2
         },
         {
           "epoch": 5,
           "train_loss": 0.564,
           "val_rmse": 1.255,
-          "elapsed_s": 169.4
+          "elapsed_s": 180.5
         },
         {
           "epoch": 6,
           "train_loss": 0.5609,
           "val_rmse": 1.2556,
-          "elapsed_s": 199.7
+          "elapsed_s": 212.6
         },
         {
           "epoch": 7,
           "train_loss": 0.559,
           "val_rmse": 1.2508,
-          "elapsed_s": 230.1
+          "elapsed_s": 243.4
         },
         {
           "epoch": 8,
           "train_loss": 0.5575,
           "val_rmse": 1.2484,
-          "elapsed_s": 260.9
+          "elapsed_s": 281.3
         },
         {
           "epoch": 9,
           "train_loss": 0.5564,
           "val_rmse": 1.249,
-          "elapsed_s": 293.6
+          "elapsed_s": 317.5
         },
         {
           "epoch": 10,
           "train_loss": 0.5555,
           "val_rmse": 1.2472,
-          "elapsed_s": 325.9
+          "elapsed_s": 354.2
         },
         {
           "epoch": 11,
           "train_loss": 0.5542,
           "val_rmse": 1.2439,
-          "elapsed_s": 358.8
+          "elapsed_s": 388.2
         },
         {
           "epoch": 12,
           "train_loss": 0.5535,
           "val_rmse": 1.2438,
-          "elapsed_s": 390.8
+          "elapsed_s": 421.9
         }
       ],
-      "seconds": 392.8,
+      "seconds": 423.8,
       "serving_note": "ID-only: application users are unsupported_new_user -> fallback",
       "file": "models/ncf.pt",
-      "sha256": "a773adacc37d3d8fd977dc0129942bd8f41c6a31d4406adf54018ba2b3c1869b"
+      "sha256": "7abeae067953cc7e3a5dc9594edd8853db3f95e735e67e14f78981ca3df69e8a"
     },
     "embeddings": {
       "status": "trained",
@@ -231,22 +231,70 @@
         "query_instruction": "Represent this sentence for searching relevant passages: "
       },
       "template": "attr_text_v1",
-      "items": 23333,
+      "items": 23357,
       "missing_policy": "missing attributes omitted from the text",
       "device": "mps",
-      "seconds": 21.9
+      "seconds": 21.6
     },
     "logistic": {
       "scorer_id": "logistic_similarity",
-      "status": "limited_by_data",
-      "label_source": "mal_user_recommendations_weak",
-      "label_file": "data/processed/real/real-89bfdea00b/labels/similarity_mal_recommendations.jsonl",
-      "queries": {
-        "train": 1,
-        "val": 1,
-        "test": 0
+      "status": "trained",
+      "C": 0.1,
+      "selection": [
+        {
+          "C": 0.01,
+          "val_ndcg@5": 0.0374
+        },
+        {
+          "C": 0.1,
+          "val_ndcg@5": 0.0392
+        },
+        {
+          "C": 1.0,
+          "val_ndcg@5": 0.0384
+        },
+        {
+          "C": 10.0,
+          "val_ndcg@5": 0.0384
+        }
+      ],
+      "train_pairs": 1317,
+      "train_positive_pairs": 257,
+      "coefficients_standardised": {
+        "sim_genre": 0.9561,
+        "sim_theme": 0.4358,
+        "sim_demographic": 0.2475,
+        "sim_studio": 0.3449,
+        "sim_length": 0.5601,
+        "avail_genre": 0.0941,
+        "avail_theme": 0.0258,
+        "avail_demographic": -0.0666,
+        "avail_studio": 0.5675,
+        "avail_length": -0.1018,
+        "coverage": 0.1492
       },
-      "reason": "only 1 training / 1 validation query titles with similarity labels from mal_user_recommendations_weak; at least 20 / 5 are required"
+      "negatives": "sampled_unlabelled",
+      "output": "decision_function (uncalibrated)",
+      "label_source": "mal_user_recommendations_weak",
+      "label_file": "data/evaluation/similarity_labels_mal.jsonl",
+      "queries": {
+        "train": 53,
+        "val": 102,
+        "test": 234
+      },
+      "split_rule": "pre-registered split in the label file",
+      "franchise_overlap": {
+        "val": {
+          "queries": 102,
+          "sharing_franchise_with_other_split": 17
+        },
+        "test": {
+          "queries": 234,
+          "sharing_franchise_with_other_split": 41
+        }
+      },
+      "file": "models/logistic_similarity.joblib",
+      "sha256": "526108aa013049fe97c91dff15455294799d8af7df422f81b018556b62d198d7"
     },
     "gbdt": {
       "status": "limited_by_data",
@@ -265,26 +313,28 @@
   },
   "files": {
     "catalog/aliases.parquet": "4df68845ed144d5e93c25c279ebb2a3c100679809394cbd3758894eacfb69c95",
-    "catalog/catalog.parquet": "57cf08163386c1ef6ae5e48df75482aed4746d6e48b02a9140d044a36a4933af",
-    "catalog/item_tags.parquet": "4da375dd75e0bea1ab5684712928738852bd5b391cf4b13c5efb8f5d0baf0208",
-    "embeddings/item_attr.npy": "26d7bb78f489b26fd40fd8e28d4cc2f1a822ca7e2c9024a224888719457bee5b",
-    "embeddings/item_attr_mask.npy": "f74c7a6c259b8759eed8e93f9c4f6ced5702a35a8582596460a3fd448a4470e6",
+    "catalog/catalog.parquet": "ec6d79672954a2080f586eea76a6c40f5b71889d3cf0133c39d2d25b746f4db6",
+    "catalog/item_tags.parquet": "40041d740b0c349569cd3bd8f3d535cee19d21acf782b7b4c16a62c6f42094f3",
+    "embeddings/item_attr.npy": "448427e223d1a7723cf630ac5206084aca40705a0732261183e6fb660a7a57d4",
+    "embeddings/item_attr_mask.npy": "0bf815d19db82fa7d82fd7728b200889f07c4064df33ecf42fec353252bf2ade",
     "models/cf_items.npy": "9f9bb66c1c2321669b88fb020843eef14a54aaeb8b20e95ad980fd98aaecc7ad",
     "models/icf.npz": "918ef7a718d0a1c85800559aeec3c2e21f7b410c01d3544c107db624b035590f",
-    "models/mf.npz": "b4324214fb6d498f920228a562f33b1e36d79cc86be90daf8e24aa58e997de70",
-    "models/ncf.pt": "a773adacc37d3d8fd977dc0129942bd8f41c6a31d4406adf54018ba2b3c1869b",
+    "models/logistic_similarity.joblib": "526108aa013049fe97c91dff15455294799d8af7df422f81b018556b62d198d7",
+    "models/mf.npz": "06574205cd56d84069ffff039632e7af1cb150c65a3cab63198d6be31244a468",
+    "models/ncf.pt": "7abeae067953cc7e3a5dc9594edd8853db3f95e735e67e14f78981ca3df69e8a",
     "models/offline_users.npy": "0447c893a8b2343da52cd39f2b02e5634ae64a21328d196dc4f5a144bec553aa",
-    "models/similarity_query_groups.json": "d42e2b0582836bd706b940a8ca7910ee8183b479a38ec4e24407dbffb6896689",
+    "models/similarity_query_groups.json": "2c0d963a2e3332ed99a66d90b143c79be46283be2cec734b093ebb282e32839e",
     "stats/train_interactions.npy": "c327c137fb631c3de2e0a2710d8ced226cc69b540ab440b8658e13f53d99f3c2"
   },
-  "train_seconds": 77.3,
+  "train_seconds": 715.1,
   "index": {
-    "documents": 42515,
+    "documents": 64914,
     "kinds": {
       "attributes": 23363,
-      "synopsis": 19107,
-      "relations": 39,
-      "characters": 6
+      "synopsis": 19784,
+      "relations": 10936,
+      "characters": 10531,
+      "scene": 300
     },
     "dense": {
       "provider": "bge",
@@ -293,22 +343,22 @@
       "dim": 384,
       "max_seq_length": 512,
       "query_instruction": "Represent this sentence for searching relevant passages: ",
-      "doc_count": 42515,
-      "doc_ids_sha256": "68250d890c52b715d165e31510c09d3b71804143ba3af331ae9e40fbeaa31398",
-      "encode_seconds": 150.3,
+      "doc_count": 64914,
+      "doc_ids_sha256": "80de749deab9b6cc27c68e9f24c4cecfb38c00f3348def00554a7b1ed8cd8ea3",
+      "encode_seconds": 218.6,
       "device": "mps",
-      "created_at": "2026-09-30T15:39:59Z"
+      "created_at": "2026-10-02T10:04:07Z"
     },
     "images": {
       "status": "limited_by_data",
       "reason": "no frame-level images (covers are not screenshots)"
     },
-    "built_at": "2026-09-30T15:39:59Z",
-    "seconds": 160.6,
+    "built_at": "2026-10-02T10:04:07Z",
+    "seconds": 232.8,
     "files": {
-      "index/dense_info.json": "6ecc80aba832c8ff5561544ef81e8bafbd0c686871291fac320fa8f8a60e2bba",
-      "index/doc_vectors.npy": "ecc2839bdc45e057a56c1126b3fbc3a599d5e6074d554016043d4ecc068611a4",
-      "index/documents.parquet": "a242758bcc8ff40f09b495394da5241f7a1e1af750af450f1f5ef529b2f29071"
+      "index/dense_info.json": "88f7e10a9d1408eb879a3620cd04ae173ed7287c9bc0fd83327844cc0d988912",
+      "index/doc_vectors.npy": "061cb24b7681a9402cb17cda45e39c77bcc826cce27e77b679d0bf0856921f5e",
+      "index/documents.parquet": "e1e5e459ab208db5d2488944f7c0fa1b0eabb82658fe51e8a5ceae523b236171"
     }
   }
 }

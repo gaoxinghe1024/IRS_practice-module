@@ -117,6 +117,11 @@ function relations(d) {
     sec.append(el("p", {}, el("strong", {}, t("anime.watch_first") + ": "),
       ...wo.watch_first.flatMap((x, i) => [i ? ", " : "", el("a", { href: animeUrl(x.item_key) }, x.title || x.item_key)])));
   }
+  if (wo?.prequels_released_later?.length) {
+    sec.append(el("p", {}, el("strong", {}, t("anime.prequels_later") + ": "),
+      ...wo.prequels_released_later.flatMap((x, i) => [i ? ", " : "",
+        el("a", { href: animeUrl(x.item_key) }, x.title || x.item_key)])));
+  }
   if (!d.relations.length) { sec.append(el("p", { class: "muted" }, t("anime.no_relations"))); return sec; }
   sec.append(el("ul", { class: "list" }, d.relations.map((r) => el("li", {},
     el("span", { class: "badge" }, r.relation_type.replaceAll("_", " ")),

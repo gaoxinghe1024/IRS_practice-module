@@ -22,10 +22,11 @@ def _csv(v: str | None) -> list[str] | None:
 def search(q: str = "", genres: str | None = None, exclude_genres: str | None = None, types: str | None = None,
            min_score: float | None = Query(None, ge=0, le=10), max_episodes: int | None = Query(None, ge=1),
            min_episodes: int | None = Query(None, ge=1), status: str | None = None,
+           year_from: int | None = Query(None, ge=1900, le=2100), year_to: int | None = Query(None, ge=1900, le=2100),
            sort: str = "relevance", page: int = Query(1, ge=1), page_size: int = Query(24, ge=1, le=60),
            db: Session = Depends(get_db), state: ServingState = Depends(get_state)) -> dict:
     return catalog.search(state, db, q, _csv(genres), _csv(exclude_genres), _csv(types), min_score, max_episodes,
-                          min_episodes, _csv(status), sort, page, page_size)
+                          min_episodes, _csv(status), sort, page, page_size, year_from, year_to)
 
 
 @router.get("/{item_key}")
@@ -44,10 +45,11 @@ def similar(item_key: str, k: int | None = Query(None, ge=1, le=10), scorer: str
 @router.get("/{item_key}/relations")
 def relations(item_key: str, db: Session = Depends(get_db), state: ServingState = Depends(get_state)) -> dict:
     recommend.served_index(state, item_key)
-    from app.graph.relations import watch_order
+    from app.graph.relations import start_years, watch_order
 
     return {"item_key": item_key, "relations": catalog.relations(state, db, item_key),
-            "watch_order": watch_order(db, item_key), "capability": state.cap("relations").public()}
+            "watch_order": watch_order(db, item_key, start_years(state.snap)),
+            "capability": state.cap("relations").public()}
 
 
 @router.put("/{item_key}/rating")

@@ -191,11 +191,15 @@ def load_state(settings: Settings) -> ServingState:
         state.similarity[es.scorer_id] = es
         state.similarity["tag_semantic_hybrid"] = HybridSimilarityScorer(es, base,
                                                                          float(sim_cfg.get("hybrid_tag_weight", 0.6)))
-    alternatives = ", ".join(k for k in state.similarity if k != "weighted_attributes") or "none"
-    detail = f"weighted_attributes (default); alternatives: {alternatives}"
+    configured = sim_cfg.get("scorer", "weighted_attributes")
+    served = configured if configured in state.similarity else "weighted_attributes"
+    alternatives = ", ".join(k for k in state.similarity if k != served) or "none"
+    detail = f"{served} (default); alternatives: {alternatives}"
+    if served != configured:
+        detail += f". The configured default {configured} is unavailable for this version; weighted_attributes is served"
     if "logistic_similarity" not in state.similarity and lg.get("reason"):
         detail += f". logistic_similarity is {lg.get('status', 'unavailable')}: {lg['reason']}"
-    state.set_cap("similar", "ready", detail)
+    state.set_cap("similar", "ready" if served == configured else "degraded", detail, default=served)
 
     # ---------------------------------------------------------------- collection recommendations (algorithm 2)
     from app.recommendation.algorithm2.service import build_service
@@ -268,6 +272,7 @@ def load_state(settings: Settings) -> ServingState:
         n_rel = conn.execute(select(func.count()).select_from(M.Relation).where(M.Relation.to_item.is_not(None))).scalar()
         n_from = conn.execute(select(func.count(func.distinct(M.Relation.from_item)))).scalar()
         n_scene = conn.execute(select(func.count()).select_from(M.Scene)).scalar()
+        n_scene_titles = conn.execute(select(func.count(func.distinct(M.Scene.item_key)))).scalar()
     n_served = int(snap.in_catalog.sum()) if snap is not None else 0
     if not n_rel:
         state.set_cap("relations", "limited_by_data",
@@ -281,9 +286,16 @@ def load_state(settings: Settings) -> ServingState:
                       titles_with_relation_data=n_from, served_titles=n_served)
     else:
         state.set_cap("relations", "ready", f"{n_rel} confirmed title-to-title relations from {n_from} titles")
-    if n_scene:
-        state.set_cap("scenes", "degraded" if settings.mode == "synthetic" else "ready",
-                      f"{n_scene} scene records" + (" (fictional synthetic scenes)" if settings.mode == "synthetic" else ""))
+    if n_scene and settings.mode == "synthetic":
+        state.set_cap("scenes", "degraded", f"{n_scene} scene records (fictional synthetic scenes)")
+    elif n_scene and n_served and n_scene_titles / n_served < 0.5:
+        # partial coverage: a scene question about another title is answered at the plot level, never with an episode
+        state.set_cap("scenes", "degraded",
+                      f"{n_scene} scene records for {n_scene_titles} of {n_served} titles; other titles have no scene "
+                      "data, so a scene question about them is matched at the plot level without an episode number.",
+                      titles_with_scenes=n_scene_titles, served_titles=n_served)
+    elif n_scene:
+        state.set_cap("scenes", "ready", f"{n_scene} scene records for {n_scene_titles} titles")
     else:
         state.set_cap("scenes", "limited_by_data", "No scene corpus: only synopsis-level plot matching is possible; "
                       "episode numbers are never guessed.")

@@ -18,9 +18,12 @@ Shared building blocks:
 ## 1. Similar titles (detail page)
 
 Candidate pool: served, recommendable titles except the query. Output Top-5 (`similar.k`, up to `max_k = 10`).
-The user may hide titles they have already rated or completed (`hide_watched`).
+The user may hide titles they have already rated or completed (`hide_watched`). The served scorer is
+`recommendation.similar.scorer`: **B in real mode** (since the replacement rule below passed on the weak-label
+validation queries, 2026-10-02) and A in synthetic mode. If the configured scorer is unavailable for a version,
+A is served and the status page says so (`similar: degraded`). Chat's "something like X" uses the same scorer.
 
-### A. Weighted attributes (default) — `similarity/weighted.py`
+### A. Weighted attributes (synthetic default; fallback) — `similarity/weighted.py`
 
 For each set dimension d in {genre, theme, demographic, studio}:
 
@@ -35,12 +38,16 @@ A pair with no comparable dimension is `insufficient_metadata` and is not ranked
 part of the formula. Ties are broken by item key, so results are deterministic. Reasons: shared tags, same
 demographic or studio, similar length, the dimensions that could not be compared, and low coverage.
 
-### B. Logistic regression — `similarity/logistic.py`
+### B. Logistic regression (real-mode default) — `similarity/logistic.py`
 
 Features: the five `sim_d` values, the five availability flags and coverage (the same inputs as A). Positives come
 only from similarity labels (human or a declared weak source). Negatives are 20 sampled unlabelled pool items per
 query ("sampled_unlabelled", not proven dissimilar). Queries are split 60/20/20 by franchise component (from the
-relation graph) so related titles never straddle splits. Standardisation and fitting use train only. `C` is
+relation graph) so related titles never straddle splits. A label file whose rows all carry a pre-registered
+`split` keeps it: in real mode the 389 MAL-recommendation queries of the algorithm-1 benchmark
+(`similarity_labels_mal.jsonl`) keep the benchmark's frozen historical / validation / test split, and the
+number of validation and test queries that share a franchise with another split is reported in the model
+metadata instead of being silently re-split. Standardisation and fitting use train only. `C` is
 chosen from {0.01, 0.1, 1, 10} by validation NDCG@5. The output is the decision function (uncalibrated).
 **Data gate:** at least 20 training and 5 validation query titles; below that the scorer is `limited_by_data`
 and not served.
@@ -60,6 +67,18 @@ When either side lacks an embedding, the weight moves to the tag part and the de
 A **replacement rule** decides whether B/C/D may replace A as the default: Hits@5 at least +2 points and NDCG@5
 not lower than A, on the *validation* query group. Test numbers are only reported. `semantic_synopsis`
 (synopsis embeddings) uses different information and is reported as a separate variant.
+
+**Decision on real data (run `20261002-215313-real-similar-7127`).** With the 389 MAL-recommendation queries
+(53 train / 102 validation / 234 test), B and C both pass on validation (Hits@5: A 0.049, B 0.167, C 0.176;
+paired B − A +11.8 points [+5.9, +18.6], C − A +12.7 [+3.9, +20.6]) and are tied with each other (C − B +1.0
+[−6.9, +8.8]). The rule does not say how to choose between two passing candidates; B is served because it
+ranks with A's own interpretable features (the learned weights favour genre, length and a known studio), so
+the reasons shown stay the same. Test, reported only: B − A +11.5 [+7.3, +16.2] (also +11.9 on the 193 test
+queries that share no franchise with another split), C − B −3.4 [−8.1, +0.9]. What B fixes: A normalises
+over the dimensions that can be compared, so a title known only by one matching genre scores like a perfect
+match and sparse, obscure entries crowd the list (K-On! got Doraemon specials from A, music and school series
+from B). The labels are weak (users' "if you liked A" recommendations, which lean towards well-documented,
+popular titles), so this is not a human judgement of similarity.
 
 ---
 
@@ -212,6 +231,30 @@ drops without the item; an explanatory estimate).
    silent "12 episodes"); "shorter than <title>" → soft, relative to the reference; a bare genre → hard include.
    Titles resolve to catalogue items via exact alias, FTS prefix or fuzzy match (`titles.py`); ambiguous matches
    are offered as alternatives. Contradictions (at least 50 and at most 3 episodes) trigger a clarification.
+   Further hard constraints:
+   * **Start year** (first-aired year, inclusive; an unknown year never satisfies it): "in 2010 or later",
+     "since 2010", "2010年以后" → from 2010; "2000 or earlier", "until 2000" → up to 2000; "before 2000" → up to
+     1999; "after 2010" → from 2011; "between 2005 and 2010", "the 90s", "90年代" → ranges; "anime from 2010" →
+     that year. A year inside a plot description ("a parallel Earth in 1923") or a count ("2000 episodes") is not a
+     limit. "any year" removes the limit.
+   * **Score**: "scoring at least 8", "rated 8.5 or higher" → minimum; "rated exactly 10" → minimum = maximum;
+     "score of at most 6" → maximum. A minimum above 10 is kept (no title can meet it) and the answer says scores
+     run from 1 to 10.
+   * **Studio**, only after a cue: "produced by / animated by / studio X" (strong) or "made by / by / from X"
+     (weak). X must be a catalogue studio (exact, or a close typo); short names after a weak cue must match
+     exactly ("from a corrupted boar" is not the studio "Arch"). An unknown studio after a strong cue is
+     reported ("I couldn't find a studio called ...") instead of being ignored or guessed.
+   * **Data the catalogue does not hold** (video timecodes, rating dates, licence fees and prices, streaming
+     availability, box office, a "favourites" list) → intent `unavailable_data`: the answer says what is missing,
+     data-aware where possible (how many scene records have a timecode; the user's own collections in place of
+     favourites), and returns no recommendations.
+   * **"Which anime has <plot>?"** questions (long "which / what <title noun> has / shows / begins with ...",
+     "where does ...", "find the film where ...", "I'm trying to identify ...") → `scene_lookup`. In such a plot
+     description, bare capitalised words are not taken as title mentions, and neither are tag words such as
+     "School" that are also the names of titles.
+   When no title meets the conditions, the answer names each condition that alone excludes every served title,
+   with the catalogue's real range ("the latest start year in this snapshot is 2023", "adult titles are excluded
+   by the content policy").
 2. **Conversation state** (`conversation.py`): refinements ("at most 6 episodes") update the current state; a new,
    substantive request starts over. State is saved to the account only when the user asks.
 3. **Retrieval** (`evidence.py`, `lexical.py`, `dense.py`, `fusion.py`). Hard constraints first; retrieval is
@@ -232,7 +275,12 @@ drops without the item; an explanatory estimate).
    usage or prices are missing.
 
 Scene lookup and screenshots are data-conditional: without verified scene data, an episode-specific question
-is answered with "not in the sources" and no episode number.
+is answered with "not in the sources" and no episode number. With scene records (the team package's 300 scenes
+for 100 titles), the question is matched against scene documents with both channels. When both the lexical and
+the dense channel rank the best scene in their top 3, the answer names the title and, for a verified record with
+an episode, the episode ("That sounds like Steins;Gate, episode 1 (verified scene record)"). Otherwise the
+closest scene is reported as uncertain and the titles whose synopses match at the plot level are listed with it,
+because the scene layer covers few titles. Scene evidence is marked as a spoiler.
 
 ---
 
@@ -271,5 +319,5 @@ with what is missing.
 | Extension | Module | Behaviour |
 |---|---|---|
 | Relation graph | `app/graph/relations.py` | bounded, cycle-safe traversal of confirmed, sourced edges; `prequel` is the only viewing prerequisite; nothing inferred from "Season 2" names; a missing edge does not prove there is no prerequisite |
-| Scene search | chat + `/api/v1/scenes/search` | retrieval over scene documents with spoiler levels and verification status |
+| Scene search | chat + `/api/v1/scenes/search` | retrieval over scene documents with spoiler levels and verification status; in real mode 300 scenes for 100 titles from the team package (checked by an AI agent against cited sources) |
 | Screenshot identification | `app/multimodal/image.py` | frame gallery (CLIP with the `ml` extra; a deterministic colour histogram only for synthetic fixtures); no acceptance threshold until one is calibrated on validation data, so every result is an "unverified candidate"; cover art is never used as a substitute |

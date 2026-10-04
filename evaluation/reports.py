@@ -83,7 +83,8 @@ def export_summary(settings: Settings) -> str:
         body = (r["dir"] / "report.md").read_text(encoding="utf-8")
         body = "\n".join(("#" + ln) if ln.startswith("#") else ln for ln in body.splitlines())
         lines += [body, "", f"_Run `{man['run_id']}` · status {man['status']} · dataset `{man['dataset_version']}` · "
-                  f"{man['seconds']} s · commit {man.get('git_commit')} · run dir `{rel}`_", ""]
+                  f"{man['seconds']} s · commit {man.get('git_commit')}"
+                  + (" + uncommitted changes" if man.get("git_dirty") else "") + f" · run dir `{rel}`_", ""]
     out = PROJECT_ROOT / "docs" / f"evaluation-results-{settings.mode}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")

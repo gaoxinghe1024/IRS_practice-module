@@ -1,0 +1,130 @@
+{
+  "status": "completed",
+  "latency_ms": {
+    "search": {
+      "p50": 3.3,
+      "p95": 9.7,
+      "n": 30
+    },
+    "detail": {
+      "p50": 6.8,
+      "p95": 8.8,
+      "n": 30
+    },
+    "similar_cold": {
+      "p50": 9.7,
+      "p95": 12.1,
+      "n": 30
+    },
+    "similar_warm": {
+      "p50": 3.0,
+      "p95": 3.5,
+      "n": 30
+    },
+    "home_cold": {
+      "p50": 43.1,
+      "p95": 45.8,
+      "n": 30
+    },
+    "home_warm": {
+      "p50": 3.7,
+      "p95": 4.5,
+      "n": 30
+    },
+    "collection_recs": {
+      "p50": 128.9,
+      "p95": 134.5,
+      "n": 30
+    },
+    "chat_local": {
+      "p50": 8.9,
+      "p95": 12.2,
+      "n": 30
+    },
+    "plan_preview": {
+      "p50": 232.1,
+      "p95": 330.1,
+      "n": 30
+    }
+  },
+  "concurrency5_mixed_reads": {
+    "p50": 28.2,
+    "p95": 45.8,
+    "n": 60,
+    "errors": 0
+  },
+  "failure_injection": {
+    "llm_timeout": {
+      "status": 200,
+      "answer_mode": "local_template",
+      "items": 5,
+      "llm_calls": 1,
+      "fallback_warning": true,
+      "ok": true
+    },
+    "llm_rate_limited": {
+      "status": 200,
+      "answer_mode": "local_template",
+      "items": 5,
+      "llm_calls": 1,
+      "fallback_warning": true,
+      "ok": true
+    },
+    "llm_invalid_json": {
+      "status": 200,
+      "answer_mode": "local_template",
+      "items": 5,
+      "llm_calls": 2,
+      "fallback_warning": true,
+      "ok": true
+    },
+    "llm_empty": {
+      "status": 200,
+      "answer_mode": "local_template",
+      "items": 5,
+      "llm_calls": 2,
+      "fallback_warning": true,
+      "ok": true
+    },
+    "llm_refusal": {
+      "status": 200,
+      "answer_mode": "local_template",
+      "items": 5,
+      "llm_calls": 1,
+      "fallback_warning": true,
+      "ok": true
+    },
+    "dense_encoder_failure": {
+      "status": 200,
+      "items": 5,
+      "warning_shown": true,
+      "ok": true
+    },
+    "long_input_1000_chars": {
+      "status": 200,
+      "ok": true
+    },
+    "over_limit_input_rejected": {
+      "status": 422,
+      "ok": true
+    },
+    "html_injection_is_data": {
+      "status": 200,
+      "ok": true
+    },
+    "extreme_filters": {
+      "status": 200,
+      "total": 0,
+      "ok": true
+    },
+    "contradiction_clarified": {
+      "ok": true
+    },
+    "concurrent_rating_writes": {
+      "writes": 90,
+      "failed_writes": 0,
+      "ok": true
+    }
+  },
+  "llm_cost_per_chat": "not applicable: no LLM configured (local mode); cost is reported as unknown"
+}

@@ -71,3 +71,16 @@ def test_synthetic_generation_is_reproducible(synthetic_env, tmp_path):
     a = generate(s2, log=lambda *_: None)["files"]
     b = generate(s2, log=lambda *_: None)["files"]
     assert a == b
+
+
+def test_similar_default_comes_from_config_with_a_reported_fallback(synthetic_env):
+    s = synthetic_env.model_copy(deep=True)
+    s.recommendation["similar"]["scorer"] = "no_such_scorer"
+    cap = load_state(s).cap("similar")
+    assert cap.status == "degraded" and "no_such_scorer is unavailable" in cap.detail
+    assert cap.detail.startswith("weighted_attributes (default)")
+    st = load_state(synthetic_env)
+    if "logistic_similarity" in st.similarity:                       # trained on the synthetic labels
+        s.recommendation["similar"]["scorer"] = "logistic_similarity"
+        cap = load_state(s).cap("similar")
+        assert cap.status == "ready" and cap.detail.startswith("logistic_similarity (default)")

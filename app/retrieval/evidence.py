@@ -51,13 +51,20 @@ def hybrid_search(state, db: Session, query: str, eligible: set[str] | None, kin
     return RetrievalResult(items, {k: len(v) for k, v in channels.items()}, degraded)
 
 
+def _locator(loc: dict | None) -> dict:
+    """Whole numbers stored as floats (an episode read from a nullable column) come back as ints."""
+    return {k: (int(v) if isinstance(v, float) and v.is_integer() else v) for k, v in (loc or {}).items()}
+
+
 def load_docs(db: Session, doc_ids: list[str]) -> dict[str, dict]:
+    """Documents by id, in the order of `doc_ids` (retrieval rank), not database order."""
     if not doc_ids:
         return {}
-    rows = db.scalars(select(KnowledgeDocument).where(KnowledgeDocument.doc_id.in_(doc_ids))).all()
-    return {d.doc_id: {"doc_id": d.doc_id, "item_key": d.item_key, "kind": d.kind, "title": d.title, "body": d.body,
-                       "source_type": d.source_type, "source_ref": d.source_ref, "source_url": d.source_url,
-                       "spoiler_level": d.spoiler_level, "locator": d.locator or {}} for d in rows}
+    rows = {d.doc_id: d for d in db.scalars(select(KnowledgeDocument).where(KnowledgeDocument.doc_id.in_(doc_ids)))}
+    return {i: {"doc_id": d.doc_id, "item_key": d.item_key, "kind": d.kind, "title": d.title, "body": d.body,
+                "source_type": d.source_type, "source_ref": d.source_ref, "source_url": d.source_url,
+                "spoiler_level": d.spoiler_level, "locator": _locator(d.locator)}
+            for i in dict.fromkeys(doc_ids) if (d := rows.get(i)) is not None}
 
 
 def item_docs(db: Session, item_key: str, kinds: list[str]) -> list[dict]:
@@ -66,7 +73,7 @@ def item_docs(db: Session, item_key: str, kinds: list[str]) -> list[dict]:
                       .order_by(KnowledgeDocument.doc_id)).all()
     return [{"doc_id": d.doc_id, "item_key": d.item_key, "kind": d.kind, "title": d.title, "body": d.body,
              "source_type": d.source_type, "source_ref": d.source_ref, "source_url": d.source_url,
-             "spoiler_level": d.spoiler_level, "locator": d.locator or {}} for d in rows]
+             "spoiler_level": d.spoiler_level, "locator": _locator(d.locator)} for d in rows]
 
 
 def snippet(body: str, n: int = 240) -> str:

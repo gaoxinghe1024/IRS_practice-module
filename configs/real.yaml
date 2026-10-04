@@ -6,6 +6,8 @@ dataset:
 real:
   raw_dir: "data/raw/mal_2023"
   enriched_dir: "data/enriched"
+  # the team's curated data package (AnimeFinder system-dev release); only needed to run import-package
+  team_package_dir: "../Data"
   anime_file: "anime-dataset-2023.csv"
   scores_file: "users-score-2023.csv"
   details_file: "users-details-2023.csv"
@@ -19,16 +21,22 @@ pipeline:
   sample_users_fraction: null
 
 recommendation:
+  similar:
+    # algorithm 1: with the 389 weak-label queries of the algorithm-1 benchmark the replacement rule
+    # (docs/algorithms.md section 1) passed on validation for B and C (102 queries; B - A Hits@5 +11.8 [+5.9, +18.6],
+    # C - B +1.0 [-6.9, +8.8], a tie); B is served because it ranks with A's interpretable features and reasons.
+    # Evaluation run 20261002-215313-real-similar-7127. Set weighted_attributes to serve A again.
+    scorer: logistic_similarity
   collection:
     # algorithm 2: B1 was pre-selected on validation and confirmed on test by the pre-registered rule
     # (algorithm2_benchmark/results/real-main-01/decision.json); the service verifies the frozen bundle before use
     scorer: B1
     algorithm2_run: algorithm2_benchmark/results/real-main-01
   home:
-    content_popularity_weight: 0.9  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+    content_popularity_weight: 0.9  # validation-tuned, evaluation run 20261002-214030-real-homepage-81c0
   icf:
-    user_mean_prior_weight: 5.0  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
-    prediction_damping: 20.0  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+    user_mean_prior_weight: 5.0  # validation-tuned, evaluation run 20261002-214030-real-homepage-81c0
+    prediction_damping: 20.0  # validation-tuned, evaluation run 20261002-214030-real-homepage-81c0
   mf:
     batch_size: 65536
     epochs: 25

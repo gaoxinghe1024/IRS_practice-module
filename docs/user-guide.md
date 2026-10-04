@@ -33,7 +33,8 @@ that match your tags. Once you have rated a few titles it switches to **Warming 
 ## 2. Find a title and see similar ones
 
 **Discover** searches titles (English, Japanese romanised or alternative names; small typos are tolerated) and
-filters by genre, type, maximum episodes and minimum score, sorted by relevance, popularity, score, year or title.
+filters by genre, type, maximum episodes, minimum score and the year a title began airing, sorted by relevance,
+popularity, score, year or title. A title whose start year is unknown does not pass a year filter.
 Unknown values show as "unknown", never as 0.
 
 A **title page** shows the facts with their sources, your rating, your collections and your progress, plus
@@ -68,12 +69,22 @@ Describe what you want in plain English, for example:
 * "a comedy with at most 12 episodes and no horror"
 * "something like Steins;Gate but shorter"
 * "what is the sequel to Shingeki no Kyojin?"
+* "action anime that began airing in 2010 or later, scoring at least 8" (also "before 2000", "the 90s",
+  "between 2005 and 2010", "2010年以后"; "any year" removes the limit)
+* "something produced by Kyoto Animation" (a studio name you type must exist in the catalogue; otherwise chat
+  says it could not find that studio)
+* "which anime has a scientist attend a time-travel lecture and find a researcher lying in blood?" (scene
+  lookup: with a matching verified scene record you get the title and, where recorded, the episode; otherwise
+  titles whose synopses match the plot)
 
 Conditions appear as chips, with hard conditions and soft preferences in different colours. You can refine in the next
 message ("at most 6 episodes"). Each answer lists the titles (all of which meet the hard conditions) and the
 **Evidence** it used, with source references. Without a configured language model, chat runs in
 **Local mode**: the same verified facts, written by templates. Questions the sources cannot answer (such as
-"which episode has the rooftop scene?" when no scene data exists) get "not in the sources" instead of a guess.
+"which episode has the rooftop scene?" for a title without scene records) get "not in the sources" instead of a
+guess, and questions about data the catalogue does not hold (video timecodes, when ratings were given, licence
+fees, where to stream, a "favourites" list) are answered as such; for "my favourites" chat points you to your
+collections. When nothing meets your conditions, the answer says which condition rules everything out.
 Chinese input understands numbers, genres, negation and title names, but not free-text plot descriptions.
 
 ![Chat](screenshots/chat.png)

@@ -73,7 +73,22 @@ the generated world, its artifacts and its database.
 ## 4. Real mode
 
 1. Put the Kaggle files into `data/raw/mal_2023/` (see `data/README.md`).
-2. Run the pipeline. Each step is recorded under `var/real/pipeline_runs/`. Exit codes: 0 ok, 2 invalid input,
+2. Optional, recommended: import the team's curated data package (themes, demographics, relations, characters,
+   843 synopses, 300 scenes, 100 evaluation queries; see `docs/data-contracts.md` §4.1) and the algorithm-1
+   benchmark's MAL-recommendation labels. Both only write files under `data/enriched/` and `data/evaluation/`;
+   the next preprocessing picks them up and produces a new dataset version.
+
+   ```bash
+   python -m pipelines.cli import-package                 # package at real.team_package_dir (../Data)
+   python -m pipelines.cli import-package --package /path/to/Data
+   python -m pipelines.cli import-similarity-labels       # algorithm1_benchmark/data/mal_ground_truth.jsonl
+   python -m pipelines.cli validate-data --mode real      # every contract must report ok
+   ```
+
+   After activation, `python -m pipelines.cli status --mode real` must show `collection_scorer ready | frozen
+   algorithm-2 run real-main-01`: the import is designed to leave the algorithm-2 catalogue hash unchanged, and
+   if it ever changes, the service falls back to the formula and says so.
+3. Run the pipeline. Each step is recorded under `var/real/pipeline_runs/`. Exit codes: 0 ok, 2 invalid input,
    3 precondition missing, 1 unexpected failure.
 
 | Step | Command | Measured |

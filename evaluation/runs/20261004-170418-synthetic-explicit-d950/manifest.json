@@ -1,0 +1,48 @@
+{
+  "run_id": "20261004-170418-synthetic-explicit-d950",
+  "experiment": "explicit",
+  "status": "completed",
+  "dataset_mode": "synthetic",
+  "dataset_version": "synthetic-7a7d5d6a74",
+  "artifact_manifest_sha256": "54a8295b97d74cba7ba68f28c129f6dffd2ef2b21590d43e02a9c51aeecffe8b",
+  "split_fingerprints": {
+    "ranking": "8c7fc0a940c29669",
+    "explicit": "c61dce88397817ab"
+  },
+  "params": {
+    "sample_test_users": null,
+    "tag": null
+  },
+  "started_at": "2026-10-04T17:04:18",
+  "finished_at": "2026-10-04T09:04:20Z",
+  "seconds": 2.1,
+  "peak_rss_mb": 437.3,
+  "git_commit": "e9df5bf",
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 8,
+    "python": "3.12.14"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.1",
+    "fastapi": "0.142.1",
+    "sqlalchemy": "2.1.1",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.1.0"
+  },
+  "data": {
+    "explicit_train_rows": 16313
+  },
+  "notes": [
+    "0 test pairs dropped: user or item absent from explicit-train (cold pairs)",
+    "icf = exact formula; icf_served = served configuration (damping 5.0, user-mean prior weight 10.0)",
+    "git_dirty added afterwards: this run used uncommitted changes on top of e9df5bf (the data-package work, committed on branch yyc-data-package)"
+  ],
+  "git_dirty": true
+}

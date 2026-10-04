@@ -16,7 +16,7 @@ the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a
 
 | Surface | What you get | Method (default) |
 |---|---|---|
-| Title page | 5 similar titles, each with reasons | weighted five-attribute similarity; logistic, BGE-embedding and hybrid alternatives |
+| Title page | 5 similar titles, each with reasons | logistic regression over the five attribute similarities (real mode; it passed the validation replacement rule against the weighted formula, which stays the synthetic default and the fallback); BGE-embedding and hybrid alternatives |
 | Collection page | 8 recommendations matching the collection's taste and your strict filters | strict rule layer + LightGBM on eight profile features (B1, selected and confirmed by a frozen protocol; formulas and a two-tower as compared alternatives; see `algorithm2_benchmark/`) |
 | Home | 10 personalised titles | item-based CF (exact adjusted cosine) recall → genetic-algorithm list optimisation; MF / NCF / greedy / MMR alternatives; cold-start modes |
 | Chat | answers with title cards and cited sources; multi-turn constraints | deterministic intent parsing, FTS5 + dense hybrid retrieval (RRF), grounded answers; LLM optional and validated |
@@ -24,7 +24,10 @@ the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a
 | Status | what data and features are available now | capability statuses |
 
 Relations, scene search and screenshot identification are built to data contracts and switch on when the data
-exists; otherwise the status page says `limited_by_data`. See [docs/delivery-status.md](docs/delivery-status.md).
+exists; otherwise the status page says `limited_by_data`. In real mode the team's curated data package supplies
+themes, demographics, characters and relations for about half of the catalogue and 300 sourced scenes for 100
+titles; there are still no frame images for screenshot identification. See
+[docs/delivery-status.md](docs/delivery-status.md).
 
 ## Run from a clone (shipped state, no pipeline run)
 
@@ -56,7 +59,15 @@ make serve      # http://127.0.0.1:8000  (demo accounts: docs/user-guide.md)
 ## Real data
 
 1. Download Kaggle `dbdmobile/myanimelist-dataset` (ODbL) into `data/raw/mal_2023/`.
-2. Build and serve:
+2. Optional, recommended: import the team's curated data package (expected at `../Data`; it adds supplementary
+   layers only, never changes scores, genres, studios or episode counts) and the algorithm-1 benchmark's labels:
+
+```bash
+python -m pipelines.cli import-package
+python -m pipelines.cli import-similarity-labels
+```
+
+3. Build and serve:
 
 ```bash
 make validate-real preprocess-real split-real
@@ -133,5 +144,7 @@ algorithm1_benchmark/  standalone Algorithm 1 similarity benchmark (own README; 
 ## Data and licences
 
 MyAnimeList 2023 snapshot: Kaggle `dbdmobile/myanimelist-dataset`, Open Database License (ODbL). Optional Jikan
-data comes from the unofficial Jikan API (MyAnimeList data) and is cached offline; serving never calls it. Cover
+data comes from the unofficial Jikan API (MyAnimeList data) and is cached offline; serving never calls it. The
+team data package's themes, characters and relations come from AniList, Jikan and other sources recorded per
+value, and each scene cites its sources (282 of the 300 cite Wikipedia episode lists or plot summaries). Cover
 images are loaded from MyAnimeList's CDN. The synthetic world is entirely fictional.

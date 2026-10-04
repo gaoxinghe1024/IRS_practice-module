@@ -52,16 +52,21 @@ function planLink(plan) {
   return el("a", { class: "button small", href: "/plan?" + q.toString() }, t("chat.open_plan"));
 }
 
+// a relaxation is sent as a follow-up message the parser understands, so the change shows in the conversation
+function relaxText(o) {
+  const c = o.change;
+  if (o.rule_id === "filter.max_episodes" && c.max_episodes) return `at most ${c.max_episodes} episodes`;
+  if (o.rule_id === "filter.min_score" && c.min_score) return `score at least ${c.min_score}`;
+  if (o.rule_id === "filter.year_from" || o.rule_id === "filter.year_to") return "any year";
+  return null;
+}
+
 function relaxButtons(options) {
-  const numeric = (options || []).filter((o) => "max_episodes" in o.change || "min_score" in o.change);
-  if (!numeric.length) return null;
+  const usable = (options || []).filter((o) => relaxText(o));
+  if (!usable.length) return null;
   return el("div", { class: "inline" }, el("small", { class: "muted" }, t("chat.relax")),
-    numeric.map((o) => el("button", { type: "button", class: "small secondary", onclick: () => {
-      const c = o.change;
-      const text = "max_episodes" in c && c.max_episodes ? `at most ${c.max_episodes} episodes`
-        : "min_score" in c && c.min_score ? `score at least ${c.min_score}` : null;
-      if (text) sendMessage(text);
-    } }, o.reason)));
+    usable.map((o) => el("button", { type: "button", class: "small secondary",
+      onclick: () => sendMessage(relaxText(o)) }, o.reason)));
 }
 
 function renderAssistant(p) {

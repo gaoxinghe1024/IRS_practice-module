@@ -9,21 +9,22 @@ titles, episode numbers or relations.
 
 from __future__ import annotations
 
+import itertools
 import re
 import time
 
 import numpy as np
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.chat.conversation import constraint_chips, effective_intent, merge
 from app.chat.grounded_answer import run_llm
-from app.chat.intent import TagLexicon, parse
+from app.chat.intent import TagLexicon, parse, plot_query
 from app.chat.llm import get_llm
 from app.core.errors import NotFound
 from app.core.text import approx_tokens, norm
-from app.db.models import Anime, ChatMessage, ChatSession, User, utcnow
-from app.graph.relations import watch_order
+from app.db.models import Anime, ChatMessage, ChatSession, Collection, CollectionItem, Scene, User, utcnow
+from app.graph.relations import start_years, watch_order
 from app.recommendation import explanations as X
 from app.recommendation.constraints import ConstraintSet
 from app.recommendation.features import stable_order
@@ -41,6 +42,18 @@ def lexicon(state: ServingState) -> TagLexicon:
     if lx is None:
         lx = _LEXICONS[state.dataset_version] = TagLexicon(state.snap)
     return lx
+
+
+_POLICY_KEYS: dict[str, set[str]] = {}
+
+
+def _policy_keys(state: ServingState) -> set[str]:
+    """Served titles allowed by the content policy (retrieval without other filters must still respect it)."""
+    keys = _POLICY_KEYS.get(state.dataset_version)
+    if keys is None:
+        mask = state.constraints.evaluate(ConstraintSet(require_recommendable=False)).mask
+        keys = _POLICY_KEYS[state.dataset_version] = set(state.snap.keys[mask].tolist())
+    return keys
 
 
 # --------------------------------------------------------------------------- sessions
@@ -83,8 +96,9 @@ def delete_session(db: Session, user: User, sid: int) -> None:
 
 
 def _constraint_set(st: dict) -> ConstraintSet:
-    cs = ConstraintSet(min_score=st.get("min_score"), max_episodes=st.get("max_episodes"),
-                       min_episodes=st.get("min_episodes"), types=st.get("types"),
+    cs = ConstraintSet(min_score=st.get("min_score"), max_score=st.get("max_score"),
+                       max_episodes=st.get("max_episodes"), min_episodes=st.get("min_episodes"),
+                       year_from=st.get("year_from"), year_to=st.get("year_to"), types=st.get("types"),
                        include_tags=[tuple(t) for t in st.get("include_tags", [])],
                        exclude_tags=[tuple(t) for t in st.get("exclude_tags", [])])
     for rid in cs.active_rules():
@@ -162,6 +176,44 @@ def _relax(state: ServingState, cs: ConstraintSet, k: int = 5) -> list[dict]:
     return state.constraints.suggest_relaxations(cs, k)
 
 
+def _explain_empty(state: ServingState, cs: ConstraintSet, lead: str = "No titles meet all of those conditions") -> str:
+    """Name each condition that rules out every served title on its own, with the catalogue's actual range."""
+    snap = state.snap
+    pool = state.constraints.evaluate(ConstraintSet(require_recommendable=cs.require_recommendable)).mask
+    if not pool.any():
+        return lead + "."
+    score, eps, year = snap.score[pool], snap.episodes[pool], snap.year[pool]
+    parts = []
+
+    def rng(a: np.ndarray, fn) -> float | None:
+        a = a[np.isfinite(a)]
+        return float(fn(a)) if len(a) else None
+
+    hi, lo = rng(score, np.max), rng(score, np.min)
+    if cs.min_score is not None and (hi is None or hi < cs.min_score):
+        parts.append(f"no title scores {cs.min_score:g} or more" + (f" (the highest is {hi:.2f})" if hi else ""))
+    if cs.max_score is not None and (lo is None or lo > cs.max_score):
+        parts.append(f"no title scores {cs.max_score:g} or less" + (f" (the lowest is {lo:.2f})" if lo else ""))
+    longest = rng(eps, np.max)
+    if cs.min_episodes is not None and (longest is None or longest < cs.min_episodes):
+        parts.append(f"no title has {cs.min_episodes} or more episodes"
+                     + (f" (the longest has {int(longest)})" if longest else ""))
+    latest, earliest = rng(year, np.max), rng(year, np.min)
+    if cs.year_from is not None and (latest is None or latest < cs.year_from):
+        parts.append(f"no title began airing in {cs.year_from} or later"
+                     + (f" (the latest start year in this snapshot is {int(latest)})" if latest else ""))
+    if cs.year_to is not None and (earliest is None or earliest > cs.year_to):
+        parts.append(f"no title began airing in {cs.year_to} or earlier"
+                     + (f" (the earliest is {int(earliest)})" if earliest else ""))
+    for ns, v in cs.include_tags:
+        has = state.constraints.tag_mask(ns, v)
+        if not (has & pool).any():
+            adult = bool((has & snap.explicit).any())        # explicit titles are parsed but never served
+            parts.append(f'no served title is tagged "{v}"'
+                         + (" (adult titles are excluded by the content policy)" if adult else ""))
+    return lead + (": " + "; ".join(parts) if parts else "") + "."
+
+
 # --------------------------------------------------------------------------- handlers
 
 
@@ -231,9 +283,11 @@ def _h_similar(state, db, st, pq, user) -> dict:
     elig = state.constraints.evaluate(cs)
     cand = np.flatnonzero(elig.mask)
     if not len(cand):
-        return {"items": [], "relaxation_options": _relax(state, cs),
-                "answer": f"No titles similar to {ref['title']} meet all of your conditions.", "no_match": True}
-    scorer = state.similarity.get("tag_semantic_hybrid") or state.similarity["weighted_attributes"]
+        return {"items": [], "relaxation_options": _relax(state, cs), "no_match": True,
+                "answer": _explain_empty(state, cs, f"No titles similar to {ref['title']} meet all of your conditions")}
+    # the same scorer as the title page's "similar titles" (configured default, attribute formula as fallback)
+    configured = state.settings.recommendation.get("similar", {}).get("scorer", "weighted_attributes")
+    scorer = state.similarity.get(configured) or state.similarity["weighted_attributes"]
     res = scorer.score(snap, r, cand)
     ok = np.isfinite(res.score)
     base = np.where(ok, res.score, -np.inf)
@@ -258,6 +312,14 @@ def _h_similar(state, db, st, pq, user) -> dict:
                         + (" that meet your conditions" if _user_filters(cs) else "") + ":")
 
 
+# words that phrase a request but describe nothing ("I would like an anime combining action and adventure")
+REQUEST_WORDS = set("""would like love want need looking find show shows list give recommend recommendations suggest
+suggestions something anything some any titles title anime animes series story stories cataloged catalogued tagged
+genre genres mood available what which that this these those there here kind sort type types combining combined
+mix mixing both also please help can could you your our the and with for from into about are have has had get
+watch watching see seeing really very just maybe more most other others good great nice best fun""".split())
+
+
 def _h_recommend(state, db, st, pq, user) -> dict:
     snap = state.snap
     cs = _constraint_set(st)
@@ -271,10 +333,11 @@ def _h_recommend(state, db, st, pq, user) -> dict:
     cand = np.flatnonzero(elig.mask)
     if not len(cand):
         return {"items": [], "relaxation_options": _relax(state, cs), "no_match": True,
-                "answer": "No titles meet all of those conditions."}
+                "answer": _explain_empty(state, cs)}
     free = pq.free_text
     tag_words = {norm_w for t in st.get("include_tags", []) + st.get("exclude_tags", []) for norm_w in t[1].lower().split()}
-    content_words = [w for w in re.findall(r"[a-zA-Z']+", free.lower()) if len(w) > 2 and w not in tag_words]
+    content_words = [w for w in re.findall(r"[a-zA-Z']+", free.lower())
+                     if len(w) > 2 and w not in tag_words and w not in REQUEST_WORDS]
     descriptive = len(content_words) >= 3 and pq.language == "en"
     reasons: dict[str, list] = {}
     if descriptive:
@@ -318,7 +381,7 @@ def _h_relation(state, db, st, pq) -> dict:
     ref = st.get("reference")
     if not ref:
         return {"clarification": "Which title's sequels or watch order do you want to know?", "items": []}
-    wo = watch_order(db, ref["item_key"])
+    wo = watch_order(db, ref["item_key"], start_years(state.snap))
     rels = catalog.relations(state, db, ref["item_key"])
     docs = item_docs(db, ref["item_key"], ["relations"])
     if not rels and not wo["watch_first"]:
@@ -326,59 +389,169 @@ def _h_relation(state, db, st, pq) -> dict:
         return {"items": [ref["item_key"]], "evidence": [], "unknowns": ["relations"],
                 "answer": f"I have no confirmed relation records for {ref['title']}. That does not mean it has no "
                           f"sequel or prequel - the relation data is incomplete ({cap.detail})"}
+    # a sequel question lists the sequels first; a watch-order question the titles to watch first
+    asks_sequel = re.search(r"\bsequel|\bnext\b|after watching|followed by|续作|之后", pq.free_text or "", re.I) and not \
+        re.search(r"watch order|order to watch|before watching|prequel|先看|前传", pq.free_text or "", re.I)
     lines = []
+    if asks_sequel and not wo["direct_sequels"]:
+        lines.append("No direct sequel is recorded in the relation data (that does not prove there is none).")
     if wo["watch_first"]:
         lines.append("Watch first: " + ", ".join(x["title"] for x in wo["watch_first"]) + ".")
     if wo["direct_sequels"]:
         lines.append("Direct sequel(s): " + ", ".join(x["title"] for x in wo["direct_sequels"]) + ".")
+    if wo["prequels_released_later"]:
+        lines.append("Prequel(s) released later (story order; not needed first): "
+                     + ", ".join(x["title"] for x in wo["prequels_released_later"]) + ".")
     other = [r for r in rels if r["relation_type"] not in ("sequel", "prequel")]
     if other:
         lines.append("Other relations: " + "; ".join(f"{r['relation_type'].replace('_', ' ')}: {r['to_title']}"
                                                       for r in other[:6]) + ".")
-    keys = [ref["item_key"]] + [x["item_key"] for x in wo["watch_first"] + wo["direct_sequels"]
+    ordered = wo["direct_sequels"] + wo["watch_first"] if asks_sequel else wo["watch_first"] + wo["direct_sequels"]
+    keys = [ref["item_key"]] + [x["item_key"] for x in ordered + wo["prequels_released_later"]
                                 if x["item_key"] in state.snap.index]
     return {"items": list(dict.fromkeys(keys)), "evidence": docs,
             "answer": f"{ref['title']}: " + " ".join(lines) + " (Source: " + "; ".join(wo["sources"][:2]) + ")"
             if wo["sources"] else f"{ref['title']}: " + " ".join(lines)}
 
 
+def _scene_agreement(doc) -> bool:
+    """Both retrieval channels put the document in their global top 3 (scene and synopsis documents of every served
+    title compete): a match that rests on neither one channel alone nor a small candidate set."""
+    return len(doc.channels) >= 2 and max(doc.channels.values()) <= 3
+
+
 def _h_scene(state, db, st, pq) -> dict:
     ref = st.get("reference")
     cap = state.cap("scenes")
+    query = plot_query(pq.free_text or "")
+    snap = state.snap
     if cap.status == "limited_by_data":
         base = ("I don't have verified scene or episode data, so I can't tell you which episode a scene is in.")
         if ref:
             return {"items": [ref["item_key"]], "unknowns": ["episode"], "answer": base + f" {ref['title']} is in "
                     "the catalogue, but its scenes are not.", "evidence": item_docs(db, ref["item_key"], ["synopsis"])[:1]}
-        rr = hybrid_search(state, db, pq.free_text or "", None, kinds=["synopsis"], item_k=3)
+        rr = hybrid_search(state, db, query, _policy_keys(state), kinds=["synopsis"], item_k=3)
         keys = [it.item_key for it in rr.items]
         docs = load_docs(db, [d.doc_id for it in rr.items for d in it.docs])
         return {"items": keys, "unknowns": ["episode"], "evidence": list(docs.values()),
                 "answer": base + (" These titles' synopses match your description at the plot level:" if keys else
                                   " Could you describe the story or characters instead?"),
                 "item_reasons": {k: [X.reason("retrieved", kind="synopsis")] for k in keys}}
-    eligible = {ref["item_key"]} if ref else None
-    rr = hybrid_search(state, db, pq.free_text or "", eligible, kinds=["scene"], item_k=3, evidence_per_item=1)
-    if not rr.items:
+    # scene records and synopses of every served title compete in one ranking, so a scene record is only named with
+    # certainty when it explains the description better than any plot summary (the scene layer covers few titles);
+    # ranks are global even when the user named a title, so a small candidate set cannot make a weak match look certain
+    allowed = _policy_keys(state)
+    union = hybrid_search(state, db, query, allowed, kinds=["scene", "synopsis"], item_k=10, evidence_per_item=2)
+    scenes = hybrid_search(state, db, query, allowed, kinds=["scene"], item_k=5, evidence_per_item=1)
+    plot_items = [it for it in union.items if not ref or it.item_key == ref["item_key"]]
+    scene_items = [it for it in scenes.items if not ref or it.item_key == ref["item_key"]]
+    if not plot_items and not scene_items:
         return {"items": [ref["item_key"]] if ref else [], "unknowns": ["episode"],
-                "answer": ("I found no verified scene matching that description"
+                "answer": ("I found no scene record or plot summary matching that description"
                            + (f" in {ref['title']}" if ref else "") + ". I won't guess an episode number.")}
-    docs = load_docs(db, [d.doc_id for it in rr.items for d in it.docs])
-    top = docs[rr.items[0].docs[0].doc_id]
-    ep = top["locator"].get("episode")
-    verified = top["source_type"] == "scene_verified"
-    title = state.snap.titles[state.snap.index[top["item_key"]]]
-    if verified and ep:
-        ts = top["locator"].get("timestamp_seconds")
-        when = f", around {ts // 60}:{ts % 60:02d}" if ts else ""
-        text = f"That sounds like {title}, episode {ep}{when} (verified scene record)."
-        unknowns = [] if ts else ["timestamp"]
+    top = plot_items[0] if plot_items else None
+    top_scene = next((d for d in top.docs if d.kind == "scene"), None) if top else None
+    confident = top_scene is not None and _scene_agreement(top_scene)
+    if confident:
+        chosen = plot_items[:5]
     else:
-        text = f"That sounds like a scene from {title}, but the episode is not recorded in the data."
-        unknowns = ["episode"]
-    return {"items": [it.item_key for it in rr.items], "evidence": list(docs.values()), "unknowns": unknowns,
-            "answer": text, "spoiler": True,
-            "item_reasons": {it.item_key: [X.reason("retrieved", kind="scene records")] for it in rr.items}}
+        # uncertain: the best plot-level matches and the closest scene records, interleaved
+        chosen, seen = [], set()
+        for pair in itertools.zip_longest(plot_items, scene_items):
+            for it in pair:
+                if it is not None and it.item_key not in seen and len(chosen) < 5:
+                    seen.add(it.item_key)
+                    chosen.append(it)
+    doc_ids = [d.doc_id for it in chosen for d in it.docs]
+    docs = load_docs(db, doc_ids)
+    reasons = {it.item_key: [X.reason("retrieved", kind=" and ".join(sorted(
+        {"scene records" if d.kind == "scene" else "synopsis" for d in it.docs})))] for it in chosen}
+    snap = state.snap
+    unknowns = ["episode"]
+    if confident:
+        d = docs[top_scene.doc_id]
+        i_top = snap.index[top.item_key]
+        title, ep = snap.titles[i_top], d["locator"].get("episode")
+        single = snap.episodes[i_top] == 1          # a film or single special: "episode 1" says nothing
+        if d["source_type"] == "scene_verified" and ep and single:
+            text, unknowns = f"That sounds like {title} (verified scene record).", []
+        elif d["source_type"] == "scene_verified" and ep:
+            ts = d["locator"].get("timestamp_seconds")
+            when = f", around {ts // 60}:{ts % 60:02d}" if ts else ""
+            text = f"That sounds like {title}, episode {ep}{when} (verified scene record)."
+            unknowns = [] if ts else ["timestamp"]
+        else:
+            text = f"That sounds like a scene from {title}, but the episode is not recorded in the data."
+    elif ref:
+        text = (f"I have no scene record of {ref['title']} that clearly matches that description, so I won't guess "
+                "an episode.")
+    else:
+        plot_title = snap.titles[snap.index[top.item_key]] if top else None
+        scene_title = snap.titles[snap.index[scene_items[0].item_key]] if scene_items else None
+        if plot_title and scene_title and plot_title != scene_title:
+            text = (f"At the plot level this sounds most like {plot_title} (from its synopsis). The closest scene record "
+                    f"is from {scene_title}. Neither is a certain match, so I won't name an episode.")
+        elif plot_title or scene_title:
+            text = (f"The closest match is {plot_title or scene_title}, but it is not a certain match, so I won't name "
+                    "an episode.")
+        else:   # pragma: no cover - guarded above
+            text = "I found no scene record matching that description. I won't guess an episode number."
+    return {"items": [it.item_key for it in chosen], "evidence": list(docs.values()), "unknowns": unknowns,
+            "answer": text, "spoiler": True, "item_reasons": reasons, "scene_confident": confident}
+
+
+def _h_unknown_studio(state, pq) -> dict:
+    names = ", ".join(f'"{m}"' for m in pq.unresolved_studios)
+    tm = state.snap.tags.get("studio")
+    n = len(tm.vocab) if tm is not None else 0
+    return {"items": [], "no_match": True, "unknowns": ["studio"],
+            "answer": f"I couldn't find a studio called {names} among the {n:,} studios in the catalogue, so no title "
+                      "can be matched to it. Check the spelling, or use the studio's romanised name."}
+
+
+def _h_unavailable(state, db, st, pq, user) -> dict:
+    """Questions about fields the data does not hold: say so (data-aware), never answer with recommendations."""
+    lines = []
+    for f in pq.unavailable:
+        if f == "video timecodes":
+            n_sc = db.scalar(select(func.count()).select_from(Scene)) or 0
+            n_ts = db.scalar(select(func.count()).select_from(Scene).where(Scene.timestamp_seconds.is_not(None))) or 0
+            if not n_sc:
+                lines.append("There are no scene records, so there are no video timecodes either.")
+            elif not n_ts:
+                lines.append(f"None of the {n_sc} scene records has a video timecode. Where a record names the "
+                             "episode, I can tell you the episode.")
+            else:
+                lines.append(f"{n_ts} of {n_sc} scene records have a timecode. Describe a specific scene and I will "
+                             "show its time if it is recorded.")
+        elif f == "rating dates":
+            lines.append("Rating dates are not in the data: the MyAnimeList 2023 snapshot records each user's score, "
+                         "not when it was given, and other users' activity is not shown in any case.")
+        elif f == "licence fees and prices":
+            lines.append("Licence fees and prices are not in the catalogue. It holds MyAnimeList metadata: titles, "
+                         "type, episodes, airing dates, genres, themes, studios and scores.")
+        elif f == "streaming availability":
+            lines.append("Streaming availability is not in the catalogue, and it differs by country. A streaming "
+                         "guide for your region can tell you where a title is available.")
+        elif f == "box office and sales":
+            lines.append("Box-office and sales figures are not in the catalogue.")
+        elif f == "a favourites list":
+            rows = db.execute(select(Collection.name, func.count(CollectionItem.item_key))
+                              .outerjoin(CollectionItem, CollectionItem.collection_id == Collection.id)
+                              .where(Collection.user_id == user.id).group_by(Collection.id)
+                              .order_by(Collection.name)).all()
+            if rows:
+                lines.append("AniLogic has no separate favourites list. Your collections are: "
+                             + ", ".join(f"{name} ({n} titles)" for name, n in rows[:8])
+                             + ". Open them on the Collections page.")
+            else:
+                lines.append("AniLogic has no favourites list, and you have no saved collections yet. Save titles to a "
+                             "collection from any title page; they will show on the Collections page.")
+    ref = st.get("reference") if pq.reference_titles else None
+    if ref:
+        lines.append(f"{ref['title']} is in the catalogue; its page shows what the data does hold.")
+    return {"items": [ref["item_key"]] if ref else [], "answer": " ".join(lines), "unknowns": pq.unavailable,
+            "insufficient_information": True}
 
 
 def _h_plan(state, db, st, pq, user) -> dict:
@@ -433,6 +606,10 @@ def post_message(state: ServingState, db: Session, user: User, sid: int, message
     result: dict
     if pq.needs_clarification:
         result = {"items": [], "clarification": pq.clarification}
+    elif intent == "unavailable_data":
+        result = _h_unavailable(state, db, st, pq, user)
+    elif pq.unresolved_studios and intent not in ("scene_lookup", "screenshot_lookup"):
+        result = _h_unknown_studio(state, pq)
     elif intent in ("anime_fact", "title_lookup"):
         result = _h_fact(state, db, st, pq, message)
     elif intent == "similar_to":
@@ -465,7 +642,8 @@ def post_message(state: ServingState, db: Session, user: User, sid: int, message
                                                "relation_query", "scene_lookup"):
         facts = _facts(state, db, keys)
         constraints_public = {k: st.get(k) for k in ("include_tags", "exclude_tags", "max_episodes", "min_episodes",
-                                                     "min_score", "types", "soft_preferences")}
+                                                     "min_score", "max_score", "year_from", "year_to", "types",
+                                                     "soft_preferences")}
         clean, calls, validation = run_llm(llm, message, intent, constraints_public, facts, evidence,
                                            int(state.settings.llm.max_calls_per_request))
         llm_meta = [c.public() for c in calls]

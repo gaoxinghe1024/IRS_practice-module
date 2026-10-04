@@ -76,3 +76,50 @@ def test_real_surfaces_end_to_end(real_client):
 
     plan = c.post("/api/v1/plans/preview", json={"budget_minutes": 900, "max_titles": 3}, headers=h).json()
     assert plan["feasibility"]["feasible"] and plan["total_minutes"] <= 900 and plan["items"]
+
+
+def test_real_team_package_layers(real_settings, real_client):
+    """With the team package imported: the frozen algorithm-2 bundle still verifies, and chat uses the new layers."""
+    import json
+
+    from app.services.serving import load_state
+
+    report = real_settings._abs(real_settings.real.get("enriched_dir", "data/enriched")) / "team_package_import.json"
+    if not report.exists():
+        pytest.skip("team package not imported (python -m pipelines.cli import-package)")
+    st = load_state(real_settings)
+    scorer = st.cap("collection_scorer")
+    assert scorer.status == "ready" and "real-main-01" in scorer.detail   # catalogue hash unchanged by the import
+    assert st.cap("scenes").status != "limited_by_data"
+    themes = st.snap.tags["theme"]
+    assert (themes.sizes[st.snap.in_catalog] > 0).sum() > 10_000          # themes now cover most served titles
+    assert json.loads(report.read_text())["files_not_read"][0].startswith("data/canonical/users.csv.gz")
+
+    c = real_client
+    h = {"X-CSRF-Token": c.post("/api/v1/auth/register", json={"username": "real_pkg_user",
+                                                              "password": "real check pw 2"}).json()["csrf_token"]}
+
+    def ask(text):
+        sid = c.post("/api/v1/chat/sessions", json={}, headers=h).json()["id"]
+        return c.post(f"/api/v1/chat/sessions/{sid}/messages", json={"message": text}, headers=h).json()
+
+    ans = ask("Find action anime that began airing in 2010 or later.")
+    assert ans["items"]
+    for item in ans["items"]:
+        i = st.snap.index[item["item_key"]]
+        assert st.snap.year[i] >= 2010 and "Action" in st.snap.tags["genre"].tags_of(i)
+    assert not ask("Find anime produced by Nonexistent Evaluation Studio 42.")["items"]
+    late = ask("Find titles that began airing in 2036 or later.")
+    assert not late["items"] and "latest start year in this snapshot is 2023" in late["answer"]
+    adult = ask("List Hentai-tagged titles from this runtime catalog.")
+    assert not adult["items"] and "content policy" in adult["answer"]
+    scene = ask("Where does an amateur scientist attend a time-travel lecture and later discover a young researcher "
+                "lying in blood?")
+    assert scene["intent"] == "scene_lookup" and "mal:9253" in [i["item_key"] for i in scene["items"][:3]]
+    # a title outside the scene layer: answered at the plot level, never as someone else's "verified scene"
+    ghoul = ask("Which anime has a story where a sinister threat is invading Tokyo: flesh-eating ghouls who appear "
+                "identical to humans and blend into their population?")
+    assert "verified scene record" not in ghoul["answer"] and "mal:22319" in [i["item_key"] for i in ghoul["items"]]
+    # a named title that has scene records, asked about a scene none of them describes: no episode is claimed
+    taxes = ask("which episode of Steins;Gate has the scene where they file their taxes at a post office?")
+    assert "verified scene record" not in taxes["answer"] and "episode 1" not in taxes["answer"]

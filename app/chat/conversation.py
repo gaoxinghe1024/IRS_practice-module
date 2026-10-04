@@ -16,7 +16,8 @@ import re
 from app.chat.intent import ParsedQuery
 
 DEFAULT_STATE = {"include_tags": [], "exclude_tags": [], "soft_tags": [], "soft_avoid_tags": [],
-                 "max_episodes": None, "min_episodes": None, "min_score": None, "types": None,
+                 "max_episodes": None, "min_episodes": None, "min_score": None, "max_score": None,
+                 "year_from": None, "year_to": None, "types": None,
                  "reference": None, "soft_preferences": [], "last_intent": None, "last_items": [], "turns": 0}
 REFINEMENT_CUES = re.compile(r"^\s*(?:also|and|but|only|instead|now|make it|what about|how about|actually|"
                              r"then|ok(?:ay)?|same but|更|再|只要|改成|那|还有|另外)\b|^\s*(?:at most|at least|"
@@ -46,7 +47,13 @@ def merge(state: dict | None, pq: ParsedQuery, message: str) -> tuple[dict, list
     st = prev if (refinement and not pq.reset) else copy.deepcopy(DEFAULT_STATE)
     st["turns"] = prev.get("turns", 0)
     changes: list[str] = []
-    for key in ("max_episodes", "min_episodes", "min_score", "types"):
+    if pq.clear_years and (st.get("year_from") is not None or st.get("year_to") is not None):
+        changes.append("no year limit")
+        st["year_from"] = st["year_to"] = None
+    if (pq.year_from is None) != (pq.year_to is None) and st.get("year_from") is not None \
+            and st.get("year_from") == st.get("year_to"):
+        st["year_from"] = st["year_to"] = None     # "from 2010" then "2005 or later": an open limit replaces the year
+    for key in ("max_episodes", "min_episodes", "min_score", "max_score", "year_from", "year_to", "types"):
         new = getattr(pq, key)
         if new not in (None, []) and new != st.get(key):
             changes.append(f"{key}: {st.get(key)} -> {new}")
@@ -102,8 +109,20 @@ def constraint_chips(st: dict) -> list[dict]:
         chips.append({"kind": "hard", "label": f"<= {st['max_episodes']} episodes"})
     if st.get("min_episodes") is not None:
         chips.append({"kind": "hard", "label": f">= {st['min_episodes']} episodes"})
-    if st.get("min_score") is not None:
-        chips.append({"kind": "hard", "label": f"Score >= {st['min_score']}"})
+    if st.get("min_score") is not None and st.get("min_score") == st.get("max_score"):
+        chips.append({"kind": "hard", "label": f"Score = {st['min_score']}"})
+    else:
+        if st.get("min_score") is not None:
+            chips.append({"kind": "hard", "label": f"Score >= {st['min_score']}"})
+        if st.get("max_score") is not None:
+            chips.append({"kind": "hard", "label": f"Score <= {st['max_score']}"})
+    yf, yt = st.get("year_from"), st.get("year_to")
+    if yf is not None and yt is not None:
+        chips.append({"kind": "hard", "label": f"Began airing {yf}" if yf == yt else f"Began airing {yf}-{yt}"})
+    elif yf is not None:
+        chips.append({"kind": "hard", "label": f"Began airing {yf} or later"})
+    elif yt is not None:
+        chips.append({"kind": "hard", "label": f"Began airing {yt} or earlier"})
     if st.get("types"):
         chips.append({"kind": "hard", "label": "Type: " + "/".join(st["types"])})
     labels = {"shorter_than_reference": "Shorter than the reference", "short": "Preferably short",

@@ -68,8 +68,13 @@ def similarity_label_sources(settings: Settings, ds: ProcessedDataset) -> list[t
         p = settings.synthetic_dir / "evaluation" / "similarity_labels.jsonl"
         if p.exists():
             out.append(("synthetic_generator", p))
+    # weak MAL-recommendation labels: the algorithm-1 benchmark's ground truth (import-similarity-labels) when
+    # present, else the few pairs derived from the Jikan cache during preprocessing
+    mal = settings.data_root / "evaluation" / "similarity_labels_mal.jsonl"
     weak = ds.labels_path("similarity_mal_recommendations")
-    if weak.exists() and weak.stat().st_size > 0:
+    if settings.mode == "real" and mal.exists() and mal.stat().st_size > 0:
+        out.append(("mal_user_recommendations_weak", mal))
+    elif weak.exists() and weak.stat().st_size > 0:
         out.append(("mal_user_recommendations_weak", weak))
     return out
 
@@ -275,7 +280,7 @@ def _train_embeddings(settings: Settings, snap, out: Path, log) -> dict:
 def _train_logistic(settings: Settings, ds, snap, out: Path, seed: int, log) -> dict:
     import joblib
 
-    from app.recommendation.similarity.logistic import fit_logistic, group_queries
+    from app.recommendation.similarity.logistic import fit_logistic, group_queries, split_franchise_overlap
     from app.recommendation.similarity.weighted import WeightedAttributeScorer
     from evaluation.metrics import ndcg_at_k
 
@@ -284,7 +289,8 @@ def _train_logistic(settings: Settings, ds, snap, out: Path, seed: int, log) -> 
         return {"status": "limited_by_data", "reason": "no similarity labels (human or declared weak source)"}
     name, path = sources[0]
     rows = [r for r in read_jsonl(path) if r.get("query_item") in snap.index]
-    groups = group_queries(rows, franchise_components(ds), seed)
+    components = franchise_components(ds)
+    groups = group_queries(rows, components, seed)
     split_rows = {s: [r for r in rows if groups[r["query_item"]] == s] for s in ("train", "val", "test")}
     write_json(out / "models" / "similarity_query_groups.json", groups)
     counts = {s: len(v) for s, v in split_rows.items()}
@@ -319,7 +325,10 @@ def _train_logistic(settings: Settings, ds, snap, out: Path, seed: int, log) -> 
         return float(np.mean(vals)) if vals else float("nan")
 
     model, meta = fit_logistic(snap, base, split_rows["train"], split_rows["val"], pool, seed=seed, eval_fn=eval_fn)
-    meta.update({"label_source": name, "label_file": rel(path), "queries": counts})
+    meta.update({"label_source": name, "label_file": rel(path), "queries": counts,
+                 "split_rule": "pre-registered split in the label file" if all(r.get("split") for r in rows)
+                 else "franchise-grouped hash split",
+                 "franchise_overlap": split_franchise_overlap(groups, components)})
     if model is not None:
         joblib.dump(model, out / "models" / "logistic_similarity.joblib")
         meta["file"] = "models/logistic_similarity.joblib"

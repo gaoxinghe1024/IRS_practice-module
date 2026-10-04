@@ -41,7 +41,8 @@ PAGE_MAX = 60
 def search(state: ServingState, db: Session, q: str = "", genres: list[str] | None = None,
            exclude_genres: list[str] | None = None, types: list[str] | None = None, min_score: float | None = None,
            max_episodes: int | None = None, min_episodes: int | None = None, status: list[str] | None = None,
-           sort: str = "relevance", page: int = 1, page_size: int = 24) -> dict:
+           sort: str = "relevance", page: int = 1, page_size: int = 24, year_from: int | None = None,
+           year_to: int | None = None) -> dict:
     snap = _require(state)
     if sort not in SORTS:
         raise ValidationFailed(f"sort must be one of {', '.join(SORTS)}", code="invalid_sort")
@@ -49,9 +50,12 @@ def search(state: ServingState, db: Session, q: str = "", genres: list[str] | No
         raise ValidationFailed("Invalid page / page_size.", code="invalid_page")
     if min_score is not None and not 0 <= min_score <= 10:
         raise ValidationFailed("min_score must be between 0 and 10.", code="invalid_filter")
+    if year_from is not None and year_to is not None and year_from > year_to:
+        raise ValidationFailed("year_from must not be after year_to.", code="invalid_filter")
     q = (q or "").strip()[:200]
     cs = ConstraintSet(require_recommendable=False, min_score=min_score, max_episodes=max_episodes,
-                       min_episodes=min_episodes, types=types or None, statuses=status or None,
+                       min_episodes=min_episodes, year_from=year_from, year_to=year_to,
+                       types=types or None, statuses=status or None,
                        include_tags=[("genre", g) for g in genres or []],
                        exclude_tags=[("genre", g) for g in exclude_genres or []])
     elig = state.constraints.evaluate(cs)

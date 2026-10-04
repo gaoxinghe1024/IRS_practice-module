@@ -61,6 +61,12 @@ def test_j02_detail_top5_with_sources_and_reasons(page, live_server):
     base = live_server
     page.goto(base + "/discover")
     page.wait_for_selector("#results .card")
+    page.fill("#year_from", "2090")                                   # start-year filter: nothing qualifies
+    page.click("#search-form button[type=submit]")
+    expect(page.locator("#results")).to_contain_text("No titles match")
+    assert "year_from=2090" in page.url                               # filters are kept in the URL
+    page.click("#clear-filters")
+    page.wait_for_selector("#results .card")
     page.locator("#results .card a.title").first.click()
     page.wait_for_selector("#similar-list .card")
     cards = page.locator("#similar-list .card")

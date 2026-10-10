@@ -25,7 +25,8 @@ from app.recommendation.constraints import ConstraintSet
 from app.recommendation.features import CatalogSnapshot, minmax, stable_order
 from app.recommendation.profiles import CollectionProfile, UserState, build_collection_profile
 from app.recommendation.rerank.ga import GeneticListOptimizer, relevance_greedy
-from app.recommendation.rerank.objective import ListObjective, fresh_flags, novelty_scores
+from app.recommendation.rerank.objective import (ListObjective, novelty_scores,
+                                                 recent_fresh_flags, tag_jaccard_pairwise)
 from app.services.serving import ServingState
 from app.services.user_data import load_user_state
 
@@ -534,10 +535,9 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
         return {"request_id": new_request_id(), "items": [], "mode": mode, "exploration": [],
                 "meta": _meta(state, k, 0, "none", None, fallback, warnings + ["No eligible titles remain."])}
     relevance = np.clip(np.array([rel[i] for i in chosen]), 0, 1)
-    sim, valid = state.similarity["weighted_attributes"].pairwise(snap, chosen)
-    hist = us.history_tags(snap)
+    sim, valid = tag_jaccard_pairwise(snap, chosen)
     obj = ListObjective(relevance, sim, valid, novelty_scores(snap.train_interactions, chosen),
-                        fresh_flags(snap, chosen, hist), dict(state.settings.recommendation.get("ga", {}).get(
+                        recent_fresh_flags(snap, chosen), dict(state.settings.recommendation.get("ga", {}).get(
                             "weights", {"relevance": 0.4, "diversity": 0.3, "novelty": 0.2, "fresh": 0.1})))
     tiebreak = np.argsort(np.argsort(snap.keys[chosen]))
     greedy = relevance_greedy(obj, k, tiebreak)
@@ -591,10 +591,8 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
         if obj.fresh is not None:
             comps["fresh"] = bool(obj.fresh[pos])
             if obj.fresh[pos]:
-                new_tags = [t for ns in ("genre", "theme") if ns in snap.tags for t in snap.tags[ns].tags_of(i)
-                            if (ns, t) not in hist]
-                if new_tags:
-                    reasons.append(X.reason("fresh", tags=", ".join(new_tags[:3])))
+                y = snap.year[i]
+                reasons.append(X.reason("recent", year=int(y) if np.isfinite(y) else "unknown"))
         if reranker == "ga" and top_rel_unused:
             alt = sel.copy()
             alt[alt.tolist().index(pos)] = top_rel_unused[0]

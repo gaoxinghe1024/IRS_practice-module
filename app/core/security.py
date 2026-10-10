@@ -12,7 +12,14 @@ import hmac
 import secrets
 
 from argon2 import PasswordHasher
-from argon2.exceptions import InvalidHashError, VerificationError, VerifyMismatchError
+from argon2.exceptions import VerificationError, VerifyMismatchError
+
+# argon2-cffi >= 23.1.0 用 InvalidHashError；旧版（如 21.3.0）只有 InvalidHash。
+# 兼容两版，避免 import 在旧环境下直接失败。
+try:
+    from argon2.exceptions import InvalidHashError
+except ImportError:  # pragma: no cover - 旧版 argon2
+    from argon2.exceptions import InvalidHash as InvalidHashError
 
 _hasher = PasswordHasher()  # argon2id with library defaults
 LEGACY_PREFIX = "legacy-pbkdf2$"

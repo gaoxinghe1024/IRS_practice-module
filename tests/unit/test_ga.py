@@ -2,7 +2,8 @@ import numpy as np
 import pytest
 
 from app.recommendation.rerank.ga import GeneticListOptimizer, exhaustive, mmr, relevance_greedy
-from app.recommendation.rerank.objective import ListObjective, fresh_flags, novelty_scores
+from app.recommendation.rerank.objective import (ListObjective, fresh_flags, novelty_scores,
+                                                 recent_fresh_flags, tag_jaccard_pairwise)
 
 
 def _objective(n=11, seed=0, weights=None, novelty=True, fresh=True):
@@ -81,3 +82,41 @@ def test_mmr_is_distinct_from_ga_and_greedy_ids():
     obj = _objective(n=12, seed=3)
     assert mmr(obj, 5).optimizer.startswith("mmr")
     assert relevance_greedy(obj, 5).optimizer == "relevance_greedy"
+
+
+# ---------------------------------------------------------------------------
+# algorithm3 口径对齐：diversity = 1 - Jaccard(genre∪theme)，fresh = 近 span 年新番
+# 语义逐字对齐 algorithm3_benchmark 的 list_metrics.jaccard / fresh_flag。
+# ---------------------------------------------------------------------------
+class _TagMat:
+    def __init__(self, tags):
+        self._t = tags
+
+    def tags_of(self, i):
+        return self._t[i]
+
+
+class _Snap:
+    def __init__(self, genre, theme, year):
+        self.tags = {"genre": _TagMat(genre), "theme": _TagMat(theme)}
+        self.year = np.array(year, dtype=float)
+
+
+def test_tag_jaccard_pairwise_matches_benchmark_semantics():
+    # item0 {A,B,C}; item1 {A,C}; item2 {}   ->  J(0,1)=2/3, J(0,2)=0, J(1,2)=0
+    s = _Snap([["A", "B"], ["A"], []], [["C"], ["C"], []], [0, 0, 0])
+    sim, valid = tag_jaccard_pairwise(s, np.array([0, 1, 2]))
+    assert abs(sim[0, 1] - 2 / 3) < 1e-12
+    assert sim[0, 2] == 0.0 and sim[1, 2] == 0.0       # one/both sides empty -> 0 similarity
+    assert sim[0, 0] == 0.0                              # diagonal never used but well-defined
+    assert not valid[0, 0] and not valid[1, 1]           # diagonal masked out
+    assert valid[0, 1] and valid[0, 2] and valid[1, 2]   # all unordered pairs participate
+
+
+def test_recent_fresh_flags_matches_benchmark_semantics():
+    # max year 2024, span=5 -> threshold 2020; NaN / 0 -> not fresh
+    s = _Snap([[]], [[]], [2020, 2024, 2019, float("nan"), 0])
+    assert recent_fresh_flags(s, np.arange(5)).tolist() == [True, True, False, False, False]
+    # no valid year anywhere -> all False (never crashes)
+    s2 = _Snap([[]], [[]], [float("nan"), 0, float("nan")])
+    assert recent_fresh_flags(s2, np.arange(3)).tolist() == [False, False, False]

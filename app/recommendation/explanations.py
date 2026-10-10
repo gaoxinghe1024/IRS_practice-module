@@ -32,6 +32,7 @@ TEMPLATES = {
     "plan_popular": "Popular and well rated",
     "novel": "A less-watched title (novelty {nov})",
     "fresh": "Adds {tags}, new for your history",
+    "recent": "A recent release ({year})",
     "list_role": "Keeps the list varied (list score drops by {delta} without it; explanatory estimate)",
     "retrieved": "Matched your description in {kind}",
     "plan_budget": "{minutes} min of your {budget} min budget",

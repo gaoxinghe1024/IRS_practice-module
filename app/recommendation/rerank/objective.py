@@ -96,3 +96,53 @@ def fresh_flags(snap, candidates: np.ndarray, history_tags: set[tuple[str, str]]
         tags = [(ns, t) for ns in ("genre", "theme") if ns in snap.tags for t in snap.tags[ns].tags_of(int(i))]
         out[pos] = any(t not in history_tags for t in tags)
     return out
+
+
+def tag_jaccard_pairwise(snap, candidates: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """候选池内部两两 Jaccard(genre∪theme) 相似度矩阵 + 全 True 有效掩码。
+
+    对齐 algorithm3 基准验证过的最优口径：diversity = 1 − mean(Jaccard(genre∪theme))。
+    Jaccard 语义与基准 `list_metrics.jaccard` 逐字一致：
+      * 两边标签都为空 → 相似度 0（无共同题材 = 完全不相近）
+      * 只有一边为空 → 相似度 0（交集为空、并集为另一方的集合）
+      * 否则 → |交集| / |并集|
+    valid 全 True（对角 False），即所有无序对都参与 diversity 的均值，
+    等价于基准里 `1 - mean(上三角 Jaccard)`。
+    """
+    n = len(candidates)
+    sets: list[set[str]] = []
+    for i in candidates:
+        s: set[str] = set()
+        for ns in ("genre", "theme"):
+            tm = snap.tags.get(ns)
+            if tm is not None:
+                s.update(tm.tags_of(int(i)))
+        sets.append(s)
+    sim = np.zeros((n, n), dtype=np.float64)
+    for a in range(n):
+        for b in range(a + 1, n):
+            sa, sb = sets[a], sets[b]
+            if not sa and not sb:
+                v = 0.0
+            else:
+                v = len(sa & sb) / len(sa | sb)
+            sim[a, b] = sim[b, a] = v
+    valid = np.ones((n, n), dtype=bool)
+    np.fill_diagonal(valid, False)
+    return sim, valid
+
+
+def recent_fresh_flags(snap, candidates: np.ndarray, span: int = 5) -> np.ndarray:
+    """'新鲜' = 首播年份落在目录最新 `span` 年内（对齐 algorithm3 基准口径）。
+
+    与基准 `list_metrics.fresh_flag(years, span=5)` 逐字一致：
+      thr = max(有效年份) - (span - 1)；fresh = 年份 >= thr。
+    无效年份（NaN / <= 0）一律判为不新鲜。
+    """
+    years = snap.year[candidates].astype(np.float64)
+    valid = np.isfinite(years) & (years > 0)
+    ys = years[valid]
+    if len(ys) == 0:
+        return np.zeros(len(candidates), dtype=bool)
+    thr = int(ys.max()) - (span - 1)
+    return valid & (years >= thr)

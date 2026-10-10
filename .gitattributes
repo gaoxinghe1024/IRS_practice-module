@@ -9,6 +9,9 @@ artifacts/**/*.pt filter=lfs diff=lfs merge=lfs -text
 artifacts/**/*.joblib filter=lfs diff=lfs merge=lfs -text
 var/*/anilogic.sqlite3 filter=lfs diff=lfs merge=lfs -text
 
+# Activation records and per-file hashes require byte-identical JSON on Windows too.
+artifacts/**/*.json -text
+
 # === algorithm3 benchmark: large data files via Git LFS ===
 algorithm3_benchmark/data/canonical/anime_runtime.jsonl filter=lfs diff=lfs merge=lfs -text
 algorithm3_benchmark/data/cf/train_statistics.jsonl filter=lfs diff=lfs merge=lfs -text

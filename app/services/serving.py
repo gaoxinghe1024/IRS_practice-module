@@ -169,11 +169,13 @@ def load_state(settings: Settings) -> ServingState:
         state.set_cap("recall_ncf", ncf_meta.get("status", "not_configured"), ncf_meta.get("reason", "not trained"))
 
     # ---------------------------------------------------------------- similarity scorers
+    from app.recommendation.similarity.algorithm1 import Algorithm1Scorer
     from app.recommendation.similarity.weighted import WeightedAttributeScorer
 
     sim_cfg = rec.get("similar", {})
     base = WeightedAttributeScorer(sim_cfg.get("weights"), sim_cfg.get("tau_episodes", 12.0))
     state.similarity["weighted_attributes"] = base
+    state.similarity["algorithm1_a"] = Algorithm1Scorer()
     lg = manifest.get("components", {}).get("logistic", {})
     if lg.get("status") == "trained" and _verify(art, manifest, "models/logistic_similarity.joblib"):
         import joblib
@@ -191,8 +193,9 @@ def load_state(settings: Settings) -> ServingState:
         state.similarity[es.scorer_id] = es
         state.similarity["tag_semantic_hybrid"] = HybridSimilarityScorer(es, base,
                                                                          float(sim_cfg.get("hybrid_tag_weight", 0.6)))
-    alternatives = ", ".join(k for k in state.similarity if k != "weighted_attributes") or "none"
-    detail = f"weighted_attributes (default); alternatives: {alternatives}"
+    default_similar = sim_cfg.get("scorer", "algorithm1_a")
+    alternatives = ", ".join(k for k in state.similarity if k != default_similar) or "none"
+    detail = f"{default_similar} (default); alternatives: {alternatives}"
     if "logistic_similarity" not in state.similarity and lg.get("reason"):
         detail += f". logistic_similarity is {lg.get('status', 'unavailable')}: {lg['reason']}"
     state.set_cap("similar", "ready", detail)

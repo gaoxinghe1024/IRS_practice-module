@@ -228,8 +228,8 @@ def train(settings: Settings, version: str | None = None, components: tuple[str,
                 comps["two_tower"] = _train_two_tower(settings, snap, split_cases, out, seed, src[0], n_inter, log)
 
     del emb_scorer
-    manifest["files"] = {str(p.relative_to(out)): sha256_file(p) for p in sorted(out.rglob("*"))
-                         if p.is_file() and p.name != "manifest.json" and "index/" not in str(p.relative_to(out))}
+    manifest["files"] = {p.relative_to(out).as_posix(): sha256_file(p) for p in sorted(out.rglob("*"))
+                         if p.is_file() and p.name != "manifest.json" and "index/" not in p.relative_to(out).as_posix()}
     manifest["train_seconds"] = round(time.time() - t_all, 1)
     write_json(manifest_path, manifest)
     log(f"[train] done in {manifest['train_seconds']}s -> {rel(out)}")

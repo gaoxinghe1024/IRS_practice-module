@@ -59,6 +59,7 @@ def test_manifests_record_versions_and_hashes(synthetic_env):
     assert m["components"]["icf"]["status"] == "trained" and m["components"]["icf"]["sha256"]
     assert m["index"]["dense"]["provider"] == "lsa" and m["index"]["dense"]["doc_ids_sha256"]
     assert "python" in m["dependencies"]
+    assert all("\\" not in name for group in (m["files"], m["index"]["files"]) for name in group)
 
 
 def test_synthetic_generation_is_reproducible(synthetic_env, tmp_path):

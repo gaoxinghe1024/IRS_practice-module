@@ -52,9 +52,31 @@ def test_similar_excludes_target_and_is_deterministic(client):
     key = _keys(client, 1, sort="popularity")[0]
     a = client.get(f"/api/v1/anime/{key}/similar").json()
     b = client.get(f"/api/v1/anime/{key}/similar").json()
+    assert a["meta"]["algorithm"] == "algorithm1_a" and a["meta"]["fallback"] is None
     assert a["meta"]["actual_k"] <= 5 and key not in [i["item_key"] for i in a["items"]]
     assert [i["item_key"] for i in a["items"]] == [i["item_key"] for i in b["items"]]
     assert all(i["reasons"] for i in a["items"])
+
+
+def test_similar_fallback_and_user_filters_preserve_route_a(client):
+    h, _ = register(client)
+    key = _keys(client, 1, sort="popularity")[0]
+    url = f"/api/v1/anime/{key}/similar"
+    baseline = client.get(url).json()
+    victim = baseline["items"][0]["item_key"]
+    client.put(f"/api/v1/anime/{victim}/rating", json={"rating": 9}, headers=h)
+    rated = client.get(url, params={"hide_watched": False}).json()
+    assert [(i["item_key"], i["score"]) for i in rated["items"]] == \
+        [(i["item_key"], i["score"]) for i in baseline["items"]]
+    hidden = client.get(url, params={"hide_watched": True, "k": 10}).json()
+    assert victim not in {i["item_key"] for i in hidden["items"]}
+    assert hidden["meta"]["algorithm"] == "algorithm1_a" and hidden["meta"]["actual_k"] == 10
+    fallback = client.get(url, params={"scorer": "unavailable_model"}).json()
+    assert fallback["meta"]["algorithm"] == "algorithm1_a"
+    assert fallback["meta"]["fallback"] == "unavailable_model unavailable -> algorithm1_a"
+    assert client.get(url).json()["meta"]["fallback"] is None
+    client.post("/api/v1/feedback", json={"event_type": "not_interested", "item_key": victim}, headers=h)
+    assert victim not in {i["item_key"] for i in client.get(url).json()["items"]}
 
 
 def test_home_excludes_rated_excluded_and_updates_with_profile(client):

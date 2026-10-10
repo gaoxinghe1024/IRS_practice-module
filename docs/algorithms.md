@@ -20,7 +20,35 @@ Shared building blocks:
 Candidate pool: served, recommendable titles except the query. Output Top-5 (`similar.k`, up to `max_k = 10`).
 The user may hide titles they have already rated or completed (`hide_watched`).
 
-### A. Weighted attributes (default) — `similarity/weighted.py`
+### A. Fixed weighted attributes (default) — `similarity/algorithm1.py`
+
+`algorithm1_a` implements the route selected in the final report, section 7.1, and in
+`algorithm1_benchmark/`. Both real and synthetic modes serve it by default; it needs no training or embeddings.
+
+    genre/theme = set Jaccard; 0 if either set is empty
+    demographic/studio = case-insensitive exact scalar match; missing values never match
+    length = 1 / (1 + abs(episodes_i - episodes_j) / 12); 0.5 if either count is missing or nonpositive
+    score = 0.35 * genre + 0.30 * theme + 0.15 * demographic + 0.10 * studio + 0.10 * length
+
+Weights are fixed and never redistributed. The active catalogue stores demographic/studio as sets; their
+alphabetically first normalised value is used as the primary scalar, so partial multi-studio overlap does not
+count as exact matching. Ties use numeric anime ID ascending, then item key. No title, synopsis, catalogue score,
+popularity, rating history, favourite or chat context contributes to the score. The existing eligibility and
+account rules still filter candidates; rating a title changes eligibility only when hide-watched is enabled.
+Missing-value defaults are exposed in `components.dimensions`, alongside fixed `components.contributions`;
+`components.coverage` measures comparable metadata, not the evaluation metric coverage@5.
+
+On the published 1,000 synthetic targets, A has coverage@5 (Recall@5) 30.26%, binary hit_rate@5 67.50%, and
+NDCG@5 0.3288. The regression test compares every Top-5 list and score with the frozen published predictions.
+The synthetic oracle uses metadata and its protocol was developed after exploratory runs; these numbers do
+not establish independent generalisation or real-user effectiveness. Live requests use the active system
+catalogue, whose candidate count and metadata can differ from the 14,202-item benchmark.
+
+Unknown or unavailable requested scorers fall back to `algorithm1_a`, with the fallback recorded. The
+`scorer` query parameter and administrator comparison endpoint retain the alternatives below. Their older
+trained artifacts use the original features and are not equivalent to the frozen benchmark B/C/D models.
+
+### Legacy weighted attributes — `similarity/weighted.py`
 
 For each set dimension d in {genre, theme, demographic, studio}:
 
@@ -35,9 +63,9 @@ A pair with no comparable dimension is `insufficient_metadata` and is not ranked
 part of the formula. Ties are broken by item key, so results are deterministic. Reasons: shared tags, same
 demographic or studio, similar length, the dimensions that could not be compared, and low coverage.
 
-### B. Logistic regression — `similarity/logistic.py`
+### Legacy B. Logistic regression — `similarity/logistic.py`
 
-Features: the five `sim_d` values, the five availability flags and coverage (the same inputs as A). Positives come
+Features: the five legacy `sim_d` values, the five availability flags and coverage. Positives come
 only from similarity labels (human or a declared weak source). Negatives are 20 sampled unlabelled pool items per
 query ("sampled_unlabelled", not proven dissimilar). Queries are split 60/20/20 by franchise component (from the
 relation graph) so related titles never straddle splits. Standardisation and fitting use train only. `C` is
@@ -45,19 +73,19 @@ chosen from {0.01, 0.1, 1, 10} by validation NDCG@5. The output is the decision 
 **Data gate:** at least 20 training and 5 validation query titles; below that the scorer is `limited_by_data`
 and not served.
 
-### C. BGE attribute embeddings — `similarity/embedding.py`
+### Legacy C. BGE attribute embeddings — `similarity/embedding.py`
 
 The five attributes are rendered with a fixed, versioned text template. Missing attributes are omitted, never
 written as a shared "unknown". The text is encoded with `BAAI/bge-small-en-v1.5` (384-d, 512-token limit, English)
 and compared by the cosine of L2-normalised vectors. Cosine is a similarity, not a probability.
 
-### D. Tag × semantic hybrid
+### Legacy D. Tag × semantic hybrid
 
     Sim_hybrid = 0.6 · Sim_tag + 0.4 · clip((cos + 1) / 2, 0, 1)
 
 When either side lacks an embedding, the weight moves to the tag part and the degradation is recorded.
 
-A **replacement rule** decides whether B/C/D may replace A as the default: Hits@5 at least +2 points and NDCG@5
+A legacy **replacement rule** compared B/C/D to the legacy weighted scorer: Hits@5 at least +2 points and NDCG@5
 not lower than A, on the *validation* query group. Test numbers are only reported. `semantic_synopsis`
 (synopsis embeddings) uses different information and is reported as a separate variant.
 

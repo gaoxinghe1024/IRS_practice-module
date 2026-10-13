@@ -27,13 +27,12 @@ class ICFEngine:
 
     def __init__(self):
         self.user_mean = None
-        self.Rc = None          # centred matrix (CSR)
-        self.R = None           # raw training matrix (CSR)
-        self.S = None           # pruned item-item cosine (CSR)
+        self.Rc = None
+        self.R = None
+        self.S = None
         self.train_seconds = 0.0
         self.sim_nnz = 0
 
-    # ---------------------------------------------------------------- fit
     def fit(self, R):
         t0 = time.time()
         R = R.tocsr()
@@ -41,19 +40,16 @@ class ICFEngine:
         cnt = np.diff(R.indptr).astype(np.float64)
         self.user_mean = (np.asarray(R.sum(1)).ravel() / np.maximum(cnt, 1)).astype(np.float32)
 
-        # 1) centre each user's ratings by that user's mean (observed entries only)
         Rc = R.copy()
         Rc.data = Rc.data - np.repeat(self.user_mean, cnt.astype(np.int64))
         self.Rc = Rc.tocsr()
         self.Rc.sort_indices()
 
-        # 2) column-normalise -> cosine becomes a plain Gram product
         colnorm = np.sqrt(np.asarray(self.Rc.multiply(self.Rc).sum(0)).ravel()).astype(np.float32)
         colnorm[colnorm == 0] = 1.0
         A = (self.Rc @ sp.diags(1.0 / colnorm)).tocsr()
         A.sort_indices()
 
-        # 3) block-wise item-item cosine, pruned to top-K neighbours
         n_items = A.shape[1]
         k = C.ICF_NEIGHBOURS
         rows_out, cols_out, vals_out = [], [], []
@@ -79,7 +75,6 @@ class ICFEngine:
         self.train_seconds = time.time() - t0
         return self
 
-    # ---------------------------------------------------------------- predict
     def predict_pairs(self, u_idx, i_idx, chunk=20000, clip=True):
         """Weighted-average item-based prediction for (user, item) pairs."""
         out = np.empty(len(u_idx), dtype=np.float32)
@@ -105,7 +100,6 @@ class ICFEngine:
         sc = (P @ self.S).toarray().astype(np.float32)
         return sc
 
-    # ---------------------------------------------------------------- top-N
     def topk(self, u_idx, k, R_train=None, chunk=1000):
         uu = np.asarray(u_idx, dtype=np.int64)
         R = R_train if R_train is not None else self.R

@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-engine_registry.py — 三个召回引擎的统一加载与打分接口。
+engine_registry.py — unified loading and scoring interface for the three recall engines.
 
-为什么需要这一层
-----------------
-三个引擎的实现风格不同（ICF 是稀疏矩阵、SVD/NCF 是 torch 模型），
-但实验只关心两件事：① 加载并训练；② 给定用户给出整目录打分。
-把它们统一到 `load_engines` + `full_scores` 两个函数，
-实验脚本就不需要知道任何引擎内部细节。
+The engines differ internally (ICF is sparse-matrix, SVD/NCF are torch models), but
+experiments only need two operations: load-and-fit (`load_engines`) and full-catalogue
+scoring (`full_scores`), so experiment scripts never touch engine internals.
 
-三个引擎
---------
-    ICF  物品协同过滤：物品-物品相似度，确定性引擎（重训逐位一致）
-    SVD  矩阵分解：用户/作品共享 32 维隐空间
-    NCF  神经协同过滤：MLP + 负采样，隐向量 32 维
-
-注意：ICF 的确定性使它成为整条管线的"校验锚"——
-重跑后 ICF 的名次必须与历史结果逐位一致，否则说明环境变了。
+Engines:
+    ICF  item-based CF over item-item similarity (deterministic, bit-identical retrains)
+    SVD  Funk-SVD matrix factorisation, shared 32-dim latent space
+    NCF  neural CF (MLP + negative sampling), 32-dim embeddings
+ICF's determinism makes it the pipeline's regression anchor: after a rerun its ranks
+must match history bit-for-bit, otherwise the environment changed.
 """
 import time
 
@@ -28,7 +23,7 @@ ENGINES = ["ICF", "SVD", "NCF"]
 
 
 def load_engines(names, R, n_items):
-    """训练并返回 {引擎名: 引擎对象}。R 是训练评分 CSR。"""
+    """Fit and return {engine name: engine}. R is the training-ratings CSR."""
     out = {}
     for name in names:
         t = time.time()
@@ -52,7 +47,7 @@ def load_engines(names, R, n_items):
 
 
 def full_scores(eng, uu):
-    """整目录打分：(n_users, n_items) float32。只用于确定排序，不做 clip。"""
+    """Full-catalogue scores (n_users, n_items) float32; ranking only, no clip."""
     if hasattr(eng, "score_items"):
         return np.asarray(eng.score_items(uu), dtype=np.float32)
     n = len(uu)

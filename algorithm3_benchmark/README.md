@@ -1,203 +1,216 @@
-# ICF+GA 报告管线（ICF + GA Report Pipeline）
+# ICF + GA Benchmark
 
-这个文件夹是一个**自包含、可复跑**的最小工程：只保留产出《ICF 与 GA 核心结果报告》
-里所有对比数据所必需的代码、数据与最终报告。
+This folder is a **self-contained, re-runnable** minimal project: it keeps only the
+code and data necessary to reproduce every comparison result of the ICF + GA
+experiment (the four rerank arms: greedy / window random / pool random / GA).
 
-跑完之后不需要任何外部依赖，也不需要原始实验仓库。
+After setup it requires no external dependencies and no access to the original
+experiment repository.
 
 ---
 
-## 一、快速开始
+## 1. Quick Start
 
 ```bash
-# ① 跑主实验（20,000 用户，约 80~90 分钟）→ results/ranks.npz
+# 1) Run the main experiment (20,000 users, about 80~90 minutes) -> results/ranks.npz
 E:/anaconda3/python.exe run_experiment.py
 
-# ② 生成两部分的对比数据
-E:/anaconda3/python.exe analyze_icf_part.py      # → results/icf_part.json
-E:/anaconda3/python.exe analyze_ga_part.py       # → results/ga_part.json
-
-# ③ 生成最终报告
-E:/anaconda3/python.exe make_report.py           # → results/ICF_GA_报告.html
-
-# ④ HTML → Word（必须用装了 html4docx 的解释器，见下方说明）
-"D:/workspace/2026-09-09-14-27-14/.venv-html-to-docx/Scripts/python.exe" make_word.py
+# 2) Generate the comparison data for both parts
+E:/anaconda3/python.exe analyze_icf_part.py      # -> results/icf_part.json
+E:/anaconda3/python.exe analyze_ga_part.py       # -> results/ga_part.json
 ```
 
-> **关于第 ④ 步**：`html4docx` 只装在那个专用 venv 里，用 anaconda 的
-> `E:/anaconda3/python.exe` 跑会报 `ModuleNotFoundError: No module named 'html4docx'`。
-> 若上面的 venv 路径在你机器上已不存在，任选其一：
-> ① `pip install html4docx` 到任意解释器后再跑；
-> ② **直接使用已生成的 `ICF_GA_报告.docx`**——它就在本文件夹根目录和 `results/` 里，
-> 与 HTML 内容同源，不需要为了拿 Word 而重跑任何实验。
-> ①②③ 三步只需要 anaconda python，不依赖 `html4docx`。
-
-**冒烟运行**（不跑完整 2 万人，用于确认环境正常）：
+**Smoke run** (not the full 20k users; confirms the environment works):
 ```bash
 E:/anaconda3/python.exe run_experiment.py --prefix 300 --tag smoke
-# 只评真实队列的前 300 位用户，约 4 分钟；输出 ranks_smoke.npz 不覆盖正式结果
+# Evaluates only the first 300 users of the real cohort, about 4 minutes;
+# the output ranks_smoke.npz does not overwrite the official results
 ```
 
-**依赖**：`numpy 1.26.4`、`scipy 1.16.0`、`torch 2.5.1+cu121`（NCF/SVD 用 CUDA）、
-`pandas 2.2.2`。Word 转换额外需要 `html4docx`（仅托管 venv 里有）。
+**Dependencies**: `numpy 1.26.4`, `scipy 1.16.0`, `torch 2.5.1+cu121` (NCF/SVD use CUDA),
+`pandas 2.2.2`.
 
 ---
 
-## 二、文件清单（一个文件一件事）
+## 2. File Inventory (one file, one job)
 
-### 配置与数据
+### Configuration and data
 
-| 文件 | 作用 |
+| File | Purpose |
 |---|---|
-| `config.py` | **唯一的参数中心**：数据路径、候选池档位、GA 权重、引擎超参、随机种子 |
-| `data_loader.py` | 数据加载：训练评分 CSR、id↔索引映射、物品特征、首播年份、留出验证集、合格用户队列 |
-| `data/` | 数据集（8 个实验必需文件，共 340 MiB） |
+| `config.py` | **The single parameter center**: data paths, candidate pool grid, GA weights, engine hyper-parameters, random seeds |
+| `data_loader.py` | Data loading: training ratings CSR, id↔index mappings, item features, premiere years, held-out validation set, eligible user cohort |
+| `data/` | Datasets (8 files required by the experiment, 340 MiB total) |
 
-### 召回引擎（第一部分的三条曲线）
+### Recall engines (the three curves of Part 1)
 
-| 文件 | 作用 |
+| File | Purpose |
 |---|---|
-| `engine_icf.py` | **ICF** 物品协同过滤（物品-物品相似度）。确定性引擎，重训逐位一致 |
-| `engine_svd.py` | **SVD** 矩阵分解（用户/作品共享 32 维隐空间，torch） |
-| `engine_ncf.py` | **NCF** 神经协同过滤（MLP + 负采样，torch） |
-| `engine_registry.py` | 三个引擎的统一加载与整目录打分接口 |
+| `engine_icf.py` | **ICF** item-based collaborative filtering (item-item similarity). Deterministic engine; retraining reproduces results bit-for-bit |
+| `engine_svd.py` | **SVD** matrix factorization (users/items share a 32-dim latent space, torch) |
+| `engine_ncf.py` | **NCF** neural collaborative filtering (MLP + negative sampling, torch) |
+| `engine_registry.py` | Unified loading of the three engines and the full-catalogue scoring interface |
 
-### 重排层（第二部分的四个臂）
+### Rerank layer (the four arms of Part 2)
 
-| 文件 | 作用 |
+| File | Purpose |
 |---|---|
-| `rerank_greedy.py` | **贪心基线**：纯按相关性取 Top-10（= GA 的内部基线，也 = 无重排） |
-| `rerank_random.py` | **随机对照臂**：窗口随机 / 整池随机共用同一个函数（只换传入的池子） |
-| `rerank_ga.py` | **遗传算法**：适应度四项加权 + 随机键编码 + 锦标赛/交叉/变异/精英保留 |
-| `list_metrics.py` | 列表级指标：Jaccard 相似度、多样性、新颖度、新鲜度，以及两个特征预处理 |
+| `rerank_greedy.py` | **Greedy baseline**: Top-10 by pure relevance (= the GA's internal baseline, and = no rerank) |
+| `rerank_random.py` | **Random control arms**: window random / pool random share one function (only the passed pool differs) |
+| `rerank_ga.py` | **Genetic algorithm**: four-component weighted fitness + random-key encoding + tournament/crossover/mutation/elitism |
+| `list_metrics.py` | List-level metrics: Jaccard similarity, diversity, novelty, freshness, plus two feature preprocessing routines |
 
-#### 为什么随机对照臂有**两个**、为什么只有一个函数
+#### Why there are **two** random control arms, and why only one function
 
-| 臂 | 怎么挑这 10 条 | 候选来源 | 回答什么问题 |
+| Arm | How the 10 items are picked | Candidate source | Question it answers |
 |---|---|---|---|
-| 贪心 | 纯按相关性 Top-10 | 相关性前 20 | 不做重排会怎样 |
-| **窗口随机** | 在窗口里随机挑 10 条 | **与 GA 完全相同**（前 20） | **GA 的重排能力**——排除"随机性本身"的贡献 |
-| **整池随机** | 不看相关性，随机挑 10 条 | 整个候选池（N 条） | 曝光结构的**上界**（命中率≈K/N） |
-| GA | 四项加权适应度 | 相关性前 20 | 主角 |
+| Greedy | Top-10 by pure relevance | Top-20 by relevance | What happens with no rerank |
+| **Window random** | Pick 10 at random within the window | **Identical to GA** (top 20) | **GA's reranking ability** — excludes the contribution of "randomness itself" |
+| **Pool random** | Pick 10 at random, ignoring relevance | Whole candidate pool (N items) | The **upper bound** of exposure structure (hit rate ≈ K/N) |
+| GA | Four-component weighted fitness | Top-20 by relevance | The protagonist |
 
-两个臂**算法完全相同**，区别只在调用方传入哪个池子，所以 `rerank_random.py`
-只保留一个函数：`rerank_random(pool_idx, pool_score, rng)`。
-把"窗口/整池"做成函数参数只会制造一个永远只取两个值的开关，反而更难读。
+The two arms use **exactly the same algorithm**; only the pool passed in by the
+caller differs, so `rerank_random.py` keeps a single function:
+`rerank_random(pool_idx, pool_score, rng)`.
+Making "window/pool" a function parameter would only create a switch that always
+takes one of two values, which is harder to read.
 
-### 实验与产物
+### Experiment and artifacts
 
-| 文件 | 作用 | 产出 |
+| File | Purpose | Output |
 |---|---|---|
-| `candidate_pool.py` | 候选池构造（1 正例 + N−1 均匀随机负例）＋ GA 与随机臂的逐用户确定性随机流 | — |
-| `run_experiment.py` | **主实验**：10 档候选池 × 2 种子 × 3 引擎 × **4 重排臂** | `results/ranks.npz`<br>`results/experiment.json` |
-| `analyze_icf_part.py` | **第一部分**对比数据：3 引擎 × 10 档的 HR@5 / HR@10 / 提升倍数 | `results/icf_part.json` |
-| `analyze_ga_part.py` | **第二部分**对比数据：**四臂对照**、收益 LTE/LTR/GOS、代价 HR、配对显著性、交换比 | `results/ga_part.json` |
-| `make_report.py` | 生成**单份**合并报告（HTML） | `results/ICF_GA_报告.html` |
-| `make_word.py` | HTML → Word | `results/ICF_GA_报告.docx`<br>`ICF_GA_报告.docx`（根目录同款） |
+| `candidate_pool.py` | Candidate pool construction (1 positive + N−1 uniform random negatives) + per-user deterministic random streams for GA and the random arms | — |
+| `run_experiment.py` | **Main experiment**: 10 pool levels × 2 seeds × 3 engines × **4 rerank arms** | `results/ranks.npz`<br>`results/experiment.json` |
+| `analyze_icf_part.py` | **Part 1** comparison data: HR@5 / HR@10 / lift multiples for 3 engines × 10 levels | `results/icf_part.json` |
+| `analyze_ga_part.py` | **Part 2** comparison data: four-arm comparison, benefit LTE/LTR/GOS, cost HR, paired significance, swap ratio | `results/ga_part.json` |
 
 ---
 
-## 三、报告里每个指标的含义
+## 3. Meaning of Every Metric
 
-**收益指标（GA 要提升的）**
+**Benefit metrics (what GA is supposed to improve)**
 
-| 指标 | 计算式 | 一句话意义 |
+| Metric | Formula | One-line meaning |
 |---|---|---|
-| `nov@K` 新颖度 | 前 K 条 novelty 均值，`novelty(i)=1−log(1+人气ᵢ)/log(1+最大人气)` | 这份推荐整体有多冷门。是 0~1 小数，读不出体感 |
-| `lt@10` 长尾占比 | 前 10 条中 novelty ≥ 0.6156（全库中位数）的占比 | 把"平均冷门"换成"多少条真的冷门" |
-| `LTE@10` 长尾曝光量 | Σ(每用户前 10 条里长尾商品的条数) | 全站 20 万个推荐位中长尾占了多少**条** |
-| `LTR@10` 长尾触达率 | 前 10 条里至少 1 个长尾商品的用户 ÷ 全部用户 | **多少用户真的被推到了长尾商品**（推荐主指标） |
-| `GOS@10` GA 目标分 | 0.3×多样性 + 0.2×新颖度 + 0.1×新鲜度 | 正好是 GA 适应度里由 GA 负责的那 60% |
+| `nov@K` novelty | Mean novelty of the top-K items, `novelty(i)=1−log(1+pop_i)/log(1+max_pop)` | How obscure the recommendation list is overall. A 0~1 decimal with little intuitive meaning |
+| `lt@10` long-tail share | Share of the top 10 with novelty ≥ 0.6156 (catalogue median) | Turns "obscure on average" into "how many items are actually obscure" |
+| `LTE@10` long-tail exposure | Σ(number of long-tail items in each user's top 10) | How many **items** of the 200,000 site-wide recommendation slots are long-tail |
+| `LTR@10` long-tail reach rate | Users with ≥ 1 long-tail item in their top 10 ÷ all users | **How many users are actually pushed a long-tail item** (the headline benefit metric) |
+| `GOS@10` GA objective score | 0.3×diversity + 0.2×novelty + 0.1×freshness | Exactly the 60% of the GA fitness that GA is responsible for |
 
-**代价指标（GA 要守住的）**
+**Cost metrics (what GA must not destroy)**
 
-| 指标 | 计算式 | 一句话意义 |
+| Metric | Formula | One-line meaning |
 |---|---|---|
-| `HR@5` / `HR@10` | 藏起的那条落进前 5 / 前 10 位的用户占比 | 推荐准不准，对应 GA 适应度里 0.4 权重的相关性项 |
-| 随机基线 | `K / N` | 完全瞎猜的命中率 |
-| 提升倍数 | `HR@K ÷ (K/N)` | 比瞎猜强多少倍，**跨档位唯一可比的口径** |
+| `HR@5` / `HR@10` | Share of users whose hidden item lands in the top 5 / top 10 | Recommendation accuracy; corresponds to the 0.4-weight relevance term of the GA fitness |
+| Random baseline | `K / N` | Hit rate of pure blind guessing |
+| Lift multiple | `HR@K ÷ (K/N)` | How many times better than blind guessing; **the only metric comparable across pool levels** |
 
-### 新颖度的定义（长尾判定的全部依据）
+### Definition of novelty (the sole basis for long-tail classification)
 
 ```
-novelty(i) = 1 − log(1 + 人气ᵢ) / log(1 + 最大人气)
+novelty(i) = 1 − log(1 + pop_i) / log(1 + max_pop)
 ```
 
-- **人气ᵢ** = 作品 i 在**训练集**里被评分的次数；**最大人气** = 全库最高。
-- 用 `log(1+·)` 而非直接除以人气，是为了压缩头部——否则最热门那部会把其余作品
-  的新颖度全压到接近 1，失去区分度。
-- 取值 **0 ~ 1**：0 = 全库最热门，1 = 训练集里从未出现。
-- **长尾阈值 = 全库新颖度中位数 = 0.6156**（14,202 部作品中 7,110 部、50.1% 属长尾）。
-- 参考：**用户真实消费过的作品平均新颖度只有 0.157**——用户自己也在消费头部，
-  所以推荐长尾等于偏离用户历史偏好，这决定了 GA 的收益不可能无限大。
-- 人气极度集中：**前 1% 作品占 24.9% 评分量，前 10% 占 75.8%**。
+- **pop_i** = number of times item i was rated in the **training set**;
+  **max_pop** = the catalogue maximum.
+- `log(1+·)` is used instead of dividing by popularity directly to compress the
+  head — otherwise the single most popular item would push every other item's
+  novelty close to 1, destroying discrimination.
+- Range **0 ~ 1**: 0 = the most popular item in the catalogue, 1 = never seen in
+  the training set.
+- **Long-tail threshold = catalogue novelty median = 0.6156** (7,110 of 14,202
+  items, 50.1%, are long-tail).
+- Reference: **items users actually consumed have an average novelty of only
+  0.157** — users themselves consume head items, so recommending the long tail
+  means deviating from historical preference, which bounds GA's benefit.
+- Popularity is extremely concentrated: **the top 1% of items account for 24.9%
+  of ratings, the top 10% for 75.8%**.
 
-### GA 的适应度权重（算法③幻灯片口径）
+### GA fitness weights (algorithm ③ slide convention)
 
-| 分项 | 权重 | 谁来保证 |
+| Component | Weight | Guaranteed by |
 |---|---|---|
-| 相关性 relevance | **0.4** | 召回引擎（ICF/SVD/NCF）；GA 不优化它，用 HR@5/HR@10 监控代价 |
-| 多样性 diversity | **0.3** | GA |
-| 新颖度 novelty | **0.2** | GA |
-| 新鲜度 freshness | **0.1** | GA |
+| Relevance | **0.4** | Recall engine (ICF/SVD/NCF); GA does not optimize it, and HR@5/HR@10 monitor the cost |
+| Diversity | **0.3** | GA |
+| Novelty | **0.2** | GA |
+| Freshness | **0.1** | GA |
 
-`适应度 = 0.4×相关性 + 0.3×多样性 + 0.2×新颖度 + 0.1×新鲜度`，四项均在池内 min-max 归一化到 [0,1]。
+`Fitness = 0.4×relevance + 0.3×diversity + 0.2×novelty + 0.1×freshness`, all four
+min-max normalized to [0,1] within the pool.
 
-**为什么报告里的"收益"只看后三项？** 因为相关性那 0.4 是召回引擎的职责：
-GA 的重排窗口只有 20 条且全是相关性前列，它无法把窗口外的作品拉进来，
-也就无从"提升相关性"。所以 GA 唯一该被考核的就是它真正能动的 **0.6**——
-即报告中的 **GOS@10**；相关性的变化则作为**代价**，用 HR@5/HR@10 单独监控。
-**把收益和代价分开记，是为了避免"用一个加权总分去证明 GA 更好、让权重选择决定结论"。**
-
----
-
-## 四、协议要点（读报告前必须知道的三个约定）
-
-1. **候选池 N**：候选集 = 藏起的 1 条正例 +（N−1）个均匀随机负例。
-   10 档，全目录档平均 14,097.9 条。**跨档位的 HR 不能直接比大小**，要看提升倍数。
-2. **贪心 ≡ 无重排**：召回列表本身按相关性降序排好，所以两者选出的集合完全相同。
-   报告里的"ICF 基线"就是这个 Top-10。
-3. **重排窗口 = 20**：GA 只在相关性前 20 名里重排、输出前 10。
-   这解释了为什么全目录口径下 GA 的收益只有那个量级——长尾候选根本进不了这个窗口。
-   **窗口随机臂用的是同一个窗口**，所以它与 GA 的对比排除了"候选来源不同"的干扰。
-4. **所有臂的输出顺序统一为"相关性降序"**：先按各自规则挑出 10 条，再按相关性排好展示，
-   否则 HR@5 这类依赖顺序的指标在臂之间不可比。
+**Why "benefit" in the report only counts the last three components?** Because
+the 0.4 relevance weight is the recall engine's job: GA's rerank window has only
+20 items, all at the top of relevance, so it cannot pull items from outside the
+window in and thus cannot "improve relevance". The only thing GA should be
+evaluated on is the **0.6** it can actually move — reported as **GOS@10**;
+relevance changes are treated as **cost** and monitored separately with HR@5/HR@10.
+**Recording benefit and cost separately avoids "using one weighted total to prove
+GA is better, letting the choice of weights decide the conclusion".**
 
 ---
 
-## 五、可复现性
+## 4. Protocol Essentials (three conventions to know before reading the report)
 
-- **ICF 是确定性引擎**：重跑后名次必须与历史结果**逐位一致**，
-  `run_experiment.py` 会自动校验，不一致直接报错退出（说明环境变了）。
-- **GA 的随机流**：`default_rng([采样种子, 池规模, 引擎, 用户])`，逐用户独立。
-  用池规模本身（全目录用哨兵键 `10^7`）而不是网格下标，所以拆进程并行跑结果不变。
-- **随机对照臂的随机流**：`default_rng([采样种子, 池规模, 引擎, 用户, arm])`，
-  `arm` = 1 窗口随机 / 2 整池随机。**独立于 GA 的流**。
-  ⚠️ **绝不能在 `user_rng` 的种子列表后面追加 `arm`**——那会改变 SeedSequence 的熵，
-  让全部历史 GA 结果整体漂移、已发布报告的数字全部对不上。
-  实测：新增这两条流后，除"候选池 2000"因小样本胜者翻转外，
-  其余 9 档全部指标与历史结果**逐位一致（max|Δ| = 0）**。
-- **抽样种子**：[7042, 7043]，与历史实验一致。
-- **冒烟与全量对应**：`--prefix 300` 取的是**真实 20,000 人队列的前 300 位**
-  （而非另抽一个小队列），因此可以逐用户对照。
-- **配对检验**：同用户、同候选池、同引擎、同种子逐用户做差；
-  收益指标用 Wilcoxon 符号秩，命中率用 McNemar，均给 95% CI 与 Cohen's d_z。
+1. **Candidate pool N**: the candidate set = 1 hidden positive + (N−1) uniform
+   random negatives. 10 levels; the full-catalogue level averages 14,097.9 items.
+   **HR across levels must not be compared directly** — read the lift multiple instead.
+2. **Greedy ≡ no rerank**: the recall list is already sorted by descending
+   relevance, so both select exactly the same items. The "ICF baseline" in the
+   report is this Top-10.
+3. **Rerank window = 20**: GA reranks only within the top 20 by relevance and
+   outputs the top 10. This explains why GA's benefit at the full-catalogue
+   level is only of that magnitude — long-tail candidates never enter the window.
+   **The window random arm uses the same window**, so its comparison with GA
+   rules out any "different candidate source" confound.
+4. **All arms output in "descending relevance" order**: first pick 10 items by
+   each arm's own rule, then present them sorted by relevance — otherwise
+   order-dependent metrics like HR@5 are not comparable across arms.
 
 ---
 
-## 六、当前结果数据来源
+## 5. Reproducibility
 
-`results/ranks.npz` 与 `results/experiment.json` 取自 **2026-10-02 的统一重跑**
-（20,000 用户、种子 [7042,7043]、三引擎全部重训）。
-用本文件夹的 `run_experiment.py` 完整重跑一次即可得到等价结果；
-`analyze_*.py` 与 `make_report.py` 从这两个文件机器读数，全程零手工转录。
+- **ICF is a deterministic engine**: after a rerun its ranks must match
+  historical results **bit-for-bit**; `run_experiment.py` verifies this
+  automatically and exits with an error on any mismatch (meaning the environment changed).
+- **GA random stream**: `default_rng([sampling seed, pool size, engine, user])`,
+  independent per user. Keyed by the pool size itself (sentinel key `10^7` for
+  the full catalogue) rather than the grid index, so results are unchanged when
+  the grid is split across processes.
+- **Random-arm random stream**: `default_rng([sampling seed, pool size, engine,
+  user, arm])`, where `arm` = 1 window random / 2 pool random. **Independent of
+  the GA stream**.
+  ⚠️ **Never append `arm` to the `user_rng` seed list** — that changes the
+  SeedSequence entropy, shifts all historical GA results wholesale, and makes
+  every published number unreproducible.
+  Measured: after adding the two new streams, all metrics across the other 9
+  levels match historical results **bit-for-bit (max|Δ| = 0)**, except
+  "candidate pool 2000" where the winner flips due to the small sample.
+- **Sampling seeds**: [7042, 7043], consistent with the historical experiments.
+- **Smoke/full correspondence**: `--prefix 300` takes **the first 300 users of
+  the real 20,000-user cohort** (not a separately drawn small cohort), so
+  results can be compared user by user.
+- **Paired tests**: per-user differences under the same user, same candidate
+  pool, same engine, same seed; Wilcoxon signed-rank for benefit metrics,
+  McNemar for hit rates, all with 95% CI and Cohen's d_z.
 
-已核对的关键数字（与历史发布报告逐位一致）：
+---
 
-| 口径 | ICF 基线 | ICF + GA |
+## 6. Source of the Current Result Data
+
+`results/ranks.npz` and `results/experiment.json` come from the **unified rerun
+of 2026-10-02** (20,000 users, seeds [7042, 7043], all three engines retrained).
+Running `run_experiment.py` in this folder once end-to-end reproduces equivalent
+results; `analyze_*.py` read from these two files
+programmatically, with zero manual transcription throughout.
+
+Key verified numbers (bit-identical to the historical published report):
+
+| Protocol | ICF baseline | ICF + GA |
 |---|---|---|
-| HR@5（全目录） | 15.35% | 14.53% |
-| HR@10（全目录） | 20.93% | 19.51% |
-| 长尾曝光量 LTE@10 | 1,829 条 | 3,161 条（+72.8%） |
-| 长尾触达率 LTR@10 | 2.33% | 3.45%（+222 人） |
-| GA 目标分 GOS@10 | 0.2799 | 0.2923（+4.4%） |
+| HR@5 (full catalogue) | 15.35% | 14.53% |
+| HR@10 (full catalogue) | 20.93% | 19.51% |
+| Long-tail exposure LTE@10 | 1,829 items | 3,161 items (+72.8%) |
+| Long-tail reach LTR@10 | 2.33% | 3.45% (+222 users) |
+| GA objective score GOS@10 | 0.2799 | 0.2923 (+4.4%) |

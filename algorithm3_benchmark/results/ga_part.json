@@ -16,10 +16,10 @@
   "top_k": 10,
   "exposure_slots": 200000,
   "arm_definitions": {
-    "greedy": "贪心：纯按相关性取 Top-10（恒等于无重排）",
-    "randw": "窗口随机：在相关性前 20 名里随机挑 10 条",
-    "randp": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
-    "ga": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度"
+    "greedy": "greedy: pure-relevance Top-10 (identical to no rerank)",
+    "randw": "randw: pick 10 at random within the top-20 by relevance",
+    "randp": "randp: pick 10 at random from the whole candidate pool",
+    "ga": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness"
   },
   "nov_user": {
     "mean": 0.1479730054707145,
@@ -39,7 +39,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 10821.500166729093,
           "ltr": 0.53715,
           "ltr_users": 10743.0,
@@ -54,7 +54,7 @@
           "lt10": 0.05410750083364546
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 95339.00090351701,
           "ltr": 0.99995,
           "ltr_users": 19999.0,
@@ -69,7 +69,7 @@
           "lt10": 0.47669500451758506
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 95489.00090008974,
           "ltr": 0.999975,
           "ltr_users": 19999.5,
@@ -84,7 +84,7 @@
           "lt10": 0.4774450045004487
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 86628.50045390427,
           "ltr": 1.0,
           "ltr_users": 20000.0,
@@ -576,7 +576,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -591,7 +591,7 @@
           "lt10": 0.0
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 10.500000193715096,
           "ltr": 0.0005,
           "ltr_users": 10.0,
@@ -606,7 +606,7 @@
           "lt10": 5.2500000968575476e-05
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 92427.0011357218,
           "ltr": 0.998,
           "ltr_users": 19960.0,
@@ -621,7 +621,7 @@
           "lt10": 0.462135005678609
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 6.000000089406967,
           "ltr": 0.0003,
           "ltr_users": 5.999999999999999,
@@ -1113,7 +1113,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -1128,7 +1128,7 @@
           "lt10": 0.0
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -1143,7 +1143,7 @@
           "lt10": 0.0
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 98190.50109513104,
           "ltr": 0.9994,
           "ltr_users": 19988.0,
@@ -1158,7 +1158,7 @@
           "lt10": 0.4909525054756552
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -1650,7 +1650,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -1665,7 +1665,7 @@
           "lt10": 0.0
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -1680,7 +1680,7 @@
           "lt10": 0.0
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 99818.00109505653,
           "ltr": 0.999,
           "ltr_users": 19980.0,
@@ -1695,7 +1695,7 @@
           "lt10": 0.49909000547528265
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -2187,7 +2187,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -2202,7 +2202,7 @@
           "lt10": 0.0
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -2217,7 +2217,7 @@
           "lt10": 0.0
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 101227.50100553036,
           "ltr": 0.9991,
           "ltr_users": 19982.0,
@@ -2232,7 +2232,7 @@
           "lt10": 0.5061375050276518
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -2724,7 +2724,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -2739,7 +2739,7 @@
           "lt10": 0.0
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -2754,7 +2754,7 @@
           "lt10": 0.0
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 99775.50110895187,
           "ltr": 0.99925,
           "ltr_users": 19985.0,
@@ -2769,7 +2769,7 @@
           "lt10": 0.49887750554475935
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -3261,7 +3261,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -3276,7 +3276,7 @@
           "lt10": 0.0
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -3291,7 +3291,7 @@
           "lt10": 0.0
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 100441.00108213723,
           "ltr": 0.999225,
           "ltr_users": 19984.5,
@@ -3306,7 +3306,7 @@
           "lt10": 0.5022050054106861
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 0.0,
           "ltr": 0.0,
           "ltr_users": 0.0,
@@ -3798,7 +3798,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 2257.5000266730785,
           "ltr": 0.035325,
           "ltr_users": 706.5,
@@ -3813,7 +3813,7 @@
           "lt10": 0.011287500133365392
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 2820.0000394135714,
           "ltr": 0.05045,
           "ltr_users": 1009.0,
@@ -3828,7 +3828,7 @@
           "lt10": 0.014100000197067857
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 101170.00107832253,
           "ltr": 0.998975,
           "ltr_users": 19979.5,
@@ -3843,7 +3843,7 @@
           "lt10": 0.5058500053916126
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 4494.000022336841,
           "ltr": 0.06385,
           "ltr_users": 1277.0,
@@ -4335,7 +4335,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 1858.0000211298466,
           "ltr": 0.026525,
           "ltr_users": 530.5,
@@ -4350,7 +4350,7 @@
           "lt10": 0.009290000105649232
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 2170.5000249296427,
           "ltr": 0.034525,
           "ltr_users": 690.5,
@@ -4365,7 +4365,7 @@
           "lt10": 0.010852500124648213
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 100550.00110127032,
           "ltr": 0.99915,
           "ltr_users": 19983.0,
@@ -4380,7 +4380,7 @@
           "lt10": 0.5027500055063516
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 3457.000024430454,
           "ltr": 0.041425,
           "ltr_users": 828.4999999999999,
@@ -4872,7 +4872,7 @@
       },
       "arms": {
         "greedy": {
-          "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+          "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
           "lte": 1829.000015631318,
           "ltr": 0.02335,
           "ltr_users": 467.0,
@@ -4887,7 +4887,7 @@
           "lt10": 0.009145000078156591
         },
         "randw": {
-          "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+          "label": "randw: pick 10 at random within the top-20 by relevance",
           "lte": 2018.000026717782,
           "ltr": 0.029225,
           "ltr_users": 584.5,
@@ -4902,7 +4902,7 @@
           "lt10": 0.01009000013358891
         },
         "randp": {
-          "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+          "label": "randp: pick 10 at random from the whole candidate pool",
           "lte": 101066.50113679469,
           "ltr": 0.999175,
           "ltr_users": 19983.5,
@@ -4917,7 +4917,7 @@
           "lt10": 0.5053325056839735
         },
         "ga": {
-          "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+          "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
           "lte": 3161.0000243782997,
           "ltr": 0.03445,
           "ltr_users": 689.0,
@@ -5421,7 +5421,7 @@
     ],
     "four_arm_full": {
       "greedy": {
-        "label": "贪心：纯按相关性取 Top-10（恒等于无重排）",
+        "label": "greedy: pure-relevance Top-10 (identical to no rerank)",
         "hr5": 15.354999999999999,
         "hr10": 20.925,
         "lt10": 0.009145000078156591,
@@ -5436,7 +5436,7 @@
         "fresh10": 0.00163000002913177
       },
       "randw": {
-        "label": "窗口随机：在相关性前 20 名里随机挑 10 条",
+        "label": "randw: pick 10 at random within the top-20 by relevance",
         "hr5": 10.100000000000001,
         "hr10": 13.669999999999998,
         "lt10": 0.01009000013358891,
@@ -5451,7 +5451,7 @@
         "fresh10": 0.0026600000508129598
       },
       "randp": {
-        "label": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
+        "label": "randp: pick 10 at random from the whole candidate pool",
         "hr5": 0.05,
         "hr10": 0.05,
         "lt10": 0.5053325056839735,
@@ -5466,7 +5466,7 @@
         "fresh10": 0.05760500115156174
       },
       "ga": {
-        "label": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+        "label": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
         "hr5": 14.527499999999998,
         "hr10": 19.5075,
         "lt10": 0.0158050001218915,

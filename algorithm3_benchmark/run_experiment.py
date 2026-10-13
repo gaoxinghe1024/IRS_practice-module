@@ -1,44 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-run_experiment.py — 主实验：跑出报告所需的全部对比数据。
+run_experiment.py — main experiment: produces all comparison data for the report.
 
-它做什么
---------
-在 10 档候选池 × 2 个采样种子 × 20,000 用户上，对 3 个召回引擎做两阶段评测：
+Two-phase evaluation over a 10-tier candidate pool x 2 sampling seeds x 20,000 users
+on 3 recall engines:
 
-  phase A（便宜）  no-rerank 名次：每个引擎在候选池里排到第几名
-                   → HR@5 / HR@10，报告第一部分的全部对比数据来源
-  phase B（较贵）  对每档的胜者引擎跑**四个重排臂**，得到每位用户的 Top-10
-                   → HR@5 / HR@10 ＋ 列表级指标（多样性/新颖度/新鲜度/长尾占比）
-                   → 报告第二部分"GA 到底做了什么"的全部数据来源
+  phase A (cheap):  no-rerank ranks of the hidden item within each candidate pool
+                    -> HR@5 / HR@10 (all data for report part 1)
+  phase B (costly): four rerank arms on the per-tier winner engine
+                    -> HR@5 / HR@10 + list-level metrics
+                       (diversity / novelty / freshness / long-tail share)
+                    -> all data for report part 2 ("what GA actually did")
 
-四个重排臂（同一个候选池、同一条召回结果，只换"怎么挑这 10 条"）
-------------------------------------------------------------------
-    贪心（greedy）  纯按相关性取 Top-10        ← 也 = 无重排
-    窗口随机（randw） 在相关性前 20 名里随机挑 10 条
-    整池随机（randp） 完全不看相关性，从整个候选池随机挑 10 条
-    GA               相关性 + 多样性 + 新颖度 + 新鲜度 四项加权优化
-窗口随机用来证明"GA 的收益来自重排能力而非随机性"；
-整池随机给出曝光结构的理论上界（命中率同时塌到 K/N）。
+The four rerank arms share the same candidate pool and recall result; only the
+selection rule differs: greedy (= no rerank), randw (random within top-20 by
+relevance), randp (random from the whole pool), GA (weighted optimization).
 
-产出
-----
-    results/ranks.npz       逐用户原始数据（紧凑二进制，报告的唯一数据源）
-    results/experiment.json 逐档汇总表 + 三引擎无重排 HR + 协议快照
+Outputs:
+    results/ranks.npz        per-user raw data (sole data source for the report)
+    results/experiment.json  per-tier summary + no-rerank HR per engine + protocol
 
-用法
-----
-    python run_experiment.py                  # 完整跑（20,000 用户，约 80~90 分钟）
-    python run_experiment.py --prefix 300     # 冒烟：只评真实队列前 300 人，约 4 分钟
-
-可复现性
---------
-* ICF 是确定性引擎：重跑名次必须与历史结果**逐位一致**，否则脚本直接报错退出。
-* GA 的随机流 = default_rng([种子, 池规模, 引擎, 用户])，逐用户独立可复算。
-* 随机对照臂用**独立**的 arm_rng（种子末尾多一个 arm 分量），
-  保证新增对照臂不会扰动任何已发布的 GA 数字。
-* `--prefix` 取的是**真实 20,000 人队列的前 N 位**（而非另抽一个小队列），
-  因此冒烟结果可以与全量结果逐用户对照。
+Reproducibility: ICF is deterministic and must reproduce stored ranks bit-for-bit;
+GA uses default_rng([seed, pool_size, engine, user]); the random control arms use
+an independent arm_rng so adding arms never perturbs published GA numbers.
 """
 import argparse
 import json
@@ -60,7 +44,6 @@ from rerank_random import rerank_random
 ENGINES = REG.ENGINES
 SEEDS = [CP.SAMPLING_SEED_BASE, CP.SAMPLING_SEED_BASE + 1]   # [7042, 7043]
 
-# 需要落盘的指标：GA 侧与两个随机臂多两项命中率
 GA_METRICS = ("hr5", "hr10", "nov5", "nov10", "div10", "fresh10", "lt10")
 GREEDY_METRICS = ("nov5", "nov10", "div10", "fresh10", "lt10")
 RANDOM_METRICS = ("hr5", "hr10", "nov5", "nov10", "div10", "fresh10", "lt10")
@@ -72,11 +55,7 @@ def log(msg):
 
 
 def _arm_metrics(items, tag_sets, novelty, fresh, nov_thr, hidden):
-    """一份 Top-10 列表的 7 项指标 —— 四个重排臂共用同一套度量代码。
-
-    共用是刻意的：只有四臂走**逐字相同**的度量实现，
-    "贪心 / 窗口随机 / 整池随机 / GA"之间的差异才能唯一归因到重排策略本身。
-    """
+    """Compute the 7 metrics for one Top-10 list; shared verbatim by all four arms."""
     met = LM.list_metrics(items, tag_sets, novelty, fresh)
     K = C.HR_K
     return dict(
@@ -95,10 +74,11 @@ def main():
     ap.add_argument("--users", type=int, default=C.COHORT_SIZE)
     ap.add_argument("--chunk", type=int, default=CP.SCORE_CHUNK)
     ap.add_argument("--prefix", type=int, default=0,
-                    help=">0 时只评真实队列的前 N 位用户（冒烟/位级校验用）")
+                    help="if >0, evaluate only the first N users of the real cohort "
+                         "(smoke test / bit-level verification)")
     ap.add_argument("--tag", default="",
-                    help="给输出加后缀（如 --tag smoke 会写出 ranks_smoke.npz），"
-                         "避免冒烟运行覆盖正式结果")
+                    help="suffix for output files (e.g. --tag smoke writes ranks_smoke.npz), "
+                         "so smoke runs do not overwrite official results")
     args = ap.parse_args()
 
     t_all = time.time()
@@ -106,11 +86,11 @@ def main():
     n_grid = len(grid)
 
     log("=" * 78)
-    log("ICF + GA 主实验：10 档候选池 × 3 召回引擎 × 4 重排臂")
+    log("ICF + GA main experiment: 10-tier candidate pool x 3 recall engines x 4 rerank arms")
     log("=" * 78)
 
-    # ------------------------------------------------------------ 1. 数据
-    log("\n[1/5] 加载数据 ...")
+    # ------------------------------------------------------------ 1. data
+    log("\n[1/5] Loading data ...")
     R = D.load_ratings_train()
     a2i, u2i = D.load_mappings()
     n_users, n_items = R.shape
@@ -119,12 +99,14 @@ def main():
     hidden_all = D.build_eligible_cohort(R, v)
     cohort = D.sample_cohort(hidden_all, size=args.users)
     if args.prefix:
+        # --prefix takes the FIRST N of the real 20,000-user cohort (not a fresh sample),
+        # so smoke results can be compared user-by-user against the full run.
         cohort = cohort.iloc[:args.prefix].reset_index(drop=True)
-        log(f"  --prefix {args.prefix}：只评真实队列前 {args.prefix} 位用户")
+        log(f"  --prefix {args.prefix}: evaluating only the first {args.prefix} users of the real cohort")
     cohort_u = cohort["u"].to_numpy().astype(np.int64)
     hidden_i = cohort["i"].to_numpy().astype(np.int64)
     n = len(cohort_u)
-    log(f"  队列={n:,}  作品={n_items:,}  训练评分={R.nnz:,}")
+    log(f"  cohort={n:,}  items={n_items:,}  train ratings={R.nnz:,}")
 
     feats = D.load_item_features(a2i, n_items)
     years = D.load_release_years(a2i, n_items)
@@ -133,12 +115,12 @@ def main():
     fresh, fresh_thr = LM.fresh_flag(years, span=5)
     seen = feats["seen"]
     nov_thr = float(np.median(novelty[seen]))
-    log(f"  长尾判定阈值 = 有元数据作品的新颖度中位数 = {nov_thr:.4f}")
+    log(f"  long-tail threshold = median novelty of items with metadata = {nov_thr:.4f}")
 
     perms = {s: CP.pool_permutation(s, n_items) for s in SEEDS}
 
-    # ------------------------------------------------------------ 2. 引擎
-    log("\n[2/5] 训练引擎（ICF 确定性；SVD/NCF 固定种子重训）...")
+    # ------------------------------------------------------------ 2. engines
+    log("\n[2/5] Training engines (ICF deterministic; SVD/NCF retrained with fixed seed) ...")
     engines = REG.load_engines(ENGINES, R, n_items)
 
     ns = len(SEEDS)
@@ -148,13 +130,11 @@ def main():
             for e in ENGINES}
     gr_m = {e: {m: np.zeros((ns, n_grid, n), np.float32) for m in GREEDY_METRICS}
             for e in ENGINES}
-    # 随机对照臂：只对每档的胜者引擎落盘（与 GA/贪心 的评估对象完全一致），
-    # 所以不再按引擎分桶，避免 2/3 的存储是零。每档用的是哪个引擎记在 winner_engine。
     randw_m = {m: np.zeros((ns, n_grid, n), np.float32) for m in RANDOM_METRICS}
     randp_m = {m: np.zeros((ns, n_grid, n), np.float32) for m in RANDOM_METRICS}
 
-    # ------------------------------------------------------ phase A：无重排名次
-    log("\n[3/5] phase A：no-rerank 名次（HR@5 / HR@10 的来源）...")
+    # ------------------------------------------------------ phase A: no-rerank ranks
+    log("\n[3/5] phase A: no-rerank ranks (source of HR@5 / HR@10) ...")
     t0 = time.time()
     for s0 in range(0, n, args.chunk):
         e0 = min(s0 + args.chunk, n)
@@ -200,9 +180,9 @@ def main():
         for name in ENGINES:
             del sc[name]
         del sc
-        log(f"  chunk {s0:>6}-{e0:<6} 完成（累计 {time.time()-t0:.0f}s）")
+        log(f"  chunk {s0:>6}-{e0:<6} done (elapsed {time.time()-t0:.0f}s)")
 
-    # ---- 位级自检：若 results/ranks.npz 已存在且形状一致，ICF 必须逐位相同
+    # ---- bit-level self-check: if results/ranks.npz exists with the same shape, ICF must match bit-for-bit
     stored = os.path.join(C.OUT_DIR, "ranks.npz")
     if os.path.exists(stored):
         zs = np.load(stored, allow_pickle=True)
@@ -212,23 +192,24 @@ def main():
                 continue
             sr = zs[key]
             if sr.shape != rank_nr[e].shape:
-                log(f"  [{e}] 已存形状 {sr.shape} != 本次 {rank_nr[e].shape}（队列规模不同，跳过位级自检）")
+                log(f"  [{e}] stored shape {sr.shape} != current {rank_nr[e].shape} (cohort size differs, skipping bit-level check)")
                 continue
             same = np.array_equal(sr, rank_nr[e])
-            log(f"  [{e}] 与已存名次逐位一致: {same}")
+            log(f"  [{e}] bit-identical to stored ranks: {same}")
             if e == "ICF" and not same:
-                raise SystemExit("!! ICF 必须逐位一致，出现偏差说明复现环境变了，停止。")
+                raise SystemExit("!! ICF ranks must be bit-identical; a mismatch means the "
+                                 "reproduction environment changed. Stopping.")
 
-    # ---- 每档胜者（无重排 HR@5 口径；SVD 从不胜出）
+    # ---- per-tier winner (no-rerank HR@5 criterion; SVD never wins)
     winner = {}
     for gi, gl in enumerate(grid_label):
         vals = {e: float((rank_nr[e][:, gi, :] < C.HR_K).mean()) for e in ENGINES}
         winner[gi] = max(("ICF", "NCF"), key=lambda e: vals[e])
-        log(f"  池 {gl:>5}: 胜者 {winner[gi]}   "
+        log(f"  pool {gl:>5}: winner {winner[gi]}   "
             + "  ".join(f"{e}={vals[e]:.5f}" for e in ENGINES))
 
-    # ------------------------------------- phase B：GA 重排 + 列表级指标
-    log("\n[4/5] phase B：对胜者引擎跑四个重排臂（贪心/窗口随机/整池随机/GA）...")
+    # ------------------------------------- phase B: GA rerank + list-level metrics
+    log("\n[4/5] phase B: running four rerank arms on the winner engine (greedy/randw/randp/GA) ...")
     t1 = time.time()
     for s0 in range(0, n, args.chunk):
         e0 = min(s0 + args.chunk, n)
@@ -252,7 +233,7 @@ def main():
             idx_ar = ar[:, None]
             for gi, g in enumerate(grid):
                 w = winner[gi]
-                gk = CP.FULL_GRID_KEY if g is None else int(g)   # 随机流用池规模，非网格下标
+                gk = CP.FULL_GRID_KEY if g is None else int(g)   # RNG stream uses pool size, not grid index
                 kk = maxc if g is None else min(g - 1, maxc)
                 cc = 1 + np.minimum(cnts, kk)
                 CAND = np.concatenate([hi[:, None].astype(np.int32),
@@ -267,7 +248,6 @@ def main():
                     cand_sc = np.where(valid, cand_sc, -np.inf)
                 depth_arr = np.minimum(cc, CP.RERANK_DEPTH)
                 gm = {k: np.zeros(m, np.float32) for k in GA_METRICS}
-                # 贪心臂的 HR 不单独算：它恒等于 phase A 的无重排名次（见 rerank_greedy.py）
                 rm = {k: np.zeros(m, np.float32) for k in GREEDY_METRICS}
                 wm = {k: np.zeros(m, np.float32) for k in RANDOM_METRICS}
                 pm = {k: np.zeros(m, np.float32) for k in RANDOM_METRICS}
@@ -276,7 +256,7 @@ def main():
                     d = int(depth_arr[r])
                     uid = int(uu[r])
                     s_r = cand_sc[r, :cc[r]]
-                    # 分数降序窗口（与主实验完全一致的取法）
+                    # descending-relevance window (identical selection to the main experiment)
                     if d <= C.HR_K:
                         sel = np.argsort(-s_r, kind="stable")[:d]
                     else:
@@ -285,11 +265,10 @@ def main():
                     p_i = CAND[r, sel]
                     p_s = s_r[sel]
                     assert np.all(np.diff(p_s.astype(np.float64)) <= 0), \
-                        "重排窗口必须已按相关性降序"
-                    # ---------------- 四个重排臂：同一个池子，只换"怎么挑这 10 条"
-                    # ① GA
+                        "rerank window must already be sorted by relevance descending"
+                    # ---------------- four rerank arms: same pool, only the selection rule differs
+                    # (1) GA
                     if d <= C.HR_K:
-                        # 窗口深度不足时 GA 没有自由度：GA 列表 = 窗口本身
                         ga_items = list(p_i)
                     else:
                         items, _, _ = rerank_ga(
@@ -297,17 +276,17 @@ def main():
                             np.zeros(len(p_i), dtype=np.float32),
                             CP.user_rng(s, gk, w, uid))
                         ga_items = list(items)
-                    # ② 贪心（纯相关性 Top-10，= 无重排 Top-10）
+                    # (2) greedy (pure-relevance Top-10, = no-rerank Top-10)
                     greedy_items = list(rerank_greedy(p_i, p_s)[0])
-                    # ③ 窗口随机：在相关性前 20 名里随机挑 10 条
+                    # (3) randw: pick 10 at random within the top-20 by relevance
                     win_items = list(rerank_random(
                         p_i, p_s,
                         CP.arm_rng(s, gk, w, uid, CP.ARM_ID["rand_window"]))[0])
-                    # ④ 整池随机：完全不看相关性，从候选池随机挑 10 条
+                    # (4) randp: pick 10 at random from the whole candidate pool
                     pool_items = list(rerank_random(
                         CAND[r, :cc[r]], s_r,
                         CP.arm_rng(s, gk, w, uid, CP.ARM_ID["rand_pool"]))[0])
-                    # 同一套度量代码，四臂各落一份
+                    # one shared metric implementation, applied once per arm
                     for arm_items, dst in ((ga_items, gm), (greedy_items, rm),
                                            (win_items, wm), (pool_items, pm)):
                         vals = _arm_metrics(arm_items, tag_sets, novelty, fresh,
@@ -327,10 +306,10 @@ def main():
         for name in ENGINES:
             del sc[name]
         del sc
-        log(f"  chunk {s0:>6}-{e0:<6} 完成（累计 {time.time()-t1:.0f}s）")
+        log(f"  chunk {s0:>6}-{e0:<6} done (elapsed {time.time()-t1:.0f}s)")
 
-    # ------------------------------------------------------------ 汇总
-    log("\n[5/5] 汇总 ...")
+    # ------------------------------------------------------------ aggregate
+    log("\n[5/5] Aggregating ...")
     tables = {}
     for gi, gl in enumerate(grid_label):
         w = winner[gi]
@@ -341,7 +320,7 @@ def main():
         nr10 = float((rank_nr[w][:, gi, :] < 10).mean())
         ga5 = float(ga_m[w]["hr5"][:, gi, :].mean())
         ga10 = float(ga_m[w]["hr10"][:, gi, :].mean())
-        # 随机对照臂（窗口内 / 整池）
+        # random control arms (randw / randp)
         rw5 = float(randw_m["hr5"][:, gi, :].mean())
         rw10 = float(randw_m["hr10"][:, gi, :].mean())
         rp5 = float(randp_m["hr5"][:, gi, :].mean())
@@ -377,22 +356,22 @@ def main():
             randp_div10=round(float(randp_m["div10"][:, gi, :].mean()), 4),
             randp_fresh10=round(float(randp_m["fresh10"][:, gi, :].mean()), 4),
             randp_lt10=round(float(randp_m["lt10"][:, gi, :].mean()), 4),
-            # 自检：整池随机臂实测命中率应当 == 解析值 K/N（误差仅来自 float 精度）
+            # self-check: measured randp hit rate should equal the analytic value K/N
             randp_hr10_gap=round(abs(rp10 - rand10), 8),
         )
         row["d_nov10"] = round(row["ga_nov10"] - row["greedy_nov10"], 4)
         row["d_nov5"] = round(row["ga_nov5"] - row["greedy_nov5"], 4)
         row["d_lt10"] = round(row["ga_lt10"] - row["greedy_lt10"], 4)
         row["d_div10"] = round(row["ga_div10"] - row["greedy_div10"], 4)
-        # 「GA 的重排能力」= GA 相对**窗口随机**的净增益（扣掉"随机性本身"的贡献）
+        # GA's reranking ability = net gain over the WINDOW-RANDOM arm (randomness itself removed)
         row["ga_over_randw_nov10"] = round(row["ga_nov10"] - row["randw_nov10"], 4)
         row["ga_over_randw_lt10"] = round(row["ga_lt10"] - row["randw_lt10"], 4)
         row["ga_over_randw_hr10"] = round(row["ga_hr10"] - row["randw_hr10"], 5)
         tables[gl] = row
-        log(f"  {gl:>5} [{w}]  HR@10  贪心={nr10:.4f} 窗随={rw10:.4f} 池随={rp10:.4f} GA={ga10:.4f}"
-            f"   长尾占比  贪心={row['greedy_lt10']:.4f} 窗随={row['randw_lt10']:.4f} "
-            f"池随={row['randp_lt10']:.4f} GA={row['ga_lt10']:.4f}")
-        log(f"          整池随机自检 |实测 HR@10 − 解析 K/N| = {row['randp_hr10_gap']:.2e}")
+        log(f"  {gl:>5} [{w}]  HR@10  greedy={nr10:.4f} randw={rw10:.4f} randp={rp10:.4f} GA={ga10:.4f}"
+            f"   long-tail share  greedy={row['greedy_lt10']:.4f} randw={row['randw_lt10']:.4f} "
+            f"randp={row['randp_lt10']:.4f} GA={row['ga_lt10']:.4f}")
+        log(f"          randp self-check |measured HR@10 - analytic K/N| = {row['randp_hr10_gap']:.2e}")
 
     engines_nr = {}
     for e in ENGINES:
@@ -403,30 +382,30 @@ def main():
 
     out = dict(
         generated_at=time.strftime("%Y-%m-%d %H:%M:%S"),
-        purpose="ICF + GA 主实验：10 档候选池上的召回对比与 GA 重排收益",
+        purpose="ICF + GA main experiment: recall comparison and GA rerank gains on a 10-tier candidate pool",
         protocol=dict(
             users=int(n), seeds=SEEDS,
             sampling="prefix (identical to main run)",
             rerank_depth=CP.RERANK_DEPTH, top_k_out=C.TOP_K_OUT,
-            rerank_arms=["greedy 贪心＝纯相关性 Top-10（≡ 无重排）",
-                         "randw 窗口随机＝在相关性前 20 名内随机挑 10",
-                         "randp 整池随机＝完全不看相关性，从整个候选池随机挑 10",
-                         "ga 遗传算法＝四项加权适应度优化"],
+            rerank_arms=["greedy: pure-relevance Top-10 (identical to no rerank)",
+                         "randw: pick 10 at random within the top-20 by relevance",
+                         "randp: pick 10 at random from the whole candidate pool",
+                         "ga: genetic algorithm with four-term weighted fitness"],
             ga_rng="default_rng([sampling_seed, pool_size, engine_id, user_id])",
             random_arm_rng=("default_rng([sampling_seed, pool_size, engine_id, user_id, arm])"
-                            "，arm=1 窗口随机 / arm=2 整池随机；独立于 GA 流，"
-                            "故新增对照臂不会扰动任何已发布的 GA 数字"),
-            arm_display_order="所有臂都「先挑出 10 条，再按相关性降序展示」，与 GA 输出约定一致",
-            ga_fitness="0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度（幻灯片口径）",
+                            ", arm=1 randw / arm=2 randp; independent of the GA stream, "
+                            "so adding control arms never perturbs any published GA numbers"),
+            arm_display_order="all arms first pick 10 items, then display them in descending relevance order, matching the GA output convention",
+            ga_fitness="0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness (slide spec)",
             ga_weights=dict(relevance=C.GA_W_RELEVANCE, diversity=C.GA_W_DIVERSITY,
                             novelty=C.GA_W_NOVELTY, fresh=C.GA_W_FRESH),
-            ga_rel_norm="相关性项在池内 min-max 归一化到 [0,1] 后加权，四项才可比",
-            novelty_item="novelty_train = 1 - log(1+人气)/log(1+最大人气)（越大越冷门）",
+            ga_rel_norm="relevance term is min-max normalized to [0,1] within the pool before weighting so the four terms are comparable",
+            novelty_item="novelty_train = 1 - log(1+popularity)/log(1+max popularity) (higher = more niche)",
             longtail_threshold=round(nov_thr, 4),
-            longtail_def="前 10 条中 novelty >= 全库中位数的条目占比",
-            randp_check="整池随机臂实测 HR 应与解析值 K/N 相等（见 tables[*].randp_hr10_gap）",
-            engines_retrained=["ICF（确定性，逐位校验）", "SVD（固定种子重训）", "NCF（固定种子重训）"],
-            winner_rule="每档无重排 HR@5 在 {ICF, NCF} 中取较大者（SVD 从不在任何池上胜出）"),
+            longtail_def="share of the top 10 items with novelty >= the catalog-wide median",
+            randp_check="measured randp HR should equal the analytic value K/N (see tables[*].randp_hr10_gap)",
+            engines_retrained=["ICF (deterministic, bit-level verified)", "SVD (retrained with fixed seed)", "NCF (retrained with fixed seed)"],
+            winner_rule="per-pool no-rerank HR@5 argmax among {ICF, NCF} (SVD never wins on any pool)"),
         tables=tables,
         engines_no_rerank=engines_nr,
         wall_seconds=round(time.time() - t_all, 1),
@@ -449,7 +428,7 @@ def main():
         **{f"randw_{k}": v for k, v in randw_m.items()},
         **{f"randp_{k}": v for k, v in randp_m.items()})
     log(f"\n  -> {jp}\n  -> {rp}")
-    log(f"\n总耗时 {time.time()-t_all:.1f}s")
+    log(f"\nTotal time {time.time()-t_all:.1f}s")
 
 
 if __name__ == "__main__":

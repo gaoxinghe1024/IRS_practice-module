@@ -1,6 +1,6 @@
 {
   "source": "results/ranks.npz + results/experiment.json + data/ga/item_features.jsonl",
-  "part": "第一部分 · ICF（无重排召回对比）",
+  "part": "Part 1 - ICF (no-rerank recall comparison)",
   "n_users": 20000,
   "seeds": [
     7042,

@@ -1,50 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-analyze_ga_part.py — 生成报告"第二部分 · 重排对照"的全部对比数据。
+analyze_ga_part.py — produces all comparison data for report part 2 (rerank contrast).
 
-回答的问题
-----------
-"加上 GA 重排之后，推荐列表到底变了什么？好处多大、代价多少？"
+Four rerank arms over the same candidate pool and recall result: greedy
+(pure-relevance Top-10, identical to no rerank), randw (random within the top-20
+by relevance), randp (random from the whole pool), and GA (0.4 relevance + 0.3
+diversity + 0.2 novelty + 0.1 freshness).
 
-四个重排臂（同一个候选池、同一条召回结果，只换"怎么挑这 10 条"）
-------------------------------------------------------------------
-    greedy  贪心      纯按相关性取 Top-10（≡ 无重排）
-    randw   窗口随机  在相关性前 20 名里随机挑 10 条
-    randp   整池随机  完全不看相关性，从整个候选池随机挑 10 条
-    ga      GA        0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度
+Beyond nov@10, gains are expressed in three tangible metrics:
+  GOS@10  GA objective score = 0.3*div@10 + 0.2*nov@10 + 0.1*fresh@10
+  LTE@10  long-tail exposure = sum over users of (lt10 * 10)
+  LTR@10  long-tail touch rate = share of users with >=1 long-tail item in top 10
+Cost is monitored with HR@10 / HR@5.
 
-为什么随机臂必须有**两个**
---------------------------
-* 窗口随机与 GA 共享同一个候选窗口，**只把"怎么挑"换成掷骰子**。
-  所以 GA 相对窗口随机的增益 = GA 的重排能力（扣掉了"随机性本身"的贡献）。
-  只跟贪心比是不够的：GA 里有随机初始化与变异，必须证明它的收益不是白捡的随机性。
-* 整池随机完全不看相关性，命中率会塌到 K/N（瞎猜水平），但曝光结构接近全库分布。
-  它给出"曝光结构"的理论上界，用来回答"GA 是在用多少命中率换多少曝光"。
+Paired protocol: per-user diffs under the same user / pool / engine / seed.
+Wilcoxon signed-rank for continuous metrics, McNemar for binary hit rates;
+95% CIs and Cohen's d_z are reported.
 
-为什么不能只看 nov@10
----------------------
-原来的收益指标是 nov@10（前 10 条的新颖度均值），它有三个毛病：
-  ① 是 0~1 的小数，"+0.008"读不出体感；
-  ② 是**均值**，掩盖了分布——只有少数用户真正被推到了长尾；
-  ③ 把"往长尾挪一点点"和"真的推出长尾商品"混为一谈。
-所以本脚本把收益翻译成三个体感明确的指标：
-
-  GOS@10  GA 目标分  = 0.3×多样性@10 + 0.2×新颖度@10 + 0.1×新鲜度@10
-                       正好是 GA 适应度里**由 GA 负责优化的那 60%**
-                       （剩下 0.4 是相关性，由召回引擎保证、用 HR 监控代价）
-  LTE@10  长尾曝光量  = Σ_users(lt10 × 10)，全站 20 万个推荐位中长尾商品占的**条数**
-  LTR@10  长尾触达率  = 前 10 条里至少出现 1 个长尾商品的用户占比
-
-代价侧仍用 HR@10 / HR@5（对应适应度里 0.4 权重的相关性项）。
-
-配对协议
---------
-**同用户、同候选池、同引擎、同随机种子**逐用户做差。
-收益指标（连续）用 Wilcoxon 符号秩检验，命中率（二值）用 McNemar 检验，
-均给出 95% 置信区间与 Cohen's d_z。
-
-数据来源：results/ranks.npz
-输出：results/ga_part.json
+Input:  results/ranks.npz
+Output: results/ga_part.json
 """
 import json
 import os
@@ -59,25 +33,25 @@ OUT = os.path.join(C.OUT_DIR, "ga_part.json")
 
 CONT = ("nov5", "nov10", "div10", "fresh10", "lt10")
 ARMS = ("greedy", "randw", "randp", "ga")
-GENERATIVE = ("randw", "randp")          # 相对贪心"生成式"改变列表结构的两臂
+GENERATIVE = ("randw", "randp")
 
 W_REL = C.GA_W_RELEVANCE
 W_DIV = C.GA_W_DIVERSITY
 W_NOV = C.GA_W_NOVELTY
 W_FRESH = C.GA_W_FRESH
 
-TOP_K = 10                 # 每用户展示 10 条 → 10 个曝光位
-LONGTAIL_MEDIAN = 0.6156   # 全库新颖度中位数（长尾判定阈值，来自数据包 item_features）
+TOP_K = 10
+LONGTAIL_MEDIAN = 0.6156   # catalog-wide novelty median (from item_features)
 
 ARM_DEF = {
-    "greedy": "贪心：纯按相关性取 Top-10（恒等于无重排）",
-    "randw": "窗口随机：在相关性前 20 名里随机挑 10 条",
-    "randp": "整池随机：完全不看相关性，从整个候选池随机挑 10 条",
-    "ga": "GA：0.4 相关性 + 0.3 多样性 + 0.2 新颖度 + 0.1 新鲜度",
+    "greedy": "greedy: pure-relevance Top-10 (identical to no rerank)",
+    "randw": "randw: pick 10 at random within the top-20 by relevance",
+    "randp": "randp: pick 10 at random from the whole candidate pool",
+    "ga": "GA: 0.4 relevance + 0.3 diversity + 0.2 novelty + 0.1 freshness",
 }
 
 
-# ------------------------------------------------------------------ 统计工具
+# ------------------------------------------------------------------ stats tools
 def paired_stats(a, b):
     d = a - b
     n = d.size
@@ -111,7 +85,7 @@ def wilcoxon_p(d):
 
 
 def mcnemar(a, b):
-    """a=新臂命中, b=对照臂命中（逐用户 0/1）。返回 (p, 对照错&新对, 对照对&新错)。"""
+    """a = new-arm hits, b = control-arm hits (per-user 0/1). Returns (p, ref-wrong/new-right, ref-right/new-wrong)."""
     a = a > 0.5
     b = b > 0.5
     n01 = int((~b & a).sum())
@@ -123,12 +97,13 @@ def mcnemar(a, b):
     return float(erfc(abs(z) / sqrt(2.0))), n01, n10
 
 
-# ------------------------------------------------------------ 四个臂的统一取数
+# ------------------------------------------------------------ unified data access for the four arms
 def mean_series(z, gi, w, arm, key):
-    """该臂在某档上的「跨种子平均」逐用户序列。
+    """Per-user series for one arm on one tier, averaged across seeds.
 
-    取数顺序刻意与历史版本逐字一致（非 HR 键先 mean 再 astype，HR 键先 astype 再 mean），
-    这样 greedy / ga 两列能逐位复现已发布报告里的数字。
+    The order of mean(0) and astype is kept verbatim from the historical version
+    (non-HR keys: mean first then astype; HR keys: astype first then mean) so the
+    greedy / ga columns reproduce the published report bit-for-bit.
     """
     if arm == "greedy":
         if key in ("hr5", "hr10"):
@@ -145,10 +120,10 @@ def mean_series(z, gi, w, arm, key):
 
 
 def ltr_seed(z, gi, w, arm):
-    """逐种子的是否"至少获得 1 条长尾曝光"，形状 (n_seeds, N)。
+    """Per-seed "touched >=1 long-tail item" flags, shape (n_seeds, N).
 
-    必须先逐种子判 >0 再跨种子平均，不能反过来——否则会把"只在其中一个种子
-    被曝光"的用户也算成已触达，系统性高估触达率。
+    Must threshold per seed (>0) BEFORE averaging across seeds; averaging first
+    would count users exposed under only one seed as touched and inflate LTR.
     """
     key = {"greedy": f"greedy_{w}_lt10", "ga": f"ga_{w}_lt10",
            "randw": "randw_lt10", "randp": "randp_lt10"}[arm]
@@ -156,11 +131,7 @@ def ltr_seed(z, gi, w, arm):
 
 
 def user_novelty_mean(z):
-    """用户真实消费作品的平均新颖度 —— 用被藏起的那 1 条（真实高分交互）代表。
-
-    这个数必须从数据算、不能凭印象写：它是"GA 的收益不可能无限大"这句结论的
-    量化依据（用户自己也在消费头部作品，推荐长尾等于偏离用户历史偏好）。
-    """
+    """Mean novelty of users' truly consumed items, represented by the hidden item."""
     nov = {}
     with open(C.F_ITEM_FEATURES, encoding="utf-8") as f:
         for i, line in enumerate(f):
@@ -177,15 +148,15 @@ def user_novelty_mean(z):
 
 
 def arm_block(z, gi, w, arm, n_users):
-    """一个重排臂在某档上的收益 / 代价快照。"""
+    """Benefit / cost snapshot of one rerank arm on one tier."""
     S = {k: mean_series(z, gi, w, arm, k)
          for k in ("hr5", "hr10", "nov5", "nov10", "div10", "fresh10", "lt10")}
     div, nov, fre, lt = S["div10"], S["nov10"], S["fresh10"], S["lt10"]
     ltseed = ltr_seed(z, gi, w, arm)
 
-    gos = W_DIV * div + W_NOV * nov + W_FRESH * fre       # GA 目标分（其负责的 60%）
-    lte = float(lt.sum() * TOP_K)                         # 长尾曝光量（条）
-    ltr = float(ltseed.mean(0).mean())                    # 长尾触达率
+    gos = W_DIV * div + W_NOV * nov + W_FRESH * fre
+    lte = float(lt.sum() * TOP_K)
+    ltr = float(ltseed.mean(0).mean())
 
     return dict(
         arm=arm, label=ARM_DEF[arm], series=S,
@@ -200,7 +171,7 @@ def arm_block(z, gi, w, arm, n_users):
 
 
 def pair(a, b, n_users):
-    """新臂 a 相对对照臂 b 的收益/代价对照（逐用户配对）。"""
+    """Benefit / cost contrast of new arm a vs reference arm b (per-user paired)."""
     return dict(
         new=a["arm"], ref=b["arm"],
         lte=dict(ref=b["lte"], new=a["lte"], delta=a["lte"] - b["lte"],
@@ -246,11 +217,11 @@ def main():
     seeds = [int(s) for s in z["seeds"]]
     N = int(z["cand_count"].shape[2])
     print("=" * 118)
-    print("第二部分 · 重排对照：贪心 / 窗口随机 / 整池随机 / GA")
-    print(f"种子 {seeds}   用户 {N:,}   候选池档位 {grid}")
+    print("Part 2 - rerank contrast: greedy / randw / randp / GA")
+    print(f"seeds {seeds}   users {N:,}   candidate pool tiers {grid}")
     print("=" * 118)
 
-    # 每档胜者引擎：无重排 HR@5 在 {ICF, NCF} 中取较大者（与主实验口径一致）
+    # per-tier winner engine: no-rerank HR@5 argmax among {ICF, NCF} (same rule as the main experiment)
     winner = []
     for gi, gl in enumerate(grid):
         v = {e: float((z[f"rank_nr_{e}"][:, gi, :] < C.HR_K).mean()) for e in ("ICF", "NCF")}
@@ -267,27 +238,27 @@ def main():
         pools={}, summary={},
     )
     nvu = out["nov_user"]
-    print(f"[新颖度] 长尾阈值（全库中位数）={nvu['threshold']:.4f}   "
-          f"用户真实消费作品的平均新颖度={nvu['mean']:.4f}（中位数 {nvu['median']:.4f}，"
-          f"{nvu['longtail_share']*100:.1f}% 属长尾）")
+    print(f"[novelty] long-tail threshold (catalog median)={nvu['threshold']:.4f}   "
+          f"mean novelty of users' consumed items={nvu['mean']:.4f} (median {nvu['median']:.4f}, "
+          f"{nvu['longtail_share']*100:.1f}% long-tail)")
     print()
 
-    # 自检①：贪心 HR@10 ≡ 无重排名次 < 10
+    # self-check 1: greedy HR@10 == no-rerank rank < 10
     gi_full = grid.index("full")
     chk = float((z["rank_nr_ICF"][:, gi_full, :] < 10).mean())
-    print(f"[自检①] 全目录档 ICF 贪心 HR@10（由名次复算）= {chk:.5f}"
-          f"  → {'通过' if abs(chk - 0.20925) < 1e-4 else '与历史值 0.20925 不一致!'}")
-    # 自检②：整池随机臂的实测命中率应等于解析值 K/N（"瞎猜"水平）
+    print(f"[check 1] full-tier ICF greedy HR@10 (recomputed from ranks) = {chk:.5f}"
+          f"  -> {'PASS' if abs(chk - 0.20925) < 1e-4 else 'MISMATCH vs historical value 0.20925!'}")
+    # self-check 2: measured randp hit rate should equal the analytic K/N ("random guess" level)
     ccf = z["cand_count"][:, gi_full, :].astype(np.float64)
     ana10 = float((np.minimum(10, ccf) / np.maximum(ccf, 1.0)).mean())
     mea10 = float((z["randp_hr10"][:, gi_full, :] > 0.5).astype(np.float64).mean())
-    print(f"[自检②] 全目录档 整池随机 HR@10 实测 {mea10:.6f} vs 解析 K/N {ana10:.6f}"
-          f"  → {'通过' if abs(mea10 - ana10) < 2e-4 else '不一致!'}")
+    print(f"[check 2] full-tier randp HR@10 measured {mea10:.6f} vs analytic K/N {ana10:.6f}"
+          f"  -> {'PASS' if abs(mea10 - ana10) < 2e-4 else 'MISMATCH!'}")
     print()
 
-    hdr = (f"{'池 N':>7} {'引擎':>4} | {'HR@10':>6} {'贪心':>7} {'窗随':>7} {'池随':>7} {'GA':>7} | "
-           f"{'长尾占比 lt10':>13} {'贪心':>7} {'窗随':>7} {'池随':>7} {'GA':>7} | "
-           f"{'LTE@10 贪心':>11} {'GA':>8}")
+    hdr = (f"{'pool N':>7} {'eng':>4} | {'HR@10':>6} {'greedy':>7} {'randw':>7} {'randp':>7} {'GA':>7} | "
+           f"{'lt10 share':>13} {'greedy':>7} {'randw':>7} {'randp':>7} {'GA':>7} | "
+           f"{'LTE@10 greedy':>13} {'GA':>8}")
     print(hdr)
     print("-" * 118)
 
@@ -299,14 +270,14 @@ def main():
         rec = dict(pool=gl, engine=w,
                    n_candidates=float(z["cand_count"][:, gi, :].mean()))
 
-        # ---------- 整池随机自检：实测 HR@10 必须等于解析值 min(K,N)/N
+        # randp self-check: measured HR@10 must equal the analytic min(K,N)/N
         ccf = z["cand_count"][:, gi, :].astype(np.float64)
         rec["randp_check"] = dict(
             analytic=float((np.minimum(TOP_K, ccf) / np.maximum(ccf, 1.0)).mean()),
             measured=float((z["randp_hr10"][:, gi, :] > 0.5).astype(np.float64).mean()),
         )
 
-        # ---------- 四臂快照（报告主表直接读这里）
+        # four-arm snapshot (the report main table reads from here)
         rec["arms"] = {a: dict(
             label=A[a]["label"], lte=A[a]["lte"], ltr=A[a]["ltr"],
             ltr_users=A[a]["ltr"] * N, lte_per_user=A[a]["lte_per_user"],
@@ -316,7 +287,7 @@ def main():
             lt10=A[a]["lt10_mean"],
         ) for a in ARMS}
 
-        # ---------- GA vs 贪心（历史口径，与已发布报告逐位一致）
+        # GA vs greedy (historical spec, bit-identical to the published report)
         gos_g, gos_a = g["gos"], gaa["gos"]
         ltr_g_seed, ltr_a_seed = g["lt_seed"], gaa["lt_seed"]
         rec["benefit"] = dict(
@@ -341,7 +312,7 @@ def main():
             lt_mult=float(gaa["lte"] / g["lte"]) if g["lte"] else float("nan"),
         )
 
-        # ---------- 代价侧：GA vs 贪心（HR@5 / HR@10）
+        # cost side: GA vs greedy (HR@5 / HR@10)
         cost = {}
         for key in ("hr5", "hr10"):
             a_s, b_s = gaa["series"][key], g["series"][key]
@@ -355,7 +326,7 @@ def main():
             cost[key] = st
         rec["cost"] = cost
 
-        # ---------- 逐指标配对（GA vs 贪心）
+        # per-metric paired tests (GA vs greedy)
         met = {}
         for m in CONT:
             a_s, b_s = gaa["series"][m], g["series"][m]
@@ -368,16 +339,16 @@ def main():
             met[m] = st
         rec["metrics"] = met
 
-        # ---------- 新增配对：GA vs 窗口随机 / GA vs 整池随机 / 随机臂 vs 贪心
+        # additional pairs: GA vs randw / GA vs randp / random arms vs greedy
         rec["vs_randw"] = pair(gaa, rw, N)
         rec["vs_randp"] = pair(gaa, rp, N)
         rec["randw_vs_greedy"] = pair(rw, g, N)
         rec["randp_vs_greedy"] = pair(rp, g, N)
-        # GA 拿到了"整池随机"那部分曝光红利的多少份额（LTE 增益口径）
+        # share of the randp exposure dividend captured by GA (LTE gain basis)
         gain_randp = rp["lte"] - g["lte"]
         rec["share_of_randp_lte"] = float((gaa["lte"] - g["lte"]) / gain_randp) if gain_randp else float("nan")
 
-        # 收益/代价换算：每损失 1pp HR@10，换来多少 % 的长尾曝光
+        # benefit/cost trade-off: % of long-tail exposure gained per 1pp HR@10 lost
         d_hr10_pp = 100.0 * (cost["hr10"]["ga_mean"] - cost["hr10"]["greedy_mean"])
         lte_rel = rec["benefit"]["lte"]["rel_pct"]
         rec["tradeoff"] = dict(
@@ -395,50 +366,50 @@ def main():
               f"{g['lte']:11.0f} {gaa['lte']:8.0f}")
 
     def rel_txt(x):
-        """基数为 0 时相对涨幅是 0/0，打 nan 会污染日志——直接写 '基数=0'。"""
-        return "基数=0" if x != x else f"{x:+.0f}%"
+        """When the base is 0 the relative gain is 0/0; printing nan would pollute the log."""
+        return "base=0" if x != x else f"{x:+.0f}%"
 
     pos = [g for g in grid
            if rows[g]["benefit"]["lte"]["rel_pct"] == rows[g]["benefit"]["lte"]["rel_pct"]
            and rows[g]["benefit"]["lte"]["rel_pct"] > 0]
     print("\n" + "=" * 118)
-    print(f"长尾曝光量 LTE@10 提升的档数（GA vs 贪心）：{len(pos)}/{len(grid)}")
-    print("逐档 LTE 提升：" + ", ".join(
+    print(f"Tiers with LTE@10 gain (GA vs greedy): {len(pos)}/{len(grid)}")
+    print("Per-tier LTE gain: " + ", ".join(
         f"{g}:{rel_txt(rows[g]['benefit']['lte']['rel_pct'])}" for g in grid))
-    print("逐档 LTR 提升：" + ", ".join(
+    print("Per-tier LTR gain: " + ", ".join(
         f"{g}:{rel_txt(rows[g]['benefit']['ltr']['rel_pct'])}" for g in grid))
-    print("逐档 GOS 提升：" + ", ".join(
+    print("Per-tier GOS gain: " + ", ".join(
         f"{g}:{rows[g]['benefit']['gos']['rel_pct']:+.1f}%" for g in grid))
-    print("逐档 ΔHR@10：" + ", ".join(
+    print("Per-tier dHR@10: " + ", ".join(
         f"{g}:{rows[g]['tradeoff']['d_hr10_pp']:+.2f}pp" for g in grid))
 
     full = rows["full"]
     fa = full["arms"]
-    print("\n四臂对照（全目录档）")
+    print("\nFour-arm contrast (full tier)")
     for a in ARMS:
         print(f"  {a:<7} HR@10={fa[a]['hr10']*100:7.3f}%  lt10={fa[a]['lt10']:.4f}  "
               f"LTE={fa[a]['lte']:9.0f}  LTR={fa[a]['ltr']*100:6.2f}%  GOS={fa[a]['gos']:.4f}")
-    print(f"  GA vs 贪心    ：LTE {full['benefit']['lte']['rel_pct']:+.1f}%  "
-          f"ΔHR@10 {full['tradeoff']['d_hr10_pp']:+.2f}pp")
-    print(f"  GA vs 窗口随机：LTE {full['vs_randw']['lte']['rel_pct']:+.1f}%  "
-          f"ΔHR@10 {full['vs_randw']['hr10']['delta_pp']:+.2f}pp  "
+    print(f"  GA vs greedy  : LTE {full['benefit']['lte']['rel_pct']:+.1f}%  "
+          f"dHR@10 {full['tradeoff']['d_hr10_pp']:+.2f}pp")
+    print(f"  GA vs randw   : LTE {full['vs_randw']['lte']['rel_pct']:+.1f}%  "
+          f"dHR@10 {full['vs_randw']['hr10']['delta_pp']:+.2f}pp  "
           f"p(McNemar)={full['vs_randw']['hr10']['p']:.3g}")
-    print(f"  GA vs 整池随机：LTE {full['vs_randp']['lte']['rel_pct']:+.1f}%  "
-          f"ΔHR@10 {full['vs_randp']['hr10']['delta_pp']:+.2f}pp  "
-          f"→ GA 拿到整池随机曝光红利的 {full['share_of_randp_lte']*100:.1f}%")
+    print(f"  GA vs randp   : LTE {full['vs_randp']['lte']['rel_pct']:+.1f}%  "
+          f"dHR@10 {full['vs_randp']['hr10']['delta_pp']:+.2f}pp  "
+          f"-> GA captured {full['share_of_randp_lte']*100:.1f}% of the randp exposure dividend")
 
-    print("\n整池随机臂自检（实测 HR@10 应等于解析值 min(K,N)/N）")
+    print("\nrandp self-check (measured HR@10 should equal the analytic min(K,N)/N)")
     worst = 0.0
     for g in grid:
         rc = rows[g]["randp_check"]
         dev = abs(rc["measured"] - rc["analytic"])
         worst = max(worst, dev)
-        print(f"  {g:>7} 解析 {rc['analytic']:.6f}   实测 {rc['measured']:.6f}   "
-              f"偏差 {dev:.2e}")
-    print(f"  → 全部 {len(grid)} 档最大偏差 {worst:.2e}"
-          f"  {'通过' if worst < 5e-3 else '偏大，需检查随机臂实现!'}")
+        print(f"  {g:>7} analytic {rc['analytic']:.6f}   measured {rc['measured']:.6f}   "
+              f"deviation {dev:.2e}")
+    print(f"  -> max deviation across all {len(grid)} tiers: {worst:.2e}"
+          f"  {'PASS' if worst < 5e-3 else 'too large, inspect the random-arm implementation!'}")
 
-    print("\n四臂全目录汇总（报告 4.1 主表用）")
+    print("\nFour-arm full-tier summary (report table 4.1)")
     for a in ARMS:
         print(f"  {a:<7} HR@5={fa[a]['hr5']*100:7.3f}%  HR@10={fa[a]['hr10']*100:7.3f}%  "
               f"LTE={fa[a]['lte']:9.0f}  LTR={fa[a]['ltr']*100:6.2f}%  "
@@ -454,14 +425,12 @@ def main():
                        max(rows[g]["benefit"]["gos"]["rel_pct"] for g in grid)],
         hr10_delta_pp_range=[min(rows[g]["tradeoff"]["d_hr10_pp"] for g in grid),
                              max(rows[g]["tradeoff"]["d_hr10_pp"] for g in grid)],
-        # ---- 四臂对照（报告主表用）
         four_arm_full={a: dict(
             label=fa[a]["label"], hr5=fa[a]["hr5"] * 100, hr10=fa[a]["hr10"] * 100,
             lt10=fa[a]["lt10"], lte=fa[a]["lte"], lte_per_user=fa[a]["lte_per_user"],
             ltr=fa[a]["ltr"] * 100, ltr_users=fa[a]["ltr_users"], gos=fa[a]["gos"],
             nov5=fa[a]["nov5"], nov10=fa[a]["nov10"], div10=fa[a]["div10"],
             fresh10=fa[a]["fresh10"]) for a in ARMS},
-        # ---- 关键对照量
         ga_vs_randw=dict(lte_rel=full["vs_randw"]["lte"]["rel_pct"],
                          hr10_dpp=full["vs_randw"]["hr10"]["delta_pp"],
                          hr10_p=full["vs_randw"]["hr10"]["p"],

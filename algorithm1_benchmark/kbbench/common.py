@@ -29,7 +29,6 @@ def read_rows(path):
 def write_rows(path, rows):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    # Fix gzip metadata so rebuilds on different machines produce the same bytes.
     if path.suffix == ".gz":
         with path.open("wb") as raw:
             with gzip.GzipFile(filename="", fileobj=raw, mode="wb", mtime=0) as stream:

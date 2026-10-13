@@ -1,4 +1,3 @@
-"""Text and unlabeled normalization candidates: same five fields, same BGE model."""
 import argparse
 import hashlib
 
@@ -68,5 +67,5 @@ def build():
 
 
 if __name__ == "__main__":
-    argparse.ArgumentParser(description=__doc__).parse_args()
+    argparse.ArgumentParser(description="Five-field BGE text representations").parse_args()
     build()

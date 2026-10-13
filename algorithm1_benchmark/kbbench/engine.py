@@ -1,4 +1,3 @@
-"""Common recommendation interface for the four replaceable similarity modules."""
 import numpy as np
 from scipy.special import expit
 
@@ -50,7 +49,6 @@ class SimilarityEngine:
     def scores(self, anime_id):
         position = self.index[anime_id]
         features = feature_matrix(self.items[position], self.items)
-        # Keep the feature summation order stable so exact ties remain reproducible.
         tag = np.zeros(len(self.items), dtype=np.float64)
         for column, weight in enumerate(WEIGHTS):
             tag += features[:, column] * weight
@@ -62,7 +60,6 @@ class SimilarityEngine:
         return {"A": tag, "B": learned, "C": cosine, "D": fusion}, features
 
     def recommend(self, anime_id, method="A", k=5):
-        """Same input/output for all methods; never receives or reads user history."""
         if method not in METHODS:
             raise ValueError(f"Unknown method {method}")
         scores, features = self.scores(anime_id)

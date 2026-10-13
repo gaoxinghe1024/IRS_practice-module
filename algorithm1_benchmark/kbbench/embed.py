@@ -1,4 +1,3 @@
-"""BGE small English v1.5: pinned original ONNX weights, CLS pooling, unit L2 vectors."""
 import argparse
 import hashlib
 import os

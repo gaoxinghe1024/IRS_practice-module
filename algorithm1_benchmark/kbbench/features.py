@@ -1,4 +1,3 @@
-"""Exactly five shared input dimensions, independent of users and database state."""
 DIMENSIONS = ("genre", "theme", "demographic", "studio", "length")
 WEIGHTS = (0.35, 0.30, 0.15, 0.10, 0.10)
 
@@ -30,7 +29,6 @@ def feature_matrix(target, candidates):
 
 
 def semantic_text(item):
-    # Keep title, synopsis and relations OUT: all methods receive the same five dimensions.
     return (f"Genres: {', '.join(item['genres']) or 'unknown'}. "
             f"Themes: {', '.join(item['themes']) or 'unknown'}. "
             f"Demographic: {item['demographic'] or 'unknown'}. "

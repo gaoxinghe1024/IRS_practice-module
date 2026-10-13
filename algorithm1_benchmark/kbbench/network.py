@@ -1,4 +1,3 @@
-"""Use Windows system proxy/TLS settings when available; standard urllib elsewhere."""
 import os
 import shutil
 import subprocess

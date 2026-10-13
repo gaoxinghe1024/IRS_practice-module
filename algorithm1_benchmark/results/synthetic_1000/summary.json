@@ -208,7 +208,7 @@
       "automatic_system_replacement": false
     }
   },
-  "synthetic_manifest_sha256": "3318bee230a690ead04d529febcee06b3d1b33fcde5db1de88c9aefc4d5cabc3",
+  "synthetic_manifest_sha256": "68d42957b84d30d7df92a3e03d5a539ac249def4e1565f351c0ba4885f818e7a",
   "inputs": {
     "data/catalog.jsonl.gz": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921",
     "models/logistic_optimized.json": "6ccfbe26444f3440e6d2f49eeca104c38ce303b5c7fe30aeed037d4a5ef4e082",

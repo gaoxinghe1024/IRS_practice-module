@@ -1,4 +1,3 @@
-"""Checks for the published synthetic 1,000-query artifact set."""
 import unittest
 from collections import defaultdict
 
@@ -26,7 +25,8 @@ class ArtifactTests(unittest.TestCase):
         self.assertGreater(self.manifest["training_overlap_count"], 0)
         self.assertEqual(sum(self.manifest["realized_difficulty_counts"].values()), 1000)
         self.assertEqual(self.manifest["catalog_sha256"], sha256(ROOT / "data/catalog.jsonl.gz"))
-        self.assertEqual(self.manifest["generator_sha256"], sha256(ROOT / "generate_synthetic_1000.py"))
+        self.assertEqual(self.manifest["generator_path"], "kbbench/benchmark.py")
+        self.assertEqual(self.manifest["generator_sha256"], sha256(ROOT / self.manifest["generator_path"]))
         for relative, digest in self.summary["inputs"].items():
             self.assertEqual(digest, sha256(ROOT / relative))
         self.assertEqual(self.summary["synthetic_manifest_sha256"],

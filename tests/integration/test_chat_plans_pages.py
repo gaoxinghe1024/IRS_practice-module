@@ -126,3 +126,26 @@ def test_pages_render_and_protect_private_routes(client):
         r = client.get(path)
         assert r.status_code == 200 and 'id="i18n"' in r.text, path
     assert client.get("/no-such-page").status_code == 404
+
+
+def test_chat_says_what_the_data_cannot_answer(client, snap):
+    h, _ = register(client)
+
+    def ask(text):
+        return client.post(f"/api/v1/chat/sessions/{_chat(client, h)}/messages", json={"message": text},
+                           headers=h).json()
+
+    r = ask("Give exact video timecodes for the documented scenes.")
+    assert r["intent"] == "unavailable_data" and not r["items"] and "timecode" in r["answer"]
+    r = ask("List the anime that I personally added to my favorites.")
+    assert not r["items"] and "no favourites list" in r["answer"] and "no saved collections" in r["answer"]
+    client.post("/api/v1/collections", json={"name": "Weekend picks"}, headers=h)
+    assert "Weekend picks (0 titles)" in ask("show my favourites")["answer"]
+    r = ask("Find anime produced by Nonexistent Evaluation Studio 42.")
+    assert not r["items"] and "couldn't find a studio" in r["answer"]
+    r = ask("Find titles that began airing in 2090 or later.")
+    assert not r["items"] and "latest start year" in r["answer"]
+    assert any(o["rule_id"] == "filter.year_from" for o in r["relaxation_options"])
+    year = int(np.nanmedian(snap.year[snap.recommendable]))
+    r = ask(f"a title that began airing in {year} or earlier")
+    assert r["items"] and all(snap.year[snap.index[i["item_key"]]] <= year for i in r["items"])

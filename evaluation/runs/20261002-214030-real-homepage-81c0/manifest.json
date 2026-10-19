@@ -1,0 +1,54 @@
+{
+  "run_id": "20261002-214030-real-homepage-81c0",
+  "experiment": "homepage",
+  "status": "completed",
+  "dataset_mode": "real",
+  "dataset_version": "real-034ebd6a74",
+  "artifact_manifest_sha256": "cf8814dc44b065647417078c84dac9cc24fb2c378a70c5812e6bed43ec0958b1",
+  "split_fingerprints": {
+    "ranking": "68311d2b7d552b98",
+    "explicit": "2d66b01a8ddeb159"
+  },
+  "params": {
+    "sample_users": 1500,
+    "ga_seeds": 3,
+    "candidate_k": 20,
+    "k": 10,
+    "tag": null,
+    "tuning": "20% of eligible users (max 600), disjoint"
+  },
+  "started_at": "2026-10-02T21:40:30",
+  "finished_at": "2026-10-02T13:52:31Z",
+  "seconds": 720.9,
+  "peak_rss_mb": 1142.1,
+  "git_commit": "e9df5bf",
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 8,
+    "python": "3.12.14"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.1",
+    "fastapi": "0.142.1",
+    "sqlalchemy": "2.1.1",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.1.0"
+  },
+  "data": {
+    "eval_users": 1500,
+    "candidate_universe": 13798
+  },
+  "notes": [
+    "ICF damping tuned on validation positives of 600 other users: {0.0: 0.03166666666666667, 0.5: 0.04833333333333333, 2.0: 0.058333333333333334, 5.0: 0.06333333333333334, 10.0: 0.065, 20.0: 0.06666666666666667, 50.0: 0.06666666666666667} -> 20.0",
+    "ICF user-mean prior weight tuned on the same validation users (mean hits@10 over history lengths (5, 8, 15) and full): {0.0: {'5': 0.04085257548845471, '8': 0.030534351145038167, '15': 0.03854389721627409, 'full': 0.06666666666666667, 'mean': 0.04414937262910841}, 2.0: {'5': 0.04262877442273535, '8': 0.030534351145038167, '15': 0.042826552462526764, 'full': 0.06666666666666667, 'mean': 0.04566408617424174}, 5.0: {'5': 0.04262877442273535, '8': 0.02862595419847328, '15': 0.044967880085653104, 'full': 0.06666666666666667, 'mean': 0.0457223188433821}, 10.0: {'5': 0.04262877442273535, '8': 0.02862595419847328, '15': 0.044967880085653104, 'full': 0.06666666666666667, 'mean': 0.0457223188433821}, 20.0: {'5': 0.03907637655417407, '8': 0.02862595419847328, '15': 0.044967880085653104, 'full': 0.06833333333333333, 'mean': 0.045250886042908445}} -> 5.0",
+    "Home content popularity weight tuned on validation (histories of (1, 3, 5) ratings): {0.0: {'1': 0.0070921985815602835, '3': 0.011764705882352941, '5': 0.0106951871657754, 'mean': 0.009850697209896208}, 0.25: {'1': 0.01773049645390071, '3': 0.025210084033613446, '5': 0.030303030303030304, 'mean': 0.024414536930181488}, 0.5: {'1': 0.03368794326241135, '3': 0.03697478991596639, '5': 0.0427807486631016, 'mean': 0.03781449394715978}, 0.75: {'1': 0.03546099290780142, '3': 0.031932773109243695, '5': 0.030303030303030304, 'mean': 0.03256559877335847}, 0.9: {'1': 0.0425531914893617, '3': 0.03697478991596639, '5': 0.0427807486631016, 'mean': 0.04076957668947656}} -> 0.9",
+    "git_dirty added afterwards: this run used uncommitted changes on top of e9df5bf (the data-package work, committed on branch yyc-data-package)"
+  ],
+  "git_dirty": true
+}

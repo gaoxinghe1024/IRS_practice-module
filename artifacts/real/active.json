@@ -1,13 +1,29 @@
 {
   "dataset_mode": "real",
-  "dataset_version": "real-89bfdea00b",
-  "artifact_dir": "artifacts/real/real-89bfdea00b",
-  "manifest_sha256": "5b8290b04c4678e158d7dac88bbd025c673a4e89842bc234e7234a414d539226",
-  "activated_at": "2026-09-30T15:57:44Z",
+  "dataset_version": "real-034ebd6a74",
+  "artifact_dir": "artifacts/real/real-034ebd6a74",
+  "manifest_sha256": "cf8814dc44b065647417078c84dac9cc24fb2c378a70c5812e6bed43ec0958b1",
+  "activated_at": "2026-10-19T06:24:04Z",
   "counts": {
     "anime": 23363,
-    "documents": 42515,
-    "tags": 98717,
-    "aliases": 54003
+    "catalog": 24905,
+    "documents": 64914,
+    "tags": 136453,
+    "aliases": 57540,
+    "vectors": {
+      "item_attr": 24905,
+      "documents": 64914
+    },
+    "supplement_values": 20542
+  },
+  "supplement": {
+    "path": "algorithm1_benchmark/data/catalog.jsonl.gz",
+    "sha256": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921",
+    "namespaces": [
+      "theme",
+      "demographic"
+    ],
+    "rule": "union with snapshot values; MAL id join",
+    "titles": 14202
   }
 }

@@ -5,7 +5,7 @@ const form = document.getElementById("search-form");
 const results = document.getElementById("results");
 const count = document.getElementById("result-count");
 const pager = document.getElementById("pager");
-const FIELDS = ["q", "genres", "types", "max_episodes", "min_score", "sort"];
+const FIELDS = ["q", "genres", "types", "max_episodes", "min_score", "year_from", "year_to", "sort"];
 let page = Number(readQuery().page || 1);
 
 async function initGenres() {

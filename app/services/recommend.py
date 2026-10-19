@@ -25,8 +25,12 @@ from app.recommendation.constraints import ConstraintSet
 from app.recommendation.features import CatalogSnapshot, minmax, stable_order
 from app.recommendation.profiles import CollectionProfile, UserState, build_collection_profile
 from app.recommendation.rerank.ga import GeneticListOptimizer, relevance_greedy
-from app.recommendation.rerank.objective import (ListObjective, novelty_scores,
-                                                 recent_fresh_flags, tag_jaccard_pairwise)
+from app.recommendation.rerank.objective import (
+    ListObjective,
+    novelty_scores,
+    recent_fresh_flags,
+    tag_jaccard_pairwise,
+)
 from app.services.serving import ServingState
 from app.services.user_data import load_user_state
 

@@ -1,0 +1,585 @@
+{
+  "status": "completed",
+  "sets": {
+    "team_package_20260918_A_final_v1_4a2e38e69be5:scene": {
+      "queries": 40,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "hits@5": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "mrr@10": {
+        "mean": 0.93333,
+        "ci95": [
+          0.87083,
+          0.98333
+        ],
+        "n": 40
+      },
+      "scene@1": {
+        "mean": 0.95,
+        "ci95": [
+          0.875,
+          1.0
+        ],
+        "n": 40
+      },
+      "scene@3": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 40
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "latency_ms_p50": 86.20227102073841,
+      "latency_ms_p95": 157.97102771757633
+    },
+    "team_package_20260918_A_final_v1_4a2e38e69be5:semantic": {
+      "queries": 30,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "hits@5": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "mrr@10": {
+        "mean": 0.94444,
+        "ci95": [
+          0.87778,
+          1.0
+        ],
+        "n": 30
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 30
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "latency_ms_p50": 5.041979544330388,
+      "latency_ms_p95": 6.914523075101896
+    },
+    "team_package_20260918_A_final_v1_4a2e38e69be5:constraint": {
+      "queries": 20,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 20
+      },
+      "hits@5": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 20
+      },
+      "mrr@10": {
+        "mean": 0.975,
+        "ci95": [
+          0.925,
+          1.0
+        ],
+        "n": 20
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 20
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 20
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 20
+      },
+      "latency_ms_p50": 4.723291989648715,
+      "latency_ms_p95": 6.587981266784482
+    },
+    "team_package_20260918_A_final_v1_4a2e38e69be5:unanswerable": {
+      "queries": 10,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 10
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 10
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 10
+      },
+      "latency_ms_p50": 2.2584999969694763,
+      "latency_ms_p95": 5.573025162448173
+    },
+    "auto_titles": {
+      "queries": 320,
+      "tsr": {
+        "mean": 0.96875,
+        "ci95": [
+          0.94688,
+          0.98438
+        ],
+        "n": 320
+      },
+      "hits@5": {
+        "mean": 0.96875,
+        "ci95": [
+          0.94688,
+          0.98438
+        ],
+        "n": 320
+      },
+      "mrr@10": {
+        "mean": 0.96875,
+        "ci95": [
+          0.94688,
+          0.98438
+        ],
+        "n": 320
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 320
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 320
+      },
+      "intent_ok": {
+        "mean": 0.96562,
+        "ci95": [
+          0.94375,
+          0.98438
+        ],
+        "n": 320
+      },
+      "latency_ms_p50": 4.826041957130656,
+      "latency_ms_p95": 145.21454315399754
+    },
+    "auto_constraints": {
+      "queries": 38,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 38
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 38
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 38
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 38
+      },
+      "latency_ms_p50": 5.089771002531052,
+      "latency_ms_p95": 6.997896486427635
+    },
+    "auto_relations": {
+      "queries": 60,
+      "tsr": {
+        "mean": 0.85,
+        "ci95": [
+          0.75,
+          0.93333
+        ],
+        "n": 60
+      },
+      "hits@5": {
+        "mean": 0.88333,
+        "ci95": [
+          0.8,
+          0.95
+        ],
+        "n": 60
+      },
+      "mrr@10": {
+        "mean": 0.39273,
+        "ci95": [
+          0.35393,
+          0.4277
+        ],
+        "n": 60
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 60
+      },
+      "fabricated_episode": {
+        "mean": 0.03333,
+        "ci95": [
+          0.0,
+          0.08333
+        ],
+        "n": 60
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 60
+      },
+      "latency_ms_p50": 141.54224999947473,
+      "latency_ms_p95": 245.13929577369706
+    },
+    "auto_no_episode": {
+      "queries": 30,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 30
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 30
+      },
+      "latency_ms_p50": 61.72837447957136,
+      "latency_ms_p95": 91.61287531314883
+    },
+    "auto_scene_outside": {
+      "queries": 60,
+      "tsr": {
+        "mean": 0.91667,
+        "ci95": [
+          0.83333,
+          0.98333
+        ],
+        "n": 60
+      },
+      "hits@5": {
+        "mean": 0.91667,
+        "ci95": [
+          0.83333,
+          0.98333
+        ],
+        "n": 60
+      },
+      "mrr@10": {
+        "mean": 0.86861,
+        "ci95": [
+          0.78942,
+          0.94222
+        ],
+        "n": 60
+      },
+      "false_scene_claim": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 60
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 60
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 60
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 60
+      },
+      "latency_ms_p50": 115.39647899917327,
+      "latency_ms_p95": 238.8546145608414
+    },
+    "auto_scene_mismatch": {
+      "queries": 40,
+      "tsr": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "false_scene_claim": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 40
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 40
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 40
+      },
+      "latency_ms_p50": 53.22381301084533,
+      "latency_ms_p95": 62.90627083217256
+    }
+  },
+  "scene_retrieval_ablation": [
+    {
+      "corpus": "scene",
+      "retrieval": "lexical",
+      "queries": 40,
+      "hits@1": 1.0,
+      "hits@5": 1.0,
+      "mrr@10": 1.0,
+      "scene@1": 0.975,
+      "scene@3": 1.0
+    },
+    {
+      "corpus": "scene",
+      "retrieval": "dense",
+      "queries": 40,
+      "hits@1": 0.95,
+      "hits@5": 1.0,
+      "mrr@10": 0.96875,
+      "scene@1": 0.95,
+      "scene@3": 0.975
+    },
+    {
+      "corpus": "scene",
+      "retrieval": "hybrid",
+      "queries": 40,
+      "hits@1": 1.0,
+      "hits@5": 1.0,
+      "mrr@10": 1.0,
+      "scene@1": 1.0,
+      "scene@3": 1.0
+    },
+    {
+      "corpus": "synopsis",
+      "retrieval": "lexical",
+      "queries": 40,
+      "hits@1": 0.275,
+      "hits@5": 0.4,
+      "mrr@10": 0.32166666666666666
+    },
+    {
+      "corpus": "synopsis",
+      "retrieval": "dense",
+      "queries": 40,
+      "hits@1": 0.125,
+      "hits@5": 0.2,
+      "mrr@10": 0.1744047619047619
+    },
+    {
+      "corpus": "synopsis",
+      "retrieval": "hybrid",
+      "queries": 40,
+      "hits@1": 0.35,
+      "hits@5": 0.425,
+      "mrr@10": 0.38090277777777776
+    },
+    {
+      "corpus": "scene+synopsis",
+      "retrieval": "lexical",
+      "queries": 40,
+      "hits@1": 1.0,
+      "hits@5": 1.0,
+      "mrr@10": 1.0,
+      "scene@1": 0.975,
+      "scene@3": 1.0
+    },
+    {
+      "corpus": "scene+synopsis",
+      "retrieval": "dense",
+      "queries": 40,
+      "hits@1": 0.525,
+      "hits@5": 0.775,
+      "mrr@10": 0.6189880952380953,
+      "scene@1": 0.9,
+      "scene@3": 0.9
+    },
+    {
+      "corpus": "scene+synopsis",
+      "retrieval": "hybrid",
+      "queries": 40,
+      "hits@1": 0.825,
+      "hits@5": 0.95,
+      "mrr@10": 0.8835714285714286,
+      "scene@1": 0.975,
+      "scene@3": 1.0
+    }
+  ],
+  "plain_llm_vs_rag": {
+    "status": "blocked_by_credentials",
+    "detail": "No LLM configured: chat uses deterministic parsing and local evidence templates (local mode)."
+  }
+}

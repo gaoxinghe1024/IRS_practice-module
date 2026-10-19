@@ -13,6 +13,9 @@ CONTRACTS: dict[str, dict] = {
                                  "one_of": [["to_mal_id", "to_external_id"]]},
     "enriched/characters.jsonl": {"required": ["mal_id", "character_source_id", "name", "source_ref"]},
     "enriched/reviews.jsonl": {"required": ["mal_id", "review_id", "text", "source_ref"]},
+    "enriched/tags.jsonl": {"required": ["mal_id", "namespace", "value", "source_ref"],
+                            "enums": {"namespace": ["genre", "theme", "demographic", "studio"]}},
+    "enriched/synopses.jsonl": {"required": ["mal_id", "synopsis", "source_ref"]},
     "enriched/scenes.jsonl": {"required": ["scene_id", "item_key", "description", "source_ref", "verification_status"],
                               "item_key_fields": ["item_key"],
                               "enums": {"verification_status": ["verified", "unverified"],
@@ -21,8 +24,14 @@ CONTRACTS: dict[str, dict] = {
                                              "item_key_fields": ["item_key"]},
     "evaluation/similarity_labels.jsonl": {"required": ["query_item", "positives", "label_source"],
                                            "item_key_fields": ["query_item"]},
+    "evaluation/similarity_labels_mal.jsonl": {"required": ["query_item", "positives", "label_source"],
+                                               "item_key_fields": ["query_item"],
+                                               "enums": {"split": ["train", "val", "test"]}},
     "evaluation/collection_events.jsonl": {"required": ["collection_id", "offline_user_id", "items"]},
-    "evaluation/rag_queries.jsonl": {"required": ["query_id", "query", "intent", "relevant_item_keys", "answerable"]},
+    # intent may be null for a query with no single expected intent (e.g. a request the data cannot answer)
+    "evaluation/rag_queries.jsonl": {"required": ["query_id", "query", "intent", "relevant_item_keys", "answerable"],
+                                     "nullable": ["intent"],
+                                     "enums": {"expected_outcome": ["matches", "no_match", "insufficient_information"]}},
     "evaluation/scene_queries.jsonl": {"required": ["query_id", "query", "target_item_key"]},
     "evaluation/image_queries.jsonl": {"required": ["query_id", "path", "sha256", "in_gallery"]},
     "evaluation/system_tasks.jsonl": {"required": ["task_id", "surface", "steps", "success"]},
@@ -41,7 +50,9 @@ def validate_file(path: Path, contract: dict) -> dict:
             except json.JSONDecodeError as exc:
                 errors.append(f"line {line_no}: invalid JSON ({exc.msg})")
                 continue
-            missing = [f for f in contract.get("required", []) if row.get(f) in (None, "")]
+            nullable = contract.get("nullable", [])
+            missing = [f for f in contract.get("required", [])
+                       if f not in row or (row[f] in (None, "") and f not in nullable)]
             if missing:
                 errors.append(f"line {line_no}: missing {missing}")
             for group in contract.get("one_of", []):

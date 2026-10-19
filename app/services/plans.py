@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 
 from app.core.errors import NotFound, ValidationFailed
 from app.db.models import PlanItem, PlanRevision, PlanSession, User, ViewingPlan, utcnow
-from app.graph.relations import PrequelGraph, confirmed_edges
+from app.graph.relations import PrequelGraph, confirmed_edges, start_years
 from app.planning import export as plan_export
 from app.planning.duration import TitleTime, title_time
 from app.planning.feasibility import PlanEntry, check
@@ -116,7 +116,7 @@ def build_problem(state: ServingState, db: Session, user: User | None, req: dict
     for m in must:
         if m not in cand:
             cand.append(m)
-    graph = PrequelGraph(confirmed_edges(db, ("prequel", "sequel")))
+    graph = PrequelGraph(confirmed_edges(db, ("prequel", "sequel")), start_years(snap))   # release order
     excluded: dict[str, int] = {}
     units: list[Unit] = []
     all_items: set[int] = set()

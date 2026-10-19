@@ -31,7 +31,7 @@ var/synthetic/*
 data/processed/*/*
 !data/processed/*/latest.json
 !data/processed/real/validation_report.json
-!data/processed/real/real-89bfdea00b/
+!data/processed/real/real-034ebd6a74/
 !data/processed/synthetic/synthetic-7a7d5d6a74/
 !data/**/README.md
 !data/**/.gitkeep
@@ -39,7 +39,7 @@ data/processed/*/*
 # === Trained models / indexes: only the active version of each mode is committed ===
 artifacts/*/*
 !artifacts/*/active.json
-!artifacts/real/real-89bfdea00b/
+!artifacts/real/real-034ebd6a74/
 !artifacts/synthetic/synthetic-7a7d5d6a74/
 
 # === Evaluation: large per-case files stay local; reports and metrics are committed ===

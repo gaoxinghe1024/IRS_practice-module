@@ -49,7 +49,7 @@ The served default changes only by configuration; this table records what the ru
 `franchise_sanity` asks whether a title's confirmed sequel/prequel appears in its top 5. It is a sanity check of franchise awareness, not a general similarity benchmark: the synopsis variant does well here because franchise entries share character names.
 
 
-_Run `20261001-000026-synthetic-similar-3b07` · status completed · dataset `synthetic-7a7d5d6a74` · 1.4 s · commit 44c42cf · run dir `evaluation/runs/20261001-000026-synthetic-similar-3b07`_
+_Run `20261004-170124-synthetic-similar-ab85` · status completed · dataset `synthetic-7a7d5d6a74` · 1.1 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-170124-synthetic-similar-ab85`_
 
 ## Collection recommendations (algorithm 2) - synthetic data
 
@@ -78,7 +78,7 @@ Dataset `synthetic-7a7d5d6a74`. Leave-one-out cases; K=8; the rule layer (served
 AUC against sampled unobserved titles treats them as negatives only for measurement; they are not confirmed dislikes. `manual_slides_v0` is the slides' formula kept verbatim as the baseline.
 
 
-_Run `20261001-000027-synthetic-collection-3a70` · status completed · dataset `synthetic-7a7d5d6a74` · 7.1 s · commit 44c42cf · run dir `evaluation/runs/20261001-000027-synthetic-collection-3a70`_
+_Run `20261004-170125-synthetic-collection-8c93` · status completed · dataset `synthetic-7a7d5d6a74` · 7.3 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-170125-synthetic-collection-8c93`_
 
 ## Homepage experiment (algorithm 3) - synthetic data
 
@@ -110,28 +110,28 @@ Dataset version `synthetic-7a7d5d6a74`; ranking protocol (one held-out high-rate
 - no-rerank == greedy for 100.0% of users
 - GA - greedy (paired bootstrap): hits@10 -0.0294 [-0.0483, -0.0126]; mrr@10 -0.0035 [-0.0062, -0.0011]; ild +0.0171 [+0.0153, +0.0188]; novelty +0.0244 [+0.0221, +0.0267]; fresh +0.1059 [+0.0971, +0.1145]; fitness +0.0108 [+0.0100, +0.0115]
 - GA hits@10 by seed: [0.23319, 0.22899, 0.23109]
-- latency p50: recall 0.2 ms, GA 25.9 ms
+- latency p50: recall 0.2 ms, GA 26.3 ms
 
 #### mf
 - candidate recall@20/50/100: 0.4307 [0.3887, 0.4748] (n=476), 0.6954 [0.6555, 0.7353] (n=476), 0.8950 [0.8677, 0.9223] (n=476)
 - no-rerank == greedy for 100.0% of users
 - GA - greedy (paired bootstrap): hits@10 -0.0252 [-0.0483, -0.0063]; mrr@10 -0.0035 [-0.0066, -0.0009]; ild +0.0173 [+0.0157, +0.0188]; novelty +0.0198 [+0.0177, +0.0219]; fresh +0.1134 [+0.1048, +0.1223]; fitness +0.0107 [+0.0099, +0.0114]
 - GA hits@10 by seed: [0.2479, 0.2479, 0.2479]
-- latency p50: recall 0.0 ms, GA 26.0 ms
+- latency p50: recall 0.0 ms, GA 26.3 ms
 
 #### ncf
 - candidate recall@20/50/100: 0.3508 [0.3046, 0.3950] (n=476), 0.6113 [0.5693, 0.6555] (n=476), 0.8592 [0.8277, 0.8887] (n=476)
 - no-rerank == greedy for 100.0% of users
 - GA - greedy (paired bootstrap): hits@10 -0.0210 [-0.0399, -0.0063]; mrr@10 -0.0021 [-0.0042, -0.0003]; ild +0.0115 [+0.0103, +0.0128]; novelty +0.0089 [+0.0079, +0.0100]; fresh +0.0777 [+0.0712, +0.0851]; fitness +0.0065 [+0.0060, +0.0072]
 - GA hits@10 by seed: [0.21639, 0.21639, 0.21639]
-- latency p50: recall 0.3 ms, GA 24.6 ms
+- latency p50: recall 0.4 ms, GA 25.0 ms
 
 #### popularity
 - candidate recall@20/50/100: 0.5042 [0.4601, 0.5504] (n=476), 0.7290 [0.6891, 0.7710] (n=476), 0.9328 [0.9096, 0.9538] (n=476)
 - no-rerank == greedy for 100.0% of users
 - GA - greedy (paired bootstrap): hits@10 -0.0294 [-0.0483, -0.0084]; mrr@10 -0.0035 [-0.0062, -0.0008]; ild +0.0149 [+0.0135, +0.0164]; novelty +0.0038 [+0.0035, +0.0042]; fresh +0.0966 [+0.0884, +0.1050]; fitness +0.0068 [+0.0063, +0.0073]
 - GA hits@10 by seed: [0.33193, 0.33403, 0.33403]
-- latency p50: recall 0.0 ms, GA 25.6 ms
+- latency p50: recall 0.0 ms, GA 25.9 ms
 
 ### Validation-only tuning
 
@@ -184,7 +184,7 @@ Each user's train history is cut to a seeded random subset of n ratings (a new u
 - note: ICF user-mean prior weight tuned on the same validation users (mean hits@10 over history lengths (5, 8, 15) and full): {0.0: {'5': 0.1357142857142857, '8': 0.23931623931623933, '15': 0.16666666666666666, 'full': 0.2206896551724138, 'mean': 0.19059671171740136}, 2.0: {'5': 0.1357142857142857, '8': 0.23931623931623933, '15': 0.16666666666666666, 'full': 0.21379310344827587, 'mean': 0.18887257378636688}, 5.0: {'5': 0.1357142857142857, '8': 0.23931623931623933, '15': 0.17777777777777778, 'full': 0.2206896551724138, 'mean': 0.19337448949517916}, 10.0: {'5': 0.15, '8': 0.23931623931623933, '15': 0.15555555555555556, 'full': 0.23448275862068965, 'mean': 0.19483863837312115}, 20.0: {'5': 0.1357142857142857, '8': 0.23076923076923078, '15': 0.16666666666666666, 'full': 0.2206896551724138, 'mean': 0.18845995958064923}} -> 10.0
 - note: Home content popularity weight tuned on validation (histories of (1, 3, 5) ratings): {0.0: {'1': 0.05303030303030303, '3': 0.07586206896551724, '5': 0.11428571428571428, 'mean': 0.08105936209384484}, 0.25: {'1': 0.12878787878787878, '3': 0.18620689655172415, '5': 0.21428571428571427, 'mean': 0.17642682987510575}, 0.5: {'1': 0.24242424242424243, '3': 0.2896551724137931, '5': 0.29285714285714287, 'mean': 0.27497885256505944}, 0.75: {'1': 0.2803030303030303, '3': 0.296551724137931, '5': 0.3, 'mean': 0.2922849181469871}, 0.9: {'1': 0.25757575757575757, '3': 0.296551724137931, '5': 0.3, 'mean': 0.2847091605712295}} -> 0.75
 
-_Run `20261001-033754-synthetic-homepage-e57f` · status completed · dataset `synthetic-7a7d5d6a74` · 163.2 s · commit 44c42cf · run dir `evaluation/runs/20261001-033754-synthetic-homepage-e57f`_
+_Run `20261004-170132-synthetic-homepage-3df5` · status completed · dataset `synthetic-7a7d5d6a74` · 165.3 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-170132-synthetic-homepage-3df5`_
 
 ## Explicit-rating diagnostic (MAE / RMSE) - synthetic data
 
@@ -203,14 +203,14 @@ Dataset `synthetic-7a7d5d6a74`, explicit protocol (per-user random 80/10/10). Te
 
 ICF has neighbour support for 99.6% of test pairs; `icf_with_fallback` uses the user's train mean elsewhere and `icf_supported_only` restricts to supported pairs (not directly comparable with full-set rows).
 
-Training times: icf_fit_s=0.0s, mf_fit_s=0.1s, ncf_fit_s=1.7s
+Training times: icf_fit_s=0.0s, mf_fit_s=0.1s, ncf_fit_s=1.9s
 
 MAE/RMSE measure rating prediction, not ranking quality; the homepage experiment reports ranking metrics on the separate ranking protocol.
 
 - note: 0 test pairs dropped: user or item absent from explicit-train (cold pairs)
 - note: icf = exact formula; icf_served = served configuration (damping 5.0, user-mean prior weight 10.0)
 
-_Run `20261001-000314-synthetic-explicit-a001` · status completed · dataset `synthetic-7a7d5d6a74` · 2.0 s · commit 44c42cf · run dir `evaluation/runs/20261001-000314-synthetic-explicit-a001`_
+_Run `20261004-170418-synthetic-explicit-d950` · status completed · dataset `synthetic-7a7d5d6a74` · 2.1 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-170418-synthetic-explicit-d950`_
 
 ## GA ablation (validation users) - synthetic data
 
@@ -245,7 +245,7 @@ Exhaustive oracle on 12-candidate pools (K=5): 591 pools, mean fitness gap 2.299
 
 MMR is a separately named baseline, not the GA. The oracle proves optimality only within each pool.
 
-_Run `20261001-000316-synthetic-ga_ablation-b10f` · status completed · dataset `synthetic-7a7d5d6a74` · 160.4 s · commit 44c42cf · run dir `evaluation/runs/20261001-000316-synthetic-ga_ablation-b10f`_
+_Run `20261004-170420-synthetic-ga_ablation-1a3b` · status completed · dataset `synthetic-7a7d5d6a74` · 233.1 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-170420-synthetic-ga_ablation-1a3b`_
 
 ## Chat-to-find (algorithm 4) - synthetic data
 
@@ -253,9 +253,9 @@ All answers here were produced in the configured answer mode (local evidence tem
 
 > Synthetic generator queries validate the pipeline only.
 
-| set | queries | tsr | hits@5 | mrr@10 | compliant | fabricated_episode | intent_ok | latency_ms_p95 |
-|---|---|---|---|---|---|---|---|---|
-| labelled_synthetic_generator | 41 | 0.9512 | 0.9459 | 0.8401 | 1.0000 | 0.0000 | 1.0000 | 21.8993 |
+| set | queries | tsr | hits@5 | mrr@10 | scene@3 | false_scene_claim | compliant | fabricated_episode | intent_ok | latency_ms_p95 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| labelled_synthetic_generator | 41 | 0.9512 | 0.9459 | 0.8446 | – | – | 1.0000 | 0.0000 | 1.0000 | 26.6948 |
 
 ### Retrieval ablation (descriptive labelled queries, no constraints)
 
@@ -263,14 +263,14 @@ All answers here were produced in the configured answer mode (local evidence tem
 |---|---|---|---|
 | lexical | 16 | 0.7500 | 0.6319 |
 | dense | 16 | 1.0000 | 0.9375 |
-| hybrid | 16 | 0.9375 | 0.7552 |
+| hybrid | 16 | 0.9375 | 0.7708 |
 
 ### Plain LLM vs RAG: blocked_by_credentials
 
 No LLM configured: chat uses deterministic parsing and local evidence templates (local mode).
 
 
-_Run `20261001-035548-synthetic-chat-1e19` · status completed · dataset `synthetic-7a7d5d6a74` · 6.9 s · commit 44c42cf · run dir `evaluation/runs/20261001-035548-synthetic-chat-1e19`_
+_Run `20261004-171635-synthetic-chat-ca56` · status completed · dataset `synthetic-7a7d5d6a74` · 6.1 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-171635-synthetic-chat-ca56`_
 
 ## Viewing-plan optimisation - synthetic data
 
@@ -280,16 +280,16 @@ _Run `20261001-035548-synthetic-chat-1e19` · status completed · dataset `synth
 
 | request | method | fitness | feasible | utilization | titles | relevance | diversity | ms | n |
 |---|---|---|---|---|---|---|---|---|---|
-| b1500_t5_normal | ga | 0.8139 | 1.0000 | 0.9672 | 4.0667 | 0.8023 | 0.9207 | 171.9819 | 60 |
-| b1500_t5_normal | greedy | 0.6637 | 1.0000 | 0.1800 | 5.0000 | 0.8011 | 0.7803 | 0.2084 | 60 |
-| b300_t2_normal | ga | 0.7964 | 1.0000 | 0.8761 | 1.7833 | 0.8015 | 0.9124 | 104.6858 | 60 |
-| b300_t2_normal | greedy | 0.6554 | 1.0000 | 0.2106 | 2.0000 | 0.8004 | 0.8260 | 0.1725 | 60 |
-| b600_t3_normal | ga | 0.8171 | 1.0000 | 0.9414 | 2.3167 | 0.8003 | 0.9357 | 118.5519 | 60 |
-| b600_t3_normal | greedy | 0.6631 | 1.0000 | 0.2052 | 3.0000 | 0.8005 | 0.8013 | 0.1850 | 60 |
-| b900_t3_high | ga | 0.8407 | 1.0000 | 0.9202 | 2.3500 | 0.8030 | 0.9617 | 138.7344 | 60 |
-| b900_t3_high | greedy | 0.6752 | 1.0000 | 0.1368 | 3.0000 | 0.8005 | 0.8013 | 0.1825 | 60 |
-| b900_t5_low | ga | 0.8094 | 1.0000 | 0.9764 | 3.2833 | 0.8029 | 0.9194 | 152.0348 | 60 |
-| b900_t5_low | greedy | 0.6641 | 1.0000 | 0.2999 | 5.0000 | 0.8011 | 0.7803 | 0.2075 | 60 |
+| b1500_t5_normal | ga | 0.8139 | 1.0000 | 0.9672 | 4.0667 | 0.8023 | 0.9207 | 175.0089 | 60 |
+| b1500_t5_normal | greedy | 0.6637 | 1.0000 | 0.1800 | 5.0000 | 0.8011 | 0.7803 | 0.2106 | 60 |
+| b300_t2_normal | ga | 0.7964 | 1.0000 | 0.8761 | 1.7833 | 0.8015 | 0.9124 | 107.4853 | 60 |
+| b300_t2_normal | greedy | 0.6554 | 1.0000 | 0.2106 | 2.0000 | 0.8004 | 0.8260 | 0.1826 | 60 |
+| b600_t3_normal | ga | 0.8171 | 1.0000 | 0.9414 | 2.3167 | 0.8003 | 0.9357 | 152.2539 | 60 |
+| b600_t3_normal | greedy | 0.6631 | 1.0000 | 0.2052 | 3.0000 | 0.8005 | 0.8013 | 0.1876 | 60 |
+| b900_t3_high | ga | 0.8407 | 1.0000 | 0.9202 | 2.3500 | 0.8030 | 0.9617 | 140.1693 | 60 |
+| b900_t3_high | greedy | 0.6752 | 1.0000 | 0.1368 | 3.0000 | 0.8005 | 0.8013 | 0.1882 | 60 |
+| b900_t5_low | ga | 0.8094 | 1.0000 | 0.9764 | 3.2833 | 0.8029 | 0.9194 | 152.1767 | 60 |
+| b900_t5_low | greedy | 0.6641 | 1.0000 | 0.2999 | 5.0000 | 0.8011 | 0.7803 | 0.2105 | 60 |
 
 Infeasible plans returned: 0.
 
@@ -299,7 +299,7 @@ GA mean fitness by seed: {'b300_t2_normal': [0.7964, 0.79605, 0.79604], 'b600_t3
 
 Utilisation has a small weight in the objective on purpose: the plan should not be padded with low-relevance titles only to fill the budget.
 
-_Run `20261001-000600-synthetic-planner-bc6a` · status completed · dataset `synthetic-7a7d5d6a74` · 152.2 s · commit 44c42cf · run dir `evaluation/runs/20261001-000600-synthetic-planner-bc6a`_
+_Run `20261004-170842-synthetic-planner-8a3b` · status completed · dataset `synthetic-7a7d5d6a74` · 453.8 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-170842-synthetic-planner-8a3b`_
 
 ## System evaluation - synthetic data
 
@@ -307,17 +307,17 @@ In-process FastAPI (TestClient) on a copy of the activated database; single mach
 
 | endpoint | p50 | p95 | n |
 |---|---|---|---|
-| search | 2.2000 | 3.4000 | 30 |
-| detail | 3.4000 | 5.2000 | 30 |
-| similar_cold | 3.7000 | 6.1000 | 30 |
-| similar_warm | 2.6000 | 3.6000 | 30 |
-| home_cold | 46.3000 | 49.6000 | 30 |
-| home_warm | 3.5000 | 4.7000 | 30 |
-| collection_recs | 4.2000 | 5.7000 | 30 |
-| chat_local | 4.7000 | 19.5000 | 30 |
-| plan_preview | 162.4000 | 192.9000 | 30 |
+| search | 2.1000 | 3.5000 | 30 |
+| detail | 3.4000 | 6.2000 | 30 |
+| similar_cold | 3.9000 | 6.7000 | 30 |
+| similar_warm | 2.7000 | 3.6000 | 30 |
+| home_cold | 47.3000 | 50.5000 | 30 |
+| home_warm | 3.5000 | 4.2000 | 30 |
+| collection_recs | 4.8000 | 6.4000 | 30 |
+| chat_local | 4.9000 | 6.5000 | 30 |
+| plan_preview | 165.3000 | 211.8000 | 30 |
 
-Concurrency 5 (mixed reads): {'p50': 11.4, 'p95': 19.0, 'n': 60, 'errors': 0}
+Concurrency 5 (mixed reads): {'p50': 13.0, 'p95': 21.7, 'n': 60, 'errors': 0}
 
 ### Failure injection and robustness
 
@@ -338,7 +338,7 @@ Concurrency 5 (mixed reads): {'p50': 11.4, 'p95': 19.0, 'n': 60, 'errors': 0}
 
 LLM token cost is unknown / not applicable in local mode; nothing is reported as 0.
 
-_Run `20261001-000833-synthetic-system-1508` · status completed · dataset `synthetic-7a7d5d6a74` · 8.1 s · commit 44c42cf · run dir `evaluation/runs/20261001-000833-synthetic-system-1508`_
+_Run `20261004-171616-synthetic-system-37f2` · status completed · dataset `synthetic-7a7d5d6a74` · 8.5 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-171616-synthetic-system-37f2`_
 
 ## Screenshot pipeline check - synthetic data
 
@@ -347,5 +347,5 @@ _Run `20261001-000833-synthetic-system-1508` · status completed · dataset `syn
 - fixture Hits@1 1.0, Hits@5 1.0 (6 in-gallery fixture queries)
 - out-of-gallery query best similarity [0.2388]; no acceptance threshold is calibrated, so every result is presented as an unverified candidate.
 
-_Run `20261001-000841-synthetic-multimodal-f9d3` · status completed · dataset `synthetic-7a7d5d6a74` · 0.1 s · commit 44c42cf · run dir `evaluation/runs/20261001-000841-synthetic-multimodal-f9d3`_
+_Run `20261004-171624-synthetic-multimodal-1a8e` · status completed · dataset `synthetic-7a7d5d6a74` · 0.1 s · commit e9df5bf + uncommitted changes · run dir `evaluation/runs/20261004-171624-synthetic-multimodal-1a8e`_
 

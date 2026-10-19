@@ -1,0 +1,364 @@
+{
+  "dataset_mode": "real",
+  "dataset_version": "real-034ebd6a74",
+  "split": {
+    "protocol": "ranking",
+    "fingerprint": "68311d2b7d552b98"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.1",
+    "fastapi": "0.142.1",
+    "sqlalchemy": "2.1.1",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.1.0"
+  },
+  "updated_at": "2026-10-02T09:48:18Z",
+  "components": {
+    "icf": {
+      "status": "trained",
+      "engine_id": "icf_adjusted_cosine",
+      "params": {
+        "min_co_rated": 3,
+        "shrinkage": 10.0,
+        "top_n": 150,
+        "definition": "exact adjusted cosine over co-rated users",
+        "global_train_mean": 7.615476131439209
+      },
+      "nnz": 1785915,
+      "seconds": 85.3,
+      "avg_neighbours": 119.3,
+      "file": "models/icf.npz",
+      "sha256": "918ef7a718d0a1c85800559aeec3c2e21f7b410c01d3544c107db624b035590f"
+    },
+    "mf": {
+      "status": "trained",
+      "engine_id": "mf_biased_sgd",
+      "params": {
+        "latent_dim": 32,
+        "epochs_run": 11,
+        "batch_size": 65536,
+        "learning_rate": 0.005,
+        "reg": 0.04,
+        "seed": 20260930,
+        "optimizer": "minibatch lazy Adam",
+        "best_val_rmse": 1.167
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_rmse": 1.3933,
+          "val_rmse": 1.2553,
+          "elapsed_s": 15.6
+        },
+        {
+          "epoch": 2,
+          "train_rmse": 1.2193,
+          "val_rmse": 1.2129,
+          "elapsed_s": 30.4
+        },
+        {
+          "epoch": 3,
+          "train_rmse": 1.17,
+          "val_rmse": 1.192,
+          "elapsed_s": 45.4
+        },
+        {
+          "epoch": 4,
+          "train_rmse": 1.1327,
+          "val_rmse": 1.1792,
+          "elapsed_s": 60.2
+        },
+        {
+          "epoch": 5,
+          "train_rmse": 1.1026,
+          "val_rmse": 1.1722,
+          "elapsed_s": 75.8
+        },
+        {
+          "epoch": 6,
+          "train_rmse": 1.0789,
+          "val_rmse": 1.1687,
+          "elapsed_s": 93.6
+        },
+        {
+          "epoch": 7,
+          "train_rmse": 1.0608,
+          "val_rmse": 1.1673,
+          "elapsed_s": 109.5
+        },
+        {
+          "epoch": 8,
+          "train_rmse": 1.0472,
+          "val_rmse": 1.167,
+          "elapsed_s": 126.0
+        },
+        {
+          "epoch": 9,
+          "train_rmse": 1.0369,
+          "val_rmse": 1.167,
+          "elapsed_s": 142.0
+        },
+        {
+          "epoch": 10,
+          "train_rmse": 1.0288,
+          "val_rmse": 1.1675,
+          "elapsed_s": 157.6
+        },
+        {
+          "epoch": 11,
+          "train_rmse": 1.0225,
+          "val_rmse": 1.168,
+          "elapsed_s": 173.9
+        }
+      ],
+      "seconds": 175.9,
+      "early_stopping": "2% seeded slice of ranking-train",
+      "file": "models/mf.npz",
+      "sha256": "06574205cd56d84069ffff039632e7af1cb150c65a3cab63198d6be31244a468"
+    },
+    "ncf": {
+      "status": "trained",
+      "engine_id": "ncf_explicit",
+      "params": {
+        "embedding_dim": 32,
+        "mlp_layers": [
+          64,
+          32,
+          16
+        ],
+        "dropout": 0.2,
+        "weight_decay": 1e-05,
+        "learning_rate": 0.003,
+        "batch_size": 32768,
+        "loss": "huber",
+        "seed": 20260930,
+        "output": "1 + 9*sigmoid(logit)",
+        "epochs_run": 12,
+        "best_val_rmse": 1.2439
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.664,
+          "val_rmse": 1.2961,
+          "elapsed_s": 36.8
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5889,
+          "val_rmse": 1.2728,
+          "elapsed_s": 72.7
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.5743,
+          "val_rmse": 1.2643,
+          "elapsed_s": 107.8
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.5677,
+          "val_rmse": 1.2601,
+          "elapsed_s": 142.2
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.564,
+          "val_rmse": 1.255,
+          "elapsed_s": 180.5
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5609,
+          "val_rmse": 1.2556,
+          "elapsed_s": 212.6
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.559,
+          "val_rmse": 1.2508,
+          "elapsed_s": 243.4
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.5575,
+          "val_rmse": 1.2484,
+          "elapsed_s": 281.3
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.5564,
+          "val_rmse": 1.249,
+          "elapsed_s": 317.5
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.5555,
+          "val_rmse": 1.2472,
+          "elapsed_s": 354.2
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.5542,
+          "val_rmse": 1.2439,
+          "elapsed_s": 388.2
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.5535,
+          "val_rmse": 1.2438,
+          "elapsed_s": 421.9
+        }
+      ],
+      "seconds": 423.8,
+      "serving_note": "ID-only: application users are unsupported_new_user -> fallback",
+      "file": "models/ncf.pt",
+      "sha256": "7abeae067953cc7e3a5dc9594edd8853db3f95e735e67e14f78981ca3df69e8a"
+    },
+    "embeddings": {
+      "status": "trained",
+      "info": {
+        "provider": "bge",
+        "model": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "dim": 384,
+        "max_seq_length": 512,
+        "query_instruction": "Represent this sentence for searching relevant passages: "
+      },
+      "template": "attr_text_v1",
+      "items": 23357,
+      "missing_policy": "missing attributes omitted from the text",
+      "device": "mps",
+      "seconds": 21.6
+    },
+    "logistic": {
+      "scorer_id": "logistic_similarity",
+      "status": "trained",
+      "C": 0.1,
+      "selection": [
+        {
+          "C": 0.01,
+          "val_ndcg@5": 0.0374
+        },
+        {
+          "C": 0.1,
+          "val_ndcg@5": 0.0392
+        },
+        {
+          "C": 1.0,
+          "val_ndcg@5": 0.0384
+        },
+        {
+          "C": 10.0,
+          "val_ndcg@5": 0.0384
+        }
+      ],
+      "train_pairs": 1317,
+      "train_positive_pairs": 257,
+      "coefficients_standardised": {
+        "sim_genre": 0.9561,
+        "sim_theme": 0.4358,
+        "sim_demographic": 0.2475,
+        "sim_studio": 0.3449,
+        "sim_length": 0.5601,
+        "avail_genre": 0.0941,
+        "avail_theme": 0.0258,
+        "avail_demographic": -0.0666,
+        "avail_studio": 0.5675,
+        "avail_length": -0.1018,
+        "coverage": 0.1492
+      },
+      "negatives": "sampled_unlabelled",
+      "output": "decision_function (uncalibrated)",
+      "label_source": "mal_user_recommendations_weak",
+      "label_file": "data/evaluation/similarity_labels_mal.jsonl",
+      "queries": {
+        "train": 53,
+        "val": 102,
+        "test": 234
+      },
+      "split_rule": "pre-registered split in the label file",
+      "franchise_overlap": {
+        "val": {
+          "queries": 102,
+          "sharing_franchise_with_other_split": 17
+        },
+        "test": {
+          "queries": 234,
+          "sharing_franchise_with_other_split": 41
+        }
+      },
+      "file": "models/logistic_similarity.joblib",
+      "sha256": "526108aa013049fe97c91dff15455294799d8af7df422f81b018556b62d198d7"
+    },
+    "gbdt": {
+      "status": "limited_by_data",
+      "reason": "no collection events (data/evaluation/collection_events.jsonl)"
+    },
+    "two_tower": {
+      "status": "limited_by_data",
+      "reason": "no collection events (data/evaluation/collection_events.jsonl)"
+    }
+  },
+  "cf": {
+    "n_items": 14969,
+    "n_users": 268600,
+    "n_ratings": 23527642,
+    "dense_float32_gb_if_materialised": 16.08
+  },
+  "files": {
+    "catalog/aliases.parquet": "4df68845ed144d5e93c25c279ebb2a3c100679809394cbd3758894eacfb69c95",
+    "catalog/catalog.parquet": "ec6d79672954a2080f586eea76a6c40f5b71889d3cf0133c39d2d25b746f4db6",
+    "catalog/item_tags.parquet": "40041d740b0c349569cd3bd8f3d535cee19d21acf782b7b4c16a62c6f42094f3",
+    "embeddings/item_attr.npy": "448427e223d1a7723cf630ac5206084aca40705a0732261183e6fb660a7a57d4",
+    "embeddings/item_attr_mask.npy": "0bf815d19db82fa7d82fd7728b200889f07c4064df33ecf42fec353252bf2ade",
+    "models/cf_items.npy": "9f9bb66c1c2321669b88fb020843eef14a54aaeb8b20e95ad980fd98aaecc7ad",
+    "models/icf.npz": "918ef7a718d0a1c85800559aeec3c2e21f7b410c01d3544c107db624b035590f",
+    "models/logistic_similarity.joblib": "526108aa013049fe97c91dff15455294799d8af7df422f81b018556b62d198d7",
+    "models/mf.npz": "06574205cd56d84069ffff039632e7af1cb150c65a3cab63198d6be31244a468",
+    "models/ncf.pt": "7abeae067953cc7e3a5dc9594edd8853db3f95e735e67e14f78981ca3df69e8a",
+    "models/offline_users.npy": "0447c893a8b2343da52cd39f2b02e5634ae64a21328d196dc4f5a144bec553aa",
+    "models/similarity_query_groups.json": "2c0d963a2e3332ed99a66d90b143c79be46283be2cec734b093ebb282e32839e",
+    "stats/train_interactions.npy": "c327c137fb631c3de2e0a2710d8ced226cc69b540ab440b8658e13f53d99f3c2"
+  },
+  "train_seconds": 715.1,
+  "index": {
+    "documents": 64914,
+    "kinds": {
+      "attributes": 23363,
+      "synopsis": 19784,
+      "relations": 10936,
+      "characters": 10531,
+      "scene": 300
+    },
+    "dense": {
+      "provider": "bge",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "dim": 384,
+      "max_seq_length": 512,
+      "query_instruction": "Represent this sentence for searching relevant passages: ",
+      "doc_count": 64914,
+      "doc_ids_sha256": "80de749deab9b6cc27c68e9f24c4cecfb38c00f3348def00554a7b1ed8cd8ea3",
+      "encode_seconds": 218.6,
+      "device": "mps",
+      "created_at": "2026-10-02T10:04:07Z"
+    },
+    "images": {
+      "status": "limited_by_data",
+      "reason": "no frame-level images (covers are not screenshots)"
+    },
+    "built_at": "2026-10-02T10:04:07Z",
+    "seconds": 232.8,
+    "files": {
+      "index/dense_info.json": "88f7e10a9d1408eb879a3620cd04ae173ed7287c9bc0fd83327844cc0d988912",
+      "index/doc_vectors.npy": "061cb24b7681a9402cb17cda45e39c77bcc826cce27e77b679d0bf0856921f5e",
+      "index/documents.parquet": "e1e5e459ab208db5d2488944f7c0fa1b0eabb82658fe51e8a5ceae523b236171"
+    }
+  }
+}

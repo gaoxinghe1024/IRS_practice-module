@@ -202,6 +202,7 @@ def build_documents(catalog: pd.DataFrame, tags: pd.DataFrame, relations: pd.Dat
                 continue
             loc = {"scene_id": s["scene_id"], "episode": s.get("episode"), "timestamp_seconds": s.get("timestamp_seconds")}
             loc = {k: (None if (isinstance(v, float) and not np.isfinite(v)) else v) for k, v in loc.items()}
+            loc = {k: (int(v) if isinstance(v, float) else v) for k, v in loc.items()}   # episode 3, not 3.0
             docs.append(Doc(f"scene:{s['scene_id']}", s["item_key"], "scene", title_of[s["item_key"]], s["description"],
                             "scene_verified" if s.get("verification_status") == "verified" else "scene_unverified",
                             s["source_ref"], spoiler_level=s.get("spoiler_level") or "major",

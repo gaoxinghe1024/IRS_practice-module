@@ -24,7 +24,10 @@ the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a
 | Status | what data and features are available now | capability statuses |
 
 Relations, scene search and screenshot identification are built to data contracts and switch on when the data
-exists; otherwise the status page says `limited_by_data`. See [docs/delivery-status.md](docs/delivery-status.md).
+exists; otherwise the status page says `limited_by_data`. In real mode the team's curated data package supplies
+themes, demographics, characters and relations for about half of the catalogue and 300 sourced scenes for 100
+titles; there are still no frame images for screenshot identification. See
+[docs/delivery-status.md](docs/delivery-status.md).
 
 Algorithm 1 uses the route selected in the final report, section 7.1. On the published **1,000 synthetic targets**,
 A has coverage@5 (Recall@5) **30.26%**, binary hit_rate@5 **67.50%** and NDCG@5 **0.3288**, ahead of B/C/D.
@@ -62,7 +65,15 @@ make serve      # http://127.0.0.1:8000  (demo accounts: docs/user-guide.md)
 ## Real data
 
 1. Download Kaggle `dbdmobile/myanimelist-dataset` (ODbL) into `data/raw/mal_2023/`.
-2. Build and serve:
+2. Optional, recommended: import the team's curated data package (expected at `../Data`; it adds supplementary
+   layers only, never changes scores, genres, studios or episode counts) and the algorithm-1 benchmark's labels:
+
+```bash
+python -m pipelines.cli import-package
+python -m pipelines.cli import-similarity-labels
+```
+
+3. Build and serve:
 
 ```bash
 make validate-real preprocess-real split-real
@@ -140,5 +151,7 @@ algorithm4_benchmark/  standalone Algorithm 4 benchmark, chat to find anime: LLM
 ## Data and licences
 
 MyAnimeList 2023 snapshot: Kaggle `dbdmobile/myanimelist-dataset`, Open Database License (ODbL). Optional Jikan
-data comes from the unofficial Jikan API (MyAnimeList data) and is cached offline; serving never calls it. Cover
+data comes from the unofficial Jikan API (MyAnimeList data) and is cached offline; serving never calls it. The
+team data package's themes, characters and relations come from AniList, Jikan and other sources recorded per
+value, and each scene cites its sources (282 of the 300 cite Wikipedia episode lists or plot summaries). Cover
 images are loaded from MyAnimeList's CDN. The synthetic world is entirely fictional.

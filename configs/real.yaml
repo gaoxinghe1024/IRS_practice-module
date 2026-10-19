@@ -6,6 +6,8 @@ dataset:
 real:
   raw_dir: "data/raw/mal_2023"
   enriched_dir: "data/enriched"
+  # the team's curated data package (AnimeFinder system-dev release); only needed to run import-package
+  team_package_dir: "../Data"
   anime_file: "anime-dataset-2023.csv"
   scores_file: "users-score-2023.csv"
   details_file: "users-details-2023.csv"
@@ -19,16 +21,19 @@ pipeline:
   sample_users_fraction: null
 
 recommendation:
+  # similar: the final-report route A (algorithm1_a, configs/base.yaml) is served in both modes. The legacy
+  # logistic_similarity scorer (validation run 20261002-215313-real-similar-7127) stays selectable with
+  # `scorer=logistic_similarity`; set recommendation.similar.scorer here to serve it by default.
   collection:
     # algorithm 2: B1 was pre-selected on validation and confirmed on test by the pre-registered rule
     # (algorithm2_benchmark/results/real-main-01/decision.json); the service verifies the frozen bundle before use
     scorer: B1
     algorithm2_run: algorithm2_benchmark/results/real-main-01
   home:
-    content_popularity_weight: 0.9  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+    content_popularity_weight: 0.9  # validation-tuned, evaluation run 20261002-214030-real-homepage-81c0
   icf:
-    user_mean_prior_weight: 5.0  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
-    prediction_damping: 20.0  # validation-tuned, evaluation run 20261001-034040-real-homepage-99cd
+    user_mean_prior_weight: 5.0  # validation-tuned, evaluation run 20261002-214030-real-homepage-81c0
+    prediction_damping: 20.0  # validation-tuned, evaluation run 20261002-214030-real-homepage-81c0
   mf:
     batch_size: 65536
     epochs: 25

@@ -4,7 +4,8 @@ home feed, chat and the planner.
 Every rule has an id, a source and a relaxable flag. Hard rules are evaluated
 as vectorised masks over the catalogue snapshot; a missing value never counts
 as satisfying a hard filter (unknown score fails "score >= 8", unknown episode
-count fails "<= 12 episodes", unknown themes fail "no <theme>"). Relaxation
+count fails "<= 12 episodes", unknown start year fails "from 2010", unknown themes fail
+"no <theme>"). Relaxation
 options are *suggestions* returned next to an empty strict result; they are
 never applied without the user choosing them, and content / account exclusion
 / explicit negative-preference rules are never offered for relaxation.
@@ -29,8 +30,11 @@ RULES: dict[str, dict] = {
     "user.excluded_tag": {"relaxable": False, "label": "You excluded this tag"},
     "dedupe.excluded_items": {"relaxable": False, "label": "Already saved / rated / watched"},
     "filter.min_score": {"relaxable": True, "label": "Minimum score"},
+    "filter.max_score": {"relaxable": True, "label": "Maximum score"},
     "filter.max_episodes": {"relaxable": True, "label": "Maximum episodes"},
     "filter.min_episodes": {"relaxable": True, "label": "Minimum episodes"},
+    "filter.year_from": {"relaxable": True, "label": "Began airing in or after"},
+    "filter.year_to": {"relaxable": True, "label": "Began airing in or before"},
     "filter.types": {"relaxable": True, "label": "Type"},
     "filter.include_tags": {"relaxable": True, "label": "Required tags"},
     "filter.exclude_tags": {"relaxable": False, "label": "Excluded tags (your explicit request)"},
@@ -43,8 +47,11 @@ RULES: dict[str, dict] = {
 @dataclass
 class ConstraintSet:
     min_score: float | None = None
+    max_score: float | None = None
     max_episodes: int | None = None
     min_episodes: int | None = None
+    year_from: int | None = None                                        # first-aired year, inclusive
+    year_to: int | None = None
     types: list[str] | None = None
     statuses: list[str] | None = None
     include_tags: list[tuple[str, str]] = field(default_factory=list)   # (namespace, value), all required
@@ -73,8 +80,10 @@ class ConstraintSet:
             r.append("user.excluded_tag")
         if self.exclude_items:
             r.append("dedupe.excluded_items")
-        for rid, val in (("filter.min_score", self.min_score), ("filter.max_episodes", self.max_episodes),
-                         ("filter.min_episodes", self.min_episodes), ("filter.types", self.types),
+        for rid, val in (("filter.min_score", self.min_score), ("filter.max_score", self.max_score),
+                         ("filter.max_episodes", self.max_episodes),
+                         ("filter.min_episodes", self.min_episodes), ("filter.year_from", self.year_from),
+                         ("filter.year_to", self.year_to), ("filter.types", self.types),
                          ("filter.statuses", self.statuses), ("filter.include_tags", self.include_tags),
                          ("filter.exclude_tags", self.exclude_tags), ("filter.keywords", self.keywords),
                          ("filter.max_total_minutes", self.max_total_minutes)):
@@ -83,8 +92,8 @@ class ConstraintSet:
         return r
 
     def to_public(self) -> dict:
-        return {"min_score": self.min_score, "max_episodes": self.max_episodes, "min_episodes": self.min_episodes,
-                "types": self.types, "statuses": self.statuses,
+        return {"min_score": self.min_score, "max_score": self.max_score, "max_episodes": self.max_episodes,
+                "min_episodes": self.min_episodes, "year_from": self.year_from, "year_to": self.year_to, "types": self.types, "statuses": self.statuses,
                 "include_tags": [list(t) for t in self.include_tags],
                 "exclude_tags": [list(t) for t in self.exclude_tags], "keywords": self.keywords,
                 "max_total_minutes": self.max_total_minutes, "sources": self.sources}
@@ -147,6 +156,10 @@ class ConstraintEngine:
             self._genre_text = [norm(" | ".join(genre.tags_of(i))) if genre else "" for i in range(snap.n)]
         return self._kw_text
 
+    def tag_mask(self, ns: str, value: str) -> np.ndarray:
+        """Titles that carry the tag (any catalogue row, before content or pool rules)."""
+        return self._tag_mask(ns, value)[0]
+
     def _tag_mask(self, ns: str, value: str) -> tuple[np.ndarray, np.ndarray]:
         """(has_tag, namespace_known) masks."""
         tm = self.snap.tags.get(ns)
@@ -186,10 +199,16 @@ class ConstraintEngine:
             masks["dedupe.excluded_items"] = m
         if cs.min_score is not None:
             masks["filter.min_score"] = np.nan_to_num(snap.score, nan=-np.inf) >= cs.min_score
+        if cs.max_score is not None:
+            masks["filter.max_score"] = np.nan_to_num(snap.score, nan=np.inf) <= cs.max_score
         if cs.max_episodes is not None:
             masks["filter.max_episodes"] = np.nan_to_num(snap.episodes, nan=np.inf) <= cs.max_episodes
         if cs.min_episodes is not None:
             masks["filter.min_episodes"] = np.nan_to_num(snap.episodes, nan=-np.inf) >= cs.min_episodes
+        if cs.year_from is not None:
+            masks["filter.year_from"] = np.nan_to_num(snap.year, nan=-np.inf) >= cs.year_from
+        if cs.year_to is not None:
+            masks["filter.year_to"] = np.nan_to_num(snap.year, nan=np.inf) <= cs.year_to
         if cs.types:
             allowed = {t.casefold() for t in cs.types}
             masks["filter.types"] = np.array([(t or "").casefold() in allowed for t in snap.type])
@@ -266,6 +285,17 @@ class ConstraintEngine:
             if n_new:
                 options.append({"rule_id": "filter.min_episodes", "change": {"min_episodes": None},
                                 "candidate_count": n_new, "reason": "Removing the minimum episode count."})
+        if cs.max_score is not None:
+            n_new = int(others_mask("filter.max_score").sum())
+            if n_new:
+                options.append({"rule_id": "filter.max_score", "change": {"max_score": None}, "candidate_count": n_new,
+                                "reason": f"Removing the maximum score ({cs.max_score})."})
+        for rid, attr, word in (("filter.year_from", "year_from", "from"), ("filter.year_to", "year_to", "up to")):
+            if getattr(cs, attr) is not None:
+                n_new = int(others_mask(rid).sum())
+                if n_new:
+                    options.append({"rule_id": rid, "change": {attr: None}, "candidate_count": n_new,
+                                    "reason": f"Removing the start-year limit ({word} {getattr(cs, attr)})."})
         if cs.keywords:
             for kw in cs.keywords:
                 remaining = [x for x in cs.keywords if x != kw]
@@ -293,13 +323,12 @@ class ConstraintEngine:
                                 "candidate_count": n_new, "reason": "Allowing any airing status."})
         if not options:
             # no single change helps: offer clearing every adjustable filter (still the user's choice)
-            cleared = cs.copy(min_score=None, max_episodes=None, min_episodes=None, types=None, statuses=None,
-                              include_tags=[], keywords=[])
-            n_new = self.evaluate(cleared).count
+            change = {"min_score": None, "max_score": None, "max_episodes": None, "min_episodes": None,
+                      "year_from": None, "year_to": None, "types": None, "statuses": None, "include_tags": [],
+                      "keywords": []}
+            n_new = self.evaluate(cs.copy(**change)).count
             if n_new:
-                options.append({"rule_id": "filter.*", "change": {"min_score": None, "max_episodes": None,
-                                                                   "min_episodes": None, "types": None,
-                                                                   "include_tags": [], "keywords": []},
+                options.append({"rule_id": "filter.*", "change": change,
                                 "candidate_count": n_new,
                                 "reason": "No single change is enough; clearing the adjustable filters gives "
                                           f"{n_new} eligible titles (content rules and your exclusions stay)."})

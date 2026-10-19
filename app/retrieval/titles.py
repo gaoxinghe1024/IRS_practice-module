@@ -80,8 +80,10 @@ class TitleResolver:
         res = process.extract(n, self.choices, scorer=fuzz.WRatio, limit=limit * 4, score_cutoff=fuzzy_cutoff)
         rows = []
         for choice, score, idx in res:
-            # WRatio favours partial matches; require the lengths to be comparable
-            if len(choice) < 0.5 * len(n) or len(n) < 0.5 * len(choice):
+            # WRatio favours partial matches; require the lengths to be comparable (stricter for short strings:
+            # "quirks" is not a typo of "QUI")
+            ratio = 0.75 if min(len(choice), len(n)) <= 8 else 0.5
+            if len(choice) < ratio * len(n) or len(n) < ratio * len(choice):
                 continue
             rows.append((self.choice_rows[idx], score))
         out, seen = [], set()
@@ -115,9 +117,14 @@ class TitleResolver:
                     continue
                 span = text[words[i][1]:words[i + size - 1][2]]
                 n = norm_title(span)
-                # a single lowercase word ("a monster hunting show") is not a title mention
-                single_ok = size > 1 or (len(n) >= 5 and (span[:1].isupper() or not span.isascii()))
-                if n in self.exact and single_ok:
+                # a single lowercase word ("a monster hunting show") is not a title mention, nor is a short
+                # all-lowercase phrase ("a girl" is not the title "A-Girl")
+                marked = any(w[:1].isupper() or w[:1].isdigit() for w in span.split()) or not span.isascii()
+                if size == 1:
+                    ok = len(n) >= 5 and marked
+                else:
+                    ok = marked or len(n) >= 10
+                if n in self.exact and ok:
                     m = self._rank(self.exact[n], "alias", 100.0, span)[0]
                     found.append((m, (words[i][1], words[i + size - 1][2])))
                     used[i:i + size] = True

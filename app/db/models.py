@@ -1,8 +1,12 @@
 """Business database schema (SQLite via SQLAlchemy 2.x).
 
-Offline training data (the 24M Kaggle ratings, splits, matrices) is NOT stored
-here; it lives in data/processed and artifacts/. This database holds the served
-catalogue for the active dataset version plus everything application users do.
+Offline training data (the 24M Kaggle ratings, splits) and trained model weights
+are NOT stored here; they live in data/processed and artifacts/. This database
+holds everything the running system reads for the active dataset version: the
+full catalogue in catalogue-index order (unserved titles kept with
+in_catalog = 0), tags, aliases, knowledge documents, the attribute / document /
+frame embedding vectors and the algorithm-2 supplementary tags, plus everything
+application users do.
 """
 
 from __future__ import annotations
@@ -19,6 +23,7 @@ from sqlalchemy import (
     ForeignKey,
     Index,
     Integer,
+    LargeBinary,
     String,
     Text,
     UniqueConstraint,
@@ -103,6 +108,11 @@ class Anime(Base):
     is_recommendable: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_planner_eligible: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_explicit: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    exclusion_reasons: Mapped[list[Any] | None] = mapped_column(JSON, default=list)
+    # row index of the active version's catalogue (models and vectors are aligned to it); NULL for titles that
+    # are kept only because users reference them
+    catalog_position: Mapped[int | None] = mapped_column(Integer, index=True, unique=True)
+    train_interactions: Mapped[int | None] = mapped_column(Integer)  # train-split rating count (popularity prior)
 
     tags: Mapped[list[AnimeTag]] = relationship(back_populates="anime", cascade="all, delete-orphan")
 
@@ -217,6 +227,59 @@ class SceneImage(Base):
     timestamp_seconds: Mapped[int | None] = mapped_column(Integer)
     split: Mapped[str] = mapped_column(String(12), default="gallery")
     provenance: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+
+
+class SupplementTag(Base):
+    """Algorithm-2 supplementary theme / demographic values keyed by MAL id (list order kept)."""
+
+    __tablename__ = "supplement_tags"
+
+    mal_id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    namespace: Mapped[str] = mapped_column(String(16), primary_key=True)
+    position: Mapped[int] = mapped_column(Integer, primary_key=True)
+    value: Mapped[str] = mapped_column(String(120), nullable=False)
+
+
+# --------------------------------------------------------------------------- embedding vectors
+# One row per vector, stored as raw bytes in the dtype / dim recorded in vector_sets. The matrix the serving
+# state needs is rebuilt in catalogue order (anime.catalog_position) or by `position`.
+
+
+class VectorSet(Base):
+    __tablename__ = "vector_sets"
+
+    name: Mapped[str] = mapped_column(String(32), primary_key=True)  # item_attr | documents | images
+    dataset_version: Mapped[str] = mapped_column(String(64), nullable=False)
+    dim: Mapped[int] = mapped_column(Integer, nullable=False)
+    dtype: Mapped[str] = mapped_column(String(16), nullable=False)
+    count: Mapped[int] = mapped_column(Integer, nullable=False)
+    sha256: Mapped[str] = mapped_column(String(64), nullable=False)  # of the matrix bytes in load order
+    info: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+
+
+class AnimeEmbedding(Base):
+    __tablename__ = "anime_embeddings"
+
+    item_key: Mapped[str] = mapped_column(ForeignKey("anime.item_key", ondelete="CASCADE"), primary_key=True)
+    vector: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    has_vector: Mapped[bool] = mapped_column(Boolean, nullable=False)
+
+
+class DocumentEmbedding(Base):
+    __tablename__ = "document_embeddings"
+
+    doc_id: Mapped[str] = mapped_column(ForeignKey("knowledge_documents.doc_id", ondelete="CASCADE"),
+                                        primary_key=True)
+    position: Mapped[int] = mapped_column(Integer, unique=True, nullable=False)
+    vector: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+
+
+class SceneImageEmbedding(Base):
+    __tablename__ = "scene_image_embeddings"
+
+    image_id: Mapped[str] = mapped_column(ForeignKey("scene_images.image_id", ondelete="CASCADE"), primary_key=True)
+    position: Mapped[int] = mapped_column(Integer, unique=True, nullable=False)
+    vector: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
 
 
 # --------------------------------------------------------------------------- user data

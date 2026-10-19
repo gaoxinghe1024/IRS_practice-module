@@ -1,0 +1,88 @@
+{
+  "status": "completed",
+  "sets": {
+    "labelled_synthetic_generator": {
+      "queries": 41,
+      "tsr": {
+        "mean": 0.95122,
+        "ci95": [
+          0.87805,
+          1.0
+        ],
+        "n": 41
+      },
+      "hits@5": {
+        "mean": 0.94595,
+        "ci95": [
+          0.86486,
+          1.0
+        ],
+        "n": 37
+      },
+      "mrr@10": {
+        "mean": 0.84459,
+        "ci95": [
+          0.75676,
+          0.93243
+        ],
+        "n": 37
+      },
+      "compliant": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 41
+      },
+      "fabricated_episode": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 41
+      },
+      "intent_ok": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n": 41
+      },
+      "latency_ms_p50": 3.910625004209578,
+      "latency_ms_p95": 26.69483399949968
+    }
+  },
+  "retrieval_ablation": [
+    {
+      "corpus": "all",
+      "retrieval": "lexical",
+      "queries": 16,
+      "hits@1": 0.5,
+      "hits@5": 0.75,
+      "mrr@10": 0.6319444444444444
+    },
+    {
+      "corpus": "all",
+      "retrieval": "dense",
+      "queries": 16,
+      "hits@1": 0.875,
+      "hits@5": 1.0,
+      "mrr@10": 0.9375
+    },
+    {
+      "corpus": "all",
+      "retrieval": "hybrid",
+      "queries": 16,
+      "hits@1": 0.625,
+      "hits@5": 0.9375,
+      "mrr@10": 0.7708333333333333
+    }
+  ],
+  "plain_llm_vs_rag": {
+    "status": "blocked_by_credentials",
+    "detail": "No LLM configured: chat uses deterministic parsing and local evidence templates (local mode)."
+  }
+}

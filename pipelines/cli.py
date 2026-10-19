@@ -166,6 +166,26 @@ def cmd_migrate_legacy(args):
                        "apply": args.apply}
 
 
+def cmd_import_package(args):
+    from pipelines.package_import import import_package
+
+    s = load_settings("real")
+    package = args.package or s.real.get("team_package_dir")
+    if not package:
+        raise FileNotFoundError("no package path: pass --package or set real.team_package_dir")
+    with pipeline_run("import-package", s) as rec:
+        r = import_package(s, s._abs(str(package)), force=args.force)
+        rec.outputs = {"catalog_version": r["catalog_version"], **r["written"]}
+
+
+def cmd_import_similarity_labels(args):
+    from pipelines.package_import import import_similarity_labels
+
+    s = load_settings("real")
+    with pipeline_run("import-similarity-labels", s) as rec:
+        rec.outputs = import_similarity_labels(s, args.file)
+
+
 def cmd_evaluate(args):
     from evaluation.runner import run_experiments
 
@@ -229,6 +249,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--legacy-db", default="backend/anime.db")
     p.add_argument("--apply", action="store_true")
     p.add_argument("--include-seed-pattern", action="store_true")
+    p = add("import-package", cmd_import_package, mode=False,
+            help="convert the team's curated data package into supplementary inputs (real mode)")
+    p.add_argument("--package", default=None, help="package root (contains DATASET_INDEX.json)")
+    p.add_argument("--force", action="store_true", help="replace an existing data/evaluation/rag_queries.jsonl")
+    p = add("import-similarity-labels", cmd_import_similarity_labels, mode=False,
+            help="MAL-recommendation ground truth of the algorithm-1 benchmark -> weak similarity labels")
+    p.add_argument("--file", default="algorithm1_benchmark/data/mal_ground_truth.jsonl")
     p = add("evaluate", cmd_evaluate, help="run evaluation experiments")
     p.add_argument("--experiment", default="all",
                    help="comma list: similar,collection,homepage,ga_ablation,explicit,chat,planner,system or all")

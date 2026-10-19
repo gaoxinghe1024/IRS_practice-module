@@ -1,0 +1,2 @@
+set,queries,tsr,hits@5,mrr@10,scene@3,false_scene_claim,compliant,fabricated_episode,intent_ok,latency_ms_p95
+labelled_synthetic_generator,41,0.95122,0.94595,0.84459,,,1.0,0.0,1.0,26.69483399949968

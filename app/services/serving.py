@@ -1,7 +1,9 @@
 """The in-memory serving state for the active dataset version.
 
-Everything a request needs from offline artifacts (catalogue snapshot, models,
-vector indexes) is loaded together and verified against the activation record
+Everything a request needs is loaded together: the catalogue snapshot, tags,
+aliases, training counts, embedding vectors and the algorithm-2 supplement come
+from the business database (written by activation, vectors checked against
+their recorded checksums); only model weights are read from the artifact bundle
 (manifest checksum + per-file checksums). A request takes one reference to the
 current state and uses it throughout, so a concurrent activation can never make
 it mix a new index with an old ID mapping. When the database reports a newer
@@ -24,6 +26,7 @@ from sqlalchemy import func, select
 from app.core.config import PROJECT_ROOT, Settings
 from app.core.logging import get_logger, log_event
 from app.db import models as M
+from app.db import vectors
 from app.db.session import get_engine
 from app.recommendation.constraints import ConstraintEngine, build_engine
 from app.recommendation.features import CatalogSnapshot, build_snapshot
@@ -94,7 +97,63 @@ def read_active(engine) -> dict | None:
     return row[0] if row else None
 
 
-def load_state(settings: Settings) -> ServingState:
+CATALOG_COLUMNS = ("item_key", "title", "title_english", "score", "episodes", "duration_minutes", "total_minutes",
+                   "type", "status", "members", "aired_from", "cover_url", "in_catalog", "is_recommendable",
+                   "is_planner_eligible", "is_explicit", "train_interactions")
+
+
+def read_catalog(conn) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """The active catalogue in catalogue-index order, its tags and aliases (all titles, served or not)."""
+    cols = [getattr(M.Anime, c) for c in CATALOG_COLUMNS]
+    cat = pd.DataFrame(conn.execute(select(*cols).where(M.Anime.catalog_position.is_not(None))
+                                    .order_by(M.Anime.catalog_position)).all(), columns=list(CATALOG_COLUMNS))
+    positioned = select(M.Anime.item_key).where(M.Anime.catalog_position.is_not(None))
+    tags = pd.DataFrame(conn.execute(select(M.AnimeTag.item_key, M.Tag.namespace, M.Tag.value)
+                                     .join(M.Tag, M.Tag.id == M.AnimeTag.tag_id)
+                                     .where(M.AnimeTag.item_key.in_(positioned))).all(),
+                        columns=["item_key", "namespace", "value"])
+    aliases = pd.DataFrame(conn.execute(select(M.AnimeAlias.item_key, M.AnimeAlias.alias, M.AnimeAlias.kind)
+                                        .where(M.AnimeAlias.item_key.in_(positioned))
+                                        .order_by(M.AnimeAlias.id)).all(), columns=["item_key", "alias", "kind"])
+    return cat, tags, aliases
+
+
+def read_supplement(conn, cc: dict, active: dict) -> tuple[dict | None, dict | None]:
+    """(MAL id -> {namespace: values}, provenance) for algorithm 2, as stored by activation."""
+    info = active.get("supplement")
+    if not cc.get("supplement") or info is None:
+        return None, None
+    table: dict[int, dict[str, list[str]]] = {}
+    for mal_id, ns, value in conn.execute(select(M.SupplementTag.mal_id, M.SupplementTag.namespace,
+                                                 M.SupplementTag.value)
+                                          .order_by(M.SupplementTag.mal_id, M.SupplementTag.namespace,
+                                                    M.SupplementTag.position)):
+        table.setdefault(mal_id, {"theme": [], "demographic": []}).setdefault(ns, []).append(value)
+    if info.get("status") == "missing" or not table:
+        return None, info
+    return table, {**info, "source": "business database (supplement_tags)"}
+
+
+def load_state(settings: Settings, attempts: int = 3) -> ServingState:
+    """Build the state; rebuilt when an activation lands while it loads (the catalogue and vectors are read in
+    several queries, and only an unchanged activation record proves they all belong to one version)."""
+    engine = get_engine(settings.db_url)
+
+    def active_record():
+        try:
+            return read_active(engine)
+        except Exception:  # schema missing; _load_state reports it
+            return None
+
+    for _ in range(attempts):
+        before = active_record()
+        state = _load_state(settings)
+        if active_record() == before:
+            return state
+    return state
+
+
+def _load_state(settings: Settings) -> ServingState:
     from pipelines.common import sha256_file
 
     engine = get_engine(settings.db_url)
@@ -121,12 +180,17 @@ def load_state(settings: Settings) -> ServingState:
     rec = settings.recommendation
 
     # ---------------------------------------------------------------- catalogue snapshot
-    cat = pd.read_parquet(art / "catalog" / "catalog.parquet")
-    tags = pd.read_parquet(art / "catalog" / "item_tags.parquet")
-    aliases = pd.read_parquet(art / "catalog" / "aliases.parquet")
+    with engine.connect() as conn:
+        cat, tags, aliases = read_catalog(conn)
+        vector_meta = {name: vectors.read_set(conn, name) for name in ("item_attr", "documents", "images")}
+        supplement = read_supplement(conn, rec.get("collection", {}), active)
+    if not len(cat) or (active.get("counts", {}).get("catalog") not in (None, len(cat))):
+        state.set_cap("catalog", "artifact_mismatch", "The catalogue in the database does not match the activation "
+                      "record. Re-run activation for this dataset version.")
+        return state
     snap = build_snapshot(cat, tags, state.dataset_version, settings.mode)
-    counts_path = art / "stats" / "train_interactions.npy"
-    snap.with_train_interactions(np.load(counts_path) if _verify(art, manifest, "stats/train_interactions.npy") else None)
+    counts = cat["train_interactions"]
+    snap.with_train_interactions(counts.to_numpy(dtype=np.int64) if counts.notna().all() else None)
     state.snap = snap
     served = set(snap.keys[snap.in_catalog & ~snap.explicit].tolist())
     state.constraints = build_engine(snap, aliases)
@@ -185,20 +249,37 @@ def load_state(settings: Settings) -> ServingState:
         state.similarity["logistic_similarity"] = LogisticSimilarityScorer(
             joblib.load(art / "models" / "logistic_similarity.joblib"), base, lg)
     emb = manifest.get("components", {}).get("embeddings", {})
-    if emb.get("status") == "trained" and _verify(art, manifest, "embeddings/item_attr.npy"):
+    item_attr = None
+    if emb.get("status") == "trained" and vector_meta["item_attr"]:
+        try:
+            with engine.connect() as conn:
+                rows = conn.execute(select(M.AnimeEmbedding.vector, M.AnimeEmbedding.has_vector)
+                                    .join(M.Anime, M.Anime.item_key == M.AnimeEmbedding.item_key)
+                                    .where(M.Anime.catalog_position.is_not(None))
+                                    .order_by(M.Anime.catalog_position)).all()
+            item_attr = (vectors.assemble(vector_meta["item_attr"], [r[0] for r in rows], state.dataset_version),
+                         np.array([bool(r[1]) for r in rows], dtype=bool))
+            if len(item_attr[0]) != snap.n:
+                raise vectors.VectorSetMismatch("item_attr rows do not cover the catalogue")
+        except vectors.VectorSetMismatch as exc:
+            item_attr = None
+            log_event(log, "item_attr vectors refused", error=str(exc)[:200])
+    if item_attr is not None:
         from app.recommendation.similarity.embedding import EmbeddingSimilarityScorer, HybridSimilarityScorer
 
-        es = EmbeddingSimilarityScorer(np.load(art / "embeddings" / "item_attr.npy"),
-                                       np.load(art / "embeddings" / "item_attr_mask.npy"), base, emb.get("info", {}))
+        es = EmbeddingSimilarityScorer(item_attr[0], item_attr[1], base, vector_meta["item_attr"]["info"])
         state.similarity[es.scorer_id] = es
         state.similarity["tag_semantic_hybrid"] = HybridSimilarityScorer(es, base,
                                                                          float(sim_cfg.get("hybrid_tag_weight", 0.6)))
-    default_similar = sim_cfg.get("scorer", "algorithm1_a")
-    alternatives = ", ".join(k for k in state.similarity if k != default_similar) or "none"
-    detail = f"{default_similar} (default); alternatives: {alternatives}"
+    configured = sim_cfg.get("scorer", "algorithm1_a")
+    served = configured if configured in state.similarity else "algorithm1_a"
+    alternatives = ", ".join(k for k in state.similarity if k != served) or "none"
+    detail = f"{served} (default); alternatives: {alternatives}"
+    if served != configured:
+        detail += f". The configured default {configured} is unavailable for this version; algorithm1_a is served"
     if "logistic_similarity" not in state.similarity and lg.get("reason"):
         detail += f". logistic_similarity is {lg.get('status', 'unavailable')}: {lg['reason']}"
-    state.set_cap("similar", "ready", detail)
+    state.set_cap("similar", "ready" if served == configured else "degraded", detail, default=served)
 
     # ---------------------------------------------------------------- collection recommendations (algorithm 2)
     from app.recommendation.algorithm2.service import build_service
@@ -206,7 +287,7 @@ def load_state(settings: Settings) -> ServingState:
     cc = rec.get("collection", {})
     try:
         svc = build_service(snap, state.constraints, cc, PROJECT_ROOT,
-                            lambda m: log_event(log, "algorithm2 bundle", detail=m[:300]))
+                            lambda m: log_event(log, "algorithm2 bundle", detail=m[:300]), supplement=supplement)
         state.algorithm2 = svc
         state.set_cap("collection_scorer", "ready" if svc.status == "ready" else "degraded", svc.detail,
                       default=svc.default, catalog_hash=svc.cat.catalog_hash[:12])
@@ -222,11 +303,20 @@ def load_state(settings: Settings) -> ServingState:
 
     # ---------------------------------------------------------------- dense retrieval
     idx_dir = art / "index"
-    info_path = idx_dir / "dense_info.json"
-    if info_path.exists() and _verify(art, manifest, "index/doc_vectors.npy"):
-        info = json.loads(info_path.read_text())
-        docs = pd.read_parquet(idx_dir / "documents.parquet", columns=["doc_id", "item_key", "kind"])
-        encoder, reason = None, ""
+    doc_vectors, reason = None, ""
+    if vector_meta["documents"]:
+        try:
+            with engine.connect() as conn:
+                docs = conn.execute(select(M.DocumentEmbedding.vector, M.KnowledgeDocument.doc_id,
+                                           M.KnowledgeDocument.item_key, M.KnowledgeDocument.kind)
+                                    .join(M.KnowledgeDocument, M.KnowledgeDocument.doc_id == M.DocumentEmbedding.doc_id)
+                                    .order_by(M.DocumentEmbedding.position)).all()
+            doc_vectors = vectors.assemble(vector_meta["documents"], [r[0] for r in docs], state.dataset_version)
+        except vectors.VectorSetMismatch as exc:
+            reason = str(exc)[:200]
+    if doc_vectors is not None:
+        info = vector_meta["documents"]["info"]
+        encoder = None
         try:
             if info.get("provider") == "bge":
                 from app.retrieval.embeddings import BGEEncoder
@@ -241,24 +331,39 @@ def load_state(settings: Settings) -> ServingState:
         if encoder is not None:
             from app.retrieval.dense import DenseIndex
 
-            state.dense = DenseIndex(np.load(idx_dir / "doc_vectors.npy"), docs.doc_id.tolist(),
-                                     docs.item_key.tolist(), docs.kind.tolist(), encoder, info)
+            state.dense = DenseIndex(doc_vectors, [r[1] for r in docs], [r[2] for r in docs], [r[3] for r in docs],
+                                     encoder, info)
             state.set_cap("retrieval_dense", "ready", f"{info.get('provider')} {info.get('model')} dim={info.get('dim')}")
         else:
             state.set_cap("retrieval_dense", "degraded", "query encoder unavailable; lexical retrieval only. " + reason)
+    elif reason:
+        state.set_cap("retrieval_dense", "artifact_mismatch", f"document vectors refused ({reason}); lexical "
+                      "retrieval only")
     else:
         state.set_cap("retrieval_dense", "not_configured", "no dense vectors for this version; lexical retrieval only")
     state.set_cap("retrieval_lexical", "ready", "SQLite FTS5 / BM25")
 
     # ---------------------------------------------------------------- images, relations, scenes, llm
     img = manifest.get("index", {}).get("images", {})
-    if img.get("status") == "built" and _verify(art, manifest, "index/image_vectors.npy"):
+    gallery = None
+    if img.get("status") == "built" and vector_meta["images"]:
+        cols = (M.SceneImage.image_id, M.SceneImage.scene_id, M.SceneImage.item_key, M.SceneImage.path,
+                M.SceneImage.sha256, M.SceneImage.episode, M.SceneImage.timestamp_seconds, M.SceneImage.split,
+                M.SceneImage.provenance)
+        with engine.connect() as conn:
+            rows = conn.execute(select(M.SceneImageEmbedding.vector, *cols)
+                                .join(M.SceneImage, M.SceneImage.image_id == M.SceneImageEmbedding.image_id)
+                                .order_by(M.SceneImageEmbedding.position)).all()
+        try:
+            gallery = (vectors.assemble(vector_meta["images"], [r[0] for r in rows], state.dataset_version),
+                       [dict(zip([c.key for c in cols], r[1:], strict=True)) for r in rows])
+        except vectors.VectorSetMismatch as exc:
+            log_event(log, "image vectors refused", error=str(exc)[:200])
+    if gallery is not None:
         from app.multimodal.image import ImageGallery, get_image_encoder
 
-        meta = pd.read_parquet(idx_dir / "image_meta.parquet").to_dict("records")
-        state.images = ImageGallery(np.load(idx_dir / "image_vectors.npy"), meta,
-                                    get_image_encoder(settings.images), img.get("source", "unknown"),
-                                    settings.images.get("accept_threshold"))
+        state.images = ImageGallery(gallery[0], gallery[1], get_image_encoder(settings.images),
+                                    img.get("source", "unknown"), settings.images.get("accept_threshold"))
         if img.get("source") == "synthetic_fixture":
             state.set_cap("screenshot", "degraded", "Synthetic fixture frames only: validates the upload -> "
                           "retrieval pipeline, not real screenshot recognition.", frames=img.get("frames"))
@@ -271,6 +376,7 @@ def load_state(settings: Settings) -> ServingState:
         n_rel = conn.execute(select(func.count()).select_from(M.Relation).where(M.Relation.to_item.is_not(None))).scalar()
         n_from = conn.execute(select(func.count(func.distinct(M.Relation.from_item)))).scalar()
         n_scene = conn.execute(select(func.count()).select_from(M.Scene)).scalar()
+        n_scene_titles = conn.execute(select(func.count(func.distinct(M.Scene.item_key)))).scalar()
     n_served = int(snap.in_catalog.sum()) if snap is not None else 0
     if not n_rel:
         state.set_cap("relations", "limited_by_data",
@@ -284,9 +390,16 @@ def load_state(settings: Settings) -> ServingState:
                       titles_with_relation_data=n_from, served_titles=n_served)
     else:
         state.set_cap("relations", "ready", f"{n_rel} confirmed title-to-title relations from {n_from} titles")
-    if n_scene:
-        state.set_cap("scenes", "degraded" if settings.mode == "synthetic" else "ready",
-                      f"{n_scene} scene records" + (" (fictional synthetic scenes)" if settings.mode == "synthetic" else ""))
+    if n_scene and settings.mode == "synthetic":
+        state.set_cap("scenes", "degraded", f"{n_scene} scene records (fictional synthetic scenes)")
+    elif n_scene and n_served and n_scene_titles / n_served < 0.5:
+        # partial coverage: a scene question about another title is answered at the plot level, never with an episode
+        state.set_cap("scenes", "degraded",
+                      f"{n_scene} scene records for {n_scene_titles} of {n_served} titles; other titles have no scene "
+                      "data, so a scene question about them is matched at the plot level without an episode number.",
+                      titles_with_scenes=n_scene_titles, served_titles=n_served)
+    elif n_scene:
+        state.set_cap("scenes", "ready", f"{n_scene} scene records for {n_scene_titles} titles")
     else:
         state.set_cap("scenes", "limited_by_data", "No scene corpus: only synopsis-level plot matching is possible; "
                       "episode numbers are never guessed.")

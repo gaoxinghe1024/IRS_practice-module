@@ -1,0 +1,464 @@
+{
+  "imported_at": "2026-10-02T09:46:00Z",
+  "package_dir": "../Data",
+  "catalog_version": "20260918_A_final_v1_4a2e38e69be5",
+  "package_index": {
+    "schema_version": "animefinder-system-handoff-v1",
+    "catalog_status": "final",
+    "counts": {
+      "input": 24325191,
+      "excluded:explicit_content": 361269,
+      "users_held_out": 193009,
+      "train": 19387811,
+      "test": 2283673,
+      "validation": 2283673,
+      "ranking_users_with_relevant_test": 181247,
+      "ranking_users_without_relevant_test": 11762,
+      "users_not_held_out": 75590,
+      "excluded:score_unavailable": 8223,
+      "excluded:identity_unresolved": 542,
+      "runtime": 23955157,
+      "users": 268599,
+      "catalog": 14202,
+      "canonical_users": 737254,
+      "watchplan": 14086
+    },
+    "rag": {
+      "anime_documents": 14215,
+      "scene_documents": 300,
+      "queries": 100,
+      "runtime_anime": 14202,
+      "withheld_fields": 0
+    },
+    "knowledge": {
+      "anime_features": 14202,
+      "entities": 47133,
+      "relations": 66721,
+      "outside_runtime": 984,
+      "entity_types": {
+        "Anime": 14202,
+        "Studio": 11891,
+        "Character": 19590,
+        "Franchise": 1450
+      },
+      "provider_namespaces": {
+        "mal_or_derived": 15765,
+        "anilist": 19781,
+        "raw": 11587
+      }
+    }
+  },
+  "files_read": {
+    "DATASET_INDEX.json": "f0904efb518efcd6079b6ffa9f198909d25361e62b4b43516773db432cdee5b7",
+    "data/canonical/anime_all.jsonl": "c6a317b6155898c8ad537b600295b60cd073cbf0b52ec6b6fd21c5e637b4c16d",
+    "data/rag/scenes_verified.jsonl": "4956036de6c523f0c9d12bdce27592ee5e68a9f329d9c436b6bbfd5c6546778d",
+    "data/rag/evaluation_queries.jsonl": "d327b8ff4a9b29fad71850b182f6ce280d7c19996d485246505be5e4766f0231"
+  },
+  "files_not_read": [
+    "data/canonical/users.csv.gz (usernames, gender: never imported)",
+    "data/canonical/ratings_runtime.csv.gz and data/cf/* (ratings come from the raw Kaggle files)",
+    "data/knowledge/*, data/ga/*, data/rag/*_documents.jsonl (rebuilt by this system's pipelines)"
+  ],
+  "written": {
+    "data/enriched/tags.jsonl": 30737,
+    "data/enriched/synopses.jsonl": 843,
+    "data/enriched/relations.jsonl": 20121,
+    "data/enriched/characters.jsonl": 40248,
+    "data/enriched/scenes.jsonl": 300,
+    "data/evaluation/rag_queries.jsonl": 100
+  },
+  "catalog_records": {
+    "records": 25019,
+    "skipped_identity_unresolved": 114
+  },
+  "titles_with": {
+    "themes": 14242,
+    "demographics": 10395,
+    "characters": 11494,
+    "relations": 11334,
+    "synopses": 843
+  },
+  "query_categories": {
+    "scene": 40,
+    "semantic": 30,
+    "constraint": 20,
+    "unanswerable": 10
+  },
+  "policies": {
+    "core_fields": "genres, studios, episodes, durations and scores are not imported (2023 snapshot stays the single source; the frozen algorithm-2 model is bound to them)",
+    "demographics": "one value per title: the alphabetically first (rule of the algorithm-1 projection used to train the frozen algorithm-2 model)",
+    "scenes": "verification status as delivered; checker and method recorded in source_ref; spoiler_level defaults to major",
+    "evaluation_queries": "label_source team_package_20260918_A_final_v1_4a2e38e69be5; never indexed"
+  },
+  "demographics_reduced": [
+    {
+      "mal_id": 501,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 727,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 971,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 1839,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2119,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2285,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2407,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2629,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2630,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2653,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2655,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2657,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2662,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2665,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2666,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2668,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2670,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2789,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 2948,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 3155,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 3641,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 4667,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 5276,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 5844,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 6586,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 7045,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 8145,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 8894,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 9785,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 10199,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 12243,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 14095,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 15795,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 15925,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 16702,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 17603,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 17605,
+      "package": [
+        "Kids",
+        "Shoujo"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 22977,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 23301,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 31201,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 32582,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 36553,
+      "package": [
+        "Shoujo",
+        "Shounen"
+      ],
+      "kept": "Shoujo"
+    },
+    {
+      "mal_id": 37112,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 39362,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 40200,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    },
+    {
+      "mal_id": 54939,
+      "package": [
+        "Kids",
+        "Shounen"
+      ],
+      "kept": "Kids"
+    }
+  ],
+  "seconds": 1.7
+}

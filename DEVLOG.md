@@ -343,3 +343,62 @@
 - 只在 Windows 11 + Python 3.10 上测过。
 - `algorithm4_benchmark/` 下的 `.md` 全部为英文（包内测试限制）。
 - `data/kb/anime.db` 只保留 `anime` 与 `scenes` 两张表，行内容不变。
+
+## [2026-10-04] 接入团队数据包（补充层）+ 聊天年份 / 工作室 / 场景能力 + 相似作品默认改为 B（分支 yyc-data-package）
+
+**状态：** 真实数据新版本 `real-034ebd6a74` 已激活；算法② 冻结模型 `real-main-01`（默认 B1）在新版本上校验通过，目录哈希不变（`24c83192…`）。全部评估在本地模式下运行（`ANILOGIC_LLM__PROVIDER=none`），没有调用付费模型接口；未推送远程。
+
+**变更内容：**
+
+1. **数据包导入** `pipelines/package_import.py`（新）与命令 `python -m pipelines.cli import-package`、`import-similarity-labels`：只读取 `DATASET_INDEX.json`、`data/canonical/anime_all.jsonl`、`data/rag/scenes_verified.jsonl`、`data/rag/evaluation_queries.jsonl`，**从不读取含用户名和性别的 `users.csv.gz`**（有单元测试检查）。写出 `data/enriched/{tags,synopses,relations,characters,scenes}.jsonl`、`data/evaluation/rag_queries.jsonl`（`label_source = team_package_<版本>`）和导入报告 `data/enriched/team_package_import.json`（版本、文件哈希、数量、规则）。类型、工作室、集数、时长、评分**不导入**，仍以 2023 快照为准；受众每部作品只保留字母序第一个（与算法① 投影规则一致），因此算法② 的目录哈希保持不变。只有 MAL 身份已确认的记录被使用。
+2. **预处理**（`REAL_PREPROCESS_VERSION = 3`）：合并 `tags.jsonl` / `synopses.jsonl` 并逐值记录来源；可推荐规则改为"有评分，且有类型或主题"（12,429 → 13,798 部）；`missing_fields` 增加 themes。数据契约新增 tags / synopses / similarity_labels_mal；`rag_queries` 的 intent 允许为空，`expected_outcome` 做枚举校验。
+3. **数据结果**：主题覆盖 14,242 部、受众 10,395 部、角色表 11,494 部、关系 19,478 条（10,883 部作品，之前 33 部）、简介缺失率 18.2 % → 14.8 %、场景 300 条（100 部作品）；知识库文档 42,515 → 64,914。
+4. **算法①**：389 条 MAL 用户推荐弱标签（保留基准预先登记的 train / validation / test 划分，并报告跨划分共享系列的查询数）。替换规则首次能做出判断：验证集上 B（逻辑回归）与 C（BGE 属性向量）都通过且两者打平（C − B +1.0 [−6.9, +8.8]），**真实模式默认改为 B**（`configs/real.yaml` 的 `recommendation.similar.scorer`），因为 B 用的就是 A 的可解释特征，推荐理由不变；聊天里的"类似 X"也改用同一评分器。状态页显示实际默认值，配置的评分器不可用时降级并回退到 A。
+5. **约束引擎与聊天解析**：新增开播年份 `year_from` / `year_to`（年份未知不满足条件）与评分上限 `max_score`；解析器支持年份（英文、中文、年代、范围；剧情中的年代、年龄、计数不当作年份）、两位数评分和句末句号、"no more than"、"TV anime"、工作室（强提示后找不到的工作室会如实说明）、数据中没有的信息（视频时间码、评分日期、版权费、播放平台、票房、"收藏夹"）以及"哪部动画有<剧情>"的识别类问题；"I would like" 不再当作"like X"，短的小写词组和类型词不再当作作品名，剧情问题里引号中的昵称不再当作作品名。没有结果时说明是哪个条件排除了全部作品，并给出目录的实际范围。
+6. **场景检索**：场景记录与简介在同一个全局排名中比较，只有排第一的作品由一条在两个检索通道中都排进全局前 3 的场景记录支撑时，才回答"verified scene record"；否则交替列出剧情层面的匹配和最接近的场景记录，并说明不确定；点名作品时也按全局排名判断。修正：集数显示为整数（之前是"episode 1.0"）、电影不再说"第 1 集"、证据按检索排名排序。
+7. **关系与观看计划**：前传只在不晚于本作开播时才算"需先看"（按播出顺序）；较晚推出的前传（如《咒术回战 0》《游戏人生 Zero》）单独列出。热门 500 部中有 28 部受此影响。问续作时先列直接续作；没有记录时明确说"没有记录到直接续作（不代表没有）"。详情页显示"较晚推出的前传"。
+8. **发现页与搜索接口**：增加开播年份筛选；聊天的放宽按钮支持"any year"。
+9. **评估**：聊天实验按行内 `label_source` 命名标注集并按类别拆分；按期望结果计算任务成功（matches / no_match / insufficient_information）；新增场景归因 scene@1 / scene@3、场景语料消融，以及两组自动场景题（场景库外的作品、点名作品但描述不符）；续作题改为随机抽样且任一直接续作都算对；检测"编造集数"前先去掉本身含"Episode N"的作品名。运行记录新增 `git_dirty` 字段。
+
+**结果（真实数据，本地模式）：**
+- 团队 100 道题：场景 40/40（全部引用到对应场景记录）、语义 30/30、约束 20/20、无法回答 10/10。场景题只考"在 300 条场景里找对那一条"；场景库外的 60 道剧情题任务成功 0.97，**没有一次**把别的作品说成"已验证场景"（修改场景规则之前是 13/60）；点名作品但描述不符的 40 题没有一次声称场景。只用简介时场景题前 5 命中 0.43。
+- 相似作品（验证集 102 条）：A 0.049、B 0.167、C 0.176；测试集（只报告）A 0.081、B 0.197、C 0.162，B − A +11.5 [+7.3, +16.2]。
+- 首页：ICF Hits@10 0.062，热度基线 0.137（与之前一致）；GA 相对贪心 −1.5 个百分点（之前 −0.9），原因是主题变全后"新鲜度"项有了更多信号；验证集消融中新颖度项和新鲜度项各占约三分之一个百分点，MMR(0.7) 准确率 0.040 且多样性更高。调参在新版本上复核后取值不变（20 / 5 / 0.9）。
+- 观看计划 0 个不可行，GA 在小池上 98.7 % 达到精确最优；系统故障注入全部正确回退。
+
+**涉及文件：** `pipelines/package_import.py`（新）、`pipelines/cli.py`、`pipelines/real_ingest.py`、`pipelines/validate_data.py`、`pipelines/fit.py`、`app/chat/intent.py`、`app/chat/conversation.py`、`app/services/chat.py`、`app/services/catalog.py`、`app/services/plans.py`、`app/services/serving.py`、`app/recommendation/constraints.py`、`app/recommendation/similarity/logistic.py`、`app/graph/relations.py`、`app/retrieval/{evidence,documents,titles}.py`、`app/api/v1/anime.py`、`app/web/`（发现页、聊天页、详情页、i18n）、`evaluation/experiments/chat.py`、`evaluation/common.py`、`evaluation/reports.py`、`configs/real.yaml`、`tests/`（新增 `test_package_import.py`、`test_chat_years_studios.py` 等）、`docs/`、`README.md`、`data/enriched/`、`data/evaluation/`、新版本数据与模型、`var/real/anilogic.sqlite3`、`evaluation/runs/`。
+
+**原因：** 按上一轮给出的推荐方案，接入团队在原始数据基础上整理的数据包（补充主题、受众、关系、角色、简介和带来源的场景，并提供评估题），同时保持现有架构、数据契约和评估协议；新数据暴露出的问题（场景误认、晚出前传被当作"需先看"、相似作品 A 的稀疏元数据偏差）一并修正。
+
+**验证方式：** 单元 + 集成 + 真实数据 + 浏览器旅程测试全部通过（数量见 `docs/test-report.md`），`ruff` 无告警；真实数据 9 个实验与合成数据全部实验已重跑，结果见 `docs/evaluation-results-{real,synthetic}.md` 与 `docs/delivery-status.md`。
+
+**注意事项：**
+- 场景由 AI 代理按引用来源核对（核对人、日期和方法记录在每条 `source_ref` 中），不是人工核对，建议人工抽查。
+- 团队的语义 / 约束题把所有满足筛选条件的作品都算作相关，这两类的 Hits@5 主要衡量约束处理，不是人工相关性判断。
+- 项目根目录的 `.env` 配置了 LLM，本地网站的聊天会调用它；本次所有评估都在本地模式下运行，没有产生费用。
+- 本次评估运行时代码尚未提交，运行记录中的 `git_commit` 是 `e9df5bf`；对应代码见本条记录所在的提交。之后的运行会在 `git_dirty` 字段中注明。
+- 回退：把 `configs/real.yaml` 的 `recommendation.similar.scorer` 改为 `weighted_attributes` 即恢复 A；`python -m pipelines.cli activate --mode real --version real-89bfdea00b` 可回到导入前的数据版本（该版本目录保留在本地）。
+
+## [2026-10-19] 系统运行数据统一放进 SQLite（训练数据与模型权重除外）（分支 yyc-sqlite-serving-data）
+
+**状态：** 本地 real（`real-034ebd6a74`）与 synthetic（`synthetic-7a7d5d6a74`）数据库已按新结构重新激活；未提交、未推送。
+
+**变更内容：**
+
+1. **迁移 `0003`**：`anime` 增加 `catalog_position`（目录序号，即模型使用的行号；唯一索引）、`train_interactions`（训练集评分数）、`exclusion_reasons`；新表 `anime_embeddings`、`document_embeddings`、`scene_image_embeddings`（每行一个向量，float32 原始字节）、`vector_sets`（维度、类型、数量、来源信息与整块矩阵的 SHA-256）、`supplement_tags`（算法② 的主题 / 受众补充表）。迁移只用 `ALTER TABLE ADD COLUMN`，不重建 `anime`（它是用户数据的外键父表）。
+2. **激活** `pipelines/activate.py`：写入**整个目录**（未上架的露骨作品以 `in_catalog = 0` 保存，用于模型行号对齐，接口仍只返回可服务作品）及其标签、别名、训练计数；属性向量、文档向量、截图向量；real 模式下的 `algorithm1_benchmark/data/catalog.jsonl.gz` 补充表（来源路径与 SHA-256 记在激活记录里）。仍在同一个事务里完成。
+3. **服务** `app/services/serving.py`：目录快照、标签矩阵、别名、训练计数、三组向量和算法② 补充表全部从数据库读取，向量按版本、行数和 SHA-256 校验，不一致时该能力报 `artifact_mismatch`；只有模型权重（`models/`、LSA 编码器）仍从 artifact 文件读取并按 manifest 校验。`build_service` 增加 `supplement` 参数，离线实验仍读文件。
+4. **测试**：新增数据库读取与 artifact 文件逐项一致、移走目录 / 向量文件后服务仍正常、篡改数据库向量被拒绝三项检查。
+
+**结果：** real 模式快照（键顺序、数值、四个标志、五个标签矩阵、封面、英文名）、训练计数、属性向量、文档向量与 artifact 文件完全一致；算法② 冻结模型 `real-main-01` 校验通过（目录哈希不变，默认 B1）。real 数据库 164 MB → 362 MB。
+
+**涉及文件：** `migrations/versions/0003_serving_data_in_db.py`（新）、`app/db/models.py`、`app/db/vectors.py`（新）、`pipelines/activate.py`、`app/services/serving.py`、`app/recommendation/algorithm2/service.py`、`tests/integration/test_pipeline_integrity.py`、`docs/architecture.md`、`docs/operations.md`、`var/{real,synthetic}/anilogic.sqlite3`。
+
+**原因：** 按用户要求，除训练数据和模型权重外，系统运行需要的数据（RAG 文档与向量、相似度向量、目录与标签、算法② 补充表）都放在数据库里，并去掉 parquet 与数据库之间的重复。
+
+**验证方式：** `pytest tests/unit tests/integration` 179 项通过；`pytest -m "real or ml"` 通过；`make lint` 无告警；real 模式 `load_state` 各能力状态与改动前一致。
+
+**注意事项：**
+- 旧结构的数据库（迁移 `0003` 之前激活的）需要重新执行一次 `python -m pipelines.cli activate --mode <mode>`，否则状态页显示 `artifact_mismatch`。
+- 本分支合并了 `origin/main`（截至 `51c55db`）：相似作品按 main 的决定在两种模式下都默认使用期末报告路线 A（`algorithm1_a`），去掉了 2026-10-04 条目里 `configs/real.yaml` 改为 B 的设置（B 仍可通过 `scorer=logistic_similarity` 选用）；配置的评分器不可用时，状态页与聊天都退回 `algorithm1_a`。
+- artifact 中的 `catalog/`、`embeddings/`、`index/`、`stats/` 文件仍保留：它们是激活的输入，离线评估和 `algorithm2_benchmark` 也直接读取它们。

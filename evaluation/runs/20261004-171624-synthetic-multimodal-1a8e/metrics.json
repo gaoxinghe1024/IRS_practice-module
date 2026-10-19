@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "capability": {
+    "name": "screenshot",
+    "status": "degraded",
+    "detail": "Synthetic fixture frames only: validates the upload -> retrieval pipeline, not real screenshot recognition.",
+    "data": {
+      "frames": 12
+    }
+  },
+  "label_source": "synthetic_fixture",
+  "in_gallery_queries": 6,
+  "fixture_hits@1": 1.0,
+  "fixture_hits@5": 1.0,
+  "in_gallery_best_similarity_mean": 0.8832833333333334,
+  "out_of_gallery_best_similarity": [
+    0.2388
+  ],
+  "threshold_calibrated": false
+}

@@ -47,16 +47,36 @@ class LogisticSimilarityScorer:
 
 def group_queries(label_rows: list[dict], components: dict[str, str], seed: int,
                   fractions=(0.6, 0.2, 0.2)) -> dict[str, str]:
-    """Assign each query item to train/val/test by its franchise component."""
+    """Assign each query item to train/val/test by its franchise component.
+
+    When every row carries a pre-registered `split` (train / val / test), that split is kept as given, so a
+    benchmark's frozen test set stays its test set; franchise overlap across splits is then only audited
+    (see `split_franchise_overlap`).
+    """
     from app.recommendation.collection.cases import hash_str
     from pipelines.processed_io import mix_hash
 
+    if label_rows and all(row.get("split") in ("train", "val", "test") for row in label_rows):
+        return {row["query_item"]: row["split"] for row in label_rows}
     out = {}
     for row in label_rows:
         q = row["query_item"]
         comp = components.get(q, q)
         h = float(mix_hash(np.array([hash_str(comp)], dtype=np.int64), seed)[0])
         out[q] = "train" if h < fractions[0] else ("val" if h < fractions[0] + fractions[1] else "test")
+    return out
+
+
+def split_franchise_overlap(groups: dict[str, str], components: dict[str, str]) -> dict:
+    """How many val / test queries share a franchise component with a query of another split."""
+    by_comp: dict[str, set[str]] = {}
+    for q, sp in groups.items():
+        by_comp.setdefault(components.get(q, q), set()).add(sp)
+    out = {}
+    for sp in ("val", "test"):
+        qs = [q for q, s2 in groups.items() if s2 == sp]
+        out[sp] = {"queries": len(qs),
+                   "sharing_franchise_with_other_split": sum(len(by_comp[components.get(q, q)]) > 1 for q in qs)}
     return out
 
 

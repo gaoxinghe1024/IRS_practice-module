@@ -2,8 +2,13 @@ import numpy as np
 import pytest
 
 from app.recommendation.rerank.ga import GeneticListOptimizer, exhaustive, mmr, relevance_greedy
-from app.recommendation.rerank.objective import (ListObjective, fresh_flags, novelty_scores,
-                                                 recent_fresh_flags, tag_jaccard_pairwise)
+from app.recommendation.rerank.objective import (
+    ListObjective,
+    fresh_flags,
+    novelty_scores,
+    recent_fresh_flags,
+    tag_jaccard_pairwise,
+)
 
 
 def _objective(n=11, seed=0, weights=None, novelty=True, fresh=True):

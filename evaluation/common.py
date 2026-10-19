@@ -40,6 +40,16 @@ def git_commit() -> str | None:
         return None
 
 
+def git_dirty() -> bool | None:
+    """True when tracked code differs from the recorded commit (the run used uncommitted changes)."""
+    try:
+        out = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no", "--", "app", "pipelines",
+                              "evaluation", "configs"], cwd=PROJECT_ROOT, capture_output=True, text=True, timeout=10)
+        return bool(out.stdout.strip()) if out.returncode == 0 else None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
 def hardware() -> dict:
     return {"platform": platform.platform(), "machine": platform.machine(), "cpu_count": os.cpu_count(),
             "python": platform.python_version()}
@@ -112,7 +122,7 @@ class Run:
                     "split_fingerprints": _split_fps(self.settings, version),
                     "params": self.params, "started_at": time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(self.started)),
                     "finished_at": utc_now_iso(), "seconds": round(time.time() - self.started, 1),
-                    "peak_rss_mb": peak_rss_mb(), "git_commit": git_commit(), "hardware": hardware(),
+                    "peak_rss_mb": peak_rss_mb(), "git_commit": git_commit(), "git_dirty": git_dirty(), "hardware": hardware(),
                     "dependencies": dependency_versions(), "data": data_manifest, "notes": self.notes}
         if self.params.get("tag") == "smoke":
             manifest["smoke"] = True

@@ -10,6 +10,8 @@ Chromium, ruff 0.16.9), 2026-10-01, on the final code. Raw logs are under `var/l
 | Browser journeys 1-12 | `make e2e` | **8 passed** (12 journeys), 0 failed, 17.2 s |
 | Everything after the algorithm 2 work (2026-10-02, branch `yyc-algorithm2-selection`) | `pytest tests` | **148 passed** (140 unit + integration, 8 browser), 0 failed, 34 s |
 | Algorithm 2 checks (experiment tests in `algorithm2_benchmark/tests/` + the website-side algorithm 2 tests) | `algorithm2_benchmark/run_checks.py` | **21 passed**, 0 failed, 49 s; output in `algorithm2_benchmark/results/tests.txt` |
+| Everything after the team data package work (2026-10-04, branch `yyc-data-package`; real version `real-034ebd6a74`) | `pytest tests` | **185 passed** (177 unit + integration, including the 3 real-data and 2 BGE tests, and 8 browser tests), 0 failed, 0 skipped, 31 s; log `var/logs/test-final-data-package.log` |
+| Algorithm 2 delivery files after the package import | `algorithm2_benchmark/verify_delivery.py` | **PASS**: 127 delivered files match the SHA-256 manifest |
 | Lint | `make lint` (ruff: E, F, W, I, B, UP) | clean |
 | Front-end syntax | `node --check` on every page module | clean |
 
@@ -42,6 +44,8 @@ touch the developer's data.
 | `unit/test_mf_split.py` | 2 | MF learns low-rank structure and folds in new users; the ranking split holds out distinct high ratings |
 | `unit/test_ga.py` | 13 | GA reaches the exhaustive optimum on small pools, is never below the greedy seed, is deterministic per seed; crossover and mutation really change genes; the degenerate-term rules; MMR is distinct |
 | `unit/test_planner.py` | 11 | Unknown durations are unplannable, GA = exhaustive and never over budget, prerequisites first, infeasible must-include reported, partial mode, feasibility checks, schedules never split movies |
+| `unit/test_chat_years_studios.py` | 27 | Start-year phrases (EN / ZH, decades, ranges, "after" excludes the year), a year inside a plot, a setting period ("set from 1941 to 1945") or an age ("in their 50s") is not a limit, counts are not years; two-digit and sentence-final scores, "exactly 10", "no more than"; studio cues (strong / weak, unknown studio reported, negation); requests for data the catalogue does not hold; plot questions, tag words and quoted nicknames are not titles; year / score masks with unknown values failing, relaxation and clear-all; multi-turn year state and chips; prequels count as "watch first" only in release order |
+| `unit/test_package_import.py` | 7 | The team package converter: field mapping, no genre / studio / score import, one demographic per title, synopses only from non-snapshot sources, scene provenance, **the users file is never opened**, query labels keep their source and outcome, overwrite protection, MAL-label split kept; supplement loader validation; logistic split honours a pre-registered split and audits franchise overlap; real-catalogue chat labels never reach synthetic mode |
 | `unit/test_parser_conversation.py` | 11 | Numbers and negation, soft vs hard, "shorter than", typo titles, relation / plan intents, common words are not titles, contradictions ask for clarification, Chinese numbers and tags, multi-turn refinement, sequels that differ only in punctuation ("Working'!!"), titles containing commas / "!" after a cue, a typo inside such a title |
 | `unit/test_llm_and_validation.py` | 9 | Provider/key gating, OpenAI-compatible success and failure outcomes, Anthropic adapter request shape and refusal handling, validation drops invented items / references / numbers, unsupported episode numbers, one repair round |
 | `unit/test_chunker_security_image.py` | 5 | Chunk limits, long relation lists packed into bounded chunks of whole facts, password hashing incl. legacy PBKDF2, upload validation, uncalibrated screenshot gallery |
@@ -50,8 +54,8 @@ touch the developer's data.
 | `integration/test_auth_security.py` | 6 | Registration validation, cookie flags and logout, generic and throttled login errors, CSRF and cross-origin writes rejected, stable error shape, security headers |
 | `integration/test_isolation.py` | 2 | A second user cannot read or change the first user's collections, chats, plans or exports; admin endpoints need admin |
 | `integration/test_user_data_and_recs.py` | 9 | Idempotent ratings bump the profile version; collection semantics; progress bounds; deterministic similar; home excludes rated / excluded items and updates; negative ratings are never positive seeds; labelled cold start; strict-empty then explicit relaxation; **data and plans survive an application restart** |
-| `integration/test_chat_plans_pages.py` | 6 | Chat constraints enforced and refined; no invented scene episodes or relations; LLM failure → local answer; LLM answers validated; plan budget, edits, revisions and export (including export of an edited plan); pages render and private routes are protected |
-| `integration/test_pipeline_integrity.py` | 5 | Activation is idempotent, tampered artifacts are refused, a manifest mismatch degrades serving, manifests record versions and hashes, synthetic generation is reproducible |
+| `integration/test_chat_plans_pages.py` | 7 | Chat constraints enforced and refined; no invented scene episodes or relations; questions about data the catalogue does not hold get no recommendations (timecodes, a favourites list pointing to the user's collections), an unknown studio and an impossible start year are explained; LLM failure → local answer; LLM answers validated; plan budget, edits, revisions and export (including export of an edited plan); pages render and private routes are protected |
+| `integration/test_pipeline_integrity.py` | 6 | Activation is idempotent, tampered artifacts are refused, a manifest mismatch degrades serving, manifests record versions and hashes, synthetic generation is reproducible, the similar-titles default comes from the configuration and an unavailable scorer degrades to A with a status note |
 | `unit/test_collection_algorithm2.py` | 6 | Served order breaks score ties by ascending id; keyword AND with case / comma normalisation, score and episode boundaries, unknown episodes, unscored and explicit titles excluded; saved titles excluded, short strict lists not padded, no match never relaxed; the profile ignores the hidden target (changing its metadata changes nothing); feature schema and NaN handling; a changed model file, catalogue hash or feature version is refused and the service falls back to A0 |
 | `integration/test_collection_algorithm2.py` | 2 | The NumPy evaluator of LightGBM models (as served) reproduces native LightGBM bit for bit (NaN and zero rules, values on thresholds; `ml`); the collection API contract (strict results, no match, explicit relaxation with `strict_result_count`, scorer fallback that keeps the filters) |
 | `algorithm2_benchmark/tests/` (run by `run_checks.py`) | 13 | The experiment itself: hand-computed HR@8 / NDCG@8 / AUC, tie handling, user-macro and user-level bootstrap; the whole pipeline on fixture data (user-disjoint partitions, targets never in H, training pairs only from training users, identical candidates for every model, models really fitted, LightGBM and the two-tower learn a learnable signal, service Top-8 = offline Top-8, a frozen run refuses retuning and re-evaluation reproduces, all records written) |
@@ -83,16 +87,18 @@ needed `eval`, which the app's CSP correctly blocks (the tests now wait on locat
 
 ## 3. Real-data tests (`make test-real`)
 
-`tests/integration/test_real_data.py` (marker `real`) runs against the activated real version `real-89bfdea00b` and
+`tests/integration/test_real_data.py` (marker `real`) runs against the activated real version (`real-034ebd6a74` since
+2026-10-04) and
 serves a throwaway copy of the business database. It is skipped automatically when no real version is active.
 
 | Test | What it proves |
 |---|---|
 | `test_real_snapshot_pools_ids_and_missing_values` | Only `mal:` item keys, no duplicates; recommendable ⊆ served; recommendable titles have known scores; unknown scores stay unknown (never 0) |
+| `test_real_team_package_layers` | With the team package imported: the frozen algorithm-2 bundle still verifies (catalogue hash unchanged), scenes are available, themes cover more than 10,000 served titles, the import report lists the users file as not read; chat honours "began airing in 2010 or later", explains an unknown studio, a start year past the snapshot and the content policy for adult tags, identifies Steins;Gate from a scene description, answers a plot question about a title without scene records at the plot level (no "verified scene"), and claims no scene for a named title asked about a scene its records do not contain |
 | `test_real_surfaces_end_to_end` | Title search finds Steins;Gate; similar titles return 5 with reasons and exclude the target; a new account that rates 8 titles 9/10 gets a warm, ICF-explained home list whose GA fitness is not below greedy; a chat request "a comedy with at most 12 episodes and no romance" returns only titles that satisfy all three conditions (checked against the detail API); a 15-hour plan fits its budget |
 
-Both passed in the final run, together with the two `ml` tests (`unit/test_bge_ml.py`) that load the real BGE
-model.
+All three passed in the final run, together with the two `ml` tests (`unit/test_bge_ml.py`) that load the real
+BGE model.
 
 The full real pipeline (validate → preprocess → split → train → build-index → activate) and all nine real-data
 experiments were also run end to end; see `docs/evaluation-results-real.md` and `docs/operations.md` for timings.

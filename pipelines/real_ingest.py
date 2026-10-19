@@ -42,7 +42,9 @@ DETAILS_EXPECTED = ["Mal ID", "Username"]
 # Part of the real dataset version: bump it whenever preprocessing produces different output for the
 # same inputs, so a changed processed dataset never reuses an existing version id.
 #   2: provenance lists the Jikan endpoints whose data was actually used (a cache file alone is not enrichment)
-REAL_PREPROCESS_VERSION = 2
+#   3: supplementary tags / synopses are merged before the flags; recommendable = score known and
+#      (genre or theme known); "themes" is reported in missing_fields
+REAL_PREPROCESS_VERSION = 3
 
 
 class DataValidationError(RuntimeError):
@@ -132,7 +134,9 @@ def _jikan_data(rec: dict, endpoint: str) -> Any:
     return (ep.get("data") or {}).get("data")
 
 
-SUPPLEMENTARY = ("relations.jsonl", "characters.jsonl", "scenes.jsonl", "scene_images/manifest.jsonl")
+SUPPLEMENTARY = ("relations.jsonl", "characters.jsonl", "scenes.jsonl", "scene_images/manifest.jsonl",
+                 "tags.jsonl", "synopses.jsonl")
+CATALOG_SUPPLEMENTS = ("tags.jsonl", "synopses.jsonl")      # merged into each title before its flags are set
 SCENE_COLS = ["scene_id", "item_key", "description", "episode", "timestamp_seconds", "characters", "source_ref",
               "source_url", "spoiler_level", "verification_status"]
 IMAGE_COLS = ["image_id", "scene_id", "item_key", "path", "sha256", "episode", "timestamp_seconds", "split",
@@ -145,6 +149,40 @@ def supplementary_sources(settings: Settings) -> dict[str, Path]:
     return {n: root / n for n in SUPPLEMENTARY if (root / n).exists() and (root / n).stat().st_size > 0}
 
 
+def load_catalog_supplements(settings: Settings) -> dict[str, Any]:
+    """Supplementary tag values and synopses keyed by MAL id (validated first; read before the catalogue loop).
+
+    tags.jsonl adds values to a title's namespace (union with the snapshot's own values, snapshot first);
+    synopses.jsonl fills a synopsis only where the 2023 snapshot has none. Both keep their source per value.
+    """
+    from pipelines.validate_data import CONTRACTS, validate_file
+
+    out: dict[str, Any] = {"tags": {}, "synopses": {}, "report": {}}
+    sources = supplementary_sources(settings)
+    for name in CATALOG_SUPPLEMENTS:
+        path = sources.get(name)
+        if path is None:
+            continue
+        check = validate_file(path, CONTRACTS[f"enriched/{name}"])
+        if not check["ok"]:
+            raise DataValidationError(f"{path}: " + "; ".join(check["errors"][:5]))
+        n = 0
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            n += 1
+            mid = int(r["mal_id"])
+            if name == "tags.jsonl":
+                slot = out["tags"].setdefault(mid, {}).setdefault(r["namespace"], [])
+                if all(v != r["value"] for v, _ in slot):
+                    slot.append((str(r["value"]), str(r.get("source") or "supplement")))
+            else:
+                out["synopses"][mid] = (str(r["synopsis"]), str(r.get("source") or "supplement"))
+        out["report"][name] = {"rows": n, "sha256": sha256_file(path)}
+    return out
+
+
 def load_supplementary(settings: Settings, valid_keys: set[str]) -> dict[str, Any]:
     """Validate and map the supplementary files onto the processed tables.
 
@@ -155,6 +193,8 @@ def load_supplementary(settings: Settings, valid_keys: set[str]) -> dict[str, An
 
     out: dict[str, Any] = {"relations": [], "characters": [], "scenes": [], "scene_images": [], "report": {}}
     for name, path in supplementary_sources(settings).items():
+        if name in CATALOG_SUPPLEMENTS:
+            continue                                        # merged earlier by load_catalog_supplements
         check = validate_file(path, CONTRACTS[f"enriched/{name}"])
         if not check["ok"]:
             raise DataValidationError(f"{path}: " + "; ".join(check["errors"][:5]))
@@ -231,6 +271,9 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
     writer = ProcessedWriter(root, int(pipe.get("rating_partitions", 32)))
     log(f"[preprocess-real] dataset_version={version}")
 
+    catalog_supp = load_catalog_supplements(settings)
+    supp_used: Counter = Counter()
+
     # ---------------------------------------------------------------- anime
     df = pd.read_csv(anime_path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
     rules = settings.content_rules
@@ -293,18 +336,33 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
                                       "item_key": key, "role": c.get("role"),
                                       "source_ref": f"jikan:/anime/{mal_id}/characters"})
 
+        # supplementary values (team package / curated files): union after the snapshot's own values
+        tag_sources: dict[tuple[str, str], str] = {}
+        supp = catalog_supp["tags"].get(mal_id, {})
+        for ns, target in (("genre", genres), ("theme", themes), ("demographic", demos), ("studio", studios)):
+            for v, src in supp.get(ns, []):
+                if v not in target:
+                    target.append(v)
+                    tag_sources[(ns, v)] = src
+                    supp_used[f"tags.{ns}"] += 1
+        synopsis_source = "kaggle" if synopsis else None
+        if synopsis is None and mal_id in catalog_supp["synopses"]:
+            synopsis, synopsis_source = catalog_supp["synopses"][mal_id]
+            supp_used["synopses"] += 1
+
         missing = [f for f, v in (("score", score), ("episodes", episodes), ("duration", per_ep),
-                                  ("studios", studios), ("genres", genres), ("synopsis", synopsis),
-                                  ("aired", aired_from), ("type", typ)) if v in (None, [])]
+                                  ("studios", studios), ("genres", genres), ("themes", themes),
+                                  ("synopsis", synopsis), ("aired", aired_from), ("type", typ)) if v in (None, [])]
         reasons = []
         if explicit:
             reasons.append("content_rule_explicit")
         in_catalog = not explicit
-        recommendable = in_catalog and score is not None and bool(genres)
+        # a title needs a score and some content description (genres or themes) to be recommended
+        recommendable = in_catalog and score is not None and bool(genres or themes)
         if in_catalog and score is None:
             reasons.append("not_recommendable_missing_score")
-        if in_catalog and not genres:
-            reasons.append("not_recommendable_missing_genre")
+        if in_catalog and not genres and not themes:
+            reasons.append("not_recommendable_missing_genre_and_theme")
         planner_ok = (recommendable and status == "Finished Airing" and episodes is not None
                       and per_ep is not None and typ is not None)
         for r in reasons:
@@ -323,7 +381,10 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
             "aired_from": aired_from, "aired_to": aired_to, "premiered_season": season,
             "premiered_year": prem_year, "cover_url": C.clean_str(rec.get("Image URL")),
             "provenance": {"source": "kaggle:dbdmobile/myanimelist-dataset:anime-dataset-2023.csv",
-                           "snapshot": "2023", **_jikan_provenance(jrec)},
+                           "snapshot": "2023", **_jikan_provenance(jrec),
+                           **({"synopsis_source": synopsis_source} if synopsis_source not in (None, "kaggle") else {}),
+                           **({"supplementary_tag_sources": sorted({src for src in tag_sources.values()})}
+                              if tag_sources else {})},
             "missing_fields": missing, "in_catalog": in_catalog, "is_recommendable": recommendable,
             "is_planner_eligible": planner_ok, "is_explicit": explicit, "exclusion_reasons": reasons,
         })
@@ -331,7 +392,8 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
                                 ("producer", producers, "kaggle"), ("licensor", licensors, "kaggle"),
                                 ("theme", themes, "jikan"), ("demographic", demos, "jikan")):
             for v in values:
-                tag_rows.append({"item_key": key, "namespace": ns, "value": v, "source": src})
+                tag_rows.append({"item_key": key, "namespace": ns, "value": v,
+                                 "source": tag_sources.get((ns, v), src)})
         if source_material:
             tag_rows.append({"item_key": key, "namespace": "source", "value": source_material, "source": "kaggle"})
         alias_rows.append({"item_key": key, "alias": title, "kind": "title"})
@@ -447,7 +509,9 @@ def preprocess_real(settings: Settings, log=print) -> dict[str, Any]:
         "relations": {"resolved_anime_edges": int((rel_df.to_entity_type == "anime").sum()) if len(rel_df) else 0,
                       "external_edges": int((rel_df.to_entity_type != "anime").sum()) if len(rel_df) else 0},
         "weak_similarity_label_pairs": len(labels),
-        **({"supplementary_files": supp["report"]} if supp["report"] else {}),
+        **({"supplementary_files": {**catalog_supp["report"], **supp["report"]}}
+           if (supp["report"] or catalog_supp["report"]) else {}),
+        **({"supplementary_values_used": dict(supp_used)} if supp_used else {}),
     }
     writer.write_report("preprocess_report", report)
     with (root / "reports" / "quarantine.jsonl").open("w", encoding="utf-8") as fh:

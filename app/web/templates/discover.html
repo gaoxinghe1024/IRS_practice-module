@@ -13,6 +13,8 @@
         <option>TV</option><option>Movie</option><option>OVA</option><option>ONA</option><option>Special</option><option>Music</option></select></div>
     <div><label for="max_episodes">{{ t("discover.max_episodes") }}</label><input id="max_episodes" name="max_episodes" type="number" min="1" max="5000"></div>
     <div><label for="min_score">{{ t("discover.min_score") }}</label><input id="min_score" name="min_score" type="number" min="0" max="10" step="0.1"></div>
+    <div><label for="year_from">{{ t("discover.year_from") }}</label><input id="year_from" name="year_from" type="number" min="1900" max="2100" step="1"></div>
+    <div><label for="year_to">{{ t("discover.year_to") }}</label><input id="year_to" name="year_to" type="number" min="1900" max="2100" step="1"></div>
     <div><label for="sort">{{ t("discover.sort") }}</label>
       <select id="sort" name="sort">
         <option value="relevance">{{ t("discover.sort.relevance") }}</option><option value="popularity">{{ t("discover.sort.popularity") }}</option>

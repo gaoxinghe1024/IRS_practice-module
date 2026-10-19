@@ -1,0 +1,21 @@
+{
+  "protocol": "explicit_random_per_user",
+  "dataset_version": "real-034ebd6a74",
+  "seed": 20260930,
+  "fractions": [
+    0.8,
+    0.1,
+    0.1
+  ],
+  "min_ratings": 5,
+  "created_at": "2026-10-02T09:48:15Z",
+  "counts": {
+    "train": 19275989,
+    "val": 2402873,
+    "test": 2284518
+  },
+  "users": {
+    "eval_eligible": 218608
+  },
+  "fingerprint": "2d66b01a8ddeb159"
+}

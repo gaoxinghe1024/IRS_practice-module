@@ -2,7 +2,8 @@
 
 AniLogic is a **modular monolith**: one FastAPI process serves the JSON API and the server-rendered page
 shells, reads one SQLite business database, and holds an in-memory *serving state* (catalogue snapshot,
-models, vector indexes) loaded from a versioned artifact bundle. Everything heavy (cleaning 24M ratings,
+models, vector indexes). The catalogue, documents and embedding vectors of the active version come from the
+database; only model weights are read from the versioned artifact bundle. Everything heavy (cleaning 24M ratings,
 training, embedding, indexing) runs offline through the `pipelines` CLI.
 
 ```mermaid
@@ -18,7 +19,7 @@ flowchart LR
     idx --> art
     art --> act["activate (one transaction)"]
   end
-  act --> db[("var/&lt;mode&gt;/anilogic.sqlite3\ncatalogue, FTS5, documents,\nusers and their data")]
+  act --> db[("var/&lt;mode&gt;/anilogic.sqlite3\ncatalogue, tags, FTS5, documents,\nembedding vectors, users and their data")]
   act --> ptr["artifacts/&lt;mode&gt;/active.json"]
   subgraph online["Online (uvicorn app.main:app)"]
     web["pages (Jinja shells)\n+ static JS modules"] --> api["/api/v1 routers"]
@@ -26,8 +27,8 @@ flowchart LR
     svc --> st["ServingState\n(snapshot, models, indexes)"]
     svc --> db
   end
-  ptr --> st
-  art --> st
+  db --> st
+  art -- "model weights" --> st
 ```
 
 ## 1. Boundaries
@@ -57,16 +58,27 @@ Pages are thin shells: every piece of data comes from the versioned JSON API.
 * **Artifacts** (`artifacts/<mode>/<version>/`): a self-contained catalogue copy, training statistics, models,
   embeddings and the retrieval index. `manifest.json` records versions, parameters, metrics, the split
   fingerprint, dependency versions and per-file checksums.
-* **Activation** (`pipelines/activate.py`) verifies the artifacts, upserts the served catalogue and knowledge
-  documents, and rebuilds FTS5 in **one transaction**. It then records the manifest checksum and switches
-  `active.json`. User data is never deleted: titles that disappear stay referenced but hidden (`in_catalog = 0`).
+* **Activation** (`pipelines/activate.py`) verifies the artifacts and, in **one transaction**, loads into the
+  business database everything serving reads except model weights (table below), rebuilds FTS5 and records the
+  manifest checksum; it then switches `active.json`. User data is never deleted: titles that disappear stay
+  referenced but hidden (`in_catalog = 0`, `catalog_position = NULL`).
+
+| Business database (`var/<mode>/anilogic.sqlite3`) | Artifact bundle (`artifacts/<mode>/<version>/`) |
+|---|---|
+| `anime`: the whole catalogue of the active version, row order in `catalog_position` (= catalogue index the models use), unserved titles with `in_catalog = 0`, train-split rating counts in `train_interactions` | `models/`: ICF, MF, NCF, logistic, GBDT, two-tower weights, `cf_items` mapping |
+| `tags` / `anime_tags`, `anime_aliases`, `relations`, `characters`, `scenes`, `scene_images`, `knowledge_documents`, FTS5 tables | `index/lsa.joblib` (LSA query encoder, when LSA is the text encoder) |
+| `anime_embeddings`, `document_embeddings`, `scene_image_embeddings`: one vector per row (raw float32 bytes); `vector_sets`: dim, dtype, count, info and the SHA-256 of each matrix | `manifest.json` (checksums; serving checks it against the activation record) |
+| `supplement_tags`: the algorithm-2 theme / demographic table (real mode, from `algorithm1_benchmark/data/catalog.jsonl.gz`) | the catalogue / embedding / index files stay as the activation input and for offline experiments |
+| users, sessions, ratings, collections, progress, preferences, exclusions, feedback, chats, plans, runs | |
 
 ## 3. Serving state
 
 `app/services/serving.py` builds a `ServingState` for the active version: the catalogue snapshot (numpy arrays +
 tag matrices), ICF neighbours, MF/NCF models, attribute embeddings, similarity and collection scorers, the dense
-retrieval index, the title resolver and the image gallery. Every file is verified against the activation record.
-A mismatch sets the capability to `artifact_mismatch` and serving degrades instead of mixing versions.
+retrieval index, the title resolver and the image gallery. Catalogue, tags, aliases, counts, vectors and the
+algorithm-2 supplement are read from the database (each vector set is checked against its dataset version, row
+count and SHA-256); model files are verified against the manifest. A mismatch sets the capability to
+`artifact_mismatch` and serving degrades instead of mixing versions.
 
 A request takes **one reference** to the current state and uses it throughout. When the database reports a newer
 active version, a new state is built and swapped in as a whole, so a request never pairs a new index with an old

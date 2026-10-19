@@ -17,7 +17,12 @@ from pathlib import Path
 import numpy as np
 
 from app.recommendation.algorithm2.bundle import BundleMismatch, load_scorers
-from app.recommendation.algorithm2.catalog import DEFAULT_SUPPLEMENT, Alg2Catalog, catalog_from_settings
+from app.recommendation.algorithm2.catalog import (
+    DEFAULT_SUPPLEMENT,
+    Alg2Catalog,
+    build_catalog,
+    catalog_from_settings,
+)
 from app.recommendation.algorithm2.profiles import Alg2Profile, build_profile
 from app.recommendation.algorithm2.scorers import (
     CORE_IDS,
@@ -87,8 +92,14 @@ class Alg2Service:
                 "detail": self.detail}
 
 
-def build_service(snap, engine: ConstraintEngine, cc: dict, project_root: Path, log=None) -> Alg2Service:
-    cat = catalog_from_settings(snap, project_root, cc.get("supplement", DEFAULT_SUPPLEMENT))
+def build_service(snap, engine: ConstraintEngine, cc: dict, project_root: Path, log=None,
+                  supplement: tuple[dict | None, dict | None] | None = None) -> Alg2Service:
+    """`supplement` = (table, provenance) already loaded (the serving state reads it from the business database);
+    None reads the configured file (offline use)."""
+    if supplement is not None:
+        cat = build_catalog(snap, *supplement) if snap.dataset_mode == "real" else build_catalog(snap, None, None)
+    else:
+        cat = catalog_from_settings(snap, project_root, cc.get("supplement", DEFAULT_SUPPLEMENT))
     requested = LEGACY_ALIASES.get(cc.get("scorer", "A0"), cc.get("scorer", "A0"))
     scorers: dict = {"A0": FormulaScorer("A0", 0.15), "AUX_slides_v0": LegacyScorer("AUX_slides_v0"),
                      "AUX_profile_v1": LegacyScorer("AUX_profile_v1")}

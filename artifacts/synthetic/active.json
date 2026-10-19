@@ -3,11 +3,19 @@
   "dataset_version": "synthetic-7a7d5d6a74",
   "artifact_dir": "artifacts/synthetic/synthetic-7a7d5d6a74",
   "manifest_sha256": "54a8295b97d74cba7ba68f28c129f6dffd2ef2b21590d43e02a9c51aeecffe8b",
-  "activated_at": "2026-09-30T15:56:14Z",
+  "activated_at": "2026-10-19T06:23:43Z",
   "counts": {
     "anime": 213,
+    "catalog": 216,
     "documents": 681,
-    "tags": 1180,
-    "aliases": 213
-  }
+    "tags": 1186,
+    "aliases": 216,
+    "vectors": {
+      "item_attr": 216,
+      "documents": 681,
+      "images": 12
+    },
+    "supplement_values": 0
+  },
+  "supplement": null
 }

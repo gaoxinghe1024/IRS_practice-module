@@ -358,3 +358,26 @@
 - 项目根目录的 `.env` 配置了 LLM，本地网站的聊天会调用它；本次所有评估都在本地模式下运行，没有产生费用。
 - 本次评估运行时代码尚未提交，运行记录中的 `git_commit` 是 `e9df5bf`；对应代码见本条记录所在的提交。之后的运行会在 `git_dirty` 字段中注明。
 - 回退：把 `configs/real.yaml` 的 `recommendation.similar.scorer` 改为 `weighted_attributes` 即恢复 A；`python -m pipelines.cli activate --mode real --version real-89bfdea00b` 可回到导入前的数据版本（该版本目录保留在本地）。
+
+## [2026-10-19] 系统运行数据统一放进 SQLite（训练数据与模型权重除外）（分支 yyc-data-package）
+
+**状态：** 本地 real（`real-034ebd6a74`）与 synthetic（`synthetic-7a7d5d6a74`）数据库已按新结构重新激活；未提交、未推送。
+
+**变更内容：**
+
+1. **迁移 `0003`**：`anime` 增加 `catalog_position`（目录序号，即模型使用的行号；唯一索引）、`train_interactions`（训练集评分数）、`exclusion_reasons`；新表 `anime_embeddings`、`document_embeddings`、`scene_image_embeddings`（每行一个向量，float32 原始字节）、`vector_sets`（维度、类型、数量、来源信息与整块矩阵的 SHA-256）、`supplement_tags`（算法② 的主题 / 受众补充表）。迁移只用 `ALTER TABLE ADD COLUMN`，不重建 `anime`（它是用户数据的外键父表）。
+2. **激活** `pipelines/activate.py`：写入**整个目录**（未上架的露骨作品以 `in_catalog = 0` 保存，用于模型行号对齐，接口仍只返回可服务作品）及其标签、别名、训练计数；属性向量、文档向量、截图向量；real 模式下的 `algorithm1_benchmark/data/catalog.jsonl.gz` 补充表（来源路径与 SHA-256 记在激活记录里）。仍在同一个事务里完成。
+3. **服务** `app/services/serving.py`：目录快照、标签矩阵、别名、训练计数、三组向量和算法② 补充表全部从数据库读取，向量按版本、行数和 SHA-256 校验，不一致时该能力报 `artifact_mismatch`；只有模型权重（`models/`、LSA 编码器）仍从 artifact 文件读取并按 manifest 校验。`build_service` 增加 `supplement` 参数，离线实验仍读文件。
+4. **测试**：新增数据库读取与 artifact 文件逐项一致、移走目录 / 向量文件后服务仍正常、篡改数据库向量被拒绝三项检查。
+
+**结果：** real 模式快照（键顺序、数值、四个标志、五个标签矩阵、封面、英文名）、训练计数、属性向量、文档向量与 artifact 文件完全一致；算法② 冻结模型 `real-main-01` 校验通过（目录哈希不变，默认 B1）。real 数据库 164 MB → 362 MB。
+
+**涉及文件：** `migrations/versions/0003_serving_data_in_db.py`（新）、`app/db/models.py`、`app/db/vectors.py`（新）、`pipelines/activate.py`、`app/services/serving.py`、`app/recommendation/algorithm2/service.py`、`tests/integration/test_pipeline_integrity.py`、`docs/architecture.md`、`docs/operations.md`、`var/{real,synthetic}/anilogic.sqlite3`。
+
+**原因：** 按用户要求，除训练数据和模型权重外，系统运行需要的数据（RAG 文档与向量、相似度向量、目录与标签、算法② 补充表）都放在数据库里，并去掉 parquet 与数据库之间的重复。
+
+**验证方式：** `pytest tests/unit tests/integration` 179 项通过；`pytest -m "real or ml"` 通过；`make lint` 无告警；real 模式 `load_state` 各能力状态与改动前一致。
+
+**注意事项：**
+- 旧结构的数据库（迁移 `0003` 之前激活的）需要重新执行一次 `python -m pipelines.cli activate --mode <mode>`，否则状态页显示 `artifact_mismatch`。
+- artifact 中的 `catalog/`、`embeddings/`、`index/`、`stats/` 文件仍保留：它们是激活的输入，离线评估和 `algorithm2_benchmark` 也直接读取它们。

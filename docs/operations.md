@@ -48,6 +48,9 @@ make serve-real HOST=0.0.0.0       # or: make serve (synthetic)
   until it is activated and its directories are added to `.gitignore` and committed.
 - The first request that needs BGE downloads `BAAI/bge-small-en-v1.5` from Hugging Face; on a server without
   internet access, copy `~/.cache/huggingface` over and set `HF_HUB_OFFLINE=1`.
+- The business database holds the catalogue, documents and embedding vectors serving reads (real: about 360 MB).
+  A database activated before migration `0003` has no catalogue order or vectors; the app then reports
+  `artifact_mismatch` until `python -m pipelines.cli activate --mode <mode>` is run once.
 - Serving writes to `var/<mode>/anilogic.sqlite3`, so git shows it as modified once the app has been used.
   Commit it only on purpose; `git checkout -- var/` returns to the shipped state.
 - GitHub's free Git LFS bandwidth is limited per month; each full clone downloads about 1.8 GB.

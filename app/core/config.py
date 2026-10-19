@@ -31,7 +31,7 @@ class _Section(BaseModel):
 class AppSection(_Section):
     name: str = "AniLogic"
     tagline: str = "Your ACG Friend"
-    group_display: str = "Group 10"
+    group_display: str = "Group 18"
     locale: str = "en"
     host: str = "127.0.0.1"
     port: int = 8000

@@ -1,5 +1,5 @@
 // Home: personalised list (cold start -> ICF recall -> GA list optimisation) + exploration list.
-import { animeCard, api, el, errorText, handleAuthError, logClick, notInterestedButton, saveButton, showState, t }
+import { animeCard, api, el, errorText, handleAuthError, logClick, saveButton, showState, t }
   from "../common.js";
 
 const list = document.getElementById("home-list");
@@ -7,15 +7,6 @@ const explore = document.getElementById("explore-list");
 const modeText = document.getElementById("home-mode");
 const balance = document.getElementById("home-balance");
 const warnings = document.getElementById("home-warnings");
-
-function sourceBadge(src) {
-  if (!src) return null;
-  if (src.startsWith("icf")) return src.includes("content") ? "ICF + your tags" : "Collaborative (ICF)";
-  if (src.startsWith("mf")) return "Matrix factorisation";
-  if (src.startsWith("content")) return "Your saved / liked tags";
-  if (src.startsWith("popular")) return "Popular & well rated";
-  return src;
-}
 
 async function load() {
   showState(list, "loading");
@@ -37,14 +28,15 @@ async function load() {
     if (!res.items.length) showState(list, "empty", t("home.empty"));
     for (const item of res.items) {
       const card = animeCard(item, {
-        badge: sourceBadge(item.candidate_source),
-        actions: [saveButton(item), notInterestedButton(item, { requestId: res.request_id, surface: "home",
-          algorithm: res.meta.algorithm, onDone: (undo) => (undo ? load() : card.remove()) })],
+        showReasons: false,
+        actions: [saveButton(item)],
       });
       card.querySelector("a.title").addEventListener("click", () => logClick(item, res.request_id, "home"));
       list.append(card);
     }
-    for (const item of res.exploration || []) explore.append(animeCard(item, { actions: [saveButton(item)] }));
+    for (const item of res.exploration || []) {
+      explore.append(animeCard(item, { showReasons: false, actions: [saveButton(item)] }));
+    }
   } catch (e) {
     if (handleAuthError(e)) return;
     showState(list, "error", errorText(e), load);

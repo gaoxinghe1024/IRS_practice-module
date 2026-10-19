@@ -5,9 +5,8 @@
 app:
   name: "AniLogic"
   tagline: "Your ACG Friend"
-  # The Group 10 proposal and the 10-minute slides disagree (Group 10 vs 18);
-  # see docs/requirements-resolution.md. The display name is kept in one place.
-  group_display: "Group 10"
+  # Group number confirmed by the team; see docs/requirements-resolution.md.
+  group_display: "Group 18"
   locale: "en"
   host: "127.0.0.1"
   port: 8000

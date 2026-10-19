@@ -402,3 +402,55 @@
 - 旧结构的数据库（迁移 `0003` 之前激活的）需要重新执行一次 `python -m pipelines.cli activate --mode <mode>`，否则状态页显示 `artifact_mismatch`。
 - 本分支合并了 `origin/main`（截至 `51c55db`）：相似作品按 main 的决定在两种模式下都默认使用期末报告路线 A（`algorithm1_a`），去掉了 2026-10-04 条目里 `configs/real.yaml` 改为 B 的设置（B 仍可通过 `scorer=logistic_similarity` 选用）；配置的评分器不可用时，状态页与聊天都退回 `algorithm1_a`。
 - artifact 中的 `catalog/`、`embeddings/`、`index/`、`stats/` 文件仍保留：它们是激活的输入，离线评估和 `algorithm2_benchmark` 也直接读取它们。
+
+## [2026-10-19] 本地小组名称更正为 Group 18
+
+**变更内容：** 将小组显示配置及代码默认值统一改为 `Group 18`，同步更新 README 和需求决策说明。页面页脚与系统状态接口通过现有共享配置显示正确的小组名称。
+
+**涉及文件：** `configs/base.yaml`、`app/core/config.py`、`README.md`、`docs/requirements-resolution.md`、`DEVLOG.md`。
+
+**原因：** 团队确认实际为 Group 18；仅修改本地项目，不上传 GitHub。
+
+**验证方式：** 重启本地服务，检查 `/api/v1/system/status` 的 `app.group` 和 `/discover` 页脚，确认返回或显示 `Group 18`，并检查健康接口。
+
+## [2026-10-19] 配置本地 ModelScope LLM
+
+**变更内容：** 在本地 `.env` 中配置 `openai_compatible` 提供方、ModelScope 推理服务地址、`deepseek-ai/DeepSeek-V4.1-Flash` 模型和用户提供的 API 密钥，保留真实数据模式。
+
+**涉及文件：** `.env`（Git 忽略的本地文件）、`DEVLOG.md`。
+
+**原因：** 按用户要求仅更新本地 LLM 配置；密钥不写入日志，不上传 GitHub。
+
+**验证方式：** 检查配置加载及密钥存在性，重启服务并检查健康接口和 LLM 配置状态；不调用外部推理接口。
+
+## [2026-10-19] 更新 GitHub 最新 main 并运行 Group 18 本地版本
+
+**变更内容：** 快进更新至 `9dfe8ed`，重新应用本地 Group 18 配置和文档更正，保留以上本地变更历史。用仓库的 `.env.example` 替换旧 `.env`，不再沿用本地 API 配置；当前 main 未跟踪 `.env`，默认使用本地聊天模式。
+
+**数据处理：** 更新前以 SQLite 备份 API 保存原业务数据库至 `var/local/backups/before-9dfe8ed-20261019.sqlite3`，本地受版本控制的改动另存 Git stash。恢复原业务数据库后，使用新版本的激活流程迁移到 `0003` 并激活 `real-034ebd6a74`，保留账号、收藏、评分和聊天记录。
+
+**涉及文件：** `configs/base.yaml`、`app/core/config.py`、`README.md`、`docs/requirements-resolution.md`、`DEVLOG.md`、`.env`、`var/real/anilogic.sqlite3`、`artifacts/real/active.json`。
+
+**原因：** 按用户要求拉取最新项目、改为 Group 18 并运行；所有定制仅保留本地，不上传 GitHub。
+
+**验证方式：** 核对 Git 版本、用户数据与备份逐表一致、数据库完整性及迁移版本；启动服务后检查健康接口、Group 18 页脚、搜索、相似推荐、语义检索及新版场景数据。
+
+## [2026-10-19] 本地配置 DeepSeek V4.1 Flash 并精简首页卡片
+
+**变更内容：** 在本地 `.env` 中配置用户提供的 API 密钥，使用 ModelScope 的 OpenAI 兼容接口及 `deepseek-ai/DeepSeek-V4.1-Flash`。首页 Recommended for you 与 Explore 的卡片统一为发现页样式，仅显示封面、标题、基本信息和收藏按钮，去掉算法来源标签、推荐理由及额外操作。
+
+**涉及文件：** `.env`（Git 忽略的本地文件）、`app/web/static/js/pages/home.js`、`DEVLOG.md`。
+
+**原因：** 按用户要求选择 DeepSeek V4.1 Flash，并将首页两处卡片调整为参考截图的展示；只修改本地项目，不上传 GitHub。
+
+**验证方式：** 检查 JavaScript 语法、配置加载及密钥存在性；重启服务后检查健康接口、Group 18 与 LLM 配置状态；使用带算法标签和推荐理由的响应检查桌面及手机视口下两处卡片的显示、收藏和详情入口。未调用外部推理接口，密钥不写入日志。
+
+## [2026-10-19] 按最新授权将本地定制发布到 GitHub main
+
+**变更内容：** 按用户本次授权，将此前仅保留本地的 Group 18 配置、文档更正及首页卡片精简一并提交到 `main`。更新 `.env.example` 的非敏感示例为 ModelScope / DeepSeek V4.1 Flash，并在 README 中说明本地密钥配置。此前日志中的“不上传”描述的是当时的操作范围，本次以最新授权为准。
+
+**涉及文件：** `.env.example`、`app/core/config.py`、`app/web/static/js/pages/home.js`、`configs/base.yaml`、`README.md`、`docs/requirements-resolution.md`、`DEVLOG.md`。
+
+**原因：** 用户要求整体更新 GitHub 的 `main`。实际 `.env` 与 API 密钥不提交；本机数据库中的账号、评分、收藏和聊天记录，以及仅有激活时间和本机路径差异的 `artifacts/real/active.json` 保留本地。
+
+**验证方式：** 核对远端 `main`、仓库写入权限、提交文件范围和密钥忽略规则；检查配置加载、JavaScript 语法、差异格式及服务健康状态。首页已使用包含完整推荐理由的响应通过 1440px / 390px Playwright 检查，封面、收藏和详情入口正常且无横向溢出；提交前复查暂存内容不包含实际密钥，推送后核对远端提交。

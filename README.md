@@ -1,11 +1,11 @@
 # AniLogic · Your ACG Friend
 
 An anime discovery and viewing-plan system built for the NUS-ISS *Intelligent Reasoning Systems* practice module
-(Group 10). AniLogic finds titles similar to one you like, recommends from your collections and your ratings,
+(Group 18). AniLogic finds titles similar to one you like, recommends from your collections and your ratings,
 answers natural-language requests with cited evidence, and plans what to watch within a time budget. It runs on
 the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a seeded synthetic world.
 
-> **中文速览**：AniLogic 是 Group 10 的动漫发现与观看规划系统（FastAPI + SQLite + 原生 HTML/JS）。四个核心算法：
+> **中文速览**：AniLogic 是 Group 18 的动漫发现与观看规划系统（FastAPI + SQLite + 原生 HTML/JS）。四个核心算法：
 > ① 详情页相似推荐（加权属性 / 逻辑回归 / BGE 向量 / 融合）；② 收藏夹规则 + 偏好推荐（严格筛选，放宽需用户确认）；
 > ③ 首页 ICF 召回 + GA 列表优化（含 MF / NCF / greedy 对照）；④ 聊天找番（意图解析 + 混合检索 + 带来源回答，LLM 可选）。
 > 另有预算约束的观看计划、解释与反馈、冷启动。快速体验：`make setup && make seed && make serve`（模拟数据，
@@ -98,7 +98,8 @@ docker compose up --build                        # http://127.0.0.1:8000
 
 `configs/base.yaml` → `configs/<mode>.yaml` → environment variables `ANILOGIC_<SECTION>__<KEY>`. The optional LLM
 is configured with `ANILOGIC_LLM__PROVIDER` / `__MODEL` / `__BASE_URL` and the secret `ANILOGIC_LLM_API_KEY`
-(environment only). See [.env.example](.env.example).
+(environment or Git-ignored local `.env` only). See [.env.example](.env.example) for the DeepSeek V4.1 Flash
+configuration using ModelScope's OpenAI-compatible endpoint. Supply your own API key locally; never commit it.
 
 ## Tests and evaluation
 

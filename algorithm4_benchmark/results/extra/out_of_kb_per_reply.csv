@@ -1,0 +1,1041 @@
+﻿qid,type,model,group,n_out_kb,n_echo,n_kb_variant,n_out_kb_final,echo_names,kbvar_names,kept_names,in_kb_reply_ok
+C01,constraint,Hy3,N,7,0,0,7,,,月刊少女野崎君;珈百璃的堕落;碧蓝之海;游戏三人娘;天使降临到了我身边;街角魔族;野崎君,False
+C02,constraint,Hy3,N,8,0,0,8,,,悠哉日常大王;元气囝仔;小林家的龙女仆;卫宫家今天的饭;爱吃拉面的小泉同学;请问您今天要来点兔子吗？;田中君总是如此慵懒;比宇宙更远的地方,False
+C03,constraint,Hy3,N,3,0,0,3,,,攻壳机动队 SAC;心理测量者;86,False
+C04,constraint,Hy3,N,4,0,0,4,,,葬送的芙莉莲;攻壳机动队 SAC;赛博朋克：边缘行者;孤独摇滚,False
+C05,constraint,Hy3,N,8,0,0,8,,,异度侵入 ID:INVADED;奇巧计程车;夏日重现;只有我不存在的城市;Another;魔法少女小圆;无头骑士异闻录;心理测量者 Psycho-Pass,False
+C06,constraint,Hy3,N,4,0,1,3,,鬼灭之刃 游郭篇,链锯人;异兽魔都;东京喰种,False
+C07,constraint,Hy3,N,0,0,0,0,,,,True
+C08,constraint,Hy3,N,0,0,0,0,,,,True
+C09,constraint,Hy3,N,7,0,1,6,,Angel Beats!,Charlotte;只有我不存在的城市;魔法少女小圆;野良神;珈百璃的堕落;Another,False
+C10,constraint,Hy3,N,18,0,1,17,,星际牛仔 天国之门,千与千寻;龙猫;天空之城;哈尔的移动城堡;幽灵公主;秒速5厘米;言叶之庭;天气之子;千年女优;红辣椒;东京教父;魔法少女小圆 剧场版 叛逆的物语;声之形;狼的孩子雨和雪;穿越时空的少女;大鱼海棠;大圣归来,False
+C11,constraint,Hy3,N,5,0,0,5,,,珈百璃的堕落;碧蓝之海;别当欧尼酱了！;笨女孩;街角魔族,False
+C12,constraint,Hy3,N,9,0,0,9,,,葬送的芙莉莲;孤独摇滚！;赛博朋克：边缘行者;夏日重现;奇巧出租车;链锯人;国王排名;紫罗兰永恒花园;来自深渊,False
+C13,constraint,Hy3,N,6,0,0,6,,,魔法少女小圆;只有我不存在的城市;ID:INVADED 异度侵入;奇巧计程车;玲音 Serial Experiments Lain;东京残响,False
+C14,constraint,Hy3,N,7,0,0,7,,,玲音;彼方的阿斯特拉;名侦探柯南;爱，死亡和机器人;我的三体之章北海传;攻壳机动队;BLAME!,False
+C15,constraint,Hy3,N,7,0,0,7,,,Air/真心为你;CLANNAD ~After Story~;蜂蜜与四叶草;攻壳机动队 S.A.C.;葬送的芙莉莲;冰菓;龙与虎,False
+C16,constraint,Hy3,N,7,0,0,7,,,机动战士高达 雷霆宙域;死亡台球;死亡游行;小魔女学园;夏娃的时间;星之声;云之彼端，约定的地方,False
+F01,fact,Hy3,N,6,0,1,5,,夏目友人帐 伍,陆;柒;元气囝仔;少年阴阳师;若与你共乘海浪之上,False
+F02,fact,Hy3,N,0,0,0,0,,,,True
+F03,fact,Hy3,N,0,0,0,0,,,,True
+F04,fact,Hy3,N,2,0,0,2,,,天国之门;Asteroid Blues,False
+F05,fact,Hy3,N,3,0,1,2,,咒术回战 0,电锯人;链锯人,False
+F06,fact,Hy3,N,0,0,0,0,,,,True
+F07,fact,Hy3,N,0,0,0,0,,,,True
+F08,fact,Hy3,N,0,0,0,0,,,,True
+M01,mood,Hy3,N,2,0,0,2,,,紫罗兰永恒花园;悠哉日常大王,False
+M02,mood,Hy3,N,6,0,1,5,,Angel Beats!,CLANNAD ~After Story~;未闻花名;萤火之森;紫罗兰永恒花园;可塑性记忆,False
+M03,mood,Hy3,N,4,0,0,4,,,魔法少女小圆;Another;海猫鸣泣之时;寄生兽,False
+M04,mood,Hy3,N,2,0,0,2,,,比宇宙更远的地方;夏日重现,False
+M05,mood,Hy3,N,7,0,0,7,,,魔王学院的不适任者;关于我转生变成史莱姆这档事;龙珠;龙珠超;我的英雄学院;电锯人;斩服少女,False
+M06,mood,Hy3,N,6,0,0,6,,,辉夜大小姐想让我告白;堀与宫村;月色真美;玉子爱情故事;声之形;徒然喜欢你,False
+M07,mood,Hy3,N,6,0,0,6,,,银河英雄传说;天元突破红莲之眼;Blame!;攻壳机动队;心理测量者;希德尼娅的骑士,False
+M08,mood,Hy3,N,5,0,0,5,,,尸鬼;中国奇谭;乡村巴士带走了王孩儿和神仙;迷家;雾山五行,False
+M09,mood,Hy3,N,3,0,0,3,,,Overlord;关于我转生变成史莱姆这档事;齐木楠雄的灾难,False
+M10,mood,Hy3,N,0,0,0,0,,,,True
+S01e,scene,Hy3,N,1,0,0,1,,,接触,False
+S01h,scene,Hy3,N,0,0,0,0,,,,True
+S02e,scene,Hy3,N,4,1,0,3, reclocker ,,心理测量者;命运/停摆 ;只有我不存在的城市,False
+S02h,scene,Hy3,N,0,0,0,0,,,,True
+S03e,scene,Hy3,N,3,0,1,2,,攻击的巨人,**东京喰种**;**命运/零度（Fate/Zero）**,False
+S03h,scene,Hy3,N,1,0,0,1,,,东京喰种,False
+S04e,scene,Hy3,N,2,0,0,2,,,巨树森林;紧咬不放,False
+S04h,scene,Hy3,N,4,0,0,4,,,败者们;输家;昔日的牵绊;绝体绝命,False
+S05e,scene,Hy3,N,3,0,1,2,,命运石之门0,百億のネメシス;夏日重现,False
+S05h,scene,Hy3,N,2,0,1,1,,命运石之门 0,夏日时光,False
+S06e,scene,Hy3,N,3,1,0,2,Code Geass 反叛的鲁路修,,魔女被囚之日;觉醒的白色骑士,False
+S06h,scene,Hy3,N,2,0,1,1,,Code Geass 反叛的鲁路修,叛逆的鲁鲁修,False
+S07e,scene,Hy3,N,4,0,0,4,,,天气之子;秒速五厘米;星之声;萤火之森,False
+S07h,scene,Hy3,N,3,0,0,3,,,天气之子;狼的孩子雨和雪;未来的未来,False
+S08e,scene,Hy3,N,2,0,0,2,,,愚者之饯别;那些日子的回忆,False
+S08h,scene,Hy3,N,0,0,0,0,,,,True
+S09e,scene,Hy3,N,1,0,1,0,,从零开始,,True
+S09h,scene,Hy3,N,2,0,0,2,,,CLANNAD;紫罗兰永恒花园,False
+S10e,scene,Hy3,N,2,0,2,0,,Code Geass 反叛的鲁路修 R2;叛逆的鲁路修 R2,,True
+S10h,scene,Hy3,N,2,0,0,2,,,叛逆的鲁鲁修;命运/Zero,False
+S11e,scene,Hy3,N,0,0,0,0,,,,True
+S11h,scene,Hy3,N,1,0,0,1,,,齐木楠雄的灾难,False
+S12e,scene,Hy3,N,3,0,0,3,,,茨木;灰色之冬;春风,False
+S12h,scene,Hy3,N,0,0,0,0,,,,True
+T01,trap,Hy3,N,4,1,0,3,月光下的量子咖啡馆,,调酒师;昨日之歌;月色真美,False
+T02,trap,Hy3,N,4,1,0,3,星海遗书,,星空清理者;灵笼;薇薇 -萤石眼之歌-,False
+T03,trap,Hy3,N,7,1,0,6,银河快递员小圆,,魔法少女小圆;星空清理者;卡罗尔与星期二;朝花夕誓;选秀王;银河英雄传说,False
+T04,trap,Hy3,N,4,0,0,4,,,黑执事;死神 / BLEACH;东京喰种;地狱少女,False
+T05,trap,Hy3,N,3,1,0,2,海贼王,,周刊少年 Jump;火影忍者,False
+T06,trap,Hy3,N,5,2,0,3,火影忍者;火影忍者疾风传,,疾风传：迷失之塔;The Last;博人传,False
+T07,trap,Hy3,N,5,1,0,4,灌篮高手,,排球少年！！;足球小将;钻石王牌;强风吹拂,False
+T08,trap,Hy3,N,2,0,0,2,,,紫罗兰永恒花园;狼与香辛料,False
+T09,trap,Hy3,N,1,1,0,0,名侦探柯南,,,True
+T10,trap,Hy3,N,1,0,0,1,,,灌篮高手,False
+T11,trap,Hy3,N,2,0,0,2,,,葬送的芙莉莲;迷宫饭,False
+T12,trap,Hy3,N,5,0,0,5,,,葬送的芙莉莲 第二季;药屋少女的呢喃 第二季;坂本 Days;我的英雄学院 最终季;胆大党,False
+X01,similar,Hy3,N,3,0,0,3,,,甲铁城的卡巴内瑞;地狱乐 / 地狱乐园;东京喰种,False
+X02,similar,Hy3,N,4,0,0,4,,,只有我不在的街道;约定的梦幻岛;ONE OUTS;心理测量者,False
+X03,similar,Hy3,N,7,0,0,7,,,飞行面包房; Flying Witch;萤火之森;ARIA The Animation;元气囝仔;悠哉日常大王;ARIA,False
+X04,similar,Hy3,N,4,0,0,4,,,男子高中生的日常;碧蓝之海;月刊少女野崎君;齐木楠雄的灾难,False
+X05,similar,Hy3,N,6,0,0,6,,,夏日重现;凉宫春日的忧郁;魔法少女小圆;只有我不存在的城市;穿越时空的少女;Re:零,False
+X06,similar,Hy3,N,7,0,0,7,,,天气之子;秒速5厘米;星之声;萤火之森;青春猪头少年不会梦到兔女郎学姐;我想吃掉你的胰脏;未闻花名,False
+X07,similar,Hy3,N,2,0,0,2,,,死神 / BLEACH;链锯人,False
+X08,similar,Hy3,N,4,0,0,4,,,齐木楠雄的灾难;我的英雄学院;Charlotte（夏洛特）;Charlotte,False
+X09,similar,Hy3,N,2,0,0,2,,,攻壳机动队 SAC;银河英雄传说,False
+X10,similar,Hy3,N,6,0,0,6,,,异度侵入 ID:INVADED;魍魉之匣;只有我不存在的城市;东京残响;死亡游行;异度侵入,False
+C01,constraint,Hy3,R,0,0,0,0,,,,True
+C02,constraint,Hy3,R,0,0,0,0,,,,True
+C03,constraint,Hy3,R,0,0,0,0,,,,True
+C04,constraint,Hy3,R,0,0,0,0,,,,True
+C05,constraint,Hy3,R,0,0,0,0,,,,True
+C06,constraint,Hy3,R,0,0,0,0,,,,True
+C07,constraint,Hy3,R,0,0,0,0,,,,True
+C08,constraint,Hy3,R,0,0,0,0,,,,True
+C09,constraint,Hy3,R,0,0,0,0,,,,True
+C10,constraint,Hy3,R,0,0,0,0,,,,True
+C11,constraint,Hy3,R,0,0,0,0,,,,True
+C12,constraint,Hy3,R,0,0,0,0,,,,True
+C13,constraint,Hy3,R,0,0,0,0,,,,True
+C14,constraint,Hy3,R,0,0,0,0,,,,True
+C15,constraint,Hy3,R,0,0,0,0,,,,True
+C16,constraint,Hy3,R,0,0,0,0,,,,True
+F01,fact,Hy3,R,0,0,0,0,,,,True
+F02,fact,Hy3,R,0,0,0,0,,,,True
+F03,fact,Hy3,R,0,0,0,0,,,,True
+F04,fact,Hy3,R,0,0,0,0,,,,True
+F05,fact,Hy3,R,0,0,0,0,,,,True
+F06,fact,Hy3,R,0,0,0,0,,,,True
+F07,fact,Hy3,R,0,0,0,0,,,,True
+F08,fact,Hy3,R,0,0,0,0,,,,True
+M01,mood,Hy3,R,0,0,0,0,,,,True
+M02,mood,Hy3,R,0,0,0,0,,,,True
+M03,mood,Hy3,R,0,0,0,0,,,,True
+M04,mood,Hy3,R,0,0,0,0,,,,True
+M05,mood,Hy3,R,0,0,0,0,,,,True
+M06,mood,Hy3,R,0,0,0,0,,,,True
+M07,mood,Hy3,R,0,0,0,0,,,,True
+M08,mood,Hy3,R,0,0,0,0,,,,True
+M09,mood,Hy3,R,0,0,0,0,,,,True
+M10,mood,Hy3,R,0,0,0,0,,,,True
+S01e,scene,Hy3,R,0,0,0,0,,,,True
+S01h,scene,Hy3,R,0,0,0,0,,,,True
+S02e,scene,Hy3,R,0,0,0,0,,,,True
+S02h,scene,Hy3,R,0,0,0,0,,,,True
+S03e,scene,Hy3,R,0,0,0,0,,,,True
+S03h,scene,Hy3,R,0,0,0,0,,,,True
+S04e,scene,Hy3,R,0,0,0,0,,,,True
+S04h,scene,Hy3,R,0,0,0,0,,,,True
+S05e,scene,Hy3,R,0,0,0,0,,,,True
+S05h,scene,Hy3,R,0,0,0,0,,,,True
+S06e,scene,Hy3,R,0,0,0,0,,,,True
+S06h,scene,Hy3,R,0,0,0,0,,,,True
+S07e,scene,Hy3,R,0,0,0,0,,,,True
+S07h,scene,Hy3,R,0,0,0,0,,,,True
+S08e,scene,Hy3,R,0,0,0,0,,,,True
+S08h,scene,Hy3,R,0,0,0,0,,,,True
+S09e,scene,Hy3,R,0,0,0,0,,,,True
+S09h,scene,Hy3,R,0,0,0,0,,,,True
+S10e,scene,Hy3,R,0,0,0,0,,,,True
+S10h,scene,Hy3,R,0,0,0,0,,,,True
+S11e,scene,Hy3,R,0,0,0,0,,,,True
+S11h,scene,Hy3,R,0,0,0,0,,,,True
+S12e,scene,Hy3,R,0,0,0,0,,,,True
+S12h,scene,Hy3,R,0,0,0,0,,,,True
+T01,trap,Hy3,R,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,Hy3,R,1,1,0,0,星海遗书,,,True
+T03,trap,Hy3,R,1,1,0,0,银河快递员小圆,,,True
+T04,trap,Hy3,R,0,0,0,0,,,,True
+T05,trap,Hy3,R,1,1,0,0,One Piece,,,True
+T06,trap,Hy3,R,1,1,0,0,火影忍者,,,True
+T07,trap,Hy3,R,1,1,0,0,灌篮高手,,,True
+T08,trap,Hy3,R,1,1,0,0,葬送的芙莉莲,,,True
+T09,trap,Hy3,R,1,1,0,0,名侦探柯南,,,True
+T10,trap,Hy3,R,0,0,0,0,,,,True
+T11,trap,Hy3,R,0,0,0,0,,,,True
+T12,trap,Hy3,R,0,0,0,0,,,,True
+X01,similar,Hy3,R,0,0,0,0,,,,True
+X02,similar,Hy3,R,0,0,0,0,,,,True
+X03,similar,Hy3,R,0,0,0,0,,,,True
+X04,similar,Hy3,R,0,0,0,0,,,,True
+X05,similar,Hy3,R,0,0,0,0,,,,True
+X06,similar,Hy3,R,0,0,0,0,,,,True
+X07,similar,Hy3,R,0,0,0,0,,,,True
+X08,similar,Hy3,R,0,0,0,0,,,,True
+X09,similar,Hy3,R,0,0,0,0,,,,True
+X10,similar,Hy3,R,0,0,0,0,,,,True
+C01,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+C02,constraint,Deepseek-V4.1-Flash,N,8,0,0,8,,,摇曳露营△;悠哉日常大王;Super Cub;紫罗兰永恒花园;比宇宙更远的地方;相合之物;NONNON日和;弦音,False
+C03,constraint,Deepseek-V4.1-Flash,N,6,0,1,5,,命运石之门 0,银河英雄传说;86 -不存在的战区-;赛博朋克：边缘行者;Vivy -Fluorite Eye's Song-;PSYCHO-PASS,False
+C04,constraint,Deepseek-V4.1-Flash,N,16,0,2,14,,钢炼FA;猎人2011,攻壳机动队 S.A.C. 2nd GIG;CLANNAD ~AFTER STORY~;凉宫春日的消失;化物语;四叠半神话大系;魔法少女小圆;白箱;天元突破;灌篮高手;千年女优;未麻的部屋;东京教父;千与千寻;芙莉莲,False
+C05,constraint,Deepseek-V4.1-Flash,N,11,0,0,11,,,奇巧计程车;重启咲良田;攻壳机动队 S.A.C.;魔法少女小圆;来自新世界;赌博默示录;PSYCHO-PASS;Baccano!;ID:INVADED;夏日重现;约定的梦幻岛,False
+C06,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+C07,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C08,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C09,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C10,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C11,constraint,Deepseek-V4.1-Flash,N,2,0,0,2,,,游戏三人娘;魔王城でおやすみ,False
+C12,constraint,Deepseek-V4.1-Flash,N,9,0,0,9,,,魔法少女小圆;赛博朋克：边缘行者;攻壳机动队 SAC;排球少年;天元突破;别对映像研出手！;孤独摇滚！;CLANNAD～AFTER STORY～;辉夜大小姐想让我告白,False
+C13,constraint,Deepseek-V4.1-Flash,N,9,0,1,8,,Code Geass 叛逆的鲁路修,约定的梦幻岛;忧国的莫里亚蒂;只有我不在的街道;无能的奈奈;ID:INVADED;91Days;心理测量者;赌博默示录,False
+C14,constraint,Deepseek-V4.1-Flash,N,11,0,0,11,,,玲音;少女终末旅行;PLUTO 冥王;铁臂阿童木;机动战士高达0080 口袋里的战争;机动战士高达 第08MS小队;凉宫春日的忧郁;赛博朋克 边缘行者;ID:INVADED 异度侵入;四叠半神话大系;攻壳机动队 SAC,False
+C15,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C16,constraint,Deepseek-V4.1-Flash,N,19,0,0,19,,,雾山五行;犀川幻紫林;岸边露伴一动不动;中国奇谭;小妖怪的夏天;SHELTER;李献计历险记;千与千寻;龙猫;天空之城;未麻的部屋;东京教父;红辣椒;千年女优;凉宫春日的消失;攻壳机动队;回忆积木小屋;山水情;萤火之森,False
+F01,fact,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+F02,fact,Deepseek-V4.1-Flash,N,1,0,0,1,,,少年Jump+,False
+F03,fact,Deepseek-V4.1-Flash,N,6,0,1,5,,鬼灭之刃 无限列车篇,千与千寻;天气之子;铃芽之旅;秒速五厘米;言叶之庭,False
+F04,fact,Deepseek-V4.1-Flash,N,1,0,1,0,,星际牛仔：天国之扉,,True
+F05,fact,Deepseek-V4.1-Flash,N,5,0,2,3,,咒术回战 0;进击的巨人 最终季,周刊少年Jump;电锯人;地狱乐,False
+F06,fact,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+F07,fact,Deepseek-V4.1-Flash,N,6,0,2,4,,新世纪福音战士剧场版：死与新生;The End of Evangelion,序;破;Q;终,False
+F08,fact,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+M01,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,摇曳露营△;日常;白熊咖啡厅;三月的狮子;比宇宙更远的地方;紫罗兰永恒花园;CLANNAD,False
+M02,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,CLANNAD ～AFTER STORY～;未闻花名;紫罗兰永恒花园;夏日大作战;铃芽之旅;Angle Beats!;3月的狮子,False
+M03,mood,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+M04,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,Lycoris Recoil 莉可丽丝;Vivy -Fluorite Eye's Song-;赛博朋克：边缘行者;月色真美;孤独摇滚！;摇曳露营△;奇蛋物语,False
+M05,mood,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+M06,mood,Deepseek-V4.1-Flash,N,12,0,0,12,,,辉夜大小姐想让我告白;月刊少女野崎君;堀与宫村;我心里危险的东西;月色真美;跃动青春;紫罗兰永恒花园;天气之子;言叶之庭;CLANNAD;和山田进行 LV999 的恋爱;恋爱要在世界征服后,False
+M07,mood,Deepseek-V4.1-Flash,N,14,0,1,13,,UC,银河英雄传说;星界的纹章;宇宙战舰大和号;机动战士高达;逆袭的夏亚;天元突破 红莲螺岩;攻壳机动队;PSYCHO-PASS;来自新世界;86-不存在的战区-;希德尼娅的骑士;乐园追放;银英,False
+M08,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,夏日重现;尸鬼;神隐之狼;花田少年史;给桃子的信;暗芝居;鬼太郎,False
+M09,mood,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+M10,mood,Deepseek-V4.1-Flash,N,6,0,0,6,,,Dr.STONE 石纪元;天地创造设计部;宇宙兄弟;星空清理者 Planetes;流汗吧！健身少女;Dr.STONE,False
+S01e,scene,Deepseek-V4.1-Flash,N,2,0,0,2,,,接触;对决,False
+S01h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S02e,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,沈默,False
+S02h,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,沉默,False
+S03e,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,致两千年后的你,False
+S03h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S04e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S04h,scene,Deepseek-V4.1-Flash,N,3,0,0,3,,,铁槌;败者们;勇者,False
+S05e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S05h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S06e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S06h,scene,Deepseek-V4.1-Flash,N,3,0,3,0,,Code Geass 反叛的鲁路修;Code Geass 反叛的鲁路修 R2;复活的鲁路修,,True
+S07e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S07h,scene,Deepseek-V4.1-Flash,N,2,0,0,2,,,十字路口;转校生,False
+S08e,scene,Deepseek-V4.1-Flash,N,2,0,0,2,,,最初之日;母亲,False
+S08h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S09e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S09h,scene,Deepseek-V4.1-Flash,N,1,0,1,0,,从零开始,,True
+S10e,scene,Deepseek-V4.1-Flash,N,3,1,2,0,Re;,Code Geass 反叛的鲁路修 R2;复活的鲁路修,,True
+S10h,scene,Deepseek-V4.1-Flash,N,1,0,1,0,,Code Geass 反叛的鲁路修 R2,,True
+S11e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S11h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S12e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+S12h,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,爱的忧伤,False
+T01,trap,Deepseek-V4.1-Flash,N,7,1,0,6,月光下的量子咖啡馆,,夏日重现;Occultic;Nine;请问您今天要来点兔子吗？;Blend S;调教咖啡厅;月色真美,False
+T02,trap,Deepseek-V4.1-Flash,N,4,1,0,3,星海遗书,,比宇宙更远的地方;Vivy -Fluorite Eye's Song-;星空清理者,False
+T03,trap,Deepseek-V4.1-Flash,N,3,1,0,2,银河快递员小圆,,魔法少女小圆;银河铁道999,False
+T04,trap,Deepseek-V4.1-Flash,N,5,0,0,5,,,黑执事;噬魂师;东京喰种;斩·赤红之瞳;火影忍者,False
+T05,trap,Deepseek-V4.1-Flash,N,2,1,0,1,海贼王,,周刊少年Jump,False
+T06,trap,Deepseek-V4.1-Flash,N,3,3,0,0,火影忍者;火影忍者疾风传;博人传：火影忍者新时代,,,True
+T07,trap,Deepseek-V4.1-Flash,N,6,1,0,5,灌篮高手,,排球少年！！;黑子的篮球;空之境界;棒球英豪;强风吹拂,False
+T08,trap,Deepseek-V4.1-Flash,N,1,0,1,0,,鬼灭,,True
+T09,trap,Deepseek-V4.1-Flash,N,6,1,0,5,名侦探柯南,,钢琴奏鸣曲〈月光〉杀人事件;山庄绷带怪人;蓝色古堡探索事件;贝克街的亡灵;通往天国的倒计时,False
+T10,trap,Deepseek-V4.1-Flash,N,1,0,0,1,,,排球少年,False
+T11,trap,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+T12,trap,Deepseek-V4.1-Flash,N,13,0,1,12,,Clevatess,药屋少女的呢喃;瑠璃的宝石;末日酒店 / Apocalypse Hotel;光逝之夏;九龙泛型浪漫;胆大党;Gachiakuta;Wandance;金牌得主 / Medalist;东岛丹三郎想成为假面骑士;葬送のフリーレン;药屋,False
+X01,similar,Deepseek-V4.1-Flash,N,1,0,0,1,,,海贼王,False
+X02,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+X03,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+X04,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+X05,similar,Deepseek-V4.1-Flash,N,6,0,0,6,,,夏日重现;只有我不在的街道;东京复仇者;魔法少女小圆;凉宫春日的忧郁;时光代理人,False
+X06,similar,Deepseek-V4.1-Flash,N,11,0,0,11,,,天气之子;秒速5厘米;言叶之庭;铃芽之旅;穿越时空的少女;萤火之森;好想告诉你;玉子爱情故事;侧耳倾听;声之形;我想吃掉你的胰脏,False
+X07,similar,Deepseek-V4.1-Flash,N,6,0,2,4,,鬼灭;猎人 Hunter×Hunter,电锯人;我的英雄学院;浪客剑心;斩服少女,False
+X08,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+X09,similar,Deepseek-V4.1-Flash,N,1,0,0,1,,,萤火虫,False
+X10,similar,Deepseek-V4.1-Flash,N,7,0,0,7,,,PLUTO 冥王;妄想代理人;serial experiments lain;魍魉之匣;全部成为F;BABYLON;PLUTO,False
+C01,constraint,Deepseek-V4.1-Flash,R,1,0,1,0,,Code Geass 第25集,,True
+C02,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C03,constraint,Deepseek-V4.1-Flash,R,1,0,0,1,,,L,False
+C04,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C05,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C06,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C07,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C08,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C09,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C10,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C11,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C12,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C13,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C14,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C15,constraint,Deepseek-V4.1-Flash,R,1,0,1,0,,全职猎人 2011,,True
+C16,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F01,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F02,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F03,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F04,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F05,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F06,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F07,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F08,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M01,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M02,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M03,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M04,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M05,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M06,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M07,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M08,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M09,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M10,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S01e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S01h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S02e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S02h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S03e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S03h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S04e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S04h,scene,Deepseek-V4.1-Flash,R,1,0,0,1,,,勇者,False
+S05e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S05h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S06e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S06h,scene,Deepseek-V4.1-Flash,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S07e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S07h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S08e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S08h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S09e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S09h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S10e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S10h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S11e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S11h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S12e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S12h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T01,trap,Deepseek-V4.1-Flash,R,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,Deepseek-V4.1-Flash,R,1,1,0,0,星海遗书,,,True
+T03,trap,Deepseek-V4.1-Flash,R,1,1,0,0,银河快递员小圆,,,True
+T04,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T05,trap,Deepseek-V4.1-Flash,R,1,1,0,0,海贼王,,,True
+T06,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T07,trap,Deepseek-V4.1-Flash,R,1,1,0,0,灌篮高手,,,True
+T08,trap,Deepseek-V4.1-Flash,R,1,1,0,0,葬送的芙莉莲,,,True
+T09,trap,Deepseek-V4.1-Flash,R,1,1,0,0,名侦探柯南,,,True
+T10,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,False
+T11,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T12,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X01,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X02,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X03,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X04,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X05,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X06,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X07,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X08,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X09,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X10,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C01,constraint,GLM-5.3,N,6,0,0,6,,,碧蓝之海;男子高中生的日常;月刊少女野崎君;辉夜大小姐想让我告白;齐木楠雄的灾难;监狱学园,False
+C02,constraint,GLM-5.3,N,9,0,0,9,,,夏日重现;元气囝仔;摇曳露营△;天真与闪电;狼的孩子雨和雪;飞翔的魔女;日常;摇曳百合;在下坂本，有何贵干？,False
+C03,constraint,GLM-5.3,N,4,0,0,4,,,赛博朋克：边缘行者;宝石之国;寄生兽;机动战士高达0080：口袋里的战争,False
+C04,constraint,GLM-5.3,N,6,0,1,5,,进击的巨人 最终季,CLANNAD: After Story;紫罗兰永恒花园;寄生兽;千与千寻;萤火虫之墓,False
+C05,constraint,GLM-5.3,N,7,0,0,7,,,来自新世界;尸鬼;冰菓;Another;乱步奇谭;弹丸论破 希望之峰私立学院;名侦探柯南：贝克街的亡灵,False
+C06,constraint,GLM-5.3,N,5,0,0,5,,,恶魔人： crybaby;来自深渊;异度入侵;我的英雄学院;电锯人,False
+C07,constraint,GLM-5.3,N,3,0,0,3,,,魔法少女小圆;紫罗兰永恒花园;Fate/Zero,False
+C08,constraint,GLM-5.3,N,3,0,0,3,,,葬送的芙莉莲;奇巧计程车;来自深渊,False
+C09,constraint,GLM-5.3,N,4,0,0,4,,,魔法少女小圆;Another;来自深渊;ReLIFE,False
+C10,constraint,GLM-5.3,N,24,0,0,24,,,千与千寻;龙猫;天空之城;哈尔的移动城堡;幽灵公主;借东西的小人阿莉埃蒂;秒速五厘米;言叶之庭;声之形;灌篮高手 The First Slam Dunk;利兹与青鸟;紫罗兰永恒花园剧场版;攻壳机动队;红辣椒/盗梦侦探;盗梦空间;阿基拉 AKIRA;萤火虫之墓;贝克街的亡灵;狼的孩子雨和雪;夏日大作战;穿越时空的少女;普罗米亚;灌篮高手;红辣椒,False
+C11,constraint,GLM-5.3,N,5,0,0,5,,,"为美好的世界献上祝福！;在下坂本,有何贵干?;碧蓝之海;孤独摇滚！;月刊少女野崎君",False
+C12,constraint,GLM-5.3,N,6,0,0,6,,,紫罗兰永恒花园;赛博朋克：边缘行者;奇巧计程车;3月的狮子;千与千寻;声之形,False
+C13,constraint,GLM-5.3,N,4,0,1,3,,怪物 Monster,约定的梦幻岛;死亡游行;赌博默示录,False
+C14,constraint,GLM-5.3,N,8,0,0,8,,,赛博朋克：边缘行者;赛博朋克2077;拾荒者统治;爱，死亡和机器人;飞跃巅峰！;万神殿;FLCL（特别的她）;边缘行者,False
+C15,constraint,GLM-5.3,N,3,0,1,2,,进击的巨人 最终季,排球少年！！;CLANNAD ～After Story～,False
+C16,constraint,GLM-5.3,N,7,0,0,7,,,浪客剑心·追忆篇;浪客剑心;Macross Plus;雾山五行;千与千寻;辉夜姬物语;灌篮高手 The First Slam Dunk,False
+F01,fact,GLM-5.3,N,1,0,1,0,,夏目友人帐 伍,,True
+F02,fact,GLM-5.3,N,0,0,0,0,,,,True
+F03,fact,GLM-5.3,N,6,0,1,5,,鬼灭之刃：无限列车篇,千与千寻;前前前世;スパークル;天气之子;铃芽之旅,False
+F04,fact,GLM-5.3,N,1,0,1,0,,星际牛仔：天国之扉,,True
+F05,fact,GLM-5.3,N,6,0,2,4,,进击的巨人 最终季;咒术回战 0,电锯人;链锯人;佐佐木与宫野;周刊少年Jump,False
+F06,fact,GLM-5.3,N,0,0,0,0,,,,True
+F07,fact,GLM-5.3,N,6,0,1,5,,The End of Evangelion,死与新生;终;少女革命;灵魂共鸣;魔法少女小圆,False
+F08,fact,GLM-5.3,N,3,0,3,0,,银魂°;银魂. Porori-hen;银魂. 银之魂篇,,True
+M01,mood,GLM-5.3,N,0,0,0,0,,,,False
+M02,mood,GLM-5.3,N,11,0,0,11,,,CLANNAD;CLANNAD ～After Story～;萤火虫之墓;声之形;我想吃掉你的胰脏;未闻花名;紫罗兰永恒花园;来自深渊;在这个世界的一角;利兹与青鸟;CLANNAD After Story,False
+M03,mood,GLM-5.3,N,6,0,0,6,,,魔法少女小圆;Another;尸体派对;弹丸论破;妖精的旋律;约定的梦幻岛,False
+M04,mood,GLM-5.3,N,4,0,0,4,,,莉兹与青鸟;辉夜大小姐想让我告白;来自深渊;紫罗兰永恒花园,False
+M05,mood,GLM-5.3,N,6,0,0,6,,,我的英雄学院;排球少年;火影忍者;赛马娘;Dr.STONE 新石纪;MEGALOBOX,False
+M06,mood,GLM-5.3,N,6,0,0,6,,,月色真美;CLANNAD;堀与宫村;辉夜大小姐想让我告白;紫罗兰永恒花园;辉夜大小姐,False
+M07,mood,GLM-5.3,N,13,0,0,13,,,星球大战：幻境;宇宙战舰大和号;银河英雄传说;高达;机动战士高达 SEED;机动战士高达0079;攻壳机动队;来自新世界;葬送的芙莉莲;THANATOS 的链条;来自深渊;翠星之加尔冈蒂亚;希德尼娅的骑士,False
+M08,mood,GLM-5.3,N,3,0,0,3,,,尸鬼;黑暗集会;怪化猫,False
+M09,mood,GLM-5.3,N,10,0,0,10,,,Overlord（不死者之王）;为美好的世界献上祝福;贤者之孙;魔王学院的不适任者;关于我转生变成史莱姆这件事;欢迎来到实力至上主义的教室;这个勇者明明超强却过分谨慎;刃牙;我立于百万生命之上;魔王学院,False
+M10,mood,GLM-5.3,N,11,0,1,10,,工作细胞BLACK,石纪元;浪漫杀手;萌菌大团菌;侵略！乌贼娘;悠哉日常大王;豚豚计划;蓝色浪潮;比宇宙更远的地方;宇宙兄弟;别对映像研出手！,False
+S01e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S01h,scene,GLM-5.3,N,4,0,1,3,,**死亡笔记（DEATH NOTE）**,**欺诈游戏**;**弹丸论破**;**噬谎者**,False
+S02e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S02h,scene,GLM-5.3,N,5,0,0,5,,,忧国的莫里亚蒂;文豪野犬;催眠麦克风;UN-GO;永生之酒,False
+S03e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S03h,scene,GLM-5.3,N,0,0,0,0,,,,True
+S04e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S04h,scene,GLM-5.3,N,1,0,0,1,,,勇者,False
+S05e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S05h,scene,GLM-5.3,N,3,0,2,1,,命运石之门0;Steins;Gate 0,负荷领域的既视感,False
+S06e,scene,GLM-5.3,N,1,1,0,0,Code Geass 反叛的鲁路修,,,True
+S06h,scene,GLM-5.3,N,2,0,2,0,,**Code Geass 反叛的鲁路修**;复活的鲁路修,,True
+S07e,scene,GLM-5.3,N,3,0,0,3,,,なんでもないや;天气之子;铃芽之旅,False
+S07h,scene,GLM-5.3,N,3,0,0,3,,,天气之子;铃芽之旅;穿越时空的少女,False
+S08e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S08h,scene,GLM-5.3,N,0,0,0,0,,,,True
+S09e,scene,GLM-5.3,N,1,0,0,1,,,ゼロから,False
+S09h,scene,GLM-5.3,N,0,0,0,0,,,,True
+S10e,scene,GLM-5.3,N,2,0,2,0,,Code Geass 反叛的鲁路修 R2;复活的鲁路修,,True
+S10h,scene,GLM-5.3,N,2,0,2,0,,**Code Geass 反叛的鲁路修**;Code Geass 复活的鲁路修,,True
+S11e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S11h,scene,GLM-5.3,N,1,0,0,1,,,齐木楠雄的灾难,False
+S12e,scene,GLM-5.3,N,5,0,1,4,,四月,冬风;TARI TARI;交响情人梦;比宇宙更远的地方,False
+S12h,scene,GLM-5.3,N,2,0,0,2,,,三月的狮子;利兹与青鸟,False
+T01,trap,GLM-5.3,N,3,1,0,2,月光下的量子咖啡馆,,月色真美;咖啡馆时光,False
+T02,trap,GLM-5.3,N,3,1,0,2,星海遗书,,希德尼娅的骑士;来自深渊,False
+T03,trap,GLM-5.3,N,4,1,0,3,银河快递员小圆,,魔法少女小圆;野生末麻;银河铁道999,False
+T04,trap,GLM-5.3,N,4,0,0,4,,,噬魂师;黑执事;RWBY;狂赌之渊,False
+T05,trap,GLM-5.3,N,2,1,0,1,海贼王,,周刊少年Jump,False
+T06,trap,GLM-5.3,N,2,2,0,0,火影忍者;火影忍者疾风传,,,True
+T07,trap,GLM-5.3,N,7,1,0,6,灌篮高手,,排球少年！！;排球少年;飙速宅男;蓝色监狱;王牌投手 振臂高挥;强风吹拂,False
+T08,trap,GLM-5.3,N,3,1,0,2,葬送的芙莉莲,,紫罗兰永恒花园;来自深渊,False
+T09,trap,GLM-5.3,N,4,1,0,3,名侦探柯南,,贝克街的亡灵;迷宫的十字路口;世纪末的魔术师,False
+T10,trap,GLM-5.3,N,2,0,0,2,,,葬送的芙莉莲;排球少年!!,False
+T11,trap,GLM-5.3,N,0,0,0,0,,,,False
+T12,trap,GLM-5.3,N,5,0,0,5,,,葬送的芙莉莲 第二季;我推的孩子 第三季;金牌得主;魔女与佣兵;全修。,False
+X01,similar,GLM-5.3,N,2,0,0,2,,,甲铁城的卡巴内瑞;电锯人,False
+X02,similar,GLM-5.3,N,5,0,0,5,,,只有我不在的城市;约定的梦幻岛;ID:INVADED;妄想代理人;全部成为F,False
+X03,similar,GLM-5.3,N,8,0,0,8,,,萤火之森;元气囝仔;悠哉日常大王;飞翔的魔女;爱吃拉面的小泉同学;熊巫女;一起吃饭吧;水果篮子,False
+X04,similar,GLM-5.3,N,5,0,0,5,,,日常;男子高中生的日常;为美好的世界献上祝福！;碧蓝之海;齐木楠雄的灾难,False
+X05,similar,GLM-5.3,N,5,0,0,5,,,夏日重现;四叠半神话大系;移动迷宫;只有我不在的城市;四叠半,False
+X06,similar,GLM-5.3,N,11,0,0,11,,,天气之子;铃芽之旅;秒速五厘米;言叶之庭;穿越时空的少女;烟花;岁月的童话;侧耳倾听;堀与宫村;月刊少女野崎君;CLANNAD,False
+X07,similar,GLM-5.3,N,4,0,0,4,,,火影忍者;炎拳;链锯人;我的英雄学院,False
+X08,similar,GLM-5.3,N,10,0,1,9,,猎人×猎人,我的英雄学院;齐木楠雄的灾难;辉夜大小姐想让我告白;坂本但有;日常系;灵异教师神眉;怪兽8号;强风吹拂;排球少年,False
+X09,similar,GLM-5.3,N,10,0,1,9,,星际牛仔：天国之门,混沌武士;宇宙浪子;ODDTAXI;芙莉莲;狼与香辛料;攻壳机动队：SAC;兆载霸王;COWBOY风其他;黑之契约者,False
+X10,similar,GLM-5.3,N,5,0,0,5,,,PLUTO;妄想代理人;未麻的部落;恶魔人 Crybaby;Another,False
+C01,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C02,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C03,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C04,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C05,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C06,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C07,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C08,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C09,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C10,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C11,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C12,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C13,constraint,GLM-5.3,R,2,0,2,0,,Death Note（死亡笔记）;Code Geass（反叛的鲁路修）,,True
+C14,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C15,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C16,constraint,GLM-5.3,R,0,0,0,0,,,,True
+F01,fact,GLM-5.3,R,0,0,0,0,,,,True
+F02,fact,GLM-5.3,R,0,0,0,0,,,,True
+F03,fact,GLM-5.3,R,0,0,0,0,,,,True
+F04,fact,GLM-5.3,R,0,0,0,0,,,,True
+F05,fact,GLM-5.3,R,0,0,0,0,,,,True
+F06,fact,GLM-5.3,R,0,0,0,0,,,,True
+F07,fact,GLM-5.3,R,0,0,0,0,,,,True
+F08,fact,GLM-5.3,R,0,0,0,0,,,,True
+M01,mood,GLM-5.3,R,0,0,0,0,,,,True
+M02,mood,GLM-5.3,R,0,0,0,0,,,,True
+M03,mood,GLM-5.3,R,0,0,0,0,,,,True
+M04,mood,GLM-5.3,R,0,0,0,0,,,,True
+M05,mood,GLM-5.3,R,0,0,0,0,,,,True
+M06,mood,GLM-5.3,R,0,0,0,0,,,,True
+M07,mood,GLM-5.3,R,0,0,0,0,,,,True
+M08,mood,GLM-5.3,R,0,0,0,0,,,,True
+M09,mood,GLM-5.3,R,0,0,0,0,,,,True
+M10,mood,GLM-5.3,R,0,0,0,0,,,,True
+S01e,scene,GLM-5.3,R,0,0,0,0,,,,False
+S01h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S02e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S02h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S03e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S03h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S04e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S04h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S05e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S05h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S06e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S06h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S07e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S07h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S08e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S08h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S09e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S09h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S10e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S10h,scene,GLM-5.3,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S11e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S11h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S12e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S12h,scene,GLM-5.3,R,0,0,0,0,,,,True
+T01,trap,GLM-5.3,R,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,GLM-5.3,R,1,1,0,0,星海遗书,,,True
+T03,trap,GLM-5.3,R,1,1,0,0,银河快递员小圆,,,True
+T04,trap,GLM-5.3,R,0,0,0,0,,,,True
+T05,trap,GLM-5.3,R,1,1,0,0,海贼王,,,True
+T06,trap,GLM-5.3,R,1,1,0,0,火影忍者,,,True
+T07,trap,GLM-5.3,R,1,1,0,0,灌篮高手,,,True
+T08,trap,GLM-5.3,R,1,1,0,0,葬送的芙莉莲,,,True
+T09,trap,GLM-5.3,R,1,1,0,0,名侦探柯南,,,True
+T10,trap,GLM-5.3,R,0,0,0,0,,,,True
+T11,trap,GLM-5.3,R,0,0,0,0,,,,True
+T12,trap,GLM-5.3,R,0,0,0,0,,,,True
+X01,similar,GLM-5.3,R,0,0,0,0,,,,True
+X02,similar,GLM-5.3,R,0,0,0,0,,,,True
+X03,similar,GLM-5.3,R,1,0,0,1,,,紫罗兰永恒花园,False
+X04,similar,GLM-5.3,R,0,0,0,0,,,,True
+X05,similar,GLM-5.3,R,0,0,0,0,,,,True
+X06,similar,GLM-5.3,R,0,0,0,0,,,,True
+X07,similar,GLM-5.3,R,0,0,0,0,,,,True
+X08,similar,GLM-5.3,R,0,0,0,0,,,,True
+X09,similar,GLM-5.3,R,0,0,0,0,,,,True
+X10,similar,GLM-5.3,R,0,0,0,0,,,,True
+C01,constraint,GLM-5.3-Flash,N,6,0,0,6,,,孤独摇滚！;辉夜大小姐想让我告白;月刊少女野崎君;小林家的龙女仆;为美好的世界献上祝福！;男子高中生的日常,False
+C02,constraint,GLM-5.3-Flash,N,6,0,0,6,,,元气囝仔;摇曳露营△;悠哉日常大王;水星领航员;玉子市场;天真与闪电,False
+C03,constraint,GLM-5.3-Flash,N,4,0,1,3,,EVA 新剧场版,攻壳机动队;魔法少女小圆;FLCL,False
+C04,constraint,GLM-5.3-Flash,N,7,0,2,5,,Code Geass 反叛的鲁路修;EVA 新世纪福音战士,CLANNAD ～AFTER STORY～;紫罗兰永恒花园;白箱;灌篮高手;强风吹拂,False
+C05,constraint,GLM-5.3-Flash,N,8,0,0,8,,,夏日重现;魔法少女小圆;冰菓;怪化猫;心理测量者;异度侵入 ID:INVADED;GOSICK;回转企鹅罐,False
+C06,constraint,GLM-5.3-Flash,N,6,0,1,5,,鬼灭之刃：无限列车篇,电锯人;赛博朋克：边缘行者;恶魔人 Crybaby;蓝眼武士;雾山五行,False
+C07,constraint,GLM-5.3-Flash,N,4,0,0,4,,,魔法少女小圆;来自深渊;紫罗兰永恒花园;亡念之扎姆德,False
+C08,constraint,GLM-5.3-Flash,N,5,0,0,5,,,攻壳机动队;CLANNAD ～AFTER STORY～;紫罗兰永恒花园;海贼王;灌篮高手,False
+C09,constraint,GLM-5.3-Flash,N,9,0,0,9,,,电锯人;魔法少女小圆;Another;东京喰种;血界战线;异兽魔都;佐贺偶像;FLCL;四叠半神话大系,False
+C10,constraint,GLM-5.3-Flash,N,15,0,5,10,,EVA：终;命运石之门：负荷领域的既视感;城市猎人：新宿 PRIVATE EYES;鬼灭之刃：无限列车篇;咒术回战0,千与千寻;攻壳机动队;黑客帝国;阿基拉;天空之城;秒速五厘米;朝花夕誓;声之形;魔法少女小圆：叛逆的物语;海贼王：红发歌姬,False
+C11,constraint,GLM-5.3-Flash,N,6,0,0,6,,,为美好的世界献上祝福！;男子高中生的日常;徒然喜欢你;小林家的龙女仆;爱杀宝贝;干物妹！小埋,False
+C12,constraint,GLM-5.3-Flash,N,10,0,2,8,,四谎 / 四月是你的谎言;海盗战记 (Vinland Saga),CLANNAD ～AFTER STORY～;紫罗兰永恒花园;恶魔人 Crybaby;王朝萌芽：奇巧计程车 (ODD TAXI);葬送的芙莉莲;白箱 (SHIROBAKO);日常;C`est pas comme ça... 三星大厨,False
+C13,constraint,GLM-5.3-Flash,N,3,0,0,3,,,魔法少女小圆;奇巧出租车;PSYCHO-PASS 心理测量者,False
+C14,constraint,GLM-5.3-Flash,N,8,0,1,7,,EVA 新剧场版：破,赛博朋克：边缘行者;2077;攻壳机动队;奇巧计程车;异度入侵 ID:INVADED;Vivy -Fluorite Eye's Song-;来自深渊,False
+C15,constraint,GLM-5.3-Flash,N,5,0,0,5,,,紫罗兰永恒花园;CLANNAD ～AFTER STORY～;白箱;千与千寻;龙猫,False
+C16,constraint,GLM-5.3-Flash,N,15,0,1,14,, EVA：终 ,漫游记;魔法少女小圆;外界之恋 / 不吉波普不笑;瞬间穿越;攻壳机动队;FLCL;歌声之形;死囚乐园;跨越时空的少女;星方武侠;Outlaw Star;攻壳机动队 SAC;千年女优;东京教父,False
+F01,fact,GLM-5.3-Flash,N,2,0,0,2,,,白兔糖;元气囝仔,False
+F02,fact,GLM-5.3-Flash,N,1,0,1,0,,间谍过家家：代号：白,,True
+F03,fact,GLM-5.3-Flash,N,5,0,0,5,,,天气之子;铃芽之旅;星之卡比;大怪兽卡美拉;穿越时空的少女,False
+F04,fact,GLM-5.3-Flash,N,1,0,0,1,,,天国之门,False
+F05,fact,GLM-5.3-Flash,N,4,0,1,3,,进击的巨人 The Final Season,排球少年！！;电锯人;佐贺偶像是传奇,False
+F06,fact,GLM-5.3-Flash,N,0,0,0,0,,,,True
+F07,fact,GLM-5.3-Flash,N,7,0,3,4,,福音战士新剧场版;新世纪福音战士剧场版：死与新生;THE END OF EVANGELION,序;破;Q;终,False
+F08,fact,GLM-5.3-Flash,N,2,0,2,0,,银魂' 延长战;银魂°,,True
+M01,mood,GLM-5.3-Flash,N,11,0,0,11,,,紫罗兰永恒花园;白熊咖啡厅;摇曳露营△;观海王子;来自风平浪静的明天;测量：野生动物;动物狂想曲;小林家的龙女仆;白猫老师的育子日记;银之匙;CLANNAD ～AFTER STORY～,False
+M02,mood,GLM-5.3-Flash,N,7,0,0,7,,,CLANNAD ～AFTER STORY～;CLANNAD;未闻花名;紫罗兰永恒花园;可塑性记忆;斩·赤红之瞳;白兔糖,False
+M03,mood,GLM-5.3-Flash,N,11,0,1,10,,怪物/Monster,因果论;Another（替身）;未来日记;Psychic Detective;梦幻奇缘;寄生兽;魔法少女小圆;灰色果实;Perfect Blue 未麻的部屋;Another,False
+M04,mood,GLM-5.3-Flash,N,4,0,0,4,,,日常;白熊咖啡厅;紫罗兰永恒花园;Another,False
+M05,mood,GLM-5.3-Flash,N,4,0,0,4,,,我的英雄学院;葬送的芙莉莲;火影忍者;海贼王,False
+M06,mood,GLM-5.3-Flash,N,8,0,0,8,,,堀与宫村;月色真美;辉夜大小姐想让我告白;CLANNAD ~After Story~;weathering with you 天气之子;玉子爱情故事;龙与虎;徒然喜欢你,False
+M07,mood,GLM-5.3-Flash,N,7,0,0,7,,,攻壳机动队;黑客帝国;来自深渊;Vivy -Fluorite Eye's Song-;赛博朋克：边缘行者;_PSYCHO-PASS 心理测量者;银河英雄传说,False
+M08,mood,GLM-5.3-Flash,N,3,0,0,3,,,怪化猫;夏日重现;暗芝居,False
+M09,mood,GLM-5.3-Flash,N,13,0,0,13,,,OVERLORD;转生史莱姆日记/关于我转生变成史莱姆这档事;我的英雄学院;暗杀教室;无职转生;药屋少女的呢喃;欢迎来到实力至上主义的教室;失格纹的最强贤者;平家物语;天才王子的赤字国家振兴术;蜘蛛子;一念永恒;仙王的日常生活,False
+M10,mood,GLM-5.3-Flash,N,6,0,0,6,,,石纪元;宇宙兄弟;机器人笔记;少女与战车;约定的梦幻岛;冰菓,False
+S01e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S01h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S02e,scene,GLM-5.3-Flash,N,1,0,0,1,,,沉默,False
+S02h,scene,GLM-5.3-Flash,N,1,0,0,1,,,名侦探柯南,False
+S03e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S03h,scene,GLM-5.3-Flash,N,2,0,0,2,,,甲铁城的卡巴内利;来自深渊,False
+S04e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S04h,scene,GLM-5.3-Flash,N,3,0,0,3,,,埃尔文·史密斯：第57次墙外调查（4）;铁槌;伊尔泽的笔记,False
+S05e,scene,GLM-5.3-Flash,N,1,0,0,1,,,负荷领域的既视感,False
+S05h,scene,GLM-5.3-Flash,N,1,0,1,0,,命运石之门0,,True
+S06e,scene,GLM-5.3-Flash,N,1,1,0,0,Code Geass 反叛的鲁路修,,,True
+S06h,scene,GLM-5.3-Flash,N,3,0,2,1,,**Code Geass 反叛的鲁路修**;Code Geass 复活的鲁路修,R2,False
+S07e,scene,GLM-5.3-Flash,N,3,0,0,3,,,前前前世;天气之子;铃芽之旅,False
+S07h,scene,GLM-5.3-Flash,N,2,0,0,2,,,天气之子;铃芽之旅,False
+S08e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S08h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S09e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S09h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S10e,scene,GLM-5.3-Flash,N,3,0,1,2,,反叛的鲁路修 R2,三部曲;夺还的Z,False
+S10h,scene,GLM-5.3-Flash,N,2,0,1,1,,Code Geass 反叛的鲁路修,亡国的阿基德,False
+S11e,scene,GLM-5.3-Flash,N,1,0,1,0,,**一拳**,,True
+S11h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S12e,scene,GLM-5.3-Flash,N,1,0,0,1,,,爱的悲叹,False
+S12h,scene,GLM-5.3-Flash,N,1,0,0,1,,,春风,False
+T01,trap,GLM-5.3-Flash,N,3,1,0,2,月光下的量子咖啡馆,,月光下的异世界之旅;咖啡猫 barista 的日常,False
+T02,trap,GLM-5.3-Flash,N,4,1,0,3,星海遗书,,星方武侠;星空清理者;海猫鸣泣之时,False
+T03,trap,GLM-5.3-Flash,N,3,1,0,2,银河快递员小圆,,银河铁道999;宇宙快递,False
+T04,trap,GLM-5.3-Flash,N,5,0,0,5,,,死神/境·界;家庭教师HITMAN REBORN!;秋叶原生肉房/斩·赤红之瞳;深渊传说;噬神者,False
+T05,trap,GLM-5.3-Flash,N,4,2,0,2,海贼王;ONE PIECE FILM RED,,周刊少年JUMP;强者世界,False
+T06,trap,GLM-5.3-Flash,N,3,2,0,1,火影忍者;火影忍者疾风传,,博人传,False
+T07,trap,GLM-5.3-Flash,N,6,1,0,5,灌篮高手,,排球少年！！;强风吹吹;黑子的篮球;乒乓;蓝色监狱,False
+T08,trap,GLM-5.3-Flash,N,2,1,0,1,葬送的芙莉莲,,紫罗兰永恒花园,False
+T09,trap,GLM-5.3-Flash,N,4,1,0,3,名侦探柯南,,贝克街的亡灵;通往天国的倒计时;沉默的15分钟,False
+T10,trap,GLM-5.3-Flash,N,0,0,0,0,,,,False
+T11,trap,GLM-5.3-Flash,N,0,0,0,0,,,,False
+T12,trap,GLM-5.3-Flash,N,8,0,0,8,,,药屋少女的呢喃 第二季;坂本日常;机动战士高达 GQuuuuuuX;Lazarus 拉撒路;Summer Pockets;CLANNAD;AIR;一击男 第三季,False
+X01,similar,GLM-5.3-Flash,N,0,0,0,0,,,,True
+X02,similar,GLM-5.3-Flash,N,7,0,0,7,,,赌博默示录;弹丸论破：希望的学园;Another;奇巧计程车 / Odd Taxi;尸体派对;弹丸论破;奇巧计程车,False
+X03,similar,GLM-5.3-Flash,N,13,0,0,13,,,狼的孩子雨和雪;元气少女缘结神;白兔糖;读书人;魔女宅急便;悠哉日常大王;紫罗兰永恒花园;这美好世界;声之形;不吉波普不笑;妖怪旅馆营业中;犬夜叉;有顶天家族,False
+X04,similar,GLM-5.3-Flash,N,10,0,0,10,,,日常;男子高中生的日常;恶魔阿萨谢尔在召唤你;齐木楠雄的灾难;这个美术部大有问题;笨拙至极的上野;刺客守则;隐秘的尾牙;坂本日常;暗杀教室,False
+X05,similar,GLM-5.3-Flash,N,7,0,0,7,,,魔法少女小圆;夏日重现;只有我不存在的城市;生命巡察;今天开始做魔王;穿越时空的少女;重启咲良田,False
+X06,similar,GLM-5.3-Flash,N,11,0,0,11,,,天气之子;秒速五厘米;铃芽之旅;恋途未卜;声之形;告白实行界;不曾存在的你，与我;Jose与虎与鱼们;堀与宫村;辉夜大小姐想让我告白;我想吃掉你的胰脏,False
+X07,similar,GLM-5.3-Flash,N,8,0,0,8,,,Fate/stay night [Unlimited Blade Works];Fate/Zero;炎炎消防队;海贼王;火影忍者;我的英雄学院;无限列车篇;地狱乐,False
+X08,similar,GLM-5.3-Flash,N,6,0,0,6,,,齐木楠雄的灾难;某科学的超电磁炮;我的英雄学院;幽游白书;契约之吻;天国大魔境,False
+X09,similar,GLM-5.3-Flash,N,13,0,0,13,,,星际漫游者 / 超时空要塞;混沌武士（Samurai Champloo）;黑街/GUNNM;铳墓;天元突破;PLUTO / 冥王;宇宙浪客 / 宇宙浪子;鲁邦三世（Lupin III）;卡里奥斯特罗之城;攻壳机动队 SAC;LOST SONG;来自深渊;混沌武士,False
+X10,similar,GLM-5.3-Flash,N,7,0,0,7,,,恶魔人 Crybaby;赌博默示录;Psychopass 心理测量者 第一季;来自深渊;怪奇物语;寄生兽 生命的准则;寄生兽,False
+C01,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C02,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C03,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C04,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C05,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C06,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C07,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C08,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C09,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C10,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C11,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C12,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C13,constraint,GLM-5.3-Flash,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+C14,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C15,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C16,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F01,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F02,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F03,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F04,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F05,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F06,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F07,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F08,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M01,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M02,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M03,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M04,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M05,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M06,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M07,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M08,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M09,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M10,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S01e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S01h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S02e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S02h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S03e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S03h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S04e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S04h,scene,GLM-5.3-Flash,R,1,0,0,1,,,铁槌,False
+S05e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S05h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S06e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S06h,scene,GLM-5.3-Flash,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S07e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S07h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S08e,scene,GLM-5.3-Flash,R,1,0,1,0,,钢炼FA,,True
+S08h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S09e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S09h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S10e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S10h,scene,GLM-5.3-Flash,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S11e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S11h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S12e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S12h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+T01,trap,GLM-5.3-Flash,R,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,GLM-5.3-Flash,R,1,1,0,0,星海遗书,,,True
+T03,trap,GLM-5.3-Flash,R,1,1,0,0,银河快递员小圆,,,True
+T04,trap,GLM-5.3-Flash,R,0,0,0,0,,,,True
+T05,trap,GLM-5.3-Flash,R,1,1,0,0,海贼王,,,True
+T06,trap,GLM-5.3-Flash,R,1,1,0,0,火影忍者,,,True
+T07,trap,GLM-5.3-Flash,R,1,1,0,0,灌篮高手,,,True
+T08,trap,GLM-5.3-Flash,R,2,2,0,0,葬送的芙莉莲;芙莉莲,,,True
+T09,trap,GLM-5.3-Flash,R,1,1,0,0,名侦探柯南,,,True
+T10,trap,GLM-5.3-Flash,R,0,0,0,0,,,,False
+T11,trap,GLM-5.3-Flash,R,0,0,0,0,,,,True
+T12,trap,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X01,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X02,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X03,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X04,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X05,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X06,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X07,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X08,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X09,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X10,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C01,constraint,MiniMax-M3,N,10,0,0,10,,,碧蓝之海;在下坂本，有何贵干;男子高中生的日常;月刊少女野崎君;千绪的通学路;悠哉日常大王;天使降临到我身边;孤独摇滚！;白熊咖啡厅;阿滋漫画大王,False
+C02,constraint,MiniMax-M3,N,9,0,0,9,,,悠哉日常大王;飞翔的魔女;妖精森林的小不点;请问您今天要来点兔子吗？;玉响～hitotose～;此花亭奇谭;白兔糖;水星领航员 ARIA The Animation;悠悠式,False
+C03,constraint,MiniMax-M3,N,2,0,1,1,,命运石之门 0,负荷领域的既视感,False
+C04,constraint,MiniMax-M3,N,6,0,1,5,,猎人×猎人（2011）,攻壳机动队 SAC;灌篮高手;摇曳露营△;葬送的芙莉莲;孤独摇滚！,False
+C05,constraint,MiniMax-M3,N,0,0,0,0,,,,True
+C06,constraint,MiniMax-M3,N,8,0,0,8,,,MEGALOBOX;来自深渊;电锯人;赛博朋克：边缘行者;Vivy -Fluorite Eye's Song-;Princess Principal;永生之酒;黄金神威,False
+C07,constraint,MiniMax-M3,N,9,0,0,9,,,魔法少女小圆;来自深渊;国王排名;魔法使的新娘;千与千寻;哈尔的移动城堡;天空之城;风之谷;幽灵公主,False
+C08,constraint,MiniMax-M3,N,13,0,2,11,,猎人×猎人 蚂蚁篇;钢炼FA,Psycho-Pass;异度侵入 ID:INVADED;攻壳机动队 SAC;来自深渊;CLANNAD AFTER STORY;狼的孩子雨和雪;海贼王;Fate/Zero;千与千寻;红猪皮娃;CLANNAD AS,False
+C09,constraint,MiniMax-M3,N,7,0,0,7,,,魔法少女小圆;只有我不存在的城市;Another;SSSS.GRIDMAN;漂流少年 Sonny Boy;BNA 动物新世代;异度侵入 ID:INVADED,False
+C10,constraint,MiniMax-M3,N,26,0,0,26,,,千与千寻;幽灵公主;哈尔的移动城堡;你想活出怎样的人生;龙猫;天空之城;风之谷;辉夜姬物语;萤火虫之墓;天气之子;铃芽之旅;秒速五厘米;言叶之庭;红辣椒;千年女优;东京教父;狼的孩子雨和雪;穿越时空的少女;夏日大作战;龙与雀斑公主;阿基拉;黑客帝国;攻壳机动队;红猪;普罗米亚;心灵奇旅,False
+C11,constraint,MiniMax-M3,N,7,0,0,7,,,碧蓝之海;男子高中生的日常;POP TEAM EPIC;笨女孩;月刊少女野崎君;在下坂本，有何贵干？;后街女孩,False
+C12,constraint,MiniMax-M3,N,3,0,0,3,,,夏日重现;冰菓;孤独摇滚！,False
+C13,constraint,MiniMax-M3,N,8,0,0,8,,,约定的梦幻岛;奇巧计程车;赌博破戒录：逆袭人生;异度侵入 ID:INVADED;Erased：只有我不存在的城市;死亡游行;Vivy -Fluorite Eye's Song-;魔法少女小圆,False
+C14,constraint,MiniMax-M3,N,9,0,0,9,,,PLUTO;铁臂阿童木;来自深渊;Serial Experiments Lain 回路;凉宫春日的忧郁;Princess Principal;86 -不存在的战区-;Megalo Box;ID:INVADED 异度侵入,False
+C15,constraint,MiniMax-M3,N,0,0,0,0,,,,True
+C16,constraint,MiniMax-M3,N,11,0,1,10,,星际牛仔：天国之扉,千年女优;东京教父;红辣椒;盗梦空间;辉夜姬物语;猫汤;回忆三部曲;机器人嘉年华;大都会;她的回忆,False
+F01,fact,MiniMax-M3,N,0,0,0,0,,,,True
+F02,fact,MiniMax-M3,N,0,0,0,0,,,,True
+F03,fact,MiniMax-M3,N,2,0,0,2,,,天气之子;铃芽之旅,False
+F04,fact,MiniMax-M3,N,1,1,0,0,Cowboy Bebop: Knockin' on Heaven's Door,,,True
+F05,fact,MiniMax-M3,N,2,0,1,1,,咒术回战 0,周刊少年 Jump,False
+F06,fact,MiniMax-M3,N,2,0,1,1,,猎人2011,HxH 2011,False
+F07,fact,MiniMax-M3,N,7,0,1,6,,新世纪福音战士 新剧场版,Air / 真心为你;Death(True)²;少女革命乌提娜;FLCL;玲音;攻壳机动队,False
+F08,fact,MiniMax-M3,N,0,0,0,0,,,,True
+M01,mood,MiniMax-M3,N,12,0,0,12,,,银之匙;悠哉日常大王;来自风平浪静的明天;chiikawa;玉子市场;白熊咖啡厅;深夜食堂;孤独的美食家;卫宫家今天的饭;狼的孩子雨和雪;侧耳倾听;岁月的童话,False
+M02,mood,MiniMax-M3,N,3,0,0,3,,,我们仍未知道那天所看见的花的名字;可塑性记忆;紫罗兰永恒花园,False
+M03,mood,MiniMax-M3,N,9,0,1,8,,**怪物 (Monster)**,**魔法少女小圆**;**海猫鸣泣之时**;**Another**;**夏日重现 (Summer Time Rendering)**;**异度侵入 (ID:INVADED)**;**约定的梦幻岛**;**来自深渊 (Made in Abyss)**;**学园孤岛 (School-Live!)**,False
+M04,mood,MiniMax-M3,N,7,0,0,7,,,孤独摇滚;胆大党;我推的孩子;葬送的芙莉莲;迷宫饭;药屋少女的呢喃;夏日重现,False
+M05,mood,MiniMax-M3,N,3,0,1,2,,咒术,链锯人;天元突破,False
+M06,mood,MiniMax-M3,N,14,0,0,14,,,擅长捉弄的高木同学;堀与宫村;辉夜大小姐想让我告白;徒然喜欢你;月色真美;龙与虎;冰菓;CLANNAD;萤火之森;天气之子;秒速五厘米;侧耳倾听;崖上的波妞;辉夜大小姐,False
+M07,mood,MiniMax-M3,N,16,0,0,16,,,银河英雄传说;高达;0080;Z;独角兽;水星的魔女;飞跃巅峰2;攻壳机动队 SAC;心理测量者;BLAME!;乐园追放;自新世界;来自深渊;少女终末旅行;天元突破;银英,False
+M08,mood,MiniMax-M3,N,9,0,0,9,,,蟲师;聊斋;尸鬼;怪〜ayakashi〜;四谷怪谈;天守物语;地狱老师;怪谈新耳袋;海猫鸣泣之时,False
+M09,mood,MiniMax-M3,N,5,0,0,5,,,Overlord;关于我转生变成史莱姆这档事;魔法科高中的劣等生;我独自升级;盾之勇者成名录,False
+M10,mood,MiniMax-M3,N,4,0,0,4,,,石纪元;天地创造设计部;理科生坠入情网，故尝试证明。;宇宙兄弟,False
+S01e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S01h,scene,MiniMax-M3,N,4,0,0,4,,,欺诈游戏;朋友游戏;赌博默示录;Liar Game,False
+S02e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S02h,scene,MiniMax-M3,N,2,0,0,2,,,侦探已死;BANANA FISH,False
+S03e,scene,MiniMax-M3,N,1,0,1,0,,进击的巨人 The Final Season,,True
+S03h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S04e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S04h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S05e,scene,MiniMax-M3,N,0,0,0,0,,,,False
+S05h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S06e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S06h,scene,MiniMax-M3,N,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S07e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S07h,scene,MiniMax-M3,N,2,0,0,2,,,铃芽之旅;天气之子,False
+S08e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S08h,scene,MiniMax-M3,N,1,0,0,1,,,烙印勇士,False
+S09e,scene,MiniMax-M3,N,1,0,1,0,,从零,,True
+S09h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S10e,scene,MiniMax-M3,N,2,0,2,0,,Code Geass 反叛的鲁路修 R2;Code Geass 复活的鲁路修,,True
+S10h,scene,MiniMax-M3,N,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S11e,scene,MiniMax-M3,N,1,0,0,1,,,ワンパンマン,False
+S11h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S12e,scene,MiniMax-M3,N,3,0,1,2,,Angel Beats!,我们仍未知道那天所看见的花的名字;可塑性记忆,False
+S12h,scene,MiniMax-M3,N,3,0,0,3,,,未闻花名;CLANNAD;我们仍未知道那天所看见的花的名字剧场版,False
+T01,trap,MiniMax-M3,N,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,MiniMax-M3,N,7,1,0,6,星海遗书,,来自风平浪静的明天;萤火虫之墓;Letter;来自星星的你;ALDNOAH.ZERO;86 -不存在的战区-,False
+T03,trap,MiniMax-M3,N,3,1,0,2,银河快递员小圆,,魔法少女小圆;银河系搭车指南,False
+T04,trap,MiniMax-M3,N,1,0,0,1,,,BLEACH 死神,False
+T05,trap,MiniMax-M3,N,2,1,0,1,海贼王,,周刊少年 Jump,False
+T06,trap,MiniMax-M3,N,1,0,0,1,,,博人传：火影次世代,False
+T07,trap,MiniMax-M3,N,0,0,0,0,,,,False
+T08,trap,MiniMax-M3,N,2,0,0,2,,,来自深渊;紫罗兰永恒花园,False
+T09,trap,MiniMax-M3,N,5,0,0,5,,,钢琴奏鸣曲杀人事件;山庄绷带怪人杀人事件;贝克街的亡灵;世纪末的魔术师;零的执行人,False
+T10,trap,MiniMax-M3,N,0,0,0,0,,,,False
+T11,trap,MiniMax-M3,N,0,0,0,0,,,,False
+T12,trap,MiniMax-M3,N,8,0,0,8,,,药屋少女的呢喃;我心里危险的东西;金牌得主;异修罗;mono女孩;坂本days;BanG Dream! Ave Mujica;赛马娘 芦毛灰姑娘,False
+X01,similar,MiniMax-M3,N,2,0,0,2,,,天元突破;甲铁城的卡巴内里,False
+X02,similar,MiniMax-M3,N,5,0,0,5,,,只有我不存在的城市;夏日重现;死亡游行;魔法少女小圆;未来日记,False
+X03,similar,MiniMax-M3,N,0,0,0,0,,,,True
+X04,similar,MiniMax-M3,N,0,0,0,0,,,,False
+X05,similar,MiniMax-M3,N,5,0,0,5,,,魔法少女小圆;穿越时空的少女;重启咲良田;只有我不在的街道;夏日大作战,False
+X06,similar,MiniMax-M3,N,17,0,0,17,,,天气之子;秒速五厘米;言叶之庭;她和她的猫;烟火;你好世界;龙的牙医;龙与虎;青春猪头少年不会梦到兔女郎学姐;冰菓;玉子市场;玉子爱情故事;徒然喜欢你;萤火之森;Last Letter;朝花夕誓;青春猪头,False
+X07,similar,MiniMax-M3,N,7,0,1,6,,鬼灭,炎炎消防队;浪客剑心;无限住人;Fate/stay night [Unlimited Blade Works];我的英雄学院;黑色四叶草,False
+X08,similar,MiniMax-M3,N,6,0,0,6,,,我的英雄学院;Charlotte;齐木楠雄的灾难;野良神;暗杀教室;魔法少女小圆,False
+X09,similar,MiniMax-M3,N,5,0,0,5,,,混沌武士;Space Dandy;狼雨;交响诗篇;星空清理者,False
+X10,similar,MiniMax-M3,N,9,0,0,9,,,**妄想代理人**;**铃音**;**Texhnolyze**;**ID: INVADED**;**Odd Taxi**;**约定的梦幻岛**;**Psycho-Pass**;**Banana Fish**;**91 Days**,False
+C01,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C02,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C03,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C04,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C05,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C06,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C07,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C08,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C09,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C10,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C11,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C12,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C13,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C14,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C15,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C16,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+F01,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F02,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F03,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F04,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F05,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F06,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F07,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F08,fact,MiniMax-M3,R,0,0,0,0,,,,True
+M01,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M02,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M03,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M04,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M05,mood,MiniMax-M3,R,1,0,0,1,,,糖分摄入不足,False
+M06,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M07,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M08,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M09,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M10,mood,MiniMax-M3,R,0,0,0,0,,,,True
+S01e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S01h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S02e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S02h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S03e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S03h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S04e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S04h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S05e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S05h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S06e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S06h,scene,MiniMax-M3,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S07e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S07h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S08e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S08h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S09e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S09h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S10e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S10h,scene,MiniMax-M3,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S11e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S11h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S12e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S12h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+T01,trap,MiniMax-M3,R,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,MiniMax-M3,R,1,1,0,0,星海遗书,,,True
+T03,trap,MiniMax-M3,R,1,1,0,0,银河快递员小圆,,,True
+T04,trap,MiniMax-M3,R,0,0,0,0,,,,True
+T05,trap,MiniMax-M3,R,1,1,0,0,海贼王,,,True
+T06,trap,MiniMax-M3,R,1,1,0,0,火影忍者,,,True
+T07,trap,MiniMax-M3,R,0,0,0,0,,,,True
+T08,trap,MiniMax-M3,R,1,1,0,0,葬送的芙莉莲,,,True
+T09,trap,MiniMax-M3,R,1,1,0,0,名侦探柯南,,,True
+T10,trap,MiniMax-M3,R,0,0,0,0,,,,False
+T11,trap,MiniMax-M3,R,0,0,0,0,,,,True
+T12,trap,MiniMax-M3,R,0,0,0,0,,,,True
+X01,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X02,similar,MiniMax-M3,R,1,0,0,1,,,L,False
+X03,similar,MiniMax-M3,R,4,0,0,4,,,妖精森林的小不点;来自风平浪静的明天;请问您今天要来点兔子吗？;悠哉日常大王,False
+X04,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X05,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X06,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X07,similar,MiniMax-M3,R,1,0,1,0,,鬼灭,,True
+X08,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X09,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X10,similar,MiniMax-M3,R,2,0,1,1,,Re:从零,L,False
+C01,constraint,Kimi-K3,N,10,0,0,10,,,月刊少女野崎君;碧蓝之海;男子高中生的日常;辉夜大小姐想让我告白;擅长捉弄的高木同学;为美好的世界献上祝福！;珈百璃的堕落;玉子市场;辉夜大小姐;高木同学,False
+C02,constraint,Kimi-K3,N,7,0,0,7,,,少女终末旅行;摇曳露营△;白兔糖;同居人是猫;学园奶爸;这个美术社大有问题！;四叠半神话大系,False
+C03,constraint,Kimi-K3,N,0,0,0,0,,,,True
+C04,constraint,Kimi-K3,N,6,0,1,5,,EVA 新世纪福音战士,灌篮高手;葬送的芙莉莲;紫罗兰永恒花园;千与千寻;声之形,False
+C05,constraint,Kimi-K3,N,6,0,0,6,,,永生之酒;东京残响;全部成为F;UN-GO;约定的梦幻岛;奇巧计程车,False
+C06,constraint,Kimi-K3,N,5,0,1,4,,鬼灭之刃 无限列车篇,永生之酒;混沌武士;游郭篇;多罗罗,False
+C07,constraint,Kimi-K3,N,6,0,0,6,,,紫罗兰永恒花园;为美好的世界献上祝福！;无职转生;来自深渊;魔法少女小圆;恶魔人 Crybaby,False
+C08,constraint,Kimi-K3,N,8,0,0,8,,,CLANNAD ～AFTER STORY～;紫罗兰永恒花园;约定的梦幻岛;未闻花名;86 -不存在的战区-;奇巧计程车;CLANNAD;紫罗兰,False
+C09,constraint,Kimi-K3,N,6,0,0,6,,,夏日重现;约定的梦幻岛;喰种;未来日记;Another;Charlotte,False
+C10,constraint,Kimi-K3,N,14,0,2,12,,夏目友人帐：缘结空蝉;咒术回战0,千与千寻;机器人之梦;龙猫;红辣椒;未麻的部屋;天空之城;攻壳机动队;萤火之森;声之形;天气之子;紫罗兰永恒花园 剧场版;我想吃掉你的胰脏,False
+C11,constraint,Kimi-K3,N,9,0,0,9,,,月刊少女野崎君;辉夜大小姐想让我告白;齐木楠雄的灾难;男子高中生的日常;为美好的世界献上祝福！;碧蓝之海;齐木楠雄;月刊少女;辉夜,False
+C12,constraint,Kimi-K3,N,7,0,0,7,,,魔法少女小圆;奇巧计程车;紫罗兰永恒花园;赛博朋克：边缘行者;月刊少女野崎君;冰上的尤里;来自深渊,False
+C13,constraint,Kimi-K3,N,5,0,0,5,,,赌博默示录;约定的梦幻岛;思维覆写;死亡游行;斗牌传说,False
+C14,constraint,Kimi-K3,N,10,0,1,9,,星际牛仔 天国之扉,玲音;FLCL;四叠半神话大系;电脑线圈;红辣椒;阿基拉;攻壳机动队;天元突破;枪与剑,False
+C15,constraint,Kimi-K3,N,3,0,1,2,,福音战士新剧场版：终,CLANNAD ～AFTER STORY～;千与千寻,False
+C16,constraint,Kimi-K3,N,9,0,0,9,,,银河英雄传说外传：黄金之翼;FLCL;星之声;回忆三部曲;她的回忆;最臭兵器;大炮之街;猫汤;CLANNAD AS,False
+F01,fact,Kimi-K3,N,0,0,0,0,,,,True
+F02,fact,Kimi-K3,N,1,0,1,0,,间谍过家家 CODE: White,,True
+F03,fact,Kimi-K3,N,3,0,0,3,,,前前前世;天气之子;铃芽之旅,False
+F04,fact,Kimi-K3,N,1,0,0,1,,,天国之门,False
+F05,fact,Kimi-K3,N,5,0,1,4,,咒术回战 0,周刊少年Jump;电锯人;冰上的尤里;地狱乐,False
+F06,fact,Kimi-K3,N,0,0,0,0,,,,True
+F07,fact,Kimi-K3,N,2,0,1,1,,新·福音战士剧场版:终,Air/真心为你,False
+F08,fact,Kimi-K3,N,2,0,2,0,,银魂' 延长战;银魂°,,True
+M01,mood,Kimi-K3,N,6,0,0,6,,,摇曳露营;卫宫家今天的饭;异世界食堂;轻音少女;三月的狮子;男子高中生的日常,False
+M02,mood,Kimi-K3,N,8,0,0,8,,,未闻花名;secret base;紫罗兰永恒花园;CLANNAD ～After Story～;斩！赤红之瞳;萤火虫之墓;紫罗兰;赤红之瞳,False
+M03,mood,Kimi-K3,N,5,0,1,4,,怪物 MONSTER,Another;约定的梦幻岛;未来日记;怪化猫,False
+M04,mood,Kimi-K3,N,5,0,1,4,,鬼灭之刃 立志篇,约定的梦幻岛;紫罗兰永恒花园;摇曳露营;辉夜大小姐想让我告白,False
+M05,mood,Kimi-K3,N,4,0,0,4,,,MEGALO BOX;我推的孩子;狩龙人拉格纳;海贼王,False
+M06,mood,Kimi-K3,N,8,0,0,8,,,擅长捉弄的高木同学;俺物语!!;堀与宫村;我想吃掉你的胰脏;Clannad;月色真美;冰菓;天气之子,False
+M07,mood,Kimi-K3,N,6,0,1,5,,新世纪福音战士（EVA）,攻壳机动队;银河英雄传说;来自深渊;赛博朋克：边缘行者;86-不存在的战区-,False
+M08,mood,Kimi-K3,N,4,0,0,4,,,尸鬼;Another;地狱少女;物怪 / 怪化猫,False
+M09,mood,Kimi-K3,N,7,0,0,7,,,overlord;关于我转生变成史莱姆这档事;想要成为影之实力者;欢迎来到实力至上主义的教室;刀剑神域;盾之勇者成名录;影之实力者,False
+M10,mood,Kimi-K3,N,3,0,0,3,,,石纪元;宇宙兄弟;摇曳露营,False
+S01e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S01h,scene,Kimi-K3,N,1,0,0,1,,,赌博默示录,False
+S02e,scene,Kimi-K3,N,1,0,0,1,,,沉默,False
+S02h,scene,Kimi-K3,N,2,0,0,2,,,沉默;PSYCHO-PASS,False
+S03e,scene,Kimi-K3,N,2,0,0,2,,,致两千年后的你;甲铁城的卡巴内利,False
+S03h,scene,Kimi-K3,N,2,0,0,2,,,甲铁城的卡巴内利;约定的梦幻岛,False
+S04e,scene,Kimi-K3,N,1,0,0,1,,,无悔的选择,False
+S04h,scene,Kimi-K3,N,1,0,0,1,,,伊尔泽的笔记,False
+S05e,scene,Kimi-K3,N,2,0,0,2,,,形而上的死灭;形而下的死灭,False
+S05h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S06e,scene,Kimi-K3,N,1,1,0,0,Code Geass 反叛的鲁路修,,,True
+S06h,scene,Kimi-K3,N,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S07e,scene,Kimi-K3,N,4,0,0,4,,,前前前世;夢灯籠;天气之子;铃芽之旅,False
+S07h,scene,Kimi-K3,N,4,0,0,4,,,前前前世;火花;天气之子;铃芽之旅,False
+S08e,scene,Kimi-K3,N,2,0,0,2,,,开端之日;妈妈…,False
+S08h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S09e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S09h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S10e,scene,Kimi-K3,N,2,0,2,0,,Code Geass 反叛的鲁路修 R2;复活的鲁路修,,True
+S10h,scene,Kimi-K3,N,2,0,1,1,,Code Geass 反叛的鲁路修,Fate/Zero,False
+S11e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S11h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S12e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S12h,scene,Kimi-K3,N,2,0,0,2,,,吹响吧！上低音号;紫罗兰永恒花园,False
+T01,trap,Kimi-K3,N,3,1,0,2,月光下的量子咖啡馆,,重启咲良田;少女终末旅行,False
+T02,trap,Kimi-K3,N,4,1,0,3,星海遗书,,星之梦;紫罗兰永恒花园;来自深渊,False
+T03,trap,Kimi-K3,N,3,1,0,2,银河快递员小圆,,魔法少女小圆;银河英雄传说,False
+T04,trap,Kimi-K3,N,4,0,0,4,,,杀戮的天使;噬魂师;死神;黑执事,False
+T05,trap,Kimi-K3,N,3,2,0,1,海贼王;THE ONE PIECE,,周刊少年Jump,False
+T06,trap,Kimi-K3,N,3,2,0,1,火影忍者;火影忍者 疾风传,,博人传,False
+T07,trap,Kimi-K3,N,5,1,0,4,灌篮高手,,排球少年!!;飙速宅男;钻石王牌;青之芦苇,False
+T08,trap,Kimi-K3,N,1,1,0,0,葬送的芙莉莲,,,True
+T09,trap,Kimi-K3,N,4,1,0,3,名侦探柯南,,月光;贝克街的亡灵;通往天国的倒计时,False
+T10,trap,Kimi-K3,N,0,0,0,0,,,,False
+T11,trap,Kimi-K3,N,0,0,0,0,,,,False
+T12,trap,Kimi-K3,N,6,0,0,6,,,药屋少女的呢喃;我推的孩子;地狱乐;坂本日常 SAKAMOTO DAYS;群花绽放、彷如修罗;金牌得主,False
+X01,similar,Kimi-K3,N,0,0,0,0,,,,True
+X02,similar,Kimi-K3,N,5,0,0,5,,,约定的梦幻岛;死亡游行;未来日记;赌博默示录;夏日重现,False
+X03,similar,Kimi-K3,N,7,0,1,6,,不愉快的怪物庵,萤火之森;白兔糖;跃动青春;元气囝仔;相合之物;元气少女缘结神,False
+X04,similar,Kimi-K3,N,5,0,0,5,,,日常;男子高中生的日常;月刊少女野崎君;在下坂本，有何贵干？;齐木楠雄的灾难,False
+X05,similar,Kimi-K3,N,7,0,0,7,,,只有我不存在的城市;凉宫春日的忧郁;凉宫春日的消失;夏日重现;魔法少女小圆;重启咲良田;未来日记,False
+X06,similar,Kimi-K3,N,8,0,0,8,,,天气之子;铃芽之旅;秒速5厘米;我想吃掉你的胰脏;萤火之森;穿越时空的少女;声之形;侧耳倾听,False
+X07,similar,Kimi-K3,N,5,0,0,5,,,刀剑神域;甲铁城的卡巴内利;火影忍者;妖精的尾巴;紫罗兰永恒花园,False
+X08,similar,Kimi-K3,N,14,0,0,14,,,这个医师超麻烦;齐木楠雄的灾难;日常;男高;Dr.STONE 石纪元;暗杀教室;异兽魔都;来自新世界;宝可梦;火影;太空丹迪;FLCL;魔法少女小圆;齐木楠雄,False
+X09,similar,Kimi-K3,N,8,0,0,8,,,混沌武士;太空丹迪;枪神;TRIGUN STAMPEDE;黑礁;交响诗篇;攻壳机动队 SAC;永生之酒,False
+X10,similar,Kimi-K3,N,6,0,0,6,,,永生之酒;PLUTO 冥王;铁臂阿童木;东京残响 / 恐怖残响;PSYCHO-PASS 心理测量者;妄想代理人,False
+C01,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C02,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C03,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C04,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C05,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C06,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C07,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C08,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C09,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C10,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C11,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C12,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C13,constraint,Kimi-K3,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+C14,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C15,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C16,constraint,Kimi-K3,R,0,0,0,0,,,,True
+F01,fact,Kimi-K3,R,0,0,0,0,,,,True
+F02,fact,Kimi-K3,R,0,0,0,0,,,,True
+F03,fact,Kimi-K3,R,0,0,0,0,,,,True
+F04,fact,Kimi-K3,R,0,0,0,0,,,,True
+F05,fact,Kimi-K3,R,0,0,0,0,,,,True
+F06,fact,Kimi-K3,R,0,0,0,0,,,,True
+F07,fact,Kimi-K3,R,0,0,0,0,,,,True
+F08,fact,Kimi-K3,R,0,0,0,0,,,,True
+M01,mood,Kimi-K3,R,0,0,0,0,,,,True
+M02,mood,Kimi-K3,R,0,0,0,0,,,,True
+M03,mood,Kimi-K3,R,0,0,0,0,,,,True
+M04,mood,Kimi-K3,R,0,0,0,0,,,,True
+M05,mood,Kimi-K3,R,0,0,0,0,,,,True
+M06,mood,Kimi-K3,R,2,0,0,2,,,辉夜大小姐想让我告白;月色真美,False
+M07,mood,Kimi-K3,R,0,0,0,0,,,,True
+M08,mood,Kimi-K3,R,0,0,0,0,,,,True
+M09,mood,Kimi-K3,R,0,0,0,0,,,,True
+M10,mood,Kimi-K3,R,0,0,0,0,,,,True
+S01e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S01h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S02e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S02h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S03e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S03h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S04e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S04h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S05e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S05h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S06e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S06h,scene,Kimi-K3,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S07e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S07h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S08e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S08h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S09e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S09h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S10e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S10h,scene,Kimi-K3,R,1,0,1,0,,Code Geass 反叛的鲁路修,,True
+S11e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S11h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S12e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S12h,scene,Kimi-K3,R,0,0,0,0,,,,True
+T01,trap,Kimi-K3,R,1,1,0,0,月光下的量子咖啡馆,,,True
+T02,trap,Kimi-K3,R,1,1,0,0,星海遗书,,,True
+T03,trap,Kimi-K3,R,1,1,0,0,银河快递员小圆,,,True
+T04,trap,Kimi-K3,R,0,0,0,0,,,,True
+T05,trap,Kimi-K3,R,1,1,0,0,海贼王,,,True
+T06,trap,Kimi-K3,R,1,1,0,0,火影忍者,,,True
+T07,trap,Kimi-K3,R,1,1,0,0,灌篮高手,,,True
+T08,trap,Kimi-K3,R,2,2,0,0,葬送的芙莉莲;芙莉莲,,,True
+T09,trap,Kimi-K3,R,1,1,0,0,名侦探柯南,,,True
+T10,trap,Kimi-K3,R,0,0,0,0,,,,True
+T11,trap,Kimi-K3,R,0,0,0,0,,,,True
+T12,trap,Kimi-K3,R,0,0,0,0,,,,True
+X01,similar,Kimi-K3,R,0,0,0,0,,,,True
+X02,similar,Kimi-K3,R,0,0,0,0,,,,True
+X03,similar,Kimi-K3,R,1,0,0,1,,,三月的狮子,False
+X04,similar,Kimi-K3,R,0,0,0,0,,,,True
+X05,similar,Kimi-K3,R,0,0,0,0,,,,True
+X06,similar,Kimi-K3,R,0,0,0,0,,,,True
+X07,similar,Kimi-K3,R,0,0,0,0,,,,True
+X08,similar,Kimi-K3,R,0,0,0,0,,,,True
+X09,similar,Kimi-K3,R,0,0,0,0,,,,True
+X10,similar,Kimi-K3,R,0,0,0,0,,,,True
+S01e,scene,T(system),T,0,0,0,0,,,,True
+S01h,scene,T(system),T,0,0,0,0,,,,True
+S02e,scene,T(system),T,0,0,0,0,,,,True
+S02h,scene,T(system),T,0,0,0,0,,,,True
+S03e,scene,T(system),T,0,0,0,0,,,,True
+S03h,scene,T(system),T,0,0,0,0,,,,True
+S04e,scene,T(system),T,0,0,0,0,,,,True
+S04h,scene,T(system),T,0,0,0,0,,,,True
+S05e,scene,T(system),T,0,0,0,0,,,,True
+S05h,scene,T(system),T,0,0,0,0,,,,True
+S06e,scene,T(system),T,0,0,0,0,,,,True
+S06h,scene,T(system),T,0,0,0,0,,,,True
+S07e,scene,T(system),T,0,0,0,0,,,,True
+S07h,scene,T(system),T,0,0,0,0,,,,True
+S08e,scene,T(system),T,0,0,0,0,,,,True
+S08h,scene,T(system),T,0,0,0,0,,,,True
+S09e,scene,T(system),T,0,0,0,0,,,,True
+S09h,scene,T(system),T,0,0,0,0,,,,True
+S10e,scene,T(system),T,0,0,0,0,,,,True
+S10h,scene,T(system),T,0,0,0,0,,,,True
+S11e,scene,T(system),T,0,0,0,0,,,,True
+S11h,scene,T(system),T,0,0,0,0,,,,True
+S12e,scene,T(system),T,0,0,0,0,,,,True
+S12h,scene,T(system),T,0,0,0,0,,,,True
+C01,constraint,T(system),T,0,0,0,0,,,,True
+C02,constraint,T(system),T,0,0,0,0,,,,True
+C03,constraint,T(system),T,0,0,0,0,,,,True
+C04,constraint,T(system),T,0,0,0,0,,,,True
+C05,constraint,T(system),T,0,0,0,0,,,,True
+C06,constraint,T(system),T,0,0,0,0,,,,True
+C07,constraint,T(system),T,0,0,0,0,,,,True
+C08,constraint,T(system),T,0,0,0,0,,,,True
+C09,constraint,T(system),T,0,0,0,0,,,,True
+C10,constraint,T(system),T,0,0,0,0,,,,True
+C11,constraint,T(system),T,0,0,0,0,,,,True
+C12,constraint,T(system),T,0,0,0,0,,,,True
+C13,constraint,T(system),T,0,0,0,0,,,,True
+C14,constraint,T(system),T,0,0,0,0,,,,True
+C15,constraint,T(system),T,0,0,0,0,,,,True
+C16,constraint,T(system),T,0,0,0,0,,,,True
+X01,similar,T(system),T,0,0,0,0,,,,True
+X02,similar,T(system),T,0,0,0,0,,,,True
+X03,similar,T(system),T,0,0,0,0,,,,True
+X04,similar,T(system),T,0,0,0,0,,,,True
+X05,similar,T(system),T,0,0,0,0,,,,True
+X06,similar,T(system),T,0,0,0,0,,,,True
+X07,similar,T(system),T,0,0,0,0,,,,True
+X08,similar,T(system),T,0,0,0,0,,,,True
+X09,similar,T(system),T,0,0,0,0,,,,True
+X10,similar,T(system),T,0,0,0,0,,,,True
+M01,mood,T(system),T,0,0,0,0,,,,True
+M02,mood,T(system),T,0,0,0,0,,,,True
+M03,mood,T(system),T,0,0,0,0,,,,True
+M04,mood,T(system),T,0,0,0,0,,,,True
+M05,mood,T(system),T,0,0,0,0,,,,True
+M06,mood,T(system),T,0,0,0,0,,,,True
+M07,mood,T(system),T,0,0,0,0,,,,True
+M08,mood,T(system),T,0,0,0,0,,,,True
+M09,mood,T(system),T,0,0,0,0,,,,True
+M10,mood,T(system),T,0,0,0,0,,,,True
+F01,fact,T(system),T,0,0,0,0,,,,True
+F02,fact,T(system),T,0,0,0,0,,,,True
+F03,fact,T(system),T,0,0,0,0,,,,True
+F04,fact,T(system),T,0,0,0,0,,,,True
+F05,fact,T(system),T,0,0,0,0,,,,True
+F06,fact,T(system),T,0,0,0,0,,,,True
+F07,fact,T(system),T,0,0,0,0,,,,True
+F08,fact,T(system),T,0,0,0,0,,,,True
+T01,trap,T(system),T,0,0,0,0,,,,True
+T02,trap,T(system),T,0,0,0,0,,,,True
+T03,trap,T(system),T,0,0,0,0,,,,True
+T04,trap,T(system),T,0,0,0,0,,,,True
+T05,trap,T(system),T,0,0,0,0,,,,True
+T06,trap,T(system),T,0,0,0,0,,,,True
+T07,trap,T(system),T,0,0,0,0,,,,True
+T08,trap,T(system),T,0,0,0,0,,,,True
+T09,trap,T(system),T,0,0,0,0,,,,True
+T10,trap,T(system),T,0,0,0,0,,,,True
+T11,trap,T(system),T,0,0,0,0,,,,True
+T12,trap,T(system),T,0,0,0,0,,,,True

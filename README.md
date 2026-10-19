@@ -16,7 +16,7 @@ the Kaggle MyAnimeList 2023 snapshot (23,363 served titles, 24M ratings) or on a
 
 | Surface | What you get | Method (default) |
 |---|---|---|
-| Title page | 5 similar titles, each with reasons | logistic regression over the five attribute similarities (real mode; it passed the validation replacement rule against the weighted formula, which stays the synthetic default and the fallback); BGE-embedding and hybrid alternatives |
+| Title page | 5 similar titles, each with reasons | Algorithm 1 route A (`algorithm1_a`), the fixed five-attribute formula selected in the final report; legacy weighted, logistic, BGE-embedding and hybrid alternatives |
 | Collection page | 8 recommendations matching the collection's taste and your strict filters | strict rule layer + LightGBM on eight profile features (B1, selected and confirmed by a frozen protocol; formulas and a two-tower as compared alternatives; see `algorithm2_benchmark/`) |
 | Home | 10 personalised titles | item-based CF (exact adjusted cosine) recall → genetic-algorithm list optimisation; MF / NCF / greedy / MMR alternatives; cold-start modes |
 | Chat | answers with title cards and cited sources; multi-turn constraints | deterministic intent parsing, FTS5 + dense hybrid retrieval (RRF), grounded answers; LLM optional and validated |
@@ -28,6 +28,12 @@ exists; otherwise the status page says `limited_by_data`. In real mode the team'
 themes, demographics, characters and relations for about half of the catalogue and 300 sourced scenes for 100
 titles; there are still no frame images for screenshot identification. See
 [docs/delivery-status.md](docs/delivery-status.md).
+
+Algorithm 1 uses the route selected in the final report, section 7.1. On the published **1,000 synthetic targets**,
+A has coverage@5 (Recall@5) **30.26%**, binary hit_rate@5 **67.50%** and NDCG@5 **0.3288**, ahead of B/C/D.
+These are metadata-oracle regression results, not real-user effectiveness estimates. The runtime scorer is
+checked against all 1,000 frozen Top-5 lists by `tests/unit/test_algorithm1.py`; live requests use the active
+catalogue and retain its eligibility and account filters. See [docs/algorithms.md](docs/algorithms.md).
 
 ## Run from a clone (shipped state, no pipeline run)
 
@@ -139,6 +145,7 @@ data/         raw Kaggle files, processed active versions, Jikan cache, syntheti
 artifacts/    trained models and indexes of the active version per mode (Git LFS)
 var/          activated business databases (Git LFS); logs and pipeline run records stay local
 algorithm1_benchmark/  standalone Algorithm 1 similarity benchmark (own README; needs no app, database or LFS)
+algorithm4_benchmark/  standalone Algorithm 4 benchmark, chat to find anime: LLM + KB + RAG vs no retrieval vs template (own README; needs no app, database or LFS)
 ```
 
 ## Data and licences

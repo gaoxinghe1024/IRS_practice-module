@@ -32,6 +32,7 @@ TEMPLATES = {
     "plan_popular": "Popular and well rated",
     "novel": "A less-watched title (novelty {nov})",
     "fresh": "Adds {tags}, new for your history",
+    "recent": "A recent release ({year})",
     "list_role": "Keeps the list varied (list score drops by {delta} without it; explanatory estimate)",
     "retrieved": "Matched your description in {kind}",
     "plan_budget": "{minutes} min of your {budget} min budget",
@@ -55,7 +56,7 @@ def similarity_reasons(snap, target: int, cand: int, available: dict, sims: dict
                 out.append(reason("shared_tags", ns=DIM_LABEL[ns], tags=", ".join(shared[:4])))
     for ns, code in (("demographic", "same_demographic"), ("studio", "same_studio")):
         tm = snap.tags.get(ns)
-        if tm is not None and available[ns][pos]:
+        if tm is not None and available[ns][pos] and sims[ns][pos] > 0:
             shared = sorted(set(tm.tags_of(target)) & set(tm.tags_of(cand)))
             if shared:
                 out.append(reason(code, tags=", ".join(shared[:3])))

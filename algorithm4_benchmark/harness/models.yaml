@@ -1,0 +1,15 @@
+# models.yaml — display name -> CLI model id (as returned by the server-side
+# requestModelId echo during the original evaluation). No account information.
+models:
+  - display: Hy3
+    cli_id: hy3
+  - display: Deepseek-V4.1-Flash
+    cli_id: deepseek-v4.1-flash
+  - display: GLM-5.3
+    cli_id: glm-5.3
+  - display: GLM-5.3-Flash
+    cli_id: glm-5.3-flash
+  - display: MiniMax-M3
+    cli_id: minimax-m3
+  - display: Kimi-K3
+    cli_id: kimi-k3-1

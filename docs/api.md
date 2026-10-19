@@ -51,7 +51,7 @@ session required; **admin** = `is_admin` account (there is no default admin; see
 | GET | `/tags?namespace=genre` | public | tag vocabulary for selects |
 | GET | `/anime` | public | search / filter: `q, genres, exclude_genres, types, min_score, min_episodes, max_episodes, status, sort (relevance, popularity, score, year, title), page, page_size <= 60`; returns `rule_failures` counts |
 | GET | `/anime/{item_key}` | optional | detail with unknown fields listed in `missing_fields`, provenance, sources; plus the user's rating, collections and progress when signed in |
-| GET | `/anime/{item_key}/similar` | optional | algorithm 1: `k` (<= 10), `scorer`, `hide_watched`; per-item `reasons` and `components` |
+| GET | `/anime/{item_key}/similar` | optional | algorithm 1, default `algorithm1_a`: `k` (<= 10), `scorer`, `hide_watched`; per-item `reasons`, `components.dimensions` and fixed-weight `components.contributions`; unavailable scorers fall back to A |
 | GET | `/anime/{item_key}/relations` | public | confirmed, sourced relations |
 
 ### Ratings, progress, collections, feedback

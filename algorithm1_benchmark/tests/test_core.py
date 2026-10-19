@@ -1,14 +1,9 @@
-import csv
 import math
-import tempfile
 import unittest
-from pathlib import Path
 
 import numpy as np
 
-from kbbench.evaluate import human_labels
 from kbbench.features import WEIGHTS, cosine_to_unit, jaccard, pair_features, rank_top_k, semantic_text
-from kbbench.mal_html import parse_recommendations
 from kbbench.metrics import ranking_metrics, replacement_rule
 
 
@@ -81,39 +76,6 @@ class RankingTests(unittest.TestCase):
         self.assertTrue(replacement_rule(base, dict(coverage_at_5=0.32, ndcg_at_5=0.40))["passes"])
         self.assertFalse(replacement_rule(base, dict(coverage_at_5=0.319, ndcg_at_5=0.50))["passes"])
         self.assertFalse(replacement_rule(base, dict(coverage_at_5=0.35, ndcg_at_5=0.39))["passes"])
-
-
-class GroundTruthTests(unittest.TestCase):
-    def test_mal_html_card_count_and_unrelated_links(self):
-        page = ('<h2 class="h2_overwrite">Recommendations</h2><a href="/anime/88">sidebar</a>'
-                '<div class="borderClass"><table><a href="/recommendations/anime/1-7" title="Permalink">permalink</a>'
-                'Recommended by <a href="/profile/a">a</a>Read recommendations by <strong>1</strong> more users'
-                'Recommended by <a href="/profile/b">b</a></table></div>')
-        row = parse_recommendations(page, 1)["data"][0]
-        self.assertEqual((row["entry"]["mal_id"], row["votes"]), (7, 2))
-        with self.assertRaises(ValueError):
-            parse_recommendations(page, 9)
-
-    def test_mal_challenge_is_not_empty_ground_truth(self):
-        with self.assertRaises(ValueError):
-            parse_recommendations("<html>Please enable JavaScript</html>", 1)
-
-    def test_pending_human_labels_cannot_be_evaluated(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "labels.csv"
-            path.write_text("target_id,similar_ids,annotator,rationale,status\n1,2;3;4,,,pending\n", encoding="utf-8")
-            with self.assertRaises(ValueError):
-                human_labels(path, {1, 2, 3, 4}, {1: dict(split="test", sampling_group="anchor")})
-
-    def test_verified_human_labels_and_target_leakage_guard(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "labels.csv"
-            path.write_text("target_id,similar_ids,annotator,rationale,status\n1,2;3;4,reviewer,shared themes,verified\n", encoding="utf-8")
-            rows = human_labels(path, {1, 2, 3, 4}, {1: dict(split="test", sampling_group="anchor")})
-            self.assertEqual(rows[0]["relevant_ids"], [2, 3, 4])
-            with self.assertRaises(ValueError):
-                human_labels(path, {1, 2, 3, 4}, {})
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -224,7 +224,7 @@ def load_supplementary(settings: Settings, valid_keys: set[str]) -> dict[str, An
             else:                                           # frame manifest: paths are relative to its folder
                 abs_path = (path.parent / r["path"]).resolve()
                 try:
-                    rel_path = str(abs_path.relative_to(settings.data_root.parent.resolve()))
+                    rel_path = abs_path.relative_to(settings.data_root.parent.resolve()).as_posix()
                 except ValueError:
                     raise DataValidationError(f"{path}: image path {r['path']!r} leaves the project") from None
                 out["scene_images"].append({c: r.get(c) for c in IMAGE_COLS} | {

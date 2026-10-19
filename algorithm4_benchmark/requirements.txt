@@ -1,0 +1,5 @@
+# No third-party packages are required for tests or replay analysis:
+# the harness and the algorithm snapshot use the Python standard library only.
+#
+# Optional:
+# matplotlib   # only for `python tools/make_figures.py` (also run by `python harness/analyze.py --figures`)

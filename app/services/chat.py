@@ -286,8 +286,8 @@ def _h_similar(state, db, st, pq, user) -> dict:
         return {"items": [], "relaxation_options": _relax(state, cs), "no_match": True,
                 "answer": _explain_empty(state, cs, f"No titles similar to {ref['title']} meet all of your conditions")}
     # the same scorer as the title page's "similar titles" (configured default, attribute formula as fallback)
-    configured = state.settings.recommendation.get("similar", {}).get("scorer", "weighted_attributes")
-    scorer = state.similarity.get(configured) or state.similarity["weighted_attributes"]
+    configured = state.settings.recommendation.get("similar", {}).get("scorer", "algorithm1_a")
+    scorer = state.similarity.get(configured) or state.similarity["algorithm1_a"]
     res = scorer.score(snap, r, cand)
     ok = np.isfinite(res.score)
     base = np.where(ok, res.score, -np.inf)

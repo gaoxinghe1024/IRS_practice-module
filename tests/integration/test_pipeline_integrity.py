@@ -59,6 +59,7 @@ def test_manifests_record_versions_and_hashes(synthetic_env):
     assert m["components"]["icf"]["status"] == "trained" and m["components"]["icf"]["sha256"]
     assert m["index"]["dense"]["provider"] == "lsa" and m["index"]["dense"]["doc_ids_sha256"]
     assert "python" in m["dependencies"]
+    assert all("\\" not in name for group in (m["files"], m["index"]["files"]) for name in group)
 
 
 def test_synthetic_generation_is_reproducible(synthetic_env, tmp_path):
@@ -78,7 +79,7 @@ def test_similar_default_comes_from_config_with_a_reported_fallback(synthetic_en
     s.recommendation["similar"]["scorer"] = "no_such_scorer"
     cap = load_state(s).cap("similar")
     assert cap.status == "degraded" and "no_such_scorer is unavailable" in cap.detail
-    assert cap.detail.startswith("weighted_attributes (default)")
+    assert cap.detail.startswith("algorithm1_a (default)")
     st = load_state(synthetic_env)
     if "logistic_similarity" in st.similarity:                       # trained on the synthetic labels
         s.recommendation["similar"]["scorer"] = "logistic_similarity"

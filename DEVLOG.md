@@ -324,6 +324,26 @@
 
 **注意事项：** 两次运行在整理之前完成，运行记录（`run_metadata.json`、`audit_facts.json`、`freeze_manifest.json`）里的 `evaluation/algorithm2/` 是当时的代码位置，作为历史记录保持原样。
 
+## [2026-10-03] 算法④：聊天找番（LLM + 知识库 + RAG）评测包 `algorithm4_benchmark/`（分支 algorithm-4-benchmark）
+
+**变更内容：**
+1. 新增 `algorithm4_benchmark/`（263 个文件，约 3.0 MB，纯标准库 + unittest，出图可选 matplotlib；离线可复现，无需 app / 数据库服务 / LFS）：80 条查询 × 6 个 LLM × {R：检索增强，N：无检索，T：模板}；3 个 LLM 评审（按各评审自己的均值居中后的分数）、按问题重采样的 bootstrap 置信区间、按题型分层。表 1–2、`scored.csv` 和评审聚合由包内代码从保存的原始回复与评审输出离线重算；其余表和图以保存下来的输出随包提供。
+2. 被评测对象是 AnimeFinder v1.4.1 页④的聊天管线（`backend/services/rag.py`，git blob `3b5f6dc`，提交 `426db20`），冻结在 `algo/rag_snapshot.py`，知识库为它的 24 部作品 + 12 条名场面种子数据。本次不包含 AniLogic 的 `app/chat`：方法（R/N/T 三种条件、评分、置信区间）可以迁移，数字不能。
+3. 新增 `algorithm4_benchmark/.gitattributes`（`* -text`，保持字节不变；包内有逐文件 SHA-256 清单和逐字节比对的测试）与 `.gitignore`（根目录的 `*.db` 规则会忽略 `data/kb/anime.db`，这里放行；并忽略脚本生成的 `results/replay/`）。
+4. `README.md` 目录表、`docs/delivery-status.md` 第 4 节、`docs/evaluation-protocol.md` 的 Plain LLM vs RAG 一行各加一句指向该目录的说明。
+
+**涉及文件：** `algorithm4_benchmark/`（新）、`README.md`、`docs/delivery-status.md`、`docs/evaluation-protocol.md`、`DEVLOG.md`。未改 `app/`、`evaluation/`、`pipelines/`、Makefile、根目录 `.gitignore` / `.gitattributes`。
+
+**原因：** `docs/delivery-status.md` 与 `docs/evaluation-protocol.md` 记录 Plain LLM vs RAG 对比“尚未实现”；本包用 AnimeFinder v1.4.1 的管线给出该对比的方法与结果，针对 AniLogic `app/chat` 的同类对比仍待实现。
+
+**验证方式：** 在 `algorithm4_benchmark/` 下运行 `python -m unittest discover -s tests`（100 项通过，约 2 分钟）与 `python tools/presubmit_check.py`（无告警）；`MANIFEST.txt` 的逐文件 SHA-256 与磁盘一致；提交内容与测试时的文件逐字节相同。
+
+**注意事项：**
+- 单次运行；LLM 评审没有人工标注；6 个模型通过 CLI 通道调用，延迟不是端到端结果；知识库只含 24 部知名作品，存在天花板效应（均已写入 `algorithm4_benchmark/REPORT.md`）。
+- 只在 Windows 11 + Python 3.10 上测过。
+- `algorithm4_benchmark/` 下的 `.md` 全部为英文（包内测试限制）。
+- `data/kb/anime.db` 只保留 `anime` 与 `scenes` 两张表，行内容不变。
+
 ## [2026-10-04] 接入团队数据包（补充层）+ 聊天年份 / 工作室 / 场景能力 + 相似作品默认改为 B（分支 yyc-data-package）
 
 **状态：** 真实数据新版本 `real-034ebd6a74` 已激活；算法② 冻结模型 `real-main-01`（默认 B1）在新版本上校验通过，目录哈希不变（`24c83192…`）。全部评估在本地模式下运行（`ANILOGIC_LLM__PROVIDER=none`），没有调用付费模型接口；未推送远程。
@@ -359,7 +379,7 @@
 - 本次评估运行时代码尚未提交，运行记录中的 `git_commit` 是 `e9df5bf`；对应代码见本条记录所在的提交。之后的运行会在 `git_dirty` 字段中注明。
 - 回退：把 `configs/real.yaml` 的 `recommendation.similar.scorer` 改为 `weighted_attributes` 即恢复 A；`python -m pipelines.cli activate --mode real --version real-89bfdea00b` 可回到导入前的数据版本（该版本目录保留在本地）。
 
-## [2026-10-19] 系统运行数据统一放进 SQLite（训练数据与模型权重除外）（分支 yyc-data-package）
+## [2026-10-19] 系统运行数据统一放进 SQLite（训练数据与模型权重除外）（分支 yyc-sqlite-serving-data）
 
 **状态：** 本地 real（`real-034ebd6a74`）与 synthetic（`synthetic-7a7d5d6a74`）数据库已按新结构重新激活；未提交、未推送。
 
@@ -380,4 +400,5 @@
 
 **注意事项：**
 - 旧结构的数据库（迁移 `0003` 之前激活的）需要重新执行一次 `python -m pipelines.cli activate --mode <mode>`，否则状态页显示 `artifact_mismatch`。
+- 本分支合并了 `origin/main`（截至 `51c55db`）：相似作品按 main 的决定在两种模式下都默认使用期末报告路线 A（`algorithm1_a`），去掉了 2026-10-04 条目里 `configs/real.yaml` 改为 B 的设置（B 仍可通过 `scorer=logistic_similarity` 选用）；配置的评分器不可用时，状态页与聊天都退回 `algorithm1_a`。
 - artifact 中的 `catalog/`、`embeddings/`、`index/`、`stats/` 文件仍保留：它们是激活的输入，离线评估和 `algorithm2_benchmark` 也直接读取它们。

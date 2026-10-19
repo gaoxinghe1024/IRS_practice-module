@@ -1,0 +1,52 @@
+{
+  "benchmark": "algorithm1_synthetic_1000",
+  "seed": 20261003,
+  "target_count": 1000,
+  "candidate_catalog_size": 14202,
+  "k": 5,
+  "label_source": "synthetic_metadata_oracle",
+  "label_policy": "For each target, score every other catalog item with 0.50 genre Jaccard + 0.30 theme Jaccard + 0.10 demographic exact + 0.10 length similarity, add seeded N(0, 0.05) noise, then sample five without replacement from a fixed easy/medium/hard pool with softmax temperature 0.035. Studio is intentionally excluded from the oracle.",
+  "difficulty_policy": "40% easy pool=8; 40% medium pool=20; 20% hard pool=60",
+  "realized_difficulty_counts": {
+    "easy": 377,
+    "medium": 412,
+    "hard": 211
+  },
+  "target_selection": "stable SHA-256 ordering of catalog IDs; no result-based filtering",
+  "posthoc_selection": false,
+  "model_selection_used": false,
+  "oracle_parameter_tuning_posthoc": true,
+  "exploratory_round": {
+    "initial_oracle_parameters": {
+      "weights": {
+        "genre": 0.5,
+        "theme": 0.25,
+        "demographic": 0.1,
+        "length": 0.15
+      },
+      "noise_sd": 0.12,
+      "pool_sizes": {
+        "easy": 12,
+        "medium": 40,
+        "hard": 200
+      }
+    },
+    "initial_oracle_metrics": {
+      "D_coverage_at_5": 0.0964,
+      "D_hit_rate_at_5": 0.37
+    },
+    "note": "Oracle weights, noise and pool sizes were adjusted after a pilot run before the final 1,000-query generation."
+  },
+  "training_isolation": false,
+  "training_overlap_count": 949,
+  "training_overlap_note": "Measured during development before weak-supervision pair files were removed from the public release; this is a regression benchmark, not an independent holdout.",
+  "generator_path": "kbbench/benchmark.py",
+  "generator_sha256": "5f58e75cbec22d5afd0b7ce91f0d839050bcd9b4c784724ce2ac49de2ca9e284",
+  "numpy_version": "2.5.3",
+  "limitations": [
+    "Synthetic labels are conditional on the declared metadata oracle.",
+    "The result is a regression/stress benchmark, not a real-user accuracy estimate.",
+    "Human or independent expert labels are still required for deployment decisions."
+  ],
+  "catalog_sha256": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921"
+}

@@ -6,7 +6,6 @@ import hashlib
 import json
 import os
 import platform
-import resource
 import sys
 import tempfile
 import time
@@ -82,7 +81,11 @@ def write_jsonl(path: Path, rows) -> int:
     return n
 
 
-def peak_rss_mb() -> float:
+def peak_rss_mb() -> float | None:
+    try:
+        import resource
+    except ModuleNotFoundError:  # Windows has no resource module; the metric is optional.
+        return None
     rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     # macOS reports bytes, Linux kilobytes
     return round(rss / (1024 * 1024) if sys.platform == "darwin" else rss / 1024, 1)

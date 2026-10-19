@@ -15,6 +15,20 @@ Chromium, ruff 0.16.9), 2026-10-01, on the final code. Raw logs are under `var/l
 | Lint | `make lint` (ruff: E, F, W, I, B, UP) | clean |
 | Front-end syntax | `node --check` on every page module | clean |
 
+### Algorithm 1 integration on 2026-10-10
+
+Windows 11, Python 3.12.12, dependencies from `uv.lock` (`dev` and `llm` extras). The final-report route A is
+the default in both modes; the original page templates and styles remain unchanged.
+
+| Check | Result |
+|---|---|
+| `pytest tests/unit tests/integration`, followed by `pytest tests/unit/test_llm_and_validation.py` after installing the optional `llm` extra | **144 distinct cases passed**, 3 optional ML cases skipped. The base-only full run passed 142 cases; its two missing-SDK failures were resolved in the 10-case adapter retest |
+| Route A regression in `unit/test_algorithm1.py` | All **1,000 targets** reproduce the published Top-5 order, scores and feature values; coverage@5 30.26%, binary hit_rate@5 67.50%, NDCG@5 0.3288 on the synthetic labels |
+| Real catalogue API, account filters and fallback | Default `algorithm1_a`; target excluded; Top-5/10, hide-watched, not-interested and unavailable-scorer fallback pass |
+| Playwright with Chrome, 1280 x 900 and 390 x 844 | Detail cards, recommendation reasons, 5/10/5 switching and title navigation pass; no page exceptions or horizontal overflow |
+| `ruff check app pipelines evaluation tests` | clean |
+| `algorithm1_benchmark/verify_delivery.py` | All 36 published file hashes match; benchmark data and predictions remain unchanged |
+
 The unit and integration suites build a miniature synthetic world with the real pipeline commands (120 titles,
 300 users; generate → preprocess → split → train → index → activate) in a temporary directory, so they never
 touch the developer's data.

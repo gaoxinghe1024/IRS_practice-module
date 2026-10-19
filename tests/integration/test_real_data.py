@@ -34,8 +34,10 @@ def real_client(real_settings):
 
 def test_real_snapshot_pools_ids_and_missing_values(real_settings):
     from app.services.serving import load_state
+    from evaluation.sandbox import sandbox_settings
 
-    st = load_state(real_settings)
+    with sandbox_settings(real_settings) as sb:
+        st = load_state(sb)
     snap = st.snap
     assert st.cap("catalog").status == "ready"
     keys = [str(k) for k in snap.keys]
@@ -55,6 +57,7 @@ def test_real_surfaces_end_to_end(real_client):
     assert "mal:9253" in [i["item_key"] for i in hits[:5]]
 
     sim = c.get("/api/v1/anime/mal:9253/similar").json()
+    assert sim["meta"]["algorithm"] == "algorithm1_a"
     assert sim["meta"]["actual_k"] == 5 and all(i["reasons"] for i in sim["items"])
     assert "mal:9253" not in [i["item_key"] for i in sim["items"]]
 

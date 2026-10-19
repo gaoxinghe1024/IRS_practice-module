@@ -122,7 +122,7 @@ finish. `make eval-smoke` (40 users, 1 seed, tagged `smoke`) only checks the har
   matches, not graded human judgements of answer quality.
 * Real collection behaviour: the collection experiment on real data is a proxy (liked history), not a
   collection task.
-* LLM answer quality: blocked until a model key is configured. Plain LLM vs RAG: the Plain LLM baseline (same model, no retrieval) and its comparison harness are **not implemented yet**. No paid batch evaluation is
+* LLM answer quality: blocked until a model key is configured. Plain LLM vs RAG: the Plain LLM baseline (same model, no retrieval) and its comparison harness are **not implemented yet**. A benchmark of this kind for the AnimeFinder v1.4.1 chat pipeline is in `algorithm4_benchmark/`; it does not cover `app/chat`. No paid batch evaluation is
   run without approval.
 * Screenshot recognition: no frame-level data.
 * Online effects (click-through, satisfaction): no deployment and no timestamps; nothing is claimed.

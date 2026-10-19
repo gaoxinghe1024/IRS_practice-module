@@ -1,8 +1,0 @@
-{
-  "url": "https://myanimelist.net/anime/2309/_/userrecs",
-  "retrieved_at": "2026-09-30T07:45:54.529360+00:00",
-  "sha256": "5991884b3a568c660e562816c426c9a801f082494294a69ff15e9383fe468221",
-  "retrieval": "MAL HTML fallback",
-  "raw_page": "2309.html.gz",
-  "jikan_error": "Invoke-WebRequest: C:\\IRS_practice-module-main\\algorithm-lab-repo\\algorithm1_benchmark\\kbbench\\fetch.ps1:8\r\nLine |\r\n   8 |  Invoke-WebRequest -UseBasicParsing -Uri $Url -OutFile $OutFile -Timeo …\r\n     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     |  {   \"status\": 504,   \"type\": \"BadResponseException\",   \"message\":\r\n     | \"Jikan failed to connect to MyAnimeList. MyAnimeList may be\r\n     | down/unavailable or refuses to connect\",   \"error\": null }\r\n"
-}

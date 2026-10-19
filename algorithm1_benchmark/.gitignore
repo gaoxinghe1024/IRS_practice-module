@@ -2,6 +2,7 @@
 .venv/
 __pycache__/
 *.pyc
+results/replay_synthetic_1000/
 !data/*.jsonl
 !results/*.jsonl
 !results/**/*.jsonl

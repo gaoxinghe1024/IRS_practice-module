@@ -1,0 +1,3 @@
+﻿subset,n_replies,T,R_mean,N_mean,per_model_R,per_model_N
+scene,24,2.059,4.384,3.958,Hy3=4.083;Deepseek-V4.1-Flash=4.375;GLM-5.3=4.453;GLM-5.3-Flash=4.490;MiniMax-M3=4.375;Kimi-K3=4.528,Hy3=3.917;Deepseek-V4.1-Flash=4.120;GLM-5.3=4.000;GLM-5.3-Flash=3.932;MiniMax-M3=3.566;Kimi-K3=4.212
+nonscene,56,2.601,3.908,3.309,Hy3=4.002;Deepseek-V4.1-Flash=3.828;GLM-5.3=3.900;GLM-5.3-Flash=3.902;MiniMax-M3=3.874;Kimi-K3=3.940,Hy3=3.489;Deepseek-V4.1-Flash=3.344;GLM-5.3=3.152;GLM-5.3-Flash=3.190;MiniMax-M3=3.268;Kimi-K3=3.412

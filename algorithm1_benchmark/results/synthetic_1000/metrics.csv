@@ -1,0 +1,5 @@
+﻿source,split,method,n_targets,coverage_at_5,ndcg_at_5,hit_rate_at_5,precision_at_5
+synthetic_oracle,test,A,1000,0.30260000000000004,0.32876683206395374,0.675,0.30260000000000004
+synthetic_oracle,test,B,1000,0.2192,0.2371187782415385,0.549,0.2192
+synthetic_oracle,test,C,1000,0.1354,0.15289102406776753,0.425,0.1354
+synthetic_oracle,test,D,1000,0.258,0.2855085607746562,0.632,0.258

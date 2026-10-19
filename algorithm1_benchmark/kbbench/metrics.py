@@ -1,4 +1,3 @@
-"""Metrics follow the slide's coverage definition, while also reporting standard hit rate."""
 import math
 
 import numpy as np

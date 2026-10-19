@@ -21,12 +21,9 @@ pipeline:
   sample_users_fraction: null
 
 recommendation:
-  similar:
-    # algorithm 1: with the 389 weak-label queries of the algorithm-1 benchmark the replacement rule
-    # (docs/algorithms.md section 1) passed on validation for B and C (102 queries; B - A Hits@5 +11.8 [+5.9, +18.6],
-    # C - B +1.0 [-6.9, +8.8], a tie); B is served because it ranks with A's interpretable features and reasons.
-    # Evaluation run 20261002-215313-real-similar-7127. Set weighted_attributes to serve A again.
-    scorer: logistic_similarity
+  # similar: the final-report route A (algorithm1_a, configs/base.yaml) is served in both modes. The legacy
+  # logistic_similarity scorer (validation run 20261002-215313-real-similar-7127) stays selectable with
+  # `scorer=logistic_similarity`; set recommendation.similar.scorer here to serve it by default.
   collection:
     # algorithm 2: B1 was pre-selected on validation and confirmed on test by the pre-registered rule
     # (algorithm2_benchmark/results/real-main-01/decision.json); the service verifies the frozen bundle before use

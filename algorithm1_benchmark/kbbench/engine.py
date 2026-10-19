@@ -1,4 +1,3 @@
-"""Common recommendation interface for the four replaceable similarity modules."""
 import numpy as np
 from scipy.special import expit
 
@@ -11,19 +10,21 @@ METHODS = {"A": "Weighted five-dimension similarity", "B": "Logistic regression"
 
 class SimilarityEngine:
     def __init__(self, root=ROOT, variant="optimized"):
-        if variant not in {"baseline", "optimized"}:
-            raise ValueError("variant must be baseline or optimized")
+        if variant != "optimized":
+            raise ValueError("Only the optimized release is included in this benchmark")
         self.items = list(read_rows(root / "data/catalog.jsonl.gz"))
         self.ids = np.asarray([item["anime_id"] for item in self.items])
         self.index = {int(aid): index for index, aid in enumerate(self.ids)}
         if len(self.index) != len(self.items):
             raise ValueError("Duplicate catalog IDs")
-        selection_path = root / "models/optimization_selection.json"
-        self.selection = read_json(selection_path) if variant == "optimized" and selection_path.exists() else None
-        self.variant = "optimized" if self.selection else "baseline"
-        model_file = "models/logistic_optimized.json" if self.selection else "models/logistic.json"
-        vector_file = "models/bge_optimized.npz" if self.selection else "models/bge_embeddings.npz"
-        metadata_file = "models/bge_optimized_metadata.json" if self.selection else "models/bge_metadata.json"
+        selection_path = root / "models/release_manifest.json"
+        if not selection_path.exists():
+            raise FileNotFoundError("models/release_manifest.json is required")
+        self.selection = read_json(selection_path)
+        self.variant = "optimized"
+        model_file = "models/logistic_optimized.json"
+        vector_file = "models/bge_optimized.npz"
+        metadata_file = "models/bge_optimized_metadata.json"
         self.model_files = [model_file, vector_file, metadata_file]
         self.logistic = read_json(root / model_file)
         metadata = read_json(root / metadata_file)
@@ -48,19 +49,17 @@ class SimilarityEngine:
     def scores(self, anime_id):
         position = self.index[anime_id]
         features = feature_matrix(self.items[position], self.items)
-        # Match the standard-library baseline's summation order, including exact ties.
         tag = np.zeros(len(self.items), dtype=np.float64)
         for column, weight in enumerate(WEIGHTS):
             tag += features[:, column] * weight
         learned = expit(features @ np.asarray(self.logistic["coefficients"]) + self.logistic["intercept"])
         cosine = np.clip(self.vectors @ self.vectors[position], -1.0, 1.0)
-        normalization = self.selection["D"] if self.selection else "affine"
-        calibration = self.selection["semantic_calibration"] if self.selection else None
+        normalization = self.selection["D"]
+        calibration = self.selection["semantic_calibration"]
         fusion = 0.6 * tag + 0.4 * normalized_semantic(cosine, normalization, calibration)
         return {"A": tag, "B": learned, "C": cosine, "D": fusion}, features
 
     def recommend(self, anime_id, method="A", k=5):
-        """Same input/output for all methods; never receives or reads user history."""
         if method not in METHODS:
             raise ValueError(f"Unknown method {method}")
         scores, features = self.scores(anime_id)

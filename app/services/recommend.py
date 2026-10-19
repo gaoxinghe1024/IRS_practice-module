@@ -25,7 +25,12 @@ from app.recommendation.constraints import ConstraintSet
 from app.recommendation.features import CatalogSnapshot, minmax, stable_order
 from app.recommendation.profiles import CollectionProfile, UserState, build_collection_profile
 from app.recommendation.rerank.ga import GeneticListOptimizer, relevance_greedy
-from app.recommendation.rerank.objective import ListObjective, fresh_flags, novelty_scores
+from app.recommendation.rerank.objective import (
+    ListObjective,
+    novelty_scores,
+    recent_fresh_flags,
+    tag_jaccard_pairwise,
+)
 from app.services.serving import ServingState
 from app.services.user_data import load_user_state
 
@@ -135,19 +140,20 @@ def similar(state: ServingState, db: Session, user: User | None, item_key: str, 
     if not 1 <= k <= int(cfg.get("max_k", 10)):
         raise ValidationFailed(f"k must be between 1 and {cfg.get('max_k', 10)}.", code="invalid_k")
     target = served_index(state, item_key)
-    requested = scorer_id or cfg.get("scorer", "weighted_attributes")
+    requested = scorer_id or cfg.get("scorer", "algorithm1_a")
     warnings, fallback = [], None
     scorer = state.similarity.get(requested)
     if scorer is None:
-        fallback = f"{requested} unavailable -> weighted_attributes"
-        scorer = state.similarity["weighted_attributes"]
+        fallback = f"{requested} unavailable -> algorithm1_a"
+        scorer = state.similarity["algorithm1_a"]
     us = load_user_state(db, user, snap)
     if hide_watched is None:
         from app.db.models import Preference
 
         pref = db.get(Preference, user.id) if user else None
         hide_watched = bool(pref.hide_watched_in_similar) if pref else bool(cfg.get("hide_watched_default", False))
-    key = ("similar", state.dataset_version, item_key, scorer.scorer_id, k, bool(hide_watched),
+    key = ("similar", state.dataset_version, item_key, requested, scorer.scorer_id,
+           getattr(scorer, "version", None), k, bool(hide_watched),
            user.id if user else None, us.profile_version, state.settings.fingerprint("recommendation", "similar"))
     cached = CACHE.get(key)
     if cached is not None:
@@ -169,7 +175,11 @@ def similar(state: ServingState, db: Session, user: User | None, item_key: str, 
         valid &= res.coverage >= float(min_cov)
     insufficient = int((~np.isfinite(res.score)).sum())
     pos = np.flatnonzero(valid)
-    order = pos[stable_order(res.score[pos], snap.keys[cand[pos]], res.coverage[pos])][:k]
+    rank = getattr(scorer, "rank", None)
+    ranked = rank(res.score[pos], snap.keys[cand[pos]]) if rank else \
+        stable_order(res.score[pos], snap.keys[cand[pos]], res.coverage[pos])
+    order = pos[ranked][:k]
+    fixed_weights = getattr(scorer, "fixed_weights", False)
     weights = getattr(scorer, "weights", None) or getattr(getattr(scorer, "base", None), "weights", {})
     items = []
     low_cov = float(cfg.get("low_coverage_warning", 0.5))
@@ -180,8 +190,11 @@ def similar(state: ServingState, db: Session, user: User | None, item_key: str, 
             reasons.append(X.reason("low_coverage"))
         comps = {"coverage": round(float(res.coverage[p]), 3)}
         if weights:
-            comps["dimensions"] = {d: (None if not res.available[d][p] else round(float(res.sims[d][p]), 4))
+            comps["dimensions"] = {d: (None if not fixed_weights and not res.available[d][p]
+                                       else round(float(res.sims[d][p]), 4))
                                    for d in ("genre", "theme", "demographic", "studio", "length")}
+            if fixed_weights:
+                comps["contributions"] = {d: round(float(weights[d] * res.sims[d][p]), 4) for d in weights}
         items.append({**card(snap, i), "score": round(float(res.score[p]), 4), "reasons": reasons,
                       "evidence_refs": [], "components": comps, "candidate_source": scorer.scorer_id,
                       "constraints_passed": True})
@@ -526,10 +539,9 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
         return {"request_id": new_request_id(), "items": [], "mode": mode, "exploration": [],
                 "meta": _meta(state, k, 0, "none", None, fallback, warnings + ["No eligible titles remain."])}
     relevance = np.clip(np.array([rel[i] for i in chosen]), 0, 1)
-    sim, valid = state.similarity["weighted_attributes"].pairwise(snap, chosen)
-    hist = us.history_tags(snap)
+    sim, valid = tag_jaccard_pairwise(snap, chosen)
     obj = ListObjective(relevance, sim, valid, novelty_scores(snap.train_interactions, chosen),
-                        fresh_flags(snap, chosen, hist), dict(state.settings.recommendation.get("ga", {}).get(
+                        recent_fresh_flags(snap, chosen), dict(state.settings.recommendation.get("ga", {}).get(
                             "weights", {"relevance": 0.4, "diversity": 0.3, "novelty": 0.2, "fresh": 0.1})))
     tiebreak = np.argsort(np.argsort(snap.keys[chosen]))
     greedy = relevance_greedy(obj, k, tiebreak)
@@ -583,10 +595,8 @@ def home(state: ServingState, db: Session, user: User, k: int | None = None, eng
         if obj.fresh is not None:
             comps["fresh"] = bool(obj.fresh[pos])
             if obj.fresh[pos]:
-                new_tags = [t for ns in ("genre", "theme") if ns in snap.tags for t in snap.tags[ns].tags_of(i)
-                            if (ns, t) not in hist]
-                if new_tags:
-                    reasons.append(X.reason("fresh", tags=", ".join(new_tags[:3])))
+                y = snap.year[i]
+                reasons.append(X.reason("recent", year=int(y) if np.isfinite(y) else "unknown"))
         if reranker == "ga" and top_rel_unused:
             alt = sel.copy()
             alt[alt.tolist().index(pos)] = top_rel_unused[0]

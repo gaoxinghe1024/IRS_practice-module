@@ -18,13 +18,8 @@
   "constraint": "free",
   "C": 1.0,
   "seed": 20261001,
-  "training_pairs": 80149,
-  "proxy_validation_pairs": 19851,
   "proxy_validation_auc": 0.5738731270553553,
   "iterations": 13,
   "fit_seconds": 0.14152870001271367,
-  "input_pairs_file": "data/training_pairs_marginal.jsonl.gz",
-  "input_pairs_sha256": "a07ad60d06b5a6a9a9593aaea8640cc673fea34b7b436574d0cdf930977e3e1e",
-  "catalog_sha256": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921",
-  "excluded_targets": 720
+  "catalog_sha256": "a000f3bda83b5b60036eae6d93379b60a9563a8d4940b0b0173475508650f921"
 }

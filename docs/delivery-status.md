@@ -21,8 +21,8 @@ genre now qualifies).
 | Accounts, sessions, isolation | implemented, tested_synthetic, tested_real | `test_auth_security.py`, `test_isolation.py`, journey 12, real sandbox test | - |
 | Catalogue search / detail / sources / missing fields, start-year filter | implemented, tested_synthetic, tested_real | journeys 1-2 (incl. the year filter), `test_real_data.py`, system eval (search p50 3.3 ms) | - |
 | Ratings, collections, progress, exclusions | implemented, tested_synthetic, tested_real | `test_user_data_and_recs.py` (incl. restart persistence), journeys 3, 5, 11 | - |
-| Algorithm 1 — similar titles (A, B, C, D; **B served in real mode**) | implemented, tested_synthetic, tested_real, real_data_evaluated (389 weak-label queries with a frozen split; franchise sanity on 4,507 titles) | `similar` run `20261002-215313-real-similar-7127`; replacement rule on validation | human similarity labels (`data/evaluation/similarity_labels.jsonl`) |
-| Algorithm 2 — collection recommendations (A0 / A1 formulas, B0 / B1 LightGBM, C0 two-tower; B1 default in real mode) | implemented, tested_synthetic, tested_real, real_data_evaluated on a proxy label (rating >= 8 sets, not collections) | `algorithm2_benchmark/results/real-main-01` (24,000 users, frozen protocol, test confirmation); bundle verified on `real-034ebd6a74`; `algorithm2_benchmark/tests/`, `test_collection_algorithm2.py`; journey 4 | real collection events for a non-proxy evaluation; online feedback |
+| Algorithm 1 — similar titles (final-report A default; legacy alternatives retained) | implemented; default changed to `algorithm1_a` on 2026-10-10 | `test_algorithm1.py`: exact Top-5 parity on all 1,000 published synthetic targets, coverage@5 30.26%, binary hit_rate@5 67.50%; older `similar` runs describe the legacy scorer | independent human similarity labels and real-user evaluation of A; synthetic regression metrics are not real-user metrics |
+| Algorithm 2 — collection recommendations (A0 / A1 formulas, B0 / B1 LightGBM, C0 two-tower; B1 default in real mode) | implemented, tested_synthetic, tested_real, real_data_evaluated on a proxy label (rating >= 8 sets, not collections) | `algorithm2_benchmark/results/real-main-01` (24,000 users, frozen protocol, test confirmation); `integration_report.json`; bundle verified on `real-034ebd6a74`; `algorithm2_benchmark/tests/`, `test_collection_algorithm2.py`; journey 4 | real collection events for a non-proxy evaluation; online feedback |
 | Algorithm 3 — home: cold start, ICF Top-20 recall, GA Top-10 | implemented, tested_synthetic, tested_real, real_data_evaluated | `homepage`, `explicit`, `ga_ablation` runs; journeys 5-6 | - (see §2 for what the numbers say) |
 | Algorithm 4 — chat-to-find | implemented, tested_synthetic, tested_real, real_data_evaluated (team package query set + auto sets; not human relevance judgements) | `chat` run `20261004-170011-real-chat-4e18`, `system` run; journeys 7, 8, 10 | human relevance judgements; **LLM answers implemented but not evaluated** (no approved budget); Plain LLM vs RAG not implemented |
 | Viewing plan | implemented, tested_synthetic, tested_real, real_data_evaluated | `planner` run: 0 infeasible among 2,400 plans (greedy + 3 GA seeds, 120 users x 5 requests); journey 9 | - |
@@ -73,8 +73,9 @@ was made.
 MAL-recommendation queries (weak labels: "if you liked A, try B") keep their frozen split (53 train / 102
 validation / 234 test). On validation the replacement rule passes for B (logistic regression, Hits@5 0.167) and C
 (BGE attribute embeddings, 0.176) against A (weighted attributes, 0.049): B − A +11.8 points [+5.9, +18.6], C − A
-+12.7 [+3.9, +20.6], and B and C are tied (C − B +1.0 [−6.9, +8.8]). **B is now served in real mode** because it
-ranks with A's own interpretable features, so the reasons shown do not change (`configs/real.yaml`). Test, reported
++12.7 [+3.9, +20.6], and B and C are tied (C − B +1.0 [−6.9, +8.8]). This run compares the legacy
+scorers; since 2026-10-10 the final-report route A (`algorithm1_a`) is served in both modes and B stays selectable
+with `scorer=logistic_similarity`. Test, reported
 only: A 0.081, B 0.197, C 0.162; B − A +11.5 [+7.3, +16.2], and +11.9 on the 193 test queries that share no
 franchise with another split. What B fixes: A normalises over the dimensions that can be compared, so a title known
 only by one matching genre scores like a perfect match; K-On! got Doraemon specials from A and music / school series
@@ -146,7 +147,9 @@ a failing dense encoder falls back to lexical search.
 * **LLM answers:** the adapters and the answer validation are implemented and tested against stubbed responses. A
   provider is configured on the delivery machine through the git-ignored `.env`, so the locally served chat calls
   it, but no evaluation run used it: every run here is local mode, and a model evaluation needs a budget approval.
-  **Plain LLM vs RAG:** the Plain LLM baseline and its comparison harness are **not implemented yet**.
+  **Plain LLM vs RAG:** the Plain LLM baseline and its comparison harness are **not implemented yet**. A Plain
+  LLM vs RAG vs template benchmark of the AnimeFinder v1.4.1 chat pipeline is in `algorithm4_benchmark/` (its
+  model answers came through a CLI channel, not vendor API keys); the same comparison for `app/chat` is still open.
 * **Relations for the other half of the catalogue:** not in the package; `make enrich-jikan` can still add them when
   MyAnimeList is reachable.
 * **Frames, real collections:** no data; contracts, validators and pipelines are ready. The collection recommender

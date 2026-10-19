@@ -101,7 +101,7 @@ def build_index(settings: Settings, version: str | None = None, log=print) -> di
     manifest = read_json(manifest_path) if manifest_path.exists() else {"dataset_version": version}
     manifest["index"] = {"documents": len(docs), "kinds": df.kind.value_counts().to_dict(), "dense": info,
                          "images": image_info, "built_at": utc_now_iso(), "seconds": round(time.time() - t0, 1),
-                         "files": {str(p.relative_to(out)): sha256_file(p) for p in sorted(idx_dir.rglob("*"))
+                         "files": {p.relative_to(out).as_posix(): sha256_file(p) for p in sorted(idx_dir.rglob("*"))
                                    if p.is_file()}}
     write_json(manifest_path, manifest)
     log(f"[index] done in {manifest['index']['seconds']}s -> {rel(idx_dir)}")

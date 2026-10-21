@@ -1,26 +1,20 @@
 # -*- coding: utf-8 -*-
-"""llm_backend.py — unified model backend interface for the evaluation kit.
+"""Model backends behind one interface.
 
     generate(prompt, **opts) -> {"text": str|None, "usage": dict|None,
                                  "latency_s": float|None, "error": str|None}
 
-Three implementations:
+* ReplayBackend returns the saved outputs from results/ (looked up by prompt hash).
+  It needs no network and is what the tests and the replay analysis use.
+* OpenAICompatBackend calls a live OpenAI-compatible endpoint (LLM_API_BASE,
+  LLM_API_KEY, LLM_MODEL). The request mirrors the system's `_llm_reply`: one user
+  message, temperature 0.6, 20 s timeout, POST {base}/chat/completions.
+* CodeBuddyCliBackend only documents how the saved outputs were produced: the
+  original run went through the CodeBuddy CLI, which needs an account login.
+  generate() raises.
 
-* ReplayBackend       - returns saved outputs from results/ (indexed by prompt hash);
-                        zero network, fully offline. This is the DEFAULT for all
-                        tests and replay analysis.
-* OpenAICompatBackend - live OpenAI-compatible HTTP backend (env: LLM_API_BASE,
-                        LLM_API_KEY, LLM_MODEL). Request shape mirrors the system's
-                        `_llm_reply` (see algo/rag_snapshot.py): a single user message,
-                        temperature 0.6, 20 s timeout, POST {base}/chat/completions.
-* CodeBuddyCliBackend - provenance only. The ORIGINAL evaluation ran through the
-                        CodeBuddy CLI (WorkBuddy built-in models, account login
-                        required), so it cannot run elsewhere; kept to document how
-                        the saved outputs were produced. generate() raises.
-
-Honesty note (also in README): the live backends were only exercised against a
-fake OpenAI-compatible server on 127.0.0.1 (see tests/test_backends.py). No real
-vendor API was ever called from this package.
+The live backends were only tried against a fake server on 127.0.0.1
+(tests/test_backends.py); no vendor API was called from this folder.
 """
 from __future__ import annotations
 

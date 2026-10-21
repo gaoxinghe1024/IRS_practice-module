@@ -324,25 +324,25 @@
 
 **注意事项：** 两次运行在整理之前完成，运行记录（`run_metadata.json`、`audit_facts.json`、`freeze_manifest.json`）里的 `evaluation/algorithm2/` 是当时的代码位置，作为历史记录保持原样。
 
-## [2026-10-03] 算法④：聊天找番（LLM + 知识库 + RAG）评测包 `algorithm4_benchmark/`（分支 algorithm-4-benchmark）
+## [2026-10-03] Algorithm 4: chat-to-find-anime (LLM + KB + RAG) benchmark `algorithm4_benchmark/` (branch algorithm-4-benchmark)
 
-**变更内容：**
-1. 新增 `algorithm4_benchmark/`（263 个文件，约 3.0 MB，纯标准库 + unittest，出图可选 matplotlib；离线可复现，无需 app / 数据库服务 / LFS）：80 条查询 × 6 个 LLM × {R：检索增强，N：无检索，T：模板}；3 个 LLM 评审（按各评审自己的均值居中后的分数）、按问题重采样的 bootstrap 置信区间、按题型分层。表 1–2、`scored.csv` 和评审聚合由包内代码从保存的原始回复与评审输出离线重算；其余表和图以保存下来的输出随包提供。
-2. 被评测对象是 AnimeFinder v1.4.1 页④的聊天管线（`backend/services/rag.py`，git blob `3b5f6dc`，提交 `426db20`），冻结在 `algo/rag_snapshot.py`，知识库为它的 24 部作品 + 12 条名场面种子数据。本次不包含 AniLogic 的 `app/chat`：方法（R/N/T 三种条件、评分、置信区间）可以迁移，数字不能。
-3. 新增 `algorithm4_benchmark/.gitattributes`（`* -text`，保持字节不变；包内有逐文件 SHA-256 清单和逐字节比对的测试）与 `.gitignore`（根目录的 `*.db` 规则会忽略 `data/kb/anime.db`，这里放行；并忽略脚本生成的 `results/replay/`）。
-4. `README.md` 目录表、`docs/delivery-status.md` 第 4 节、`docs/evaluation-protocol.md` 的 Plain LLM vs RAG 一行各加一句指向该目录的说明。
+**Changes:**
+1. Added `algorithm4_benchmark/` (263 files, about 3.0 MB, standard library plus unittest, matplotlib optional for the figures; reproducible offline, needs no app, database service or LFS): 80 queries x 6 LLMs x {R: retrieval-augmented, N: no retrieval, T: template}; 3 LLM judges (scores centered on each judge's own mean), bootstrap confidence intervals resampling questions, stratified by question type. Tables 1-2, `scored.csv` and the judge aggregation are recomputed offline from the saved raw replies and judge outputs; the other tables and figures ship as the saved outputs.
+2. The system under test is the page-4 chat pipeline of AnimeFinder v1.4.1 (`backend/services/rag.py`, git blob `3b5f6dc`, commit `426db20`), frozen in `algo/rag_snapshot.py`, with its seed knowledge base of 24 titles and 12 famous scenes. The AniLogic `app/chat` is not part of this run: the method (R/N/T conditions, scoring, confidence intervals) carries over, the numbers do not.
+3. Added `algorithm4_benchmark/.gitattributes` (`* -text`, keeps bytes unchanged; the package had a per-file SHA-256 list and a byte-for-byte test) and `.gitignore` (the root `*.db` rule would ignore `data/kb/anime.db`, so it is let through here; the script-generated `results/replay/` is ignored).
+4. One sentence pointing to the folder was added to the layout table of `README.md`, section 4 of `docs/delivery-status.md`, and the Plain LLM vs RAG line of `docs/evaluation-protocol.md`.
 
-**涉及文件：** `algorithm4_benchmark/`（新）、`README.md`、`docs/delivery-status.md`、`docs/evaluation-protocol.md`、`DEVLOG.md`。未改 `app/`、`evaluation/`、`pipelines/`、Makefile、根目录 `.gitignore` / `.gitattributes`。
+**Files:** `algorithm4_benchmark/` (new), `README.md`, `docs/delivery-status.md`, `docs/evaluation-protocol.md`, `DEVLOG.md`. `app/`, `evaluation/`, `pipelines/`, the Makefile and the root `.gitignore` / `.gitattributes` are unchanged.
 
-**原因：** `docs/delivery-status.md` 与 `docs/evaluation-protocol.md` 记录 Plain LLM vs RAG 对比“尚未实现”；本包用 AnimeFinder v1.4.1 的管线给出该对比的方法与结果，针对 AniLogic `app/chat` 的同类对比仍待实现。
+**Reason:** `docs/delivery-status.md` and `docs/evaluation-protocol.md` list the Plain LLM vs RAG comparison as not implemented yet. This folder gives the method and results of that comparison for the AnimeFinder v1.4.1 pipeline; the same comparison for the AniLogic `app/chat` is still open.
 
-**验证方式：** 在 `algorithm4_benchmark/` 下运行 `python -m unittest discover -s tests`（100 项通过，约 2 分钟）与 `python tools/presubmit_check.py`（无告警）；`MANIFEST.txt` 的逐文件 SHA-256 与磁盘一致；提交内容与测试时的文件逐字节相同。
+**Verification:** `python -m unittest discover -s tests` in `algorithm4_benchmark/` (100 tests passed, about 2 minutes) and `python tools/presubmit_check.py` (no warnings); the per-file SHA-256 values in `MANIFEST.txt` matched the files on disk; the committed content is byte-identical to the tested files.
 
-**注意事项：**
-- 单次运行；LLM 评审没有人工标注；6 个模型通过 CLI 通道调用，延迟不是端到端结果；知识库只含 24 部知名作品，存在天花板效应（均已写入 `algorithm4_benchmark/REPORT.md`）。
-- 只在 Windows 11 + Python 3.10 上测过。
-- `algorithm4_benchmark/` 下的 `.md` 全部为英文（包内测试限制）。
-- `data/kb/anime.db` 只保留 `anime` 与 `scenes` 两张表，行内容不变。
+**Notes:**
+- Single run; the LLM judges have no human labels; the 6 models were called through a CLI channel, so latency is not an end-to-end figure; the knowledge base holds only 24 well-known titles, so there is a ceiling effect (all stated in `algorithm4_benchmark/REPORT.md`).
+- Tested only on Windows 11 with Python 3.10.
+- All `.md` files under `algorithm4_benchmark/` are in English (a test in the folder enforced this).
+- `data/kb/anime.db` keeps only the `anime` and `scenes` tables, with unchanged rows.
 
 ## [2026-10-04] 接入团队数据包（补充层）+ 聊天年份 / 工作室 / 场景能力 + 相似作品默认改为 B（分支 yyc-data-package）
 
@@ -454,3 +454,18 @@
 **原因：** 用户要求整体更新 GitHub 的 `main`。实际 `.env` 与 API 密钥不提交；本机数据库中的账号、评分、收藏和聊天记录，以及仅有激活时间和本机路径差异的 `artifacts/real/active.json` 保留本地。
 
 **验证方式：** 核对远端 `main`、仓库写入权限、提交文件范围和密钥忽略规则；检查配置加载、JavaScript 语法、差异格式及服务健康状态。首页已使用包含完整推荐理由的响应通过 1440px / 390px Playwright 检查，封面、收藏和详情入口正常且无横向溢出；提交前复查暂存内容不包含实际密钥，推送后核对远端提交。
+
+## [2026-10-21] Algorithm 4: tidy `algorithm4_benchmark/` (branch cleanup-algorithm4)
+
+**Changes:**
+1. Removed `CHANGELOG.md`, `VALIDATION.md`, `MANIFEST.txt`, `results/README.md` and `tools/presubmit_check.py`, plus the Markdown copies that only duplicated a CSV (`results/extra/fact_decomposition.md` and `results/tables/table3` to `table8`). The `.md` files of tables 1-2 stay because `harness/analyze.py --tables` generates them.
+2. Rewrote `README.md` more briefly. Numbers, caveats and reproduction commands are unchanged.
+3. `tests/test_docs.py` keeps the checks that the numbers quoted in `README.md` and `REPORT.md` match the CSV files; the checks on wording, file lists and the removed documents are gone (100 tests become 87).
+4. Translated the Chinese comments and docstrings in `algo/rag_snapshot.py` and `tests/test_scorers.py` and shortened a few module docstrings. Strings that are part of the code or data (prompts, stop words, test queries, aliases) are unchanged.
+5. The 2026-10-03 entry above is translated into English; its content is unchanged.
+
+**Files:** `algorithm4_benchmark/` (listed above), `DEVLOG.md`.
+
+**Reason:** keep only the files a reader of the benchmark needs and keep descriptions in English.
+
+**Verification:** `python -m unittest discover -s tests` in `algorithm4_benchmark/` (87 tests passed). `tools/verify_snapshot.py` against `backend/services/rag.py` of AnimeFinder v1.4.1 still reports all 12 definitions identical. The files under `results/` are unchanged.

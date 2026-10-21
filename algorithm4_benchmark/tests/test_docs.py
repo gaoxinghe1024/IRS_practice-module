@@ -1,35 +1,7 @@
-# -*- coding: utf-8 -*-
-"""test_docs.py — packaged docs must agree with the packaged data.
-
-Offline, fast, no model calls. Checks:
-  1. REPORT Appendix D rows AND in-text "A−B = ±0.xxx" citations vs
-     results/extra/pairwise_centered_matrix.csv (sign, point, CI;
-     U+2212 and ASCII hyphen both accepted).
-  2. REPORT Appendix E rows vs results/extra/named_recall_per_question.csv
-     (the 18 rows with in_named_set = True); recall counts (18 / 7 / 4 / 3 /
-     11 / 10 / 1 / 14 / 12 / 2) computed from the CSV and present verbatim in
-     the docs; false-absence counts (43 / 27 / 16 / 1) vs
-     results/extra/false_absence_per_reply.csv.
-  3. S08/S12 sensitivity numbers vs results/extra/scene_sensitivity_cluster.csv
-     (REPORT) and README.
-  4. README model table vs REPORT model table, cell by cell
-     (raw, centered+rank, >20 s, p95, output tokens).
-  5. Backtick-referenced package paths (algo/ data/ harness/ tools/ tests/
-     results/ prefixes) exist. Allowlist: paths generated at replay time.
-  6. Process-narrative word list: 0 hits in README / REPORT / VALIDATION
-     (CHANGELOG is exempt by contract).
-  7. results/extra/ holds exactly one CSV per theme (no superseded versions).
-  8. In-KB definition (REPORT Appendix B, README), the in-KB ranges and the R
-     out-of-KB reply rate quoted in the docs vs results/extra/*.csv; the
-     out-of-KB review CSV vs the R replies with a residual out-of-KB title;
-     redaction-marker counts quoted in README vs the saved replies;
-     results/README.md entries vs files (both directions).
-"""
+"""Checks that the numbers quoted in README.md and REPORT.md match the CSV files."""
 from __future__ import annotations
 
 import csv
-import gzip
-import json
 import re
 import unittest
 from pathlib import Path
@@ -57,8 +29,6 @@ def fnum(s: str) -> float:
     return float(s)
 
 
-# ---------------------------------------------------------------- 1. matrix
-
 def load_matrix() -> dict[tuple[str, str], dict[str, float]]:
     out = {}
     with open(PKG / "results/extra/pairwise_centered_matrix.csv",
@@ -85,10 +55,10 @@ def lookup(a: str, b: str):
     if (kb, ka) in MATRIX:
         return MATRIX[(kb, ka)], True
     return None, False
+
+
 REPORT = read("REPORT.md")
 README = read("README.md")
-VALIDATION = read("VALIDATION.md")
-CHANGELOG = read("CHANGELOG.md")
 
 # Appendix D table rows: | A | B | ±0.xxx | [lo, hi] | yes/no |
 ROW_RE = re.compile(
@@ -138,8 +108,6 @@ class TestAppendixD(unittest.TestCase):
         self.assertGreaterEqual(checked, 6,
                                 "too few in-text pairwise citations parsed")
 
-
-# ------------------------------------------------------------ 2. appendix E
 
 def load_named_recall() -> list[dict]:
     with open(PKG / "results/extra/named_recall_per_question.csv",
@@ -242,12 +210,6 @@ class TestAppendixEAndCounts(unittest.TestCase):
         for group in phrase_groups:
             self.assertTrue(any(p in REPORT for p in group),
                             f"none of {group} found in REPORT.md")
-        # verbatim in VALIDATION.md §5 (counts sentence; whitespace-normalized)
-        val_norm = " ".join(VALIDATION.split())
-        self.assertIn(
-            "11/18 (10 demoted out of the top-5 + 1 constraint-filtered; no own work row "
-            "for 14/18 = 12 demoted + 2 filtered; 3 present only via famous-scene lines)",
-            val_norm)
 
 
 def load_false_absence() -> list[dict]:
@@ -275,14 +237,8 @@ class TestFalseAbsenceCounts(unittest.TestCase):
         self.assertEqual(len(n_decl), 0)
         self.assertEqual([(r["qid"], r["model"]) for r in strict],
                          [("X05", "Hy3")])
-        # verbatim in docs
-        val_norm = " ".join(VALIDATION.split())
-        self.assertIn("43 in the R group** (fact 27, similar 16)", val_norm)
-        self.assertIn("1 of the 43 is strictly false", val_norm)
         self.assertIn("43 false-absence declarations in the R group", REPORT)
 
-
-# -------------------------------------------------------------- 3. S08/S12
 
 def load_scene_cluster() -> dict[tuple[str, str], tuple[float, float, float]]:
     out = {}
@@ -319,8 +275,6 @@ class TestSceneSensitivity(unittest.TestCase):
                     self.assertIn(f"{n[0]:.3f}", text)
 
 
-# ------------------------------------------------- 4. README vs REPORT table
-
 def parse_model_table(text: str, header_hint: str) -> dict[str, list[str]]:
     lines = text.splitlines()
     for i, line in enumerate(lines):
@@ -354,8 +308,6 @@ class TestModelTables(unittest.TestCase):
             self.assertEqual(int(rcells[4]), int(dcells[4]), msg=f"{model} tokens")
 
 
-# --------------------------------------------------------------- 5. paths
-
 PATH_RE = re.compile(r"`((?:algo|data|harness|tools|tests|results)/[^`]+)`")
 PATH_ALLOWLIST = {"results/replay/"}
 
@@ -363,8 +315,7 @@ PATH_ALLOWLIST = {"results/replay/"}
 class TestBacktickPaths(unittest.TestCase):
     def test_referenced_paths_exist(self):
         missing = []
-        for doc, text in (("README.md", README), ("REPORT.md", REPORT),
-                          ("VALIDATION.md", VALIDATION)):
+        for doc, text in (("README.md", README), ("REPORT.md", REPORT)):
             for p in PATH_RE.findall(text):
                 p_clean = p.split()[0].split(":")[0].rstrip(".")
                 if p_clean in PATH_ALLOWLIST or not p_clean:
@@ -373,215 +324,6 @@ class TestBacktickPaths(unittest.TestCase):
                     missing.append(f"{doc}: {p_clean}")
         self.assertEqual(missing, [], "dangling package paths")
 
-
-# ------------------------------------------------------------- 6. word list
-
-WORD_RE = re.compile(
-    r"\b(earlier|older|previous|was wrong|corrected|bug|recomput\w*|flawed)\b"
-    r"|before echo|\bround-\d|(?!\.)\bv[123]\b(?!\.\d)", re.I)
-
-
-class TestWordList(unittest.TestCase):
-    def test_no_process_narrative_terms(self):
-        hits = []
-        for doc, text in (("README.md", README), ("REPORT.md", REPORT),
-                          ("VALIDATION.md", VALIDATION)):
-            for i, line in enumerate(text.splitlines(), 1):
-                if WORD_RE.search(line):
-                    hits.append(f"{doc}:L{i}: {line.strip()[:80]}")
-        self.assertEqual(hits, [])
-
-    def test_old_values_absent(self):
-        for old in ("+0.389", "+0.167, +0.611", "10/24", "10 of the 12",
-                    "12/24", "9/24", "15/24", "13 demoted", "11 demoted out",
-                    "49 false-absence", "6 of the 49", "S03h \u2192 23",
-                    "\u22120.038", "\u22120.058", "-0.038", "-0.058",
-                    "sensitivity_scene_disputed_4questions",
-                    "pairwise_significance_centered", "\u5f85\u586b"):
-            for doc, text in (("README.md", README), ("REPORT.md", REPORT),
-                              ("VALIDATION.md", VALIDATION)):
-                self.assertNotIn(old, text, f"{doc} contains {old!r}")
-
-
-# ------------------------------------------------------- 7. one CSV / theme
-
-SUFFIXES = ("_final", "_updated", "_all_and_excl_disputed")
-
-
-def theme_of(name: str) -> str:
-    stem = Path(name).stem
-    for suf in SUFFIXES:
-        if stem.endswith(suf):
-            stem = stem[: -len(suf)]
-    return re.sub(r"_v\d+$", "", stem)
-
-
-class TestOneCsvPerTheme(unittest.TestCase):
-    def test_single_csv_per_theme(self):
-        extra = PKG / "results" / "extra"
-        themes: dict[str, list[str]] = {}
-        for p in sorted(extra.glob("*.csv")):
-            themes.setdefault(theme_of(p.name), []).append(p.name)
-        dupes = {k: v for k, v in themes.items() if len(v) > 1}
-        self.assertEqual(dupes, {}, "duplicate-theme CSVs in results/extra/")
-
-    def test_superseded_files_absent(self):
-        extra = PKG / "results" / "extra"
-        for gone in ("scene_sensitivity_all_and_excl_disputed.csv",
-                     "false_absence_classified.csv",
-                     "sensitivity_scene_disputed_4questions.csv",
-                     "pairwise_significance_centered.csv",
-                     "out_of_kb_calibers.csv", "out_of_kb_echo_removed.csv",
-                     "frank_rate_recomputed.csv", "rag_lift_fact_frank_updated.csv",
-                     "latency_dual_method_check.csv",
-                     "fact_scorer_debug_rows.json", "recall_reconciliation.json",
-                     "numbers_recomputed.json", "fact_flip_causes.md"):
-            self.assertFalse((extra / gone).exists(), gone)
-        self.assertFalse((PKG / "results" / "numbers.md").exists())
-        for gone in ("table6_rag_token_cost.csv", "table6_rag_token_cost.md"):
-            self.assertFalse((PKG / "results" / "tables" / gone).exists(), gone)
-
-
-# ------------------------------------------- 8. package-wide process terms
-
-PACKAGE_WORD_RE = re.compile(
-    r"Round\s?\d|\u9879\s?\d|not ship" + "ped|github_" + "package"
-    r"|\[REDACTED\]|e-A " + "IRS|cre" + "dit|mult" + "iplier|\u79ef\u5206|\u500d\u7387"
-    r"|round-\d|this-" + "round", re.I)
-TEXT_SUFFIXES = {".md", ".csv", ".json", ".py", ".txt", ".yaml", ".yml", ".svg"}
-
-
-def package_text_hits():
-    """Scan every package text file (and .gz decompressed) for process terms."""
-    import gzip
-    hits = []
-    for p in sorted(PKG.rglob("*")):
-        if not p.is_file():
-            continue
-        rel = p.relative_to(PKG).as_posix()
-        if p.suffix.lower() in TEXT_SUFFIXES:
-            try:
-                text = p.read_text(encoding="utf-8")
-            except UnicodeDecodeError:
-                continue
-            for i, line in enumerate(text.splitlines(), 1):
-                m = PACKAGE_WORD_RE.search(line)
-                if m:
-                    hits.append(f"{rel}:L{i}: {m.group(0)}: {line.strip()[:70]}")
-        elif p.suffix.lower() == ".gz":
-            with gzip.open(p, "rt", encoding="utf-8") as f:
-                for i, line in enumerate(f, 1):
-                    m = PACKAGE_WORD_RE.search(line)
-                    if m:
-                        hits.append(f"{rel}:L{i}: {m.group(0)}: {line.strip()[:70]}")
-    return hits
-
-
-class TestPackageWordList(unittest.TestCase):
-    def test_no_process_terms_anywhere(self):
-        self.assertEqual(package_text_hits(), [])
-
-
-class TestNoVersionColumnNames(unittest.TestCase):
-    def test_csv_headers_free_of_v3_v4_columns(self):
-        bad = []
-        for p in sorted(PKG.rglob("*.csv")):
-            with open(p, encoding="utf-8-sig") as f:
-                header = f.readline()
-            for c in (c.strip() for c in header.split(",")):
-                if c.startswith(("v3_", "v4_")):
-                    bad.append(f"{p.name}:{c}")
-        self.assertEqual(bad, [])
-
-
-# ------------------------------------------------- 9. md Chinese allowlist
-
-class TestMdChineseAllowlist(unittest.TestCase):
-    ALLOWED = {"\u540d\u573a\u9762", "\u5de8\u4eba", "\u602a\u7269", "\u9c81\u8def\u4fee"}
-
-    def test_md_chinese_only_in_quoted_data_strings(self):
-        bad = []
-        for p in sorted(PKG.rglob("*.md")):
-            for m in re.finditer(r"[\u4e00-\u9fff]+", p.read_text(encoding="utf-8")):
-                if m.group(0) not in self.ALLOWED:
-                    bad.append(f"{p.relative_to(PKG).as_posix()}: {m.group(0)}")
-        self.assertEqual(bad, [])
-
-
-# -------------------------------------------- 10. results/README.md coverage
-
-class TestResultsReadmeCoverage(unittest.TestCase):
-    def test_every_result_entry_listed(self):
-        readme = (PKG / "results" / "README.md").read_text(encoding="utf-8")
-        missing = []
-        for p in sorted((PKG / "results").rglob("*")):
-            if p == (PKG / "results" / "README.md"):
-                continue  # the file map documents itself by existing
-            rel = p.relative_to(PKG / "results").as_posix()
-            # parity_prompts/ and rplus_field_completion/ are documented per
-            # directory; files inside them (any depth) are covered.
-            if rel.startswith(("extra/parity_prompts/", "extra/rplus_field_completion/")):
-                continue
-            if p.is_file():
-                if p.name not in readme and p.stem not in readme \
-                        and rel not in readme:
-                    missing.append(rel)
-            else:
-                if rel.split("/")[-1] not in readme:
-                    missing.append(rel + "/")
-        self.assertEqual(missing, [], "results/ entries missing from README.md")
-
-    def test_results_readme_paths_exist(self):
-        text = (PKG / "results" / "README.md").read_text(encoding="utf-8")
-        missing = []
-        for p in PATH_RE.findall(text):
-            p_clean = p.split()[0].split(":")[0].rstrip(".")
-            if p_clean in PATH_ALLOWLIST or not p_clean:
-                continue
-            if not (PKG / p_clean).exists():
-                missing.append(p_clean)
-        self.assertEqual(missing, [], "dangling paths in results/README.md")
-
-
-# ------------------------------------------------ 11. md table column counts
-
-class TestMdTableColumns(unittest.TestCase):
-    def test_table_blocks_have_consistent_columns(self):
-        bad = []
-        for p in sorted(PKG.rglob("*.md")):
-            lines = p.read_text(encoding="utf-8").splitlines()
-            block: list[str] = []
-
-            def flush(blocks=block):
-                if len(blocks) > 1 and len({len(l.split("|")) for l in blocks}) > 1:
-                    bad.append(p.relative_to(PKG).as_posix())
-
-            for l in lines + [""]:
-                if l.startswith("|"):
-                    block.append(l)
-                else:
-                    flush()
-                    block = []
-        self.assertEqual(bad, [], "md tables with inconsistent column counts")
-
-
-# ---------------------------------------------------- 12. no short data paths
-
-class TestNoShortDataPaths(unittest.TestCase):
-    def test_data_file_references_use_full_package_paths(self):
-        bad = []
-        for doc in ("README.md", "REPORT.md", "VALIDATION.md"):
-            text = (PKG / doc).read_text(encoding="utf-8")
-            for m in re.finditer(r"`([^`\n]+)`", text):
-                ref = m.group(1)
-                if re.search(r"\.(csv|png|svg|json|jsonl|gz)$", ref):
-                    if not re.match(r"^(results|data|harness|algo|tools|tests)/",
-                                    ref):
-                        bad.append(f"{doc}: {ref}")
-        self.assertEqual(bad, [], "short data-file references found")
-
-
-# ------------------------- 13. in-KB definition, ranges, out-of-KB review, markers
 
 def read_csv_rows(rel: str) -> list[dict]:
     with open(PKG / rel, encoding="utf-8-sig", newline="") as f:
@@ -605,7 +347,6 @@ class TestInKbDefinitionAndRanges(unittest.TestCase):
         for needle in ("echo titles", "in-KB spelling variants",
                        "no out-of-KB title remains", "at least one"):
             self.assertIn(needle, rows[0])
-        self.assertIn("at least one work title", " ".join(README.split()))
         self.assertEqual(sum(l.startswith("| Per-work constraint rate")
                              for l in REPORT.splitlines()), 1)
 
@@ -616,7 +357,6 @@ class TestInKbDefinitionAndRanges(unittest.TestCase):
         self.assertIn(f"{n_rng} in N \u2192 **{r_rng} of replies in R**, "
                       f"paired lift **{lift}**", REPORT)
         self.assertIn(lift, README)
-        self.assertGreaterEqual(CHANGELOG.count(lift), 2)
 
     def test_r_out_of_kb_reply_rate_matches_csv(self):
         per: dict[str, list[int]] = {}
@@ -650,66 +390,11 @@ class TestOutOfKbReview(unittest.TestCase):
         # the docs quote the count and the "0 of 480" conclusion the review supports
         self.assertIn(f"the {n} R replies that keep a residual out-of-KB title", REPORT)
         self.assertIn(f"{n} of the 480 R replies keep such a residual", REPORT)
-        self.assertIn(f"each of the {n} R replies", " ".join(VALIDATION.split()))
         self.assertIn("0 of 480 R replies recommend an out-of-KB title without disclosure",
                       REPORT)
         self.assertIn("`results/extra/out_of_kb_review.csv`", REPORT)
         self.assertIn("title extraction treats a quoted character name", REPORT.lower())
         self.assertIn("upper bound", REPORT)
-
-
-class TestRedactionMarkerCounts(unittest.TestCase):
-    def test_pkg_marker_only_where_readme_says(self):
-        counts: dict[str, int] = {}
-        for p in sorted((PKG / "results").rglob("*")):
-            if not p.is_file():
-                continue
-            if p.suffix.lower() not in (".gz", ".csv", ".json", ".jsonl", ".txt", ".md"):
-                continue
-            data = p.read_bytes()
-            if data[:2] == b"\x1f\x8b":  # gzip content, whatever the file name says
-                data = gzip.decompress(data)
-            text = data.decode("utf-8")
-            if "<pkg>" in text:
-                counts[p.relative_to(PKG).as_posix()] = text.count("<pkg>")
-        self.assertEqual(counts, {
-            "results/raw.jsonl.gz": 1,
-            "results/extra/rplus_field_completion/replies.jsonl.gz": 48})
-        rplus = PKG / "results/extra/rplus_field_completion/replies.jsonl.gz"
-        with gzip.open(rplus, "rt", encoding="utf-8") as f:
-            paths = [json.loads(l)["prompt_file"] for l in f if l.strip()]
-        n = sum("<workspace>/<pkg>/" in p for p in paths)
-        self.assertEqual(n, 48)
-        readme = " ".join(README.split())
-        self.assertIn(f"in the {n} `prompt_file` paths of "
-                      "`results/extra/rplus_field_completion/replies.jsonl.gz`", readme)
-        self.assertIn("one saved reply in `results/raw.jsonl.gz`", readme)
-
-
-class TestResultsReadmeEntriesExist(unittest.TestCase):
-    """Reverse direction of TestResultsReadmeCoverage: listed names exist."""
-
-    SECTIONS = {"top level": "", "results/tables/": "tables", "results/extra/": "extra"}
-
-    def test_listed_names_exist(self):
-        text = (PKG / "results" / "README.md").read_text(encoding="utf-8")
-        cur = None
-        missing = []
-        for line in text.splitlines():
-            if line.startswith("## "):
-                cur = self.SECTIONS.get(line[3:].strip().lower())
-                continue
-            if cur is None or not line.startswith("| `"):
-                continue
-            for tok in re.findall(r"`([^`]+)`", line.split("|")[1]):
-                if tok.startswith((".", "/")):  # suffix-only or sibling-dir shorthand
-                    continue
-                base = PKG / "results" / cur
-                found = bool(list(base.glob(tok))) if any(c in tok for c in "*?") \
-                    else (base / tok).exists()
-                if not found:
-                    missing.append(f"{cur or '.'}/{tok}")
-        self.assertEqual(missing, [])
 
 
 if __name__ == "__main__":

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-"""verify_snapshot.py — compare algo/rag_snapshot.py against the system rag.py.
+"""Compare algo/rag_snapshot.py with the system's rag.py.
 
 Usage:
     python tools/verify_snapshot.py PATH_TO_SYSTEM_RAG_PY
 
-The path is required. It is the AnimeFinder v1.4.1 file backend/services/rag.py
-(git blob 3b5f6dc in the team repository, for example at commit 426db20).
+The path is required: it is backend/services/rag.py of AnimeFinder v1.4.1 (git blob
+3b5f6dc, for example at commit 426db20 of the team repository).
 
-For every top-level function/constant defined in the snapshot, the system source
-is normalized (comments, docstrings and whitespace removed) and compared. Each
-function is reported as identical / differs. Imports and the DB path line are
-expected to differ (they carry the `# SNAPSHOT-EDIT:` marker) and are skipped.
+Every top-level function and constant of the snapshot is compared with the system
+source after comments, docstrings and whitespace are removed, and reported as
+identical or differing. The imports and the DB path differ on purpose (they carry the
+`# SNAPSHOT-EDIT:` marker) and are skipped.
 """
 from __future__ import annotations
 

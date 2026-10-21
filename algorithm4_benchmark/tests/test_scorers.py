@@ -67,8 +67,8 @@ class TestFrankRule(unittest.TestCase):
             self.assertFalse(S.rule_frank(text), text)
 
     def test_v1_v2_difference(self):
-        # v2 negative-lookahead: "不知道" followed within 12 chars by "不影响" is NOT
-        # a refusal (model continues with a recommendation), while v1 still fires.
+        # v2 adds a negative lookahead: "I don't know" followed within 12 characters by
+        # "doesn't affect" is not a refusal (the reply goes on to recommend), v1 still fires.
         t = "我不知道具体年份，这不影响推荐：《命运石之门》很好看。"
         self.assertTrue(S.rule_frank(t, 1))
         self.assertFalse(S.rule_frank(t, 2))
@@ -105,9 +105,9 @@ class TestTitleExtraction(unittest.TestCase):
         self.assertTrue(S.is_kb_variant("Code Geass", self.aliases))
 
     def test_season_and_edition_suffix_not_out_of_kb(self):
-        # regression test: the quote/out-of-KB normalization must strip season /
-        # edition suffixes (norm_title), otherwise 《全职猎人（2011版）》 /
-        # 《进击的巨人 第一季》 are reported as out-of-KB titles.
+        # the quote/out-of-KB normalization must strip season and edition suffixes
+        # (norm_title), otherwise "Hunter x Hunter (2011 edition)" and "Attack on
+        # Titan season 1" in Chinese would be reported as out-of-KB titles.
         m = S.mentioned_animes("主线之外再补《全职猎人（2011版）》。", self.aliases)
         self.assertIn("Hunter x Hunter (2011)", m["kb_hits"])
         self.assertEqual(m["out_of_kb"], [])

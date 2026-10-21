@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-"""prompts.py — R / N prompt construction, byte-identical to the evaluation.
+"""R and N prompt construction, byte-identical to the prompts used in the evaluation.
 
-R prompt = the exact string the system's `_llm_reply` builds (single user message):
-    SYSTEM_R + "\\n\\n知识库：\\n" + _build_context(retrieved) + "\\n\\n用户：" + query
-N prompt = role line only (no knowledge base, no KB-dependent wording).
-T group  = rag_snapshot.chat(query) with LLM env vars explicitly cleared
-           (no prompt file - the template reply is produced directly).
+R: the string the system's `_llm_reply` builds as its single user message, i.e. the
+system line, the knowledge-base context from `_build_context` and the user query.
+N: the role line and the query only, no knowledge base.
+T: `rag_snapshot.chat(query)` with the LLM variables cleared; no prompt, the template
+reply is produced directly.
 
-Parity against the 80 saved R/N prompts is checked by tests/test_parity.py.
+tests/test_parity.py checks all of them against the 80 saved prompts.
 """
 from __future__ import annotations
 

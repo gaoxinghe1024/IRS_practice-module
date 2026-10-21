@@ -1,14 +1,9 @@
-# -*- coding: utf-8 -*-
-"""rag_snapshot.py — Page-4 (anime chat) retrieval pipeline, FROZEN COPY.
+"""Frozen copy of the chat retrieval pipeline of AnimeFinder v1.4.1.
 
-Source          : the system's backend/services/rag.py (AnimeFinder backend v1.4.1)
-Copied          : 2026-09-30
-Status          : frozen snapshot - do not edit by hand.
-Allowed edits   : imports and data-file paths only, each marked `# SNAPSHOT-EDIT:`.
-Verification    : tools/verify_snapshot.py compares every function against the
-                  system copy (comments/whitespace stripped).
-Note            : _llm_reply is copied verbatim for request-shape reference;
-                  the evaluation replay never calls it.
+Copied on 2026-09-30 from backend/services/rag.py. Do not edit by hand: the only
+changes are imports and data-file paths, each marked `# SNAPSHOT-EDIT:`.
+tools/verify_snapshot.py compares every function with the system file. _llm_reply
+is kept as the request-shape reference; the replay never calls it.
 """
 import os
 import re
@@ -30,22 +25,20 @@ STOPWORDS = {"我", "想", "看", "一部", "一个", "的", "了", "是", "在"
              "找", "什么", "哪个", "哪部", "多少", "第", "集", "而且", "但是", "不要", "太",
              "最好", "类似", "像", "推荐", "吗", "呢", "啊", "这", "那个", "一部动漫"}
 
-# LLM 配置（可选）：设置环境变量后自动切换为 LLM 生成
-LLM_API_BASE = os.environ.get("LLM_API_BASE", "")   # 如 https://api.deepseek.com/v1
+# Optional LLM configuration: with these set, replies switch from templates to the LLM.
+LLM_API_BASE = os.environ.get("LLM_API_BASE", "")   # e.g. https://api.deepseek.com/v1
 LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
 LLM_MODEL = os.environ.get("LLM_MODEL", "deepseek-chat")
 
 
 def _tokenize(text: str) -> list[str]:
-    """中文友好的轻量分词：CJK 拆单字 + 邻接二元组，拉丁词保持完整。
-
-    演示级方案，无外部依赖；升级点：替换为 BGE 向量化语义检索。
-    """
+    """Light tokenizer for Chinese: CJK split into single characters plus adjacent
+    bigrams, Latin words kept whole. Demo-level, no dependencies."""
     text = text.lower()
     tokens: list[str] = []
     buf = ""
     for ch in text:
-        if ord(ch) > 0x2E80:  # CJK 及全角
+        if ord(ch) > 0x2E80:  # CJK and full-width
             if buf:
                 tokens.append(buf)
                 buf = ""
@@ -59,14 +52,14 @@ def _tokenize(text: str) -> list[str]:
     if buf:
         tokens.append(buf)
     tokens = [t for t in tokens if t and t not in STOPWORDS]
-    # 邻接二元组：强化连续词匹配（如 夜神/对峙/巨人）
+    # adjacent bigrams reward consecutive-word matches (names, short phrases)
     cjk = [t for t in tokens if len(t) == 1 and ord(t) > 0x2E80]
     tokens += [cjk[i] + cjk[i + 1] for i in range(len(cjk) - 1)]
     return [t for t in tokens if t not in STOPWORDS]
 
 
 def _score(query_tokens: list[str], text: str) -> float:
-    """词面重叠打分（演示级检索）。升级点：替换为向量余弦相似度。"""
+    """Fraction of query tokens that occur in the text (lexical overlap)."""
     if not query_tokens:
         return 0.0
     text = text.lower()
@@ -74,13 +67,13 @@ def _score(query_tokens: list[str], text: str) -> float:
 
 
 def _extract_constraints(message: str) -> dict:
-    """从自然语言中抽取硬约束（规则层：max_episodes / min_score / 排除关键词）。"""
+    """Pull hard constraints (max_episodes, min_score) out of the message."""
     constraints = {}
     m = re.search(r"(\d+)\s*集", message)
     if m:
         constraints["max_episodes"] = int(m.group(1))
     m = re.search(r"(\d+(?:\.\d+)?)\s*(?:分|分以上|分以上)", message)
-    if not m:  # 「评分8.8以上 / 评分不低于8.8」语序
+    if not m:  # word order "score above 8.8" / "score not below 8.8"
         m = re.search(r"评分\s*(?:在|不低于|不低于|大于|高于|超过)?\s*(\d+(?:\.\d+)?)", message)
     if m:
         constraints["min_score"] = float(m.group(1))
@@ -91,14 +84,14 @@ def _extract_constraints(message: str) -> dict:
 
 
 def retrieve(message: str) -> dict:
-    """RAG 检索层：返回 {'intent':..., 'anime':[...], 'scenes':[...], 'constraints':...}"""
+    """Retrieval layer: returns intent, anime, scenes, constraints and tokens."""
     tokens = _tokenize(message)
     conn = get_conn()
     anime_rows = [dict(r) for r in conn.execute("SELECT * FROM anime").fetchall()]
     scene_rows = [dict(r) for r in conn.execute("SELECT * FROM scenes").fetchall()]
     conn.close()
 
-    # 场景检索：名场面库（description+keywords）优先
+    # scenes first: match against description, keywords and title
     scene_hits = []
     for s in scene_rows:
         sc = _score(tokens, s["description"] + " " + s["keywords"] + " " + s["anime_title"])
@@ -106,7 +99,7 @@ def retrieve(message: str) -> dict:
             scene_hits.append({**s, "score": sc})
     scene_hits.sort(key=lambda x: x["score"], reverse=True)
 
-    # 作品检索：标题 + 标签 + 简介
+    # titles: match against title, tags and synopsis
     anime_hits = []
     for a in anime_rows:
         text = f"{a['title']} {a['title_cn']} {a['genres']} {a['themes']} {a['characters']} {a['synopsis']}"
@@ -115,7 +108,7 @@ def retrieve(message: str) -> dict:
             anime_hits.append({**a, "ret_score": sc})
     anime_hits.sort(key=lambda x: (x["ret_score"], x["ret_score"] * x["popularity"]), reverse=True)
 
-    # 意图判断：命中场景库 → 名场面匹配；否则 → 推荐意图
+    # a strong scene hit means scene intent, otherwise recommend
     intent = "scene" if scene_hits and scene_hits[0]["score"] >= 0.34 else "recommend"
 
     constraints = _extract_constraints(message)
@@ -130,11 +123,12 @@ def retrieve(message: str) -> dict:
             return out
         filtered = _apply(anime_hits)
         if not filtered:
-            # 纯硬条件查询（如“评分8.8以上 20集以内”）：检索命中被硬条件淘汰时，用全目录兜底
+            # constraint-only query (e.g. "score above 8.8, within 20 episodes"):
+            # the hits were all filtered out, so fall back to the whole catalogue
             filtered = _apply([{**a, "ret_score": 0.0} for a in anime_rows])
         if not filtered:
-            # 硬条件组合把目录筛空（如“9分以上 且 20集以内”）→ 找「最接近」的候选，
-            # 而不是回一句“没理解”：恰好满足其中一个条件的作品，按另一条件的差距排序
+            # the constraints empty the catalogue: offer the closest titles instead of
+            # a miss, i.e. those meeting one condition, ordered by the gap to the other
             ms, me = constraints.get("min_score"), constraints.get("max_episodes")
             for a in anime_rows:
                 ok_score = ms is None or a["score"] >= ms
@@ -146,7 +140,7 @@ def retrieve(message: str) -> dict:
             filtered = [a for _, a in near_miss[:3]]
         anime_hits = filtered
 
-    # “类似X”类查询：把消息里点名的作品本身挪到候选末尾（用户要的是"类似"，不是它）
+    # "like X" queries: move the named title itself to the end of the candidates
     def _mentioned(a):
         return (a["title"] and a["title"].lower() in message.lower()) or \
                (a["title_cn"] and a["title_cn"] in message)
@@ -171,7 +165,7 @@ def _build_context(retrieved: dict) -> str:
 
 
 def _template_reply(retrieved: dict) -> str:
-    """无 LLM 时的模板生成，保证离线可演示。口吻偏聊天，区别于推荐位卡片。"""
+    """Template reply used when no LLM is configured, so the page works offline."""
     if retrieved["intent"] == "scene" and retrieved["scenes"]:
         s = retrieved["scenes"][0]
         return ("让我翻翻名场面库……找到啦！你说的应该是这一幕 👇")
@@ -209,7 +203,7 @@ def _template_reply(retrieved: dict) -> str:
 
 
 def _llm_reply(retrieved: dict, message: str) -> str | None:
-    """配置了 LLM API 时调用 OpenAI 兼容接口生成回复；失败返回 None 回退模板。"""
+    """Ask an OpenAI-compatible API for the reply; None means fall back to the template."""
     if not (LLM_API_BASE and LLM_API_KEY):
         return None
     import json as _json
@@ -236,10 +230,9 @@ def _llm_reply(retrieved: dict, message: str) -> str | None:
 
 
 def chat(message: str) -> dict:
-    """RAG 主流程：检索 → 上下文拼装 → 生成（LLM 或模板）。
+    """Retrieve, build the context, then reply with the LLM or the template.
 
-    命中名场面时额外返回 scene_focus（结构化「回忆片段」），
-    前端用它渲染对话式的场景气泡，与推荐位卡片刻意区分。
+    A scene hit also returns scene_focus, which the frontend renders as a scene bubble.
     """
     retrieved = retrieve(message)
     reply = _llm_reply(retrieved, message) or _template_reply(retrieved)

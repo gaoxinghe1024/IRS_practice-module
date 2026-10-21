@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
-"""judge.py — LLM-judge harness: prompt construction, blind shuffling, aggregation.
+"""LLM-judge harness: prompt construction, blind shuffling and aggregation.
 
-Judges score listwise: per question, the 13 candidate answers (T + 6 models x R/N)
-are anonymized as A1..A13 with a per-judge x per-question shuffle
-(random.Random(f"42|{judge_label}|{qid}"), seed 42). Trap questions and
-infeasible constraint questions additionally carry a boolean `frank` dimension.
+Judges score listwise: for each question the 13 candidate answers (T plus 6 models
+x R/N) are anonymized as A1..A13 with a shuffle per judge and question
+(random.Random(f"42|{judge_label}|{qid}")). Trap questions and infeasible
+constraint questions also carry a boolean `frank` dimension.
 
-DEFAULT IS REPLAY: the saved judge outputs (results/judge_raw.jsonl.gz) are
-aggregated with the saved label maps (results/extra/judge_label_maps.jsonl.gz)
-into per-answer scores (same-vendor judges excluded for the judge_avg caliber).
-Live mode (--backend openai) needs LLM_API_* env vars and is not exercised by
-the packaged results.
+By default the saved judge outputs (results/judge_raw.jsonl.gz) are aggregated with
+the saved label maps (results/extra/judge_label_maps.jsonl.gz) into per-answer
+scores; same-vendor judges are excluded from judge_avg. Live mode (--backend openai)
+needs the LLM_API_* variables and was not used for the packaged results.
 
 CLI:
     python harness/judge.py --aggregate            # replay aggregation (offline)

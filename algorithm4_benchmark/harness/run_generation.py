@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""run_generation.py — T / R / N generation harness.
+"""Generation harness for the T, R and N groups.
 
-DEFAULT IS REPLAY MODE: re-emit saved outputs from results/raw.jsonl.gz without
-any network or model call. Live backends require an explicit --backend flag:
+By default it replays the saved outputs from results/raw.jsonl.gz without any network
+or model call. A live backend needs an explicit --backend flag:
 
     python harness/run_generation.py --group R --model Kimi-K3                 # replay
     python harness/run_generation.py --group R --model Kimi-K3 \

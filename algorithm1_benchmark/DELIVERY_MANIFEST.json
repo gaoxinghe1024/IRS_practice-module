@@ -112,16 +112,6 @@
       "sha256": "08be1e99c2ef751c5548db71129a8c4e4505f305d73872570c97ae7ca4cbced7"
     },
     {
-      "path": "requirements.lock.txt",
-      "bytes": 647,
-      "sha256": "86ecbd6e10163d8aac9faab2f00b749d93c6d183820555a195cb4ba0bc8aef7c"
-    },
-    {
-      "path": "requirements.txt",
-      "bytes": 110,
-      "sha256": "59a055a85e00f210f53d9582ee9d3da800b739943abf9450fa0018762a9602ad"
-    },
-    {
       "path": "results/synthetic_1000/ground_truth_used.jsonl",
       "bytes": 145299,
       "sha256": "e7f9b76632d5c095aa85e00c0313c04a771bbe3e819885d915f8e759fded5c16"

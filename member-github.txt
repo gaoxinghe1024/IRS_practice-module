@@ -1,0 +1,9 @@
+Group name: AniLogic -- Your animation , comics, games (ACG) friend.
+
+Members:
+Gao Xinghe (A0305470M) 
+Lin Kai (A0352380J)
+Sun Yancheng (A0335090L) 
+Yu Yuchen (A0356318Y)
+
+Github Link: https://github.com/gaoxinghe1024/IRS_practice-module

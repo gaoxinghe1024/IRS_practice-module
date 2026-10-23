@@ -1,0 +1,13 @@
+label_source,split,scorer,hits@5,recall@5,ndcg@5,coverage,queries
+mal_user_recommendations_weak,val,A_weighted_attributes,0.0,0.0,0.0,0.51,1
+mal_user_recommendations_weak,val,C_bge_attribute_embedding,1.0,0.05,0.14607,0.55,1
+mal_user_recommendations_weak,val,D_tag_semantic_hybrid,0.0,0.0,0.0,0.51,1
+mal_user_recommendations_weak,val,variant_semantic_synopsis,0.0,0.0,0.0,0.55,1
+mal_user_recommendations_weak,train,A_weighted_attributes,0.0,0.0,0.0,0.55,1
+mal_user_recommendations_weak,train,C_bge_attribute_embedding,0.0,0.0,0.0,0.55,1
+mal_user_recommendations_weak,train,D_tag_semantic_hybrid,0.0,0.0,0.0,0.55,1
+mal_user_recommendations_weak,train,variant_semantic_synopsis,0.0,0.0,0.0,0.55,1
+franchise_sanity,all,A_weighted_attributes,0.65217,0.58696,0.52122,0.53609,23
+franchise_sanity,all,C_bge_attribute_embedding,0.47826,0.43478,0.28953,0.66609,23
+franchise_sanity,all,D_tag_semantic_hybrid,0.65217,0.58696,0.49806,0.54043,23
+franchise_sanity,all,variant_semantic_synopsis,0.82609,0.82609,0.76847,0.55783,23

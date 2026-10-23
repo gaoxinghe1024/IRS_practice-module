@@ -1,17 +1,13 @@
-# Large data files are stored in Git LFS (install git-lfs before cloning; see docs/operations.md).
-# The patterns are scoped to the shipped-state folders so other folders (algorithm1_benchmark/) keep plain git.
-data/raw/** filter=lfs diff=lfs merge=lfs -text
-data/processed/**/*.parquet filter=lfs diff=lfs merge=lfs -text
-artifacts/**/*.parquet filter=lfs diff=lfs merge=lfs -text
-artifacts/**/*.npy filter=lfs diff=lfs merge=lfs -text
-artifacts/**/*.npz filter=lfs diff=lfs merge=lfs -text
-artifacts/**/*.pt filter=lfs diff=lfs merge=lfs -text
-artifacts/**/*.joblib filter=lfs diff=lfs merge=lfs -text
-var/*/anilogic.sqlite3 filter=lfs diff=lfs merge=lfs -text
-
-# Activation records and per-file hashes require byte-identical JSON on Windows too.
-artifacts/**/*.json -text
+# Repository-level attributes.
+#
+# The experiment folders keep their own byte-exactness rules in
+# Experiments/<name>/.gitattributes (algorithm1, algorithm2, algorithm4).
+# Large data files stay in Git LFS; the patterns below only cover paths that
+# moved out of the original flat repository layout.
+#
+# NOTE: GitHub rejects any single file above 100 MB, so these must never be
+# added as plain blobs.
 
 # === algorithm3 benchmark: large data files via Git LFS ===
-algorithm3_benchmark/data/canonical/anime_runtime.jsonl filter=lfs diff=lfs merge=lfs -text
-algorithm3_benchmark/data/cf/train_statistics.jsonl filter=lfs diff=lfs merge=lfs -text
+Experiments/algorithm3_benchmark/data/canonical/anime_runtime.jsonl filter=lfs diff=lfs merge=lfs -text
+Experiments/algorithm3_benchmark/data/cf/train_statistics.jsonl filter=lfs diff=lfs merge=lfs -text

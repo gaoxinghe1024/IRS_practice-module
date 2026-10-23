@@ -1,0 +1,11 @@
+You are an anime-savvy recommendation assistant. Based on the knowledge base content below, answer the user naturally in Chinese; do not invent works that are not in the knowledge base.
+
+Knowledge base:
+Attack on Titan (Shingeki no Kyojin) Format:TV Studio:WIT Studio Premiere:2013 Genres:Action,Drama,Fantasy Themes:Post-apocalypse,Character growth,Revenge,Dystopia Episodes:25 Rating:8.56 Synopsis:Humanity survives, barely, huddled inside enormous walls while man-eating Titans roam outside. After the boy Eren watches a Titan devour his mother, he joins the Survey Corps and swears to drive out every Titan. In battles of blood and fire, the truth of the world is peeled back layer by layer.
+Hunter x Hunter (2011) Format:TV Studio:Madhouse Premiere:2011 Genres:Adventure,Action,Fantasy Themes:Character growth,Friendship,Battles of wits Episodes:148 Rating:9.03 Synopsis:Searching for his legendary father, the boy Gon takes the Hunter Exam and meets Killua, Kurapika and other companions. Through adventures such as Greed Island and the Chimera Ant arc, friendship and darkness keep testing them.
+Re:Zero - Starting Life in Another World (Re:Zero kara Hajimeru Isekai Seikatsu) Format:TV Studio:White Fox Premiere:2016 Genres:Fantasy,Mystery,Drama Themes:Time loops,Character growth,Return by death Episodes:25 Rating:8.21 Synopsis:Subaru Natsuki, an ordinary boy with nothing to his name, is summoned to another world and granted only one power: ‘Return by Death’. Every death sends him back to a save point, and in a desperate cycle he fights to protect the people who matter to him.
+Famous scene [Death Note Ep. 2]: L and Light's first head-on clash: sitting down at a university tennis match, the two probe and suspect each other, and behind the sunlight and one line — ‘I want to be your friend’ — something darker moves.
+Famous scene [Death Note Ep. 25]: On a rooftop on a rainy night, L holds Light's foot and says ‘you really were my first friend’, then collapses — the most famous farewell in the series.
+Famous scene [Shingeki no Kyojin Ep. 1]: Episode one: Wall Maria is breached; the Colossal Titan looks down from above the wall, and Eren watches from a rooftop as a Titan grabs his mother.
+
+User: How many episodes does the 2006 version of Gintama have in total?

@@ -1,0 +1,11 @@
+set,queries,tsr,hits@5,mrr@10,scene@3,false_scene_claim,compliant,fabricated_episode,intent_ok,latency_ms_p95
+team_package_20260918_A_final_v1_4a2e38e69be5:scene,40,1.0,1.0,0.93333,1.0,,1.0,0.0,1.0,109.53349027549832
+team_package_20260918_A_final_v1_4a2e38e69be5:semantic,30,1.0,1.0,0.94444,,,1.0,0.0,1.0,6.574197753798216
+team_package_20260918_A_final_v1_4a2e38e69be5:constraint,20,1.0,1.0,0.975,,,1.0,0.0,1.0,6.709841877454893
+team_package_20260918_A_final_v1_4a2e38e69be5:unanswerable,10,1.0,,,,,1.0,0.0,,5.221485567744818
+auto_titles,320,0.96875,0.96875,0.96875,,,1.0,0.0,0.96562,148.22989998501737
+auto_constraints,38,1.0,,,,,1.0,0.0,1.0,6.6188955621328205
+auto_relations,60,1.0,1.0,0.5,,,1.0,0.0,1.0,243.40564851299854
+auto_no_episode,30,1.0,,,,,1.0,0.0,1.0,61.08635236741974
+auto_scene_outside,60,0.96667,0.96667,0.91861,,0.0,1.0,0.0,1.0,139.49415974784637
+auto_scene_mismatch,40,1.0,,,,0.0,1.0,0.0,1.0,53.72686039772816

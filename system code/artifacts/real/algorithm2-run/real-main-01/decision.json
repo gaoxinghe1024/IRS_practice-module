@@ -1,0 +1,46 @@
+{
+  "decided_at": "2026-10-01T23:36:11Z",
+  "pre_selected": "B1",
+  "deploy_label": "B1_seed42",
+  "checks": {
+    "auc_at_least": {
+      "threshold": 0.65,
+      "value": 0.9526960620128254,
+      "pass": true
+    },
+    "hr_gain_vs_A0": {
+      "threshold": 0.02,
+      "value": 0.11066666666666665,
+      "pass": true
+    },
+    "rule_violations_zero": {
+      "value": 0,
+      "pass": true
+    },
+    "ci_lower_vs_A0_above_zero": {
+      "ci95": [
+        0.09833333333333333,
+        0.123
+      ],
+      "pass": true
+    },
+    "ci_lower_vs_A1_above_zero": {
+      "ci95": [
+        0.08733333333333333,
+        0.11166666666666666
+      ],
+      "pass": true
+    }
+  },
+  "confirmed": true,
+  "default_scorer": "B1",
+  "default_artifact": {
+    "family": "B1",
+    "seed": 42,
+    "file": "models/B1_seed42.txt",
+    "sha256": "7a3c1fa582a88da196658934c63d9ff214d95fcbc28b7c1acda6c55cc50b33e2",
+    "bytes": 1754709
+  },
+  "a1_hits_weight": 0.05,
+  "reason": "B1 passed every pre-registered confirmation check on test"
+}

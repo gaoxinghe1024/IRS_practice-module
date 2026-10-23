@@ -1,9 +1,0 @@
-source,scorer,hits@8,ndcg@8,auc_full_pool,auc_sampled50,cases
-synthetic_generator:val,manual_slides_v0,0.0566,0.02496,0.58524,0.57823,265
-synthetic_generator:val,collection_profile_v1,0.06792,0.03407,0.59972,0.5997,265
-synthetic_generator:val,gradient_boosting_v1,0.12453,0.05613,0.62709,0.62438,265
-synthetic_generator:val,two_tower_v1,0.09434,0.0424,0.58168,0.58411,265
-synthetic_generator:test,manual_slides_v0,0.06912,0.04446,0.6062,0.60894,217
-synthetic_generator:test,collection_profile_v1,0.08756,0.0405,0.58588,0.57963,217
-synthetic_generator:test,gradient_boosting_v1,0.09677,0.04807,0.61332,0.60912,217
-synthetic_generator:test,two_tower_v1,0.05991,0.02864,0.5394,0.54005,217

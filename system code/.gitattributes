@@ -1,0 +1,20 @@
+# Large data files are stored in Git LFS (install git-lfs before cloning; see docs/operations.md).
+# The patterns are scoped to the shipped-state folders so other folders (algorithm1_benchmark/) keep plain git.
+data/raw/** filter=lfs diff=lfs merge=lfs -text
+data/processed/**/*.parquet filter=lfs diff=lfs merge=lfs -text
+artifacts/**/*.parquet filter=lfs diff=lfs merge=lfs -text
+artifacts/**/*.npy filter=lfs diff=lfs merge=lfs -text
+artifacts/**/*.npz filter=lfs diff=lfs merge=lfs -text
+artifacts/**/*.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/**/*.joblib filter=lfs diff=lfs merge=lfs -text
+var/*/anilogic.sqlite3 filter=lfs diff=lfs merge=lfs -text
+
+# Activation records and per-file hashes require byte-identical JSON on Windows too.
+artifacts/**/*.json -text
+
+# The algorithm-2 serving subset is verified by SHA-256 against freeze_manifest.json, so its model
+# files must survive a checkout byte for byte (core.autocrlf must not rewrite their line endings).
+artifacts/real/algorithm2-run/** -text
+
+# The experiment folders now live outside this directory; their LFS rules are in
+# the repository-level ../.gitattributes and in each Experiments/<name>/.gitattributes.

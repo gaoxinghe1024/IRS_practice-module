@@ -1,0 +1,1041 @@
+﻿qid,type,model,group,n_out_kb,n_echo,n_kb_variant,n_out_kb_final,echo_names,kbvar_names,kept_names,in_kb_reply_ok
+C01,constraint,Hy3,N,7,0,0,7,,,Monthly Girls' Nozaki-kun;Gabriel DropOut;Grand Blue;Asobi Asobase;Wataten!: An Angel Flew Down to Me;Machikado Mazoku;Nozaki-kun,False
+C02,constraint,Hy3,N,8,0,0,8,,,Non Non Biyori;Barakamon;Miss Kobayashi's Dragon Maid;Today's Menu for the Emiya Family;Ms. Koizumi Loves Ramen Noodles;Is the Order a Rabbit?;Tanaka-kun Is Always Listless;A Place Further Than the Universe,False
+C03,constraint,Hy3,N,3,0,0,3,,,Ghost in the Shell: SAC;Psycho-Pass;86,False
+C04,constraint,Hy3,N,4,0,0,4,,,Frieren: Beyond Journey's End;Ghost in the Shell: SAC;Cyberpunk: Edgerunners;Bocchi the Rock!,False
+C05,constraint,Hy3,N,8,0,0,8,,,ID:INVADED;Odd Taxi;Summer Time Rendering;Erased;Another;Puella Magi Madoka Magica;Durarara!!;Psycho-Pass,False
+C06,constraint,Hy3,N,4,0,1,3,,Demon Slayer: Entertainment District Arc,Chainsaw Man;Dorohedoro;Tokyo Ghoul,False
+C07,constraint,Hy3,N,0,0,0,0,,,,True
+C08,constraint,Hy3,N,0,0,0,0,,,,True
+C09,constraint,Hy3,N,7,0,1,6,,Angel Beats!,Charlotte;Erased;Puella Magi Madoka Magica;Noragami;Gabriel DropOut;Another,False
+C10,constraint,Hy3,N,18,0,1,17,,Cowboy Bebop: Knockin' on Heaven's Door,Spirited Away;My Neighbor Totoro;Castle in the Sky;Howl's Moving Castle;Princess Mononoke;5 Centimeters per Second;The Garden of Words;Weathering with You;Millennium Actress;Paprika;Tokyo Godfathers;Puella Magi Madoka Magica the Movie: Rebellion;A Silent Voice;Wolf Children;The Girl Who Leapt Through Time;Big Fish & Begonia;Monkey King: Hero Is Back,False
+C11,constraint,Hy3,N,5,0,0,5,,,Gabriel DropOut;Grand Blue;Onimai: I'm Now Your Sister!;Aho Girl;Machikado Mazoku,False
+C12,constraint,Hy3,N,9,0,0,9,,,Frieren: Beyond Journey's End;Bocchi the Rock!;Cyberpunk: Edgerunners;Summer Time Rendering;Odd Taxi;Chainsaw Man;Ranking of Kings;Violet Evergarden;Made in Abyss,False
+C13,constraint,Hy3,N,6,0,0,6,,,Puella Magi Madoka Magica;Erased;ID:INVADED;Odd Taxi;Serial Experiments Lain;Terror in Resonance,False
+C14,constraint,Hy3,N,7,0,0,7,,,Serial Experiments Lain;Astra Lost in Space;Detective Conan;Love Death + Robots;My Three-Body: Zhang Beihai;Ghost in the Shell;BLAME!,False
+C15,constraint,Hy3,N,7,0,0,7,,,Air / Sincerely Yours;CLANNAD ~After Story~;Honey and Clover;Ghost in the Shell: Stand Alone Complex;Frieren: Beyond Journey's End;Hyouka;Toradora!,False
+C16,constraint,Hy3,N,7,0,0,7,,,Mobile Suit Gundam Thunderbolt;Death Billiards;Death Parade;Little Witch Academia;Time of Eve;Voices of a Distant Star;The Place Promised in Our Early Days,False
+F01,fact,Hy3,N,6,0,1,5,,Natsume's Book of Friends Season 5,Season 6;Season 7;Barakamon;Shonen Onmyouji;Ride Your Wave,False
+F02,fact,Hy3,N,0,0,0,0,,,,True
+F03,fact,Hy3,N,0,0,0,0,,,,True
+F04,fact,Hy3,N,2,0,0,2,,,Knockin' on Heaven's Door;Asteroid Blues,False
+F05,fact,Hy3,N,3,0,1,2,,Jujutsu Kaisen 0,Chainsaw Man;Chainsaw Man,False
+F06,fact,Hy3,N,0,0,0,0,,,,True
+F07,fact,Hy3,N,0,0,0,0,,,,True
+F08,fact,Hy3,N,0,0,0,0,,,,True
+M01,mood,Hy3,N,2,0,0,2,,,Violet Evergarden;Non Non Biyori,False
+M02,mood,Hy3,N,6,0,1,5,,Angel Beats!,CLANNAD ~After Story~;Anohana;Hotarubi no Mori e;Violet Evergarden;Plastic Memories,False
+M03,mood,Hy3,N,4,0,0,4,,,Puella Magi Madoka Magica;Another;Umineko: When They Cry;Parasyte,False
+M04,mood,Hy3,N,2,0,0,2,,,A Place Further Than the Universe;Summer Time Rendering,False
+M05,mood,Hy3,N,7,0,0,7,,,The Misfit of Demon King Academy;That Time I Got Reincarnated as a Slime;Dragon Ball;Dragon Ball Super;My Hero Academia;Chainsaw Man;Kill la Kill,False
+M06,mood,Hy3,N,6,0,0,6,,,Kaguya-sama: Love Is War;Horimiya;Tsuki ga Kirei;Tamako Love Story;A Silent Voice;Tsuredure Children,False
+M07,mood,Hy3,N,6,0,0,6,,,Legend of the Galactic Heroes;Tengen Toppa Gurren Lagann;Blame!;Ghost in the Shell;Psycho-Pass;Knights of Sidonia,False
+M08,mood,Hy3,N,5,0,0,5,,,Shiki;Yao-Chinese Folktales;The Country Bus Took Away Wang Hai'er and the Gods;Mayoiga;Fog Hill of Five Elements,False
+M09,mood,Hy3,N,3,0,0,3,,,Overlord;That Time I Got Reincarnated as a Slime;The Disastrous Life of Saiki K.,False
+M10,mood,Hy3,N,0,0,0,0,,,,True
+S01e,scene,Hy3,N,1,0,0,1,,,Contact,False
+S01h,scene,Hy3,N,0,0,0,0,,,,True
+S02e,scene,Hy3,N,4,1,0,3, reclocker ,,Psycho-Pass;Fate/Standstill ;Erased,False
+S02h,scene,Hy3,N,0,0,0,0,,,,True
+S03e,scene,Hy3,N,3,0,1,2,,Attack on Titan,**Tokyo Ghoul**;**Fate/Zero**,False
+S03h,scene,Hy3,N,1,0,0,1,,,Tokyo Ghoul,False
+S04e,scene,Hy3,N,2,0,0,2,,,Giant Tree Forest;Holding On,False
+S04h,scene,Hy3,N,4,0,0,4,,,The Losers;Loser;Bonds of the Past;Desperate Straits,False
+S05e,scene,Hy3,N,3,0,1,2,,Steins;Gate 0,百億のネメシス;Summer Time Rendering,False
+S05h,scene,Hy3,N,2,0,1,1,,Steins;Gate 0,Summer Days,False
+S06e,scene,Hy3,N,3,1,0,2,Code Geass: Lelouch of the Rebellion,,The Day the Witch Was Imprisoned;The White Knight Awakens,False
+S06h,scene,Hy3,N,2,0,1,1,,Code Geass: Lelouch of the Rebellion,Code Geass: Lelouch of the Rebellion,False
+S07e,scene,Hy3,N,4,0,0,4,,,Weathering with You;5 Centimeters per Second;Voices of a Distant Star;Hotarubi no Mori e,False
+S07h,scene,Hy3,N,3,0,0,3,,,Weathering with You;Wolf Children;Mirai,False
+S08e,scene,Hy3,N,2,0,0,2,,,The Fool's Farewell;Memories of Those Days,False
+S08h,scene,Hy3,N,0,0,0,0,,,,True
+S09e,scene,Hy3,N,1,0,1,0,,Re:Zero,,True
+S09h,scene,Hy3,N,2,0,0,2,,,CLANNAD;Violet Evergarden,False
+S10e,scene,Hy3,N,2,0,2,0,,Code Geass: Lelouch of the Rebellion R2;Code Geass R2,,True
+S10h,scene,Hy3,N,2,0,0,2,,,Code Geass: Lelouch of the Rebellion;Fate/Zero,False
+S11e,scene,Hy3,N,0,0,0,0,,,,True
+S11h,scene,Hy3,N,1,0,0,1,,,The Disastrous Life of Saiki K.,False
+S12e,scene,Hy3,N,3,0,0,3,,,Ibaraki;Grey Winter;Spring Breeze,False
+S12h,scene,Hy3,N,0,0,0,0,,,,True
+T01,trap,Hy3,N,4,1,0,3,The Quantum Cafe Under the Moonlight,,Bartender;Sing Yesterday for Me;Tsuki ga Kirei,False
+T02,trap,Hy3,N,4,1,0,3,Testament of the Star Sea,,Planetes;Incarnation;Vivy: Fluorite Eye's Song,False
+T03,trap,Hy3,N,7,1,0,6,Madoka the Galactic Courier,,Puella Magi Madoka Magica;Planetes;Carole & Tuesday;Maquia: When the Promised Flower Blooms;Draft King;Legend of the Galactic Heroes,False
+T04,trap,Hy3,N,4,0,0,4,,,Black Butler;Bleach;Tokyo Ghoul;Hell Girl,False
+T05,trap,Hy3,N,3,1,0,2,One Piece,,Weekly Shonen Jump;Naruto,False
+T06,trap,Hy3,N,5,2,0,3,Naruto;Naruto Shippuden,,Shippuden: The Lost Tower;The Last;Boruto,False
+T07,trap,Hy3,N,5,1,0,4,Slam Dunk,,Haikyu!!;Captain Tsubasa;Ace of Diamond;Run with the Wind,False
+T08,trap,Hy3,N,2,0,0,2,,,Violet Evergarden;Spice and Wolf,False
+T09,trap,Hy3,N,1,1,0,0,Detective Conan,,,True
+T10,trap,Hy3,N,1,0,0,1,,,Slam Dunk,False
+T11,trap,Hy3,N,2,0,0,2,,,Frieren: Beyond Journey's End;Delicious in Dungeon,False
+T12,trap,Hy3,N,5,0,0,5,,,Frieren: Beyond Journey's End Season 2;The Apothecary Diaries Season 2;Sakamoto Days;My Hero Academia: Final Season;Dandadan,False
+X01,similar,Hy3,N,3,0,0,3,,,Kabaneri of the Iron Fortress;Hell's Paradise;Tokyo Ghoul,False
+X02,similar,Hy3,N,4,0,0,4,,,Erased;The Promised Neverland;ONE OUTS;Psycho-Pass,False
+X03,similar,Hy3,N,7,0,0,7,,,Flying Bakery; Flying Witch;Hotarubi no Mori e;ARIA The Animation;Barakamon;Non Non Biyori;ARIA,False
+X04,similar,Hy3,N,4,0,0,4,,,Daily Lives of High School Boys;Grand Blue;Monthly Girls' Nozaki-kun;The Disastrous Life of Saiki K.,False
+X05,similar,Hy3,N,6,0,0,6,,,Summer Time Rendering;The Melancholy of Haruhi Suzumiya;Puella Magi Madoka Magica;Erased;The Girl Who Leapt Through Time;Re:Zero,False
+X06,similar,Hy3,N,7,0,0,7,,,Weathering with You;5 Centimeters per Second;Voices of a Distant Star;Hotarubi no Mori e;Rascal Does Not Dream of Bunny Girl Senpai;I Want to Eat Your Pancreas;Anohana,False
+X07,similar,Hy3,N,2,0,0,2,,,Bleach;Chainsaw Man,False
+X08,similar,Hy3,N,4,0,0,4,,,The Disastrous Life of Saiki K.;My Hero Academia;Charlotte;Charlotte,False
+X09,similar,Hy3,N,2,0,0,2,,,Ghost in the Shell: SAC;Legend of the Galactic Heroes,False
+X10,similar,Hy3,N,6,0,0,6,,,ID:INVADED;Mouryou no Hako;Erased;Terror in Resonance;Death Parade;ID:INVADED,False
+C01,constraint,Hy3,R,0,0,0,0,,,,True
+C02,constraint,Hy3,R,0,0,0,0,,,,True
+C03,constraint,Hy3,R,0,0,0,0,,,,True
+C04,constraint,Hy3,R,0,0,0,0,,,,True
+C05,constraint,Hy3,R,0,0,0,0,,,,True
+C06,constraint,Hy3,R,0,0,0,0,,,,True
+C07,constraint,Hy3,R,0,0,0,0,,,,True
+C08,constraint,Hy3,R,0,0,0,0,,,,True
+C09,constraint,Hy3,R,0,0,0,0,,,,True
+C10,constraint,Hy3,R,0,0,0,0,,,,True
+C11,constraint,Hy3,R,0,0,0,0,,,,True
+C12,constraint,Hy3,R,0,0,0,0,,,,True
+C13,constraint,Hy3,R,0,0,0,0,,,,True
+C14,constraint,Hy3,R,0,0,0,0,,,,True
+C15,constraint,Hy3,R,0,0,0,0,,,,True
+C16,constraint,Hy3,R,0,0,0,0,,,,True
+F01,fact,Hy3,R,0,0,0,0,,,,True
+F02,fact,Hy3,R,0,0,0,0,,,,True
+F03,fact,Hy3,R,0,0,0,0,,,,True
+F04,fact,Hy3,R,0,0,0,0,,,,True
+F05,fact,Hy3,R,0,0,0,0,,,,True
+F06,fact,Hy3,R,0,0,0,0,,,,True
+F07,fact,Hy3,R,0,0,0,0,,,,True
+F08,fact,Hy3,R,0,0,0,0,,,,True
+M01,mood,Hy3,R,0,0,0,0,,,,True
+M02,mood,Hy3,R,0,0,0,0,,,,True
+M03,mood,Hy3,R,0,0,0,0,,,,True
+M04,mood,Hy3,R,0,0,0,0,,,,True
+M05,mood,Hy3,R,0,0,0,0,,,,True
+M06,mood,Hy3,R,0,0,0,0,,,,True
+M07,mood,Hy3,R,0,0,0,0,,,,True
+M08,mood,Hy3,R,0,0,0,0,,,,True
+M09,mood,Hy3,R,0,0,0,0,,,,True
+M10,mood,Hy3,R,0,0,0,0,,,,True
+S01e,scene,Hy3,R,0,0,0,0,,,,True
+S01h,scene,Hy3,R,0,0,0,0,,,,True
+S02e,scene,Hy3,R,0,0,0,0,,,,True
+S02h,scene,Hy3,R,0,0,0,0,,,,True
+S03e,scene,Hy3,R,0,0,0,0,,,,True
+S03h,scene,Hy3,R,0,0,0,0,,,,True
+S04e,scene,Hy3,R,0,0,0,0,,,,True
+S04h,scene,Hy3,R,0,0,0,0,,,,True
+S05e,scene,Hy3,R,0,0,0,0,,,,True
+S05h,scene,Hy3,R,0,0,0,0,,,,True
+S06e,scene,Hy3,R,0,0,0,0,,,,True
+S06h,scene,Hy3,R,0,0,0,0,,,,True
+S07e,scene,Hy3,R,0,0,0,0,,,,True
+S07h,scene,Hy3,R,0,0,0,0,,,,True
+S08e,scene,Hy3,R,0,0,0,0,,,,True
+S08h,scene,Hy3,R,0,0,0,0,,,,True
+S09e,scene,Hy3,R,0,0,0,0,,,,True
+S09h,scene,Hy3,R,0,0,0,0,,,,True
+S10e,scene,Hy3,R,0,0,0,0,,,,True
+S10h,scene,Hy3,R,0,0,0,0,,,,True
+S11e,scene,Hy3,R,0,0,0,0,,,,True
+S11h,scene,Hy3,R,0,0,0,0,,,,True
+S12e,scene,Hy3,R,0,0,0,0,,,,True
+S12h,scene,Hy3,R,0,0,0,0,,,,True
+T01,trap,Hy3,R,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,Hy3,R,1,1,0,0,Testament of the Star Sea,,,True
+T03,trap,Hy3,R,1,1,0,0,Madoka the Galactic Courier,,,True
+T04,trap,Hy3,R,0,0,0,0,,,,True
+T05,trap,Hy3,R,1,1,0,0,One Piece,,,True
+T06,trap,Hy3,R,1,1,0,0,Naruto,,,True
+T07,trap,Hy3,R,1,1,0,0,Slam Dunk,,,True
+T08,trap,Hy3,R,1,1,0,0,Frieren: Beyond Journey's End,,,True
+T09,trap,Hy3,R,1,1,0,0,Detective Conan,,,True
+T10,trap,Hy3,R,0,0,0,0,,,,True
+T11,trap,Hy3,R,0,0,0,0,,,,True
+T12,trap,Hy3,R,0,0,0,0,,,,True
+X01,similar,Hy3,R,0,0,0,0,,,,True
+X02,similar,Hy3,R,0,0,0,0,,,,True
+X03,similar,Hy3,R,0,0,0,0,,,,True
+X04,similar,Hy3,R,0,0,0,0,,,,True
+X05,similar,Hy3,R,0,0,0,0,,,,True
+X06,similar,Hy3,R,0,0,0,0,,,,True
+X07,similar,Hy3,R,0,0,0,0,,,,True
+X08,similar,Hy3,R,0,0,0,0,,,,True
+X09,similar,Hy3,R,0,0,0,0,,,,True
+X10,similar,Hy3,R,0,0,0,0,,,,True
+C01,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+C02,constraint,Deepseek-V4.1-Flash,N,8,0,0,8,,,Laid-Back Camp;Non Non Biyori;Super Cub;Violet Evergarden;A Place Further Than the Universe;Deaimon;Non Non Biyori;Tsurune,False
+C03,constraint,Deepseek-V4.1-Flash,N,6,0,1,5,,Steins;Gate 0,Legend of the Galactic Heroes;86 -Eighty Six-;Cyberpunk: Edgerunners;Vivy -Fluorite Eye's Song-;PSYCHO-PASS,False
+C04,constraint,Deepseek-V4.1-Flash,N,16,0,2,14,,FMA: Brotherhood;Hunter x Hunter (2011),Ghost in the Shell: S.A.C. 2nd GIG;CLANNAD ~AFTER STORY~;The Disappearance of Haruhi Suzumiya;Bakemonogatari;The Tatami Galaxy;Puella Magi Madoka Magica;Shirobako;Tengen Toppa Gurren Lagann;Slam Dunk;Millennium Actress;Perfect Blue;Tokyo Godfathers;Spirited Away;Frieren,False
+C05,constraint,Deepseek-V4.1-Flash,N,11,0,0,11,,,Odd Taxi;Sagrada Reset;Ghost in the Shell: Stand Alone Complex;Puella Magi Madoka Magica;From the New World;Kaiji: Ultimate Survivor;PSYCHO-PASS;Baccano!;ID:INVADED;Summer Time Rendering;The Promised Neverland,False
+C06,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+C07,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C08,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C09,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C10,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C11,constraint,Deepseek-V4.1-Flash,N,2,0,0,2,,,Asobi Asobase;魔王城でおやすみ,False
+C12,constraint,Deepseek-V4.1-Flash,N,9,0,0,9,,,Puella Magi Madoka Magica;Cyberpunk: Edgerunners;Ghost in the Shell: SAC;Haikyu!!;Tengen Toppa Gurren Lagann;Keep Your Hands Off Eizouken!;Bocchi the Rock!;CLANNAD～AFTER STORY～;Kaguya-sama: Love Is War,False
+C13,constraint,Deepseek-V4.1-Flash,N,9,0,1,8,,Code Geass: Lelouch of the Rebellion,The Promised Neverland;Moriarty the Patriot;Erased;Talentless Nana;ID:INVADED;91Days;Psycho-Pass;Kaiji: Ultimate Survivor,False
+C14,constraint,Deepseek-V4.1-Flash,N,11,0,0,11,,,Serial Experiments Lain;Girls' Last Tour;PLUTO;Astro Boy;Mobile Suit Gundam 0080: War in the Pocket;Mobile Suit Gundam: The 08th MS Team;The Melancholy of Haruhi Suzumiya;Cyberpunk: Edgerunners;ID:INVADED;The Tatami Galaxy;Ghost in the Shell: SAC,False
+C15,constraint,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+C16,constraint,Deepseek-V4.1-Flash,N,19,0,0,19,,,Fog Hill of Five Elements;The Phantom Purple Forest of Saigawa;Thus Spoke Kishibe Rohan;Yao-Chinese Folktales;The Little Monster's Summer;SHELTER;The Adventures of Li Xianji;Spirited Away;My Neighbor Totoro;Castle in the Sky;Perfect Blue;Tokyo Godfathers;Paprika;Millennium Actress;The Disappearance of Haruhi Suzumiya;Ghost in the Shell;La Maison en Petits Cubes;Feelings of Mountains and Waters;Hotarubi no Mori e,False
+F01,fact,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+F02,fact,Deepseek-V4.1-Flash,N,1,0,0,1,,,Shonen Jump+,False
+F03,fact,Deepseek-V4.1-Flash,N,6,0,1,5,,Demon Slayer: Mugen Train,Spirited Away;Weathering with You;Suzume;5 Centimeters per Second;The Garden of Words,False
+F04,fact,Deepseek-V4.1-Flash,N,1,0,1,0,,Cowboy Bebop: Knockin' on Heaven's Door,,True
+F05,fact,Deepseek-V4.1-Flash,N,5,0,2,3,,Jujutsu Kaisen 0;Attack on Titan: The Final Season,Weekly Shonen Jump;Chainsaw Man;Hell's Paradise,False
+F06,fact,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+F07,fact,Deepseek-V4.1-Flash,N,6,0,2,4,,Evangelion: Death and Rebirth;The End of Evangelion,Jo;Ha;Q;Final,False
+F08,fact,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+M01,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,Laid-Back Camp;Nichijou;Polar Bear Cafe;March Comes in Like a Lion;A Place Further Than the Universe;Violet Evergarden;CLANNAD,False
+M02,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,CLANNAD ～AFTER STORY～;Anohana;Violet Evergarden;Summer Wars;Suzume;Angle Beats!;March Comes in Like a Lion,False
+M03,mood,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+M04,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,Lycoris Recoil;Vivy -Fluorite Eye's Song-;Cyberpunk: Edgerunners;Tsuki ga Kirei;Bocchi the Rock!;Laid-Back Camp;Wonder Egg Priority,False
+M05,mood,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+M06,mood,Deepseek-V4.1-Flash,N,12,0,0,12,,,Kaguya-sama: Love Is War;Monthly Girls' Nozaki-kun;Horimiya;The Dangers in My Heart;Tsuki ga Kirei;Skip and Loafer;Violet Evergarden;Weathering with You;The Garden of Words;CLANNAD;Loving Yamada at Lv999;Love After World Domination,False
+M07,mood,Deepseek-V4.1-Flash,N,14,0,1,13,,UC,Legend of the Galactic Heroes;Crest of the Stars;Space Battleship Yamato;Mobile Suit Gundam;Char's Counterattack;Tengen Toppa Gurren Lagann;Ghost in the Shell;PSYCHO-PASS;From the New World;86 -Eighty Six-;Knights of Sidonia;Expelled from Paradise;LotGH,False
+M08,mood,Deepseek-V4.1-Flash,N,7,0,0,7,,,Summer Time Rendering;Shiki;Ookami Kakushi;Hanada Shonen-shi;A Letter to Momo;Yamishibai;GeGeGe no Kitaro,False
+M09,mood,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+M10,mood,Deepseek-V4.1-Flash,N,6,0,0,6,,,Dr. Stone;Heaven's Design Team;Space Brothers;Planetes;How Heavy Are the Dumbbells You Lift?;Dr.STONE,False
+S01e,scene,Deepseek-V4.1-Flash,N,2,0,0,2,,,Contact;Showdown,False
+S01h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S02e,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,Silence,False
+S02h,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,Silence,False
+S03e,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,To You 2000 Years Later,False
+S03h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S04e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S04h,scene,Deepseek-V4.1-Flash,N,3,0,0,3,,,Iron Hammer;The Losers;The Hero,False
+S05e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S05h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S06e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S06h,scene,Deepseek-V4.1-Flash,N,3,0,3,0,,Code Geass: Lelouch of the Rebellion;Code Geass: Lelouch of the Rebellion R2;Code Geass: Lelouch of the Re;surrection,,True
+S07e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S07h,scene,Deepseek-V4.1-Flash,N,2,0,0,2,,,Crossroads;The Transfer Student,False
+S08e,scene,Deepseek-V4.1-Flash,N,2,0,0,2,,,The First Day;Mother,False
+S08h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S09e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S09h,scene,Deepseek-V4.1-Flash,N,1,0,1,0,,Re:Zero,,True
+S10e,scene,Deepseek-V4.1-Flash,N,3,1,2,0,Re;,Code Geass: Lelouch of the Rebellion R2;Code Geass: Lelouch of the Re;surrection,,True
+S10h,scene,Deepseek-V4.1-Flash,N,1,0,1,0,,Code Geass: Lelouch of the Rebellion R2,,True
+S11e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S11h,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+S12e,scene,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+S12h,scene,Deepseek-V4.1-Flash,N,1,0,0,1,,,Love's Sorrow,False
+T01,trap,Deepseek-V4.1-Flash,N,7,1,0,6,The Quantum Cafe Under the Moonlight,,Summer Time Rendering;Occultic;Nine;Is the Order a Rabbit?;Blend S;Blend S;Tsuki ga Kirei,False
+T02,trap,Deepseek-V4.1-Flash,N,4,1,0,3,Testament of the Star Sea,,A Place Further Than the Universe;Vivy -Fluorite Eye's Song-;Planetes,False
+T03,trap,Deepseek-V4.1-Flash,N,3,1,0,2,Madoka the Galactic Courier,,Puella Magi Madoka Magica;Galaxy Express 999,False
+T04,trap,Deepseek-V4.1-Flash,N,5,0,0,5,,,Black Butler;Soul Eater;Tokyo Ghoul;Akame ga Kill!;Naruto,False
+T05,trap,Deepseek-V4.1-Flash,N,2,1,0,1,One Piece,,Weekly Shonen Jump,False
+T06,trap,Deepseek-V4.1-Flash,N,3,3,0,0,Naruto;Naruto Shippuden;Boruto: Naruto Next Generations,,,True
+T07,trap,Deepseek-V4.1-Flash,N,6,1,0,5,Slam Dunk,,Haikyu!!;Kuroko's Basketball;The Garden of Sinners;Touch;Run with the Wind,False
+T08,trap,Deepseek-V4.1-Flash,N,1,0,1,0,,Demon Slayer,,True
+T09,trap,Deepseek-V4.1-Flash,N,6,1,0,5,Detective Conan,,The Moonlight Sonata Murder Case;The Mountain Villa Bandaged Man;The Blue Castle Exploration Case;The Phantom of Baker Street;Countdown to Heaven,False
+T10,trap,Deepseek-V4.1-Flash,N,1,0,0,1,,,Haikyu!!,False
+T11,trap,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+T12,trap,Deepseek-V4.1-Flash,N,13,0,1,12,,Clevatess,The Apothecary Diaries;The Jewel of Ruri;Apocalypse Hotel;The Summer the Light Faded;Kowloon Generic Romance;Dandadan;Gachiakuta;Wandance;Medalist;Toshima Danjuro Wants to Be Kamen Rider;葬送のフリーレン;The Apothecary,False
+X01,similar,Deepseek-V4.1-Flash,N,1,0,0,1,,,One Piece,False
+X02,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+X03,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+X04,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,False
+X05,similar,Deepseek-V4.1-Flash,N,6,0,0,6,,,Summer Time Rendering;Erased;Tokyo Revengers;Puella Magi Madoka Magica;The Melancholy of Haruhi Suzumiya;Link Click,False
+X06,similar,Deepseek-V4.1-Flash,N,11,0,0,11,,,Weathering with You;5 Centimeters per Second;The Garden of Words;Suzume;The Girl Who Leapt Through Time;Hotarubi no Mori e;Kimi ni Todoke;Tamako Love Story;Whisper of the Heart;A Silent Voice;I Want to Eat Your Pancreas,False
+X07,similar,Deepseek-V4.1-Flash,N,6,0,2,4,,Demon Slayer;Hunter x Hunter,Chainsaw Man;My Hero Academia;Rurouni Kenshin;Kill la Kill,False
+X08,similar,Deepseek-V4.1-Flash,N,0,0,0,0,,,,True
+X09,similar,Deepseek-V4.1-Flash,N,1,0,0,1,,,Firefly,False
+X10,similar,Deepseek-V4.1-Flash,N,7,0,0,7,,,PLUTO;Paranoia Agent;serial experiments lain;Mouryou no Hako;Everything Becomes F;BABYLON;PLUTO,False
+C01,constraint,Deepseek-V4.1-Flash,R,1,0,1,0,,Code Geass Ep. 25,,True
+C02,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C03,constraint,Deepseek-V4.1-Flash,R,1,0,0,1,,,L,False
+C04,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C05,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C06,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C07,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C08,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C09,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C10,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C11,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C12,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C13,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C14,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C15,constraint,Deepseek-V4.1-Flash,R,1,0,1,0,,Hunter x Hunter (2011),,True
+C16,constraint,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F01,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F02,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F03,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F04,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F05,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F06,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F07,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+F08,fact,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M01,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M02,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M03,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M04,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M05,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M06,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M07,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M08,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M09,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+M10,mood,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S01e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S01h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S02e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S02h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S03e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S03h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S04e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S04h,scene,Deepseek-V4.1-Flash,R,1,0,0,1,,,The Hero,False
+S05e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S05h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S06e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S06h,scene,Deepseek-V4.1-Flash,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S07e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S07h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S08e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S08h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S09e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S09h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S10e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S10h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S11e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S11h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S12e,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+S12h,scene,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T01,trap,Deepseek-V4.1-Flash,R,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,Deepseek-V4.1-Flash,R,1,1,0,0,Testament of the Star Sea,,,True
+T03,trap,Deepseek-V4.1-Flash,R,1,1,0,0,Madoka the Galactic Courier,,,True
+T04,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T05,trap,Deepseek-V4.1-Flash,R,1,1,0,0,One Piece,,,True
+T06,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T07,trap,Deepseek-V4.1-Flash,R,1,1,0,0,Slam Dunk,,,True
+T08,trap,Deepseek-V4.1-Flash,R,1,1,0,0,Frieren: Beyond Journey's End,,,True
+T09,trap,Deepseek-V4.1-Flash,R,1,1,0,0,Detective Conan,,,True
+T10,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,False
+T11,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+T12,trap,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X01,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X02,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X03,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X04,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X05,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X06,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X07,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X08,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X09,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+X10,similar,Deepseek-V4.1-Flash,R,0,0,0,0,,,,True
+C01,constraint,GLM-5.3,N,6,0,0,6,,,Grand Blue;Daily Lives of High School Boys;Monthly Girls' Nozaki-kun;Kaguya-sama: Love Is War;The Disastrous Life of Saiki K.;Prison School,False
+C02,constraint,GLM-5.3,N,9,0,0,9,,,Summer Time Rendering;Barakamon;Laid-Back Camp;Sweetness and Lightning;Wolf Children;Flying Witch;Nichijou;YuruYuri;Haven't You Heard? I'm Sakamoto,False
+C03,constraint,GLM-5.3,N,4,0,0,4,,,Cyberpunk: Edgerunners;Land of the Lustrous;Parasyte;Mobile Suit Gundam 0080: War in the Pocket,False
+C04,constraint,GLM-5.3,N,6,0,1,5,,Attack on Titan: The Final Season,CLANNAD: After Story;Violet Evergarden;Parasyte;Spirited Away;Grave of the Fireflies,False
+C05,constraint,GLM-5.3,N,7,0,0,7,,,From the New World;Shiki;Hyouka;Another;Ranpo Kitan: Game of Laplace;Danganronpa: Hope's Peak Academy;Detective Conan: The Phantom of Baker Street,False
+C06,constraint,GLM-5.3,N,5,0,0,5,,,Devilman Crybaby;Made in Abyss;ID:INVADED;My Hero Academia;Chainsaw Man,False
+C07,constraint,GLM-5.3,N,3,0,0,3,,,Puella Magi Madoka Magica;Violet Evergarden;Fate/Zero,False
+C08,constraint,GLM-5.3,N,3,0,0,3,,,Frieren: Beyond Journey's End;Odd Taxi;Made in Abyss,False
+C09,constraint,GLM-5.3,N,4,0,0,4,,,Puella Magi Madoka Magica;Another;Made in Abyss;ReLIFE,False
+C10,constraint,GLM-5.3,N,24,0,0,24,,,Spirited Away;My Neighbor Totoro;Castle in the Sky;Howl's Moving Castle;Princess Mononoke;Arrietty;5 Centimeters per Second;The Garden of Words;A Silent Voice;The First Slam Dunk;Liz and the Blue Bird;Violet Evergarden: The Movie;Ghost in the Shell;Paprika;Inception;Akira;Grave of the Fireflies;The Phantom of Baker Street;Wolf Children;Summer Wars;The Girl Who Leapt Through Time;Promare;Slam Dunk;Paprika,False
+C11,constraint,GLM-5.3,N,5,0,0,5,,,"KonoSuba: God's Blessing on This Wonderful World!;Haven't You Heard? I'm Sakamoto;Grand Blue;Bocchi the Rock!;Monthly Girls' Nozaki-kun",False
+C12,constraint,GLM-5.3,N,6,0,0,6,,,Violet Evergarden;Cyberpunk: Edgerunners;Odd Taxi;March Comes in Like a Lion;Spirited Away;A Silent Voice,False
+C13,constraint,GLM-5.3,N,4,0,1,3,,Monster,The Promised Neverland;Death Parade;Kaiji: Ultimate Survivor,False
+C14,constraint,GLM-5.3,N,8,0,0,8,,,Cyberpunk: Edgerunners;Cyberpunk 2077;Scavengers Reign;Love Death + Robots;Gunbuster;Pantheon;FLCL;Edgerunners,False
+C15,constraint,GLM-5.3,N,3,0,1,2,,Attack on Titan: The Final Season,Haikyu!!;CLANNAD ～After Story～,False
+C16,constraint,GLM-5.3,N,7,0,0,7,,,Rurouni Kenshin: Trust and Betrayal;Rurouni Kenshin;Macross Plus;Fog Hill of Five Elements;Spirited Away;The Tale of the Princess Kaguya;The First Slam Dunk,False
+F01,fact,GLM-5.3,N,1,0,1,0,,Natsume's Book of Friends Season 5,,True
+F02,fact,GLM-5.3,N,0,0,0,0,,,,True
+F03,fact,GLM-5.3,N,6,0,1,5,,Demon Slayer: Mugen Train,Spirited Away;Zenzenzense;スパークル;Weathering with You;Suzume,False
+F04,fact,GLM-5.3,N,1,0,1,0,,Cowboy Bebop: Knockin' on Heaven's Door,,True
+F05,fact,GLM-5.3,N,6,0,2,4,,Attack on Titan: The Final Season;Jujutsu Kaisen 0,Chainsaw Man;Chainsaw Man;Sasaki and Miyano;Weekly Shonen Jump,False
+F06,fact,GLM-5.3,N,0,0,0,0,,,,True
+F07,fact,GLM-5.3,N,6,0,1,5,,The End of Evangelion,Death and Rebirth;Final;Revolutionary Girl Utena;Soul Resonance;Puella Magi Madoka Magica,False
+F08,fact,GLM-5.3,N,3,0,3,0,,Gintama°;Gintama. Porori-hen;Gintama. Silver Soul Arc,,True
+M01,mood,GLM-5.3,N,0,0,0,0,,,,False
+M02,mood,GLM-5.3,N,11,0,0,11,,,CLANNAD;CLANNAD ～After Story～;Grave of the Fireflies;A Silent Voice;I Want to Eat Your Pancreas;Anohana;Violet Evergarden;Made in Abyss;At One Corner of This World;Liz and the Blue Bird;CLANNAD After Story,False
+M03,mood,GLM-5.3,N,6,0,0,6,,,Puella Magi Madoka Magica;Another;Corpse Party;Danganronpa;Elfen Lied;The Promised Neverland,False
+M04,mood,GLM-5.3,N,4,0,0,4,,,Liz and the Blue Bird;Kaguya-sama: Love Is War;Made in Abyss;Violet Evergarden,False
+M05,mood,GLM-5.3,N,6,0,0,6,,,My Hero Academia;Haikyu!!;Naruto;Uma Musume;Dr. Stone;MEGALOBOX,False
+M06,mood,GLM-5.3,N,6,0,0,6,,,Tsuki ga Kirei;CLANNAD;Horimiya;Kaguya-sama: Love Is War;Violet Evergarden;Kaguya-sama,False
+M07,mood,GLM-5.3,N,13,0,0,13,,,Star Wars: Visions;Space Battleship Yamato;Legend of the Galactic Heroes;Gundam;Mobile Suit Gundam SEED;Mobile Suit Gundam 0079;Ghost in the Shell;From the New World;Frieren: Beyond Journey's End;The Chain of THANATOS;Made in Abyss;Gargantia on the Verdurous Planet;Knights of Sidonia,False
+M08,mood,GLM-5.3,N,3,0,0,3,,,Shiki;Dark Gathering;Mononoke,False
+M09,mood,GLM-5.3,N,10,0,0,10,,,Overlord;KonoSuba;Wise Man's Grandchild;The Misfit of Demon King Academy;That Time I Got Reincarnated as a Slime;Classroom of the Elite;Cautious Hero;Baki;I Stand on a Million Lives;Demon King Academy,False
+M10,mood,GLM-5.3,N,11,0,1,10,,Cells at Work! Black,Dr. Stone;Romantic Killer;Moyashimon;Squid Girl;Non Non Biyori;Project Buta;Blue Wave;A Place Further Than the Universe;Space Brothers;Keep Your Hands Off Eizouken!,False
+S01e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S01h,scene,GLM-5.3,N,4,0,1,3,,**Death Note**,**Liar Game**;**Danganronpa**;**Usogui**,False
+S02e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S02h,scene,GLM-5.3,N,5,0,0,5,,,Moriarty the Patriot;Bungo Stray Dogs;Hypnosis Mic;UN-GO;Baccano!,False
+S03e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S03h,scene,GLM-5.3,N,0,0,0,0,,,,True
+S04e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S04h,scene,GLM-5.3,N,1,0,0,1,,,The Hero,False
+S05e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S05h,scene,GLM-5.3,N,3,0,2,1,,Steins;Gate 0;Steins;Gate 0,Load Region of Deja Vu,False
+S06e,scene,GLM-5.3,N,1,1,0,0,Code Geass: Lelouch of the Rebellion,,,True
+S06h,scene,GLM-5.3,N,2,0,2,0,,**Code Geass: Lelouch of the Rebellion**;Code Geass: Lelouch of the Re;surrection,,True
+S07e,scene,GLM-5.3,N,3,0,0,3,,,なんでもないや;Weathering with You;Suzume,False
+S07h,scene,GLM-5.3,N,3,0,0,3,,,Weathering with You;Suzume;The Girl Who Leapt Through Time,False
+S08e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S08h,scene,GLM-5.3,N,0,0,0,0,,,,True
+S09e,scene,GLM-5.3,N,1,0,0,1,,,ゼロから,False
+S09h,scene,GLM-5.3,N,0,0,0,0,,,,True
+S10e,scene,GLM-5.3,N,2,0,2,0,,Code Geass: Lelouch of the Rebellion R2;Code Geass: Lelouch of the Re;surrection,,True
+S10h,scene,GLM-5.3,N,2,0,2,0,,**Code Geass: Lelouch of the Rebellion**;Code Geass: Lelouch of the Re;surrection,,True
+S11e,scene,GLM-5.3,N,0,0,0,0,,,,True
+S11h,scene,GLM-5.3,N,1,0,0,1,,,The Disastrous Life of Saiki K.,False
+S12e,scene,GLM-5.3,N,5,0,1,4,,April,Winter Wind;TARI TARI;Nodame Cantabile;A Place Further Than the Universe,False
+S12h,scene,GLM-5.3,N,2,0,0,2,,,March Comes in Like a Lion;Liz and the Blue Bird,False
+T01,trap,GLM-5.3,N,3,1,0,2,The Quantum Cafe Under the Moonlight,,Tsuki ga Kirei;Cafe Time,False
+T02,trap,GLM-5.3,N,3,1,0,2,Testament of the Star Sea,,Knights of Sidonia;Made in Abyss,False
+T03,trap,GLM-5.3,N,4,1,0,3,Madoka the Galactic Courier,,Puella Magi Madoka Magica;Wild Sue;Galaxy Express 999,False
+T04,trap,GLM-5.3,N,4,0,0,4,,,Soul Eater;Black Butler;RWBY;Kakegurui,False
+T05,trap,GLM-5.3,N,2,1,0,1,One Piece,,Weekly Shonen Jump,False
+T06,trap,GLM-5.3,N,2,2,0,0,Naruto;Naruto Shippuden,,,True
+T07,trap,GLM-5.3,N,7,1,0,6,Slam Dunk,,Haikyu!!;Haikyu!!;Yowamushi Pedal;Blue Lock;Big Windup!;Run with the Wind,False
+T08,trap,GLM-5.3,N,3,1,0,2,Frieren: Beyond Journey's End,,Violet Evergarden;Made in Abyss,False
+T09,trap,GLM-5.3,N,4,1,0,3,Detective Conan,,The Phantom of Baker Street;Crossroad in the Ancient Capital;The Last Wizard of the Century,False
+T10,trap,GLM-5.3,N,2,0,0,2,,,Frieren: Beyond Journey's End;Haikyu!!,False
+T11,trap,GLM-5.3,N,0,0,0,0,,,,False
+T12,trap,GLM-5.3,N,5,0,0,5,,,Frieren: Beyond Journey's End Season 2;Oshi no Ko Season 3;Medalist;The Witch and the Mercenary;Zenshu,False
+X01,similar,GLM-5.3,N,2,0,0,2,,,Kabaneri of the Iron Fortress;Chainsaw Man,False
+X02,similar,GLM-5.3,N,5,0,0,5,,,Erased;The Promised Neverland;ID:INVADED;Paranoia Agent;Everything Becomes F,False
+X03,similar,GLM-5.3,N,8,0,0,8,,,Hotarubi no Mori e;Barakamon;Non Non Biyori;Flying Witch;Ms. Koizumi Loves Ramen Noodles;Kumamiko;Let's Eat Together;Fruits Basket,False
+X04,similar,GLM-5.3,N,5,0,0,5,,,Nichijou;Daily Lives of High School Boys;KonoSuba: God's Blessing on This Wonderful World!;Grand Blue;The Disastrous Life of Saiki K.,False
+X05,similar,GLM-5.3,N,5,0,0,5,,,Summer Time Rendering;The Tatami Galaxy;The Maze Runner;Erased;Tatami,False
+X06,similar,GLM-5.3,N,11,0,0,11,,,Weathering with You;Suzume;5 Centimeters per Second;The Garden of Words;The Girl Who Leapt Through Time;Fireworks;Only Yesterday;Whisper of the Heart;Horimiya;Monthly Girls' Nozaki-kun;CLANNAD,False
+X07,similar,GLM-5.3,N,4,0,0,4,,,Naruto;Fire Punch;Chainsaw Man;My Hero Academia,False
+X08,similar,GLM-5.3,N,10,0,1,9,,Hunter x Hunter,My Hero Academia;The Disastrous Life of Saiki K.;Kaguya-sama: Love Is War;Sakamoto Days;Slice of Life;Hell Teacher Nube;Kaiju No. 8;Run with the Wind;Haikyu!!,False
+X09,similar,GLM-5.3,N,10,0,1,9,,Cowboy Bebop: Knockin' on Heaven's Door,Samurai Champloo;Space Dandy;ODDTAXI;Frieren;Spice and Wolf;Ghost in the Shell: SAC;Eternal Overlord;Other Cowboy-style titles;Darker than Black,False
+X10,similar,GLM-5.3,N,5,0,0,5,,,PLUTO;Paranoia Agent;Perfect Blue;Devilman Crybaby;Another,False
+C01,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C02,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C03,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C04,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C05,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C06,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C07,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C08,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C09,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C10,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C11,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C12,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C13,constraint,GLM-5.3,R,2,0,2,0,,Death Note;Code Geass: Lelouch of the Rebellion,,True
+C14,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C15,constraint,GLM-5.3,R,0,0,0,0,,,,True
+C16,constraint,GLM-5.3,R,0,0,0,0,,,,True
+F01,fact,GLM-5.3,R,0,0,0,0,,,,True
+F02,fact,GLM-5.3,R,0,0,0,0,,,,True
+F03,fact,GLM-5.3,R,0,0,0,0,,,,True
+F04,fact,GLM-5.3,R,0,0,0,0,,,,True
+F05,fact,GLM-5.3,R,0,0,0,0,,,,True
+F06,fact,GLM-5.3,R,0,0,0,0,,,,True
+F07,fact,GLM-5.3,R,0,0,0,0,,,,True
+F08,fact,GLM-5.3,R,0,0,0,0,,,,True
+M01,mood,GLM-5.3,R,0,0,0,0,,,,True
+M02,mood,GLM-5.3,R,0,0,0,0,,,,True
+M03,mood,GLM-5.3,R,0,0,0,0,,,,True
+M04,mood,GLM-5.3,R,0,0,0,0,,,,True
+M05,mood,GLM-5.3,R,0,0,0,0,,,,True
+M06,mood,GLM-5.3,R,0,0,0,0,,,,True
+M07,mood,GLM-5.3,R,0,0,0,0,,,,True
+M08,mood,GLM-5.3,R,0,0,0,0,,,,True
+M09,mood,GLM-5.3,R,0,0,0,0,,,,True
+M10,mood,GLM-5.3,R,0,0,0,0,,,,True
+S01e,scene,GLM-5.3,R,0,0,0,0,,,,False
+S01h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S02e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S02h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S03e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S03h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S04e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S04h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S05e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S05h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S06e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S06h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S07e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S07h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S08e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S08h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S09e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S09h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S10e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S10h,scene,GLM-5.3,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S11e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S11h,scene,GLM-5.3,R,0,0,0,0,,,,True
+S12e,scene,GLM-5.3,R,0,0,0,0,,,,True
+S12h,scene,GLM-5.3,R,0,0,0,0,,,,True
+T01,trap,GLM-5.3,R,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,GLM-5.3,R,1,1,0,0,Testament of the Star Sea,,,True
+T03,trap,GLM-5.3,R,1,1,0,0,Madoka the Galactic Courier,,,True
+T04,trap,GLM-5.3,R,0,0,0,0,,,,True
+T05,trap,GLM-5.3,R,1,1,0,0,One Piece,,,True
+T06,trap,GLM-5.3,R,1,1,0,0,Naruto,,,True
+T07,trap,GLM-5.3,R,1,1,0,0,Slam Dunk,,,True
+T08,trap,GLM-5.3,R,1,1,0,0,Frieren: Beyond Journey's End,,,True
+T09,trap,GLM-5.3,R,1,1,0,0,Detective Conan,,,True
+T10,trap,GLM-5.3,R,0,0,0,0,,,,True
+T11,trap,GLM-5.3,R,0,0,0,0,,,,True
+T12,trap,GLM-5.3,R,0,0,0,0,,,,True
+X01,similar,GLM-5.3,R,0,0,0,0,,,,True
+X02,similar,GLM-5.3,R,0,0,0,0,,,,True
+X03,similar,GLM-5.3,R,1,0,0,1,,,Violet Evergarden,False
+X04,similar,GLM-5.3,R,0,0,0,0,,,,True
+X05,similar,GLM-5.3,R,0,0,0,0,,,,True
+X06,similar,GLM-5.3,R,0,0,0,0,,,,True
+X07,similar,GLM-5.3,R,0,0,0,0,,,,True
+X08,similar,GLM-5.3,R,0,0,0,0,,,,True
+X09,similar,GLM-5.3,R,0,0,0,0,,,,True
+X10,similar,GLM-5.3,R,0,0,0,0,,,,True
+C01,constraint,GLM-5.3-Flash,N,6,0,0,6,,,Bocchi the Rock!;Kaguya-sama: Love Is War;Monthly Girls' Nozaki-kun;Miss Kobayashi's Dragon Maid;KonoSuba: God's Blessing on This Wonderful World!;Daily Lives of High School Boys,False
+C02,constraint,GLM-5.3-Flash,N,6,0,0,6,,,Barakamon;Laid-Back Camp;Non Non Biyori;Aria the Animation;Tamako Market;Sweetness and Lightning,False
+C03,constraint,GLM-5.3-Flash,N,4,0,1,3,,Evangelion: New Theatrical Edition,Ghost in the Shell;Puella Magi Madoka Magica;FLCL,False
+C04,constraint,GLM-5.3-Flash,N,7,0,2,5,,Code Geass: Lelouch of the Rebellion;Evangelion,CLANNAD ～AFTER STORY～;Violet Evergarden;Shirobako;Slam Dunk;Run with the Wind,False
+C05,constraint,GLM-5.3-Flash,N,8,0,0,8,,,Summer Time Rendering;Puella Magi Madoka Magica;Hyouka;Mononoke;Psycho-Pass;ID:INVADED;GOSICK;Mawaru Penguindrum,False
+C06,constraint,GLM-5.3-Flash,N,6,0,1,5,,Demon Slayer: Mugen Train,Chainsaw Man;Cyberpunk: Edgerunners;Devilman Crybaby;Blue Eye Samurai;Fog Hill of Five Elements,False
+C07,constraint,GLM-5.3-Flash,N,4,0,0,4,,,Puella Magi Madoka Magica;Made in Abyss;Violet Evergarden;Xam'd: Lost Memories,False
+C08,constraint,GLM-5.3-Flash,N,5,0,0,5,,,Ghost in the Shell;CLANNAD ～AFTER STORY～;Violet Evergarden;One Piece;Slam Dunk,False
+C09,constraint,GLM-5.3-Flash,N,9,0,0,9,,,Chainsaw Man;Puella Magi Madoka Magica;Another;Tokyo Ghoul;Blood Blockade Battlefront;Dorohedoro;Zombieland Saga;FLCL;The Tatami Galaxy,False
+C10,constraint,GLM-5.3-Flash,N,15,0,5,10,,Evangelion: Final;Steins;Gate: Load Region of Deja Vu;City Hunter: Shinjuku Private Eyes;Demon Slayer: Mugen Train;Jujutsu Kaisen 0,Spirited Away;Ghost in the Shell;The Matrix;Akira;Castle in the Sky;5 Centimeters per Second;Maquia: When the Promised Flower Blooms;A Silent Voice;Puella Magi Madoka Magica: Rebellion;One Piece Film: Red,False
+C11,constraint,GLM-5.3-Flash,N,6,0,0,6,,,KonoSuba: God's Blessing on This Wonderful World!;Daily Lives of High School Boys;Tsuredure Children;Miss Kobayashi's Dragon Maid;Kill Me Baby;Himouto! Umaru-chan,False
+C12,constraint,GLM-5.3-Flash,N,10,0,2,8,,Your Lie in April;Vinland Saga,CLANNAD ～AFTER STORY～;Violet Evergarden;Devilman Crybaby;Odd Taxi;Frieren: Beyond Journey's End;Shirobako;Nichijou;C`est pas comme ca... Three-Star Chef,False
+C13,constraint,GLM-5.3-Flash,N,3,0,0,3,,,Puella Magi Madoka Magica;Odd Taxi;Psycho-Pass,False
+C14,constraint,GLM-5.3-Flash,N,8,0,1,7,,Evangelion: 2.0 You Can (Not) Advance,Cyberpunk: Edgerunners;2077;Ghost in the Shell;Odd Taxi;ID:INVADED;Vivy -Fluorite Eye's Song-;Made in Abyss,False
+C15,constraint,GLM-5.3-Flash,N,5,0,0,5,,,Violet Evergarden;CLANNAD ～AFTER STORY～;Shirobako;Spirited Away;My Neighbor Totoro,False
+C16,constraint,GLM-5.3-Flash,N,15,0,1,14,, Evangelion: Final ,The Roving Journey;Puella Magi Madoka Magica;Boogiepop Never Laughs;Instant Crossing;Ghost in the Shell;FLCL;The Shape of a Song;Deadman Wonderland;The Girl Who Leapt Through Time;Outlaw Star;Outlaw Star;Ghost in the Shell: SAC;Millennium Actress;Tokyo Godfathers,False
+F01,fact,GLM-5.3-Flash,N,2,0,0,2,,,Bunny Drop;Barakamon,False
+F02,fact,GLM-5.3-Flash,N,1,0,1,0,,Spy x Family Code: White,,True
+F03,fact,GLM-5.3-Flash,N,5,0,0,5,,,Weathering with You;Suzume;Kirby;Gamera the Giant Monster;The Girl Who Leapt Through Time,False
+F04,fact,GLM-5.3-Flash,N,1,0,0,1,,,Knockin' on Heaven's Door,False
+F05,fact,GLM-5.3-Flash,N,4,0,1,3,,Attack on Titan: The Final Season,Haikyu!!;Chainsaw Man;Zombieland Saga,False
+F06,fact,GLM-5.3-Flash,N,0,0,0,0,,,,True
+F07,fact,GLM-5.3-Flash,N,7,0,3,4,,Evangelion: New Theatrical Edition;Evangelion: Death and Rebirth;THE END OF EVANGELION,Jo;Ha;Q;Final,False
+F08,fact,GLM-5.3-Flash,N,2,0,2,0,,Gintama' Enchousen;Gintama°,,True
+M01,mood,GLM-5.3-Flash,N,11,0,0,11,,,Violet Evergarden;Polar Bear Cafe;Laid-Back Camp;The Prince Who Watched the Sea;Nagi-Asu: A Lull in the Sea;Surveying: Wildlife;Beastars;Miss Kobayashi's Dragon Maid;The White Cat Teacher's Child-Rearing Diary;Silver Spoon;CLANNAD ～AFTER STORY～,False
+M02,mood,GLM-5.3-Flash,N,7,0,0,7,,,CLANNAD ～AFTER STORY～;CLANNAD;Anohana;Violet Evergarden;Plastic Memories;Akame ga Kill!;Bunny Drop,False
+M03,mood,GLM-5.3-Flash,N,11,0,1,10,,Monster,Causality;Another;Future Diary;Psychic Detective;Dream Fantasy;Parasyte;Puella Magi Madoka Magica;Grisaia;Perfect Blue;Another,False
+M04,mood,GLM-5.3-Flash,N,4,0,0,4,,,Nichijou;Polar Bear Cafe;Violet Evergarden;Another,False
+M05,mood,GLM-5.3-Flash,N,4,0,0,4,,,My Hero Academia;Frieren: Beyond Journey's End;Naruto;One Piece,False
+M06,mood,GLM-5.3-Flash,N,8,0,0,8,,,Horimiya;Tsuki ga Kirei;Kaguya-sama: Love Is War;CLANNAD ~After Story~;Weathering with You;Tamako Love Story;Toradora!;Tsuredure Children,False
+M07,mood,GLM-5.3-Flash,N,7,0,0,7,,,Ghost in the Shell;The Matrix;Made in Abyss;Vivy -Fluorite Eye's Song-;Cyberpunk: Edgerunners;Psycho-Pass;Legend of the Galactic Heroes,False
+M08,mood,GLM-5.3-Flash,N,3,0,0,3,,,Mononoke;Summer Time Rendering;Yamishibai,False
+M09,mood,GLM-5.3-Flash,N,13,0,0,13,,,OVERLORD;The Slime Diaries;My Hero Academia;Assassination Classroom;Mushoku Tensei;The Apothecary Diaries;Classroom of the Elite;The Strongest Sage with the Weakest Crest;The Heike Story;The Genius Prince's Guide to Raising a Nation Out of Debt;So I am a Spider So What?;A Will Eternal;The Daily Life of the Immortal King,False
+M10,mood,GLM-5.3-Flash,N,6,0,0,6,,,Dr. Stone;Space Brothers;Robotics;Notes;Girls und Panzer;The Promised Neverland;Hyouka,False
+S01e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S01h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S02e,scene,GLM-5.3-Flash,N,1,0,0,1,,,Silence,False
+S02h,scene,GLM-5.3-Flash,N,1,0,0,1,,,Detective Conan,False
+S03e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S03h,scene,GLM-5.3-Flash,N,2,0,0,2,,,Kabaneri of the Iron Fortress;Made in Abyss,False
+S04e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S04h,scene,GLM-5.3-Flash,N,3,0,0,3,,,Erwin Smith: The 57th Exterior Scouting Mission (4);Iron Hammer;Ilse's Notebook,False
+S05e,scene,GLM-5.3-Flash,N,1,0,0,1,,,Load Region of Deja Vu,False
+S05h,scene,GLM-5.3-Flash,N,1,0,1,0,,Steins;Gate 0,,True
+S06e,scene,GLM-5.3-Flash,N,1,1,0,0,Code Geass: Lelouch of the Rebellion,,,True
+S06h,scene,GLM-5.3-Flash,N,3,0,2,1,,**Code Geass: Lelouch of the Rebellion**;Code Geass: Lelouch of the Re;surrection,R2,False
+S07e,scene,GLM-5.3-Flash,N,3,0,0,3,,,Zenzenzense;Weathering with You;Suzume,False
+S07h,scene,GLM-5.3-Flash,N,2,0,0,2,,,Weathering with You;Suzume,False
+S08e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S08h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S09e,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S09h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S10e,scene,GLM-5.3-Flash,N,3,0,1,2,,Code Geass R2,Trilogy;Code Geass: Roze of the Recapture,False
+S10h,scene,GLM-5.3-Flash,N,2,0,1,1,,Code Geass: Lelouch of the Rebellion,Code Geass: Akito the Exiled,False
+S11e,scene,GLM-5.3-Flash,N,1,0,1,0,,**One Punch**,,True
+S11h,scene,GLM-5.3-Flash,N,0,0,0,0,,,,True
+S12e,scene,GLM-5.3-Flash,N,1,0,0,1,,,Love's Lament,False
+S12h,scene,GLM-5.3-Flash,N,1,0,0,1,,,Spring Breeze,False
+T01,trap,GLM-5.3-Flash,N,3,1,0,2,The Quantum Cafe Under the Moonlight,,Tsukimichi: Moonlit Fantasy;The Daily Life of a Cafe Cat Barista,False
+T02,trap,GLM-5.3-Flash,N,4,1,0,3,Testament of the Star Sea,,Outlaw Star;Planetes;Umineko: When They Cry,False
+T03,trap,GLM-5.3-Flash,N,3,1,0,2,Madoka the Galactic Courier,,Galaxy Express 999;Space Delivery,False
+T04,trap,GLM-5.3-Flash,N,5,0,0,5,,,Bleach;Katekyo Hitman Reborn!;Akame ga Kill!;Tales of the Abyss;God Eater,False
+T05,trap,GLM-5.3-Flash,N,4,2,0,2,One Piece;ONE PIECE FILM RED,,Weekly Shonen Jump;Strong World,False
+T06,trap,GLM-5.3-Flash,N,3,2,0,1,Naruto;Naruto Shippuden,,Boruto,False
+T07,trap,GLM-5.3-Flash,N,6,1,0,5,Slam Dunk,,Haikyu!!;Run with the Wind;Kuroko's Basketball;Ping Pong the Animation;Blue Lock,False
+T08,trap,GLM-5.3-Flash,N,2,1,0,1,Frieren: Beyond Journey's End,,Violet Evergarden,False
+T09,trap,GLM-5.3-Flash,N,4,1,0,3,Detective Conan,,The Phantom of Baker Street;Countdown to Heaven;Quarter of Silence,False
+T10,trap,GLM-5.3-Flash,N,0,0,0,0,,,,False
+T11,trap,GLM-5.3-Flash,N,0,0,0,0,,,,False
+T12,trap,GLM-5.3-Flash,N,8,0,0,8,,,The Apothecary Diaries Season 2;Sakamoto Days;Mobile Suit Gundam GQuuuuuuX;Lazarus;Summer Pockets;CLANNAD;AIR;One Punch Man Season 3,False
+X01,similar,GLM-5.3-Flash,N,0,0,0,0,,,,True
+X02,similar,GLM-5.3-Flash,N,7,0,0,7,,,Kaiji: Ultimate Survivor;Danganronpa: The Academy of Hope;Another;Odd Taxi;Corpse Party;Danganronpa;Odd Taxi,False
+X03,similar,GLM-5.3-Flash,N,13,0,0,13,,,Wolf Children;Kamisama Kiss;Bunny Drop;The Reader;Kiki's Delivery Service;Non Non Biyori;Violet Evergarden;KonoSuba;A Silent Voice;Boogiepop Never Laughs;Kakuriyo: Bed and Breakfast for Spirits;Inuyasha;The Eccentric Family,False
+X04,similar,GLM-5.3-Flash,N,10,0,0,10,,,Nichijou;Daily Lives of High School Boys;You're Being Summoned Azazel;The Disastrous Life of Saiki K.;This Art Club Has a Problem!;How Clumsy You Are Miss Ueno;Assassins Pride;The Hidden Year-End Feast;Sakamoto Days;Assassination Classroom,False
+X05,similar,GLM-5.3-Flash,N,7,0,0,7,,,Puella Magi Madoka Magica;Summer Time Rendering;Erased;Life Patrol;Kyo Kara Maoh!;The Girl Who Leapt Through Time;Sagrada Reset,False
+X06,similar,GLM-5.3-Flash,N,11,0,0,11,,,Weathering with You;5 Centimeters per Second;Suzume;Love Me Love Me Not;A Silent Voice;Confession Executive Committee;You Who Never Existed and Me;Josee the Tiger and the Fish;Horimiya;Kaguya-sama: Love Is War;I Want to Eat Your Pancreas,False
+X07,similar,GLM-5.3-Flash,N,8,0,0,8,,,Fate/stay night [Unlimited Blade Works];Fate/Zero;Fire Force;One Piece;Naruto;My Hero Academia;Mugen Train;Hell's Paradise,False
+X08,similar,GLM-5.3-Flash,N,6,0,0,6,,,The Disastrous Life of Saiki K.;A Certain Scientific Railgun;My Hero Academia;YuYu Hakusho;Engage Kiss;Heavenly Delusion,False
+X09,similar,GLM-5.3-Flash,N,13,0,0,13,,,Macross;Samurai Champloo;GUNNM (Battle Angel Alita);Gungrave;Tengen Toppa Gurren Lagann;PLUTO;Space Dandy;Lupin III;The Castle of Cagliostro;Ghost in the Shell: SAC;LOST SONG;Made in Abyss;Samurai Champloo,False
+X10,similar,GLM-5.3-Flash,N,7,0,0,7,,,Devilman Crybaby;Kaiji: Ultimate Survivor;Psycho-Pass Season 1;Made in Abyss;Stranger Things;Parasyte: The Maxim;Parasyte,False
+C01,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C02,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C03,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C04,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C05,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C06,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C07,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C08,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C09,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C10,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C11,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C12,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C13,constraint,GLM-5.3-Flash,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+C14,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C15,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C16,constraint,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F01,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F02,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F03,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F04,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F05,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F06,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F07,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+F08,fact,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M01,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M02,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M03,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M04,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M05,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M06,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M07,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M08,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M09,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+M10,mood,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S01e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S01h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S02e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S02h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S03e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S03h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S04e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S04h,scene,GLM-5.3-Flash,R,1,0,0,1,,,Iron Hammer,False
+S05e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S05h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S06e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S06h,scene,GLM-5.3-Flash,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S07e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S07h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S08e,scene,GLM-5.3-Flash,R,1,0,1,0,,FMA: Brotherhood,,True
+S08h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S09e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S09h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S10e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S10h,scene,GLM-5.3-Flash,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S11e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S11h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S12e,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+S12h,scene,GLM-5.3-Flash,R,0,0,0,0,,,,True
+T01,trap,GLM-5.3-Flash,R,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,GLM-5.3-Flash,R,1,1,0,0,Testament of the Star Sea,,,True
+T03,trap,GLM-5.3-Flash,R,1,1,0,0,Madoka the Galactic Courier,,,True
+T04,trap,GLM-5.3-Flash,R,0,0,0,0,,,,True
+T05,trap,GLM-5.3-Flash,R,1,1,0,0,One Piece,,,True
+T06,trap,GLM-5.3-Flash,R,1,1,0,0,Naruto,,,True
+T07,trap,GLM-5.3-Flash,R,1,1,0,0,Slam Dunk,,,True
+T08,trap,GLM-5.3-Flash,R,2,2,0,0,Frieren: Beyond Journey's End;Frieren,,,True
+T09,trap,GLM-5.3-Flash,R,1,1,0,0,Detective Conan,,,True
+T10,trap,GLM-5.3-Flash,R,0,0,0,0,,,,False
+T11,trap,GLM-5.3-Flash,R,0,0,0,0,,,,True
+T12,trap,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X01,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X02,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X03,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X04,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X05,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X06,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X07,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X08,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X09,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+X10,similar,GLM-5.3-Flash,R,0,0,0,0,,,,True
+C01,constraint,MiniMax-M3,N,10,0,0,10,,,Grand Blue;Haven't You Heard? I'm Sakamoto;Daily Lives of High School Boys;Monthly Girls' Nozaki-kun;Chio's School Road;Non Non Biyori;Wataten!: An Angel Flew Down to Me;Bocchi the Rock!;Polar Bear Cafe;Azumanga Daioh,False
+C02,constraint,MiniMax-M3,N,9,0,0,9,,,Non Non Biyori;Flying Witch;Hakumei and Mikochi;Is the Order a Rabbit?;Tamayura: Hitotose;Konohana Kitan;Bunny Drop;Aria the Animation;Yuyushiki,False
+C03,constraint,MiniMax-M3,N,2,0,1,1,,Steins;Gate 0,Load Region of Deja Vu,False
+C04,constraint,MiniMax-M3,N,6,0,1,5,,Hunter x Hunter (2011),Ghost in the Shell: SAC;Slam Dunk;Laid-Back Camp;Frieren: Beyond Journey's End;Bocchi the Rock!,False
+C05,constraint,MiniMax-M3,N,0,0,0,0,,,,True
+C06,constraint,MiniMax-M3,N,8,0,0,8,,,MEGALOBOX;Made in Abyss;Chainsaw Man;Cyberpunk: Edgerunners;Vivy -Fluorite Eye's Song-;Princess Principal;Baccano!;Golden Kamuy,False
+C07,constraint,MiniMax-M3,N,9,0,0,9,,,Puella Magi Madoka Magica;Made in Abyss;Ranking of Kings;The Ancient Magus' Bride;Spirited Away;Howl's Moving Castle;Castle in the Sky;Nausicaa of the Valley of the Wind;Princess Mononoke,False
+C08,constraint,MiniMax-M3,N,13,0,2,11,,Hunter x Hunter: Chimera Ant Arc;FMA: Brotherhood,Psycho-Pass;ID:INVADED;Ghost in the Shell: SAC;Made in Abyss;CLANNAD AFTER STORY;Wolf Children;One Piece;Fate/Zero;Spirited Away;Porco Rosso;CLANNAD AS,False
+C09,constraint,MiniMax-M3,N,7,0,0,7,,,Puella Magi Madoka Magica;Erased;Another;SSSS.GRIDMAN;Sonny Boy;BNA: Brand New Animal;ID:INVADED,False
+C10,constraint,MiniMax-M3,N,26,0,0,26,,,Spirited Away;Princess Mononoke;Howl's Moving Castle;The Boy and the Heron;My Neighbor Totoro;Castle in the Sky;Nausicaa of the Valley of the Wind;The Tale of the Princess Kaguya;Grave of the Fireflies;Weathering with You;Suzume;5 Centimeters per Second;The Garden of Words;Paprika;Millennium Actress;Tokyo Godfathers;Wolf Children;The Girl Who Leapt Through Time;Summer Wars;Belle;Akira;The Matrix;Ghost in the Shell;Porco Rosso;Promare;Soul,False
+C11,constraint,MiniMax-M3,N,7,0,0,7,,,Grand Blue;Daily Lives of High School Boys;POP TEAM EPIC;Aho Girl;Monthly Girls' Nozaki-kun;Haven't You Heard? I'm Sakamoto;Back Street Girls,False
+C12,constraint,MiniMax-M3,N,3,0,0,3,,,Summer Time Rendering;Hyouka;Bocchi the Rock!,False
+C13,constraint,MiniMax-M3,N,8,0,0,8,,,The Promised Neverland;Odd Taxi;Kaiji: Against All Rules;ID:INVADED;Erased;Death Parade;Vivy -Fluorite Eye's Song-;Puella Magi Madoka Magica,False
+C14,constraint,MiniMax-M3,N,9,0,0,9,,,PLUTO;Astro Boy;Made in Abyss;Serial Experiments Lain;The Melancholy of Haruhi Suzumiya;Princess Principal;86 -Eighty Six-;Megalo Box;ID:INVADED,False
+C15,constraint,MiniMax-M3,N,0,0,0,0,,,,True
+C16,constraint,MiniMax-M3,N,11,0,1,10,,Cowboy Bebop: Knockin' on Heaven's Door,Millennium Actress;Tokyo Godfathers;Paprika;Inception;The Tale of the Princess Kaguya;Cat Soup;Memories;Robot Carnival;Metropolis;Magnetic Rose,False
+F01,fact,MiniMax-M3,N,0,0,0,0,,,,True
+F02,fact,MiniMax-M3,N,0,0,0,0,,,,True
+F03,fact,MiniMax-M3,N,2,0,0,2,,,Weathering with You;Suzume,False
+F04,fact,MiniMax-M3,N,1,1,0,0,Cowboy Bebop: Knockin' on Heaven's Door,,,True
+F05,fact,MiniMax-M3,N,2,0,1,1,,Jujutsu Kaisen 0,Weekly Shonen Jump,False
+F06,fact,MiniMax-M3,N,2,0,1,1,,Hunter x Hunter (2011),HxH 2011,False
+F07,fact,MiniMax-M3,N,7,0,1,6,,Evangelion: New Theatrical Edition,Air / Sincerely Yours;Death(True)²;Revolutionary Girl Utena;FLCL;Serial Experiments Lain;Ghost in the Shell,False
+F08,fact,MiniMax-M3,N,0,0,0,0,,,,True
+M01,mood,MiniMax-M3,N,12,0,0,12,,,Silver Spoon;Non Non Biyori;Nagi-Asu: A Lull in the Sea;chiikawa;Tamako Market;Polar Bear Cafe;Midnight Diner;The Solitary Gourmet;Today's Menu for the Emiya Family;Wolf Children;Whisper of the Heart;Only Yesterday,False
+M02,mood,MiniMax-M3,N,3,0,0,3,,,Anohana;Plastic Memories;Violet Evergarden,False
+M03,mood,MiniMax-M3,N,9,0,1,8,,**Monster**,**Puella Magi Madoka Magica**;**Umineko: When They Cry**;**Another**;**Summer Time Rendering**;**ID:INVADED**;**The Promised Neverland**;**Made in Abyss**;**School-Live!**,False
+M04,mood,MiniMax-M3,N,7,0,0,7,,,Bocchi the Rock!;Dandadan;Oshi no Ko;Frieren: Beyond Journey's End;Delicious in Dungeon;The Apothecary Diaries;Summer Time Rendering,False
+M05,mood,MiniMax-M3,N,3,0,1,2,,Jujutsu,Chainsaw Man;Tengen Toppa Gurren Lagann,False
+M06,mood,MiniMax-M3,N,14,0,0,14,,,Teasing Master Takagi-san;Horimiya;Kaguya-sama: Love Is War;Tsuredure Children;Tsuki ga Kirei;Toradora!;Hyouka;CLANNAD;Hotarubi no Mori e;Weathering with You;5 Centimeters per Second;Whisper of the Heart;Ponyo;Kaguya-sama,False
+M07,mood,MiniMax-M3,N,16,0,0,16,,,Legend of the Galactic Heroes;Gundam;0080;Z;Unicorn;The Witch from Mercury;Diebuster;Ghost in the Shell: SAC;Psycho-Pass;BLAME!;Expelled from Paradise;From the New World;Made in Abyss;Girls' Last Tour;Tengen Toppa Gurren Lagann;LotGH,False
+M08,mood,MiniMax-M3,N,9,0,0,9,,,Mushishi;Liaozhai;Shiki;Ayakashi: Samurai Horror Tales;Yotsuya Kaidan;The Story of the Tenshu;Hell Teacher Nube;Tales of Terror: The New Kaidan;Umineko: When They Cry,False
+M09,mood,MiniMax-M3,N,5,0,0,5,,,Overlord;That Time I Got Reincarnated as a Slime;The Irregular at Magic High School;Solo Leveling;The Rising of the Shield Hero,False
+M10,mood,MiniMax-M3,N,4,0,0,4,,,Dr. Stone;Heaven's Design Team;Science Fell in Love So I Tried to Prove It;Space Brothers,False
+S01e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S01h,scene,MiniMax-M3,N,4,0,0,4,,,Liar Game;Tomodachi Game;Kaiji: Ultimate Survivor;Liar Game,False
+S02e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S02h,scene,MiniMax-M3,N,2,0,0,2,,,The Detective Is Already Dead;BANANA FISH,False
+S03e,scene,MiniMax-M3,N,1,0,1,0,,Attack on Titan: The Final Season,,True
+S03h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S04e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S04h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S05e,scene,MiniMax-M3,N,0,0,0,0,,,,False
+S05h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S06e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S06h,scene,MiniMax-M3,N,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S07e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S07h,scene,MiniMax-M3,N,2,0,0,2,,,Suzume;Weathering with You,False
+S08e,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S08h,scene,MiniMax-M3,N,1,0,0,1,,,Berserk,False
+S09e,scene,MiniMax-M3,N,1,0,1,0,,Re:Zero,,True
+S09h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S10e,scene,MiniMax-M3,N,2,0,2,0,,Code Geass: Lelouch of the Rebellion R2;Code Geass: Lelouch of the Re;surrection,,True
+S10h,scene,MiniMax-M3,N,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S11e,scene,MiniMax-M3,N,1,0,0,1,,,ワンパンマン,False
+S11h,scene,MiniMax-M3,N,0,0,0,0,,,,True
+S12e,scene,MiniMax-M3,N,3,0,1,2,,Angel Beats!,Anohana;Plastic Memories,False
+S12h,scene,MiniMax-M3,N,3,0,0,3,,,Anohana;CLANNAD;Anohana: The Movie,False
+T01,trap,MiniMax-M3,N,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,MiniMax-M3,N,7,1,0,6,Testament of the Star Sea,,Nagi-Asu: A Lull in the Sea;Grave of the Fireflies;Letter;My Love from the Star;ALDNOAH.ZERO;86 -Eighty Six-,False
+T03,trap,MiniMax-M3,N,3,1,0,2,Madoka the Galactic Courier,,Puella Magi Madoka Magica;The Hitchhiker's Guide to the Galaxy,False
+T04,trap,MiniMax-M3,N,1,0,0,1,,,Bleach,False
+T05,trap,MiniMax-M3,N,2,1,0,1,One Piece,,Weekly Shonen Jump,False
+T06,trap,MiniMax-M3,N,1,0,0,1,,,Boruto: Naruto Next Generations,False
+T07,trap,MiniMax-M3,N,0,0,0,0,,,,False
+T08,trap,MiniMax-M3,N,2,0,0,2,,,Made in Abyss;Violet Evergarden,False
+T09,trap,MiniMax-M3,N,5,0,0,5,,,The Piano Sonata Murder Case;The Mountain Villa Bandaged Man Murder Case;The Phantom of Baker Street;The Last Wizard of the Century;Zero the Enforcer,False
+T10,trap,MiniMax-M3,N,0,0,0,0,,,,False
+T11,trap,MiniMax-M3,N,0,0,0,0,,,,False
+T12,trap,MiniMax-M3,N,8,0,0,8,,,The Apothecary Diaries;The Dangers in My Heart;Medalist;Ishura;mono;Sakamoto Days;BanG Dream! Ave Mujica;Uma Musume: Cinderella Gray,False
+X01,similar,MiniMax-M3,N,2,0,0,2,,,Tengen Toppa Gurren Lagann;Kabaneri of the Iron Fortress,False
+X02,similar,MiniMax-M3,N,5,0,0,5,,,Erased;Summer Time Rendering;Death Parade;Puella Magi Madoka Magica;Future Diary,False
+X03,similar,MiniMax-M3,N,0,0,0,0,,,,True
+X04,similar,MiniMax-M3,N,0,0,0,0,,,,False
+X05,similar,MiniMax-M3,N,5,0,0,5,,,Puella Magi Madoka Magica;The Girl Who Leapt Through Time;Sagrada Reset;Erased;Summer Wars,False
+X06,similar,MiniMax-M3,N,17,0,0,17,,,Weathering with You;5 Centimeters per Second;The Garden of Words;She and Her Cat;Fireworks;Hello World;Dragon's Dentist;Toradora!;Rascal Does Not Dream of Bunny Girl Senpai;Hyouka;Tamako Market;Tamako Love Story;Tsuredure Children;Hotarubi no Mori e;Last Letter;Maquia: When the Promised Flower Blooms;Rascal,False
+X07,similar,MiniMax-M3,N,7,0,1,6,,Demon Slayer,Fire Force;Rurouni Kenshin;Blade of the Immortal;Fate/stay night [Unlimited Blade Works];My Hero Academia;Black Clover,False
+X08,similar,MiniMax-M3,N,6,0,0,6,,,My Hero Academia;Charlotte;The Disastrous Life of Saiki K.;Noragami;Assassination Classroom;Puella Magi Madoka Magica,False
+X09,similar,MiniMax-M3,N,5,0,0,5,,,Samurai Champloo;Space Dandy;Wolf's Rain;Eureka Seven;Planetes,False
+X10,similar,MiniMax-M3,N,9,0,0,9,,,**Paranoia Agent**;**Serial Experiments Lain**;**Texhnolyze**;**ID: INVADED**;**Odd Taxi**;**The Promised Neverland**;**Psycho-Pass**;**Banana Fish**;**91 Days**,False
+C01,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C02,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C03,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C04,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C05,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C06,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C07,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C08,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C09,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C10,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C11,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C12,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C13,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C14,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C15,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+C16,constraint,MiniMax-M3,R,0,0,0,0,,,,True
+F01,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F02,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F03,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F04,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F05,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F06,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F07,fact,MiniMax-M3,R,0,0,0,0,,,,True
+F08,fact,MiniMax-M3,R,0,0,0,0,,,,True
+M01,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M02,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M03,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M04,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M05,mood,MiniMax-M3,R,1,0,0,1,,,Sugar Deficiency,False
+M06,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M07,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M08,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M09,mood,MiniMax-M3,R,0,0,0,0,,,,True
+M10,mood,MiniMax-M3,R,0,0,0,0,,,,True
+S01e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S01h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S02e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S02h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S03e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S03h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S04e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S04h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S05e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S05h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S06e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S06h,scene,MiniMax-M3,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S07e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S07h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S08e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S08h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S09e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S09h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S10e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S10h,scene,MiniMax-M3,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S11e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S11h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S12e,scene,MiniMax-M3,R,0,0,0,0,,,,True
+S12h,scene,MiniMax-M3,R,0,0,0,0,,,,True
+T01,trap,MiniMax-M3,R,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,MiniMax-M3,R,1,1,0,0,Testament of the Star Sea,,,True
+T03,trap,MiniMax-M3,R,1,1,0,0,Madoka the Galactic Courier,,,True
+T04,trap,MiniMax-M3,R,0,0,0,0,,,,True
+T05,trap,MiniMax-M3,R,1,1,0,0,One Piece,,,True
+T06,trap,MiniMax-M3,R,1,1,0,0,Naruto,,,True
+T07,trap,MiniMax-M3,R,0,0,0,0,,,,True
+T08,trap,MiniMax-M3,R,1,1,0,0,Frieren: Beyond Journey's End,,,True
+T09,trap,MiniMax-M3,R,1,1,0,0,Detective Conan,,,True
+T10,trap,MiniMax-M3,R,0,0,0,0,,,,False
+T11,trap,MiniMax-M3,R,0,0,0,0,,,,True
+T12,trap,MiniMax-M3,R,0,0,0,0,,,,True
+X01,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X02,similar,MiniMax-M3,R,1,0,0,1,,,L,False
+X03,similar,MiniMax-M3,R,4,0,0,4,,,Hakumei and Mikochi;Nagi-Asu: A Lull in the Sea;Is the Order a Rabbit?;Non Non Biyori,False
+X04,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X05,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X06,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X07,similar,MiniMax-M3,R,1,0,1,0,,Demon Slayer,,True
+X08,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X09,similar,MiniMax-M3,R,0,0,0,0,,,,True
+X10,similar,MiniMax-M3,R,2,0,1,1,,Re:Zero,L,False
+C01,constraint,Kimi-K3,N,10,0,0,10,,,Monthly Girls' Nozaki-kun;Grand Blue;Daily Lives of High School Boys;Kaguya-sama: Love Is War;Teasing Master Takagi-san;KonoSuba: God's Blessing on This Wonderful World!;Gabriel DropOut;Tamako Market;Kaguya-sama;Takagi-san,False
+C02,constraint,Kimi-K3,N,7,0,0,7,,,Girls' Last Tour;Laid-Back Camp;Bunny Drop;She and Her Cat;Gakuen Babysitters;This Art Club Has a Problem!;The Tatami Galaxy,False
+C03,constraint,Kimi-K3,N,0,0,0,0,,,,True
+C04,constraint,Kimi-K3,N,6,0,1,5,,Evangelion,Slam Dunk;Frieren: Beyond Journey's End;Violet Evergarden;Spirited Away;A Silent Voice,False
+C05,constraint,Kimi-K3,N,6,0,0,6,,,Baccano!;Terror in Resonance;Everything Becomes F;UN-GO;The Promised Neverland;Odd Taxi,False
+C06,constraint,Kimi-K3,N,5,0,1,4,,Demon Slayer: Mugen Train,Baccano!;Samurai Champloo;Entertainment District Arc;Dororo,False
+C07,constraint,Kimi-K3,N,6,0,0,6,,,Violet Evergarden;KonoSuba: God's Blessing on This Wonderful World!;Mushoku Tensei;Made in Abyss;Puella Magi Madoka Magica;Devilman Crybaby,False
+C08,constraint,Kimi-K3,N,8,0,0,8,,,CLANNAD ～AFTER STORY～;Violet Evergarden;The Promised Neverland;Anohana;86 -Eighty Six-;Odd Taxi;CLANNAD;Violet,False
+C09,constraint,Kimi-K3,N,6,0,0,6,,,Summer Time Rendering;The Promised Neverland;Ghoul;Future Diary;Another;Charlotte,False
+C10,constraint,Kimi-K3,N,14,0,2,12,,Natsume's Book of Friends: The Waking Rock and the Strange Visitor;Jujutsu Kaisen 0,Spirited Away;Robot Dreams;My Neighbor Totoro;Paprika;Perfect Blue;Castle in the Sky;Ghost in the Shell;Hotarubi no Mori e;A Silent Voice;Weathering with You;Violet Evergarden: The Movie;I Want to Eat Your Pancreas,False
+C11,constraint,Kimi-K3,N,9,0,0,9,,,Monthly Girls' Nozaki-kun;Kaguya-sama: Love Is War;The Disastrous Life of Saiki K.;Daily Lives of High School Boys;KonoSuba: God's Blessing on This Wonderful World!;Grand Blue;Saiki K.;Monthly Girls;Kaguya,False
+C12,constraint,Kimi-K3,N,7,0,0,7,,,Puella Magi Madoka Magica;Odd Taxi;Violet Evergarden;Cyberpunk: Edgerunners;Monthly Girls' Nozaki-kun;Yuri!!! on Ice;Made in Abyss,False
+C13,constraint,Kimi-K3,N,5,0,0,5,,,Kaiji: Ultimate Survivor;The Promised Neverland;Pet;Death Parade;Akagi,False
+C14,constraint,Kimi-K3,N,10,0,1,9,,Cowboy Bebop: Knockin' on Heaven's Door,Serial Experiments Lain;FLCL;The Tatami Galaxy;Dennou Coil;Paprika;Akira;Ghost in the Shell;Tengen Toppa Gurren Lagann;Gun x Sword,False
+C15,constraint,Kimi-K3,N,3,0,1,2,,Evangelion: 3.0+1.0 Thrice Upon a Time,CLANNAD ～AFTER STORY～;Spirited Away,False
+C16,constraint,Kimi-K3,N,9,0,0,9,,,Legend of the Galactic Heroes Gaiden: Golden Wings;FLCL;Voices of a Distant Star;Memories;Magnetic Rose;Stink Bomb;Cannon Fodder;Cat Soup;CLANNAD AS,False
+F01,fact,Kimi-K3,N,0,0,0,0,,,,True
+F02,fact,Kimi-K3,N,1,0,1,0,,Spy x Family Code: White,,True
+F03,fact,Kimi-K3,N,3,0,0,3,,,Zenzenzense;Weathering with You;Suzume,False
+F04,fact,Kimi-K3,N,1,0,0,1,,,Knockin' on Heaven's Door,False
+F05,fact,Kimi-K3,N,5,0,1,4,,Jujutsu Kaisen 0,Weekly Shonen Jump;Chainsaw Man;Yuri!!! on Ice;Hell's Paradise,False
+F06,fact,Kimi-K3,N,0,0,0,0,,,,True
+F07,fact,Kimi-K3,N,2,0,1,1,,Evangelion: 3.0+1.0 Thrice Upon a Time,Air / Sincerely Yours,False
+F08,fact,Kimi-K3,N,2,0,2,0,,Gintama' Enchousen;Gintama°,,True
+M01,mood,Kimi-K3,N,6,0,0,6,,,Laid-Back Camp;Today's Menu for the Emiya Family;Restaurant to Another World;K-On!;March Comes in Like a Lion;Daily Lives of High School Boys,False
+M02,mood,Kimi-K3,N,8,0,0,8,,,Anohana;secret base;Violet Evergarden;CLANNAD ～After Story～;Akame ga Kill!;Grave of the Fireflies;Violet;Akame ga Kill!,False
+M03,mood,Kimi-K3,N,5,0,1,4,,Monster,Another;The Promised Neverland;Future Diary;Mononoke,False
+M04,mood,Kimi-K3,N,5,0,1,4,,Demon Slayer: Unwavering Resolve Arc,The Promised Neverland;Violet Evergarden;Laid-Back Camp;Kaguya-sama: Love Is War,False
+M05,mood,Kimi-K3,N,4,0,0,4,,,MEGALO BOX;Oshi no Ko;Ragna Crimson;One Piece,False
+M06,mood,Kimi-K3,N,8,0,0,8,,,Teasing Master Takagi-san;Ore Monogatari!!;Horimiya;I Want to Eat Your Pancreas;Clannad;Tsuki ga Kirei;Hyouka;Weathering with You,False
+M07,mood,Kimi-K3,N,6,0,1,5,,Neon Genesis Evangelion,Ghost in the Shell;Legend of the Galactic Heroes;Made in Abyss;Cyberpunk: Edgerunners;86 -Eighty Six-,False
+M08,mood,Kimi-K3,N,4,0,0,4,,,Shiki;Another;Hell Girl;Mononoke,False
+M09,mood,Kimi-K3,N,7,0,0,7,,,overlord;That Time I Got Reincarnated as a Slime;The Eminence in Shadow;Classroom of the Elite;Sword Art Online;The Rising of the Shield Hero;The Eminence in Shadow,False
+M10,mood,Kimi-K3,N,3,0,0,3,,,Dr. Stone;Space Brothers;Laid-Back Camp,False
+S01e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S01h,scene,Kimi-K3,N,1,0,0,1,,,Kaiji: Ultimate Survivor,False
+S02e,scene,Kimi-K3,N,1,0,0,1,,,Silence,False
+S02h,scene,Kimi-K3,N,2,0,0,2,,,Silence;PSYCHO-PASS,False
+S03e,scene,Kimi-K3,N,2,0,0,2,,,To You 2000 Years Later;Kabaneri of the Iron Fortress,False
+S03h,scene,Kimi-K3,N,2,0,0,2,,,Kabaneri of the Iron Fortress;The Promised Neverland,False
+S04e,scene,Kimi-K3,N,1,0,0,1,,,No Regrets,False
+S04h,scene,Kimi-K3,N,1,0,0,1,,,Ilse's Notebook,False
+S05e,scene,Kimi-K3,N,2,0,0,2,,,Metaphysical Death;Physical Death,False
+S05h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S06e,scene,Kimi-K3,N,1,1,0,0,Code Geass: Lelouch of the Rebellion,,,True
+S06h,scene,Kimi-K3,N,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S07e,scene,Kimi-K3,N,4,0,0,4,,,Zenzenzense;Dream Lantern;Weathering with You;Suzume,False
+S07h,scene,Kimi-K3,N,4,0,0,4,,,Zenzenzense;Spark;Weathering with You;Suzume,False
+S08e,scene,Kimi-K3,N,2,0,0,2,,,The Day It Began;Mom...,False
+S08h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S09e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S09h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S10e,scene,Kimi-K3,N,2,0,2,0,,Code Geass: Lelouch of the Rebellion R2;Code Geass: Lelouch of the Re;surrection,,True
+S10h,scene,Kimi-K3,N,2,0,1,1,,Code Geass: Lelouch of the Rebellion,Fate/Zero,False
+S11e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S11h,scene,Kimi-K3,N,0,0,0,0,,,,True
+S12e,scene,Kimi-K3,N,0,0,0,0,,,,True
+S12h,scene,Kimi-K3,N,2,0,0,2,,,Sound! Euphonium;Violet Evergarden,False
+T01,trap,Kimi-K3,N,3,1,0,2,The Quantum Cafe Under the Moonlight,,Sagrada Reset;Girls' Last Tour,False
+T02,trap,Kimi-K3,N,4,1,0,3,Testament of the Star Sea,,Planetarian;Violet Evergarden;Made in Abyss,False
+T03,trap,Kimi-K3,N,3,1,0,2,Madoka the Galactic Courier,,Puella Magi Madoka Magica;Legend of the Galactic Heroes,False
+T04,trap,Kimi-K3,N,4,0,0,4,,,Angels of Death;Soul Eater;Bleach;Black Butler,False
+T05,trap,Kimi-K3,N,3,2,0,1,One Piece;THE ONE PIECE,,Weekly Shonen Jump,False
+T06,trap,Kimi-K3,N,3,2,0,1,Naruto;Naruto Shippuden,,Boruto,False
+T07,trap,Kimi-K3,N,5,1,0,4,Slam Dunk,,Haikyu!!;Yowamushi Pedal;Ace of Diamond;Ao Ashi,False
+T08,trap,Kimi-K3,N,1,1,0,0,Frieren: Beyond Journey's End,,,True
+T09,trap,Kimi-K3,N,4,1,0,3,Detective Conan,,Moonlight;The Phantom of Baker Street;Countdown to Heaven,False
+T10,trap,Kimi-K3,N,0,0,0,0,,,,False
+T11,trap,Kimi-K3,N,0,0,0,0,,,,False
+T12,trap,Kimi-K3,N,6,0,0,6,,,The Apothecary Diaries;Oshi no Ko;Hell's Paradise;Sakamoto Days;Flowers Bloom Like Asura;Medalist,False
+X01,similar,Kimi-K3,N,0,0,0,0,,,,True
+X02,similar,Kimi-K3,N,5,0,0,5,,,The Promised Neverland;Death Parade;Future Diary;Kaiji: Ultimate Survivor;Summer Time Rendering,False
+X03,similar,Kimi-K3,N,7,0,1,6,,The Morose Mononokean,Hotarubi no Mori e;Bunny Drop;Skip and Loafer;Barakamon;Deaimon;Kamisama Kiss,False
+X04,similar,Kimi-K3,N,5,0,0,5,,,Nichijou;Daily Lives of High School Boys;Monthly Girls' Nozaki-kun;Haven't You Heard? I'm Sakamoto;The Disastrous Life of Saiki K.,False
+X05,similar,Kimi-K3,N,7,0,0,7,,,Erased;The Melancholy of Haruhi Suzumiya;The Disappearance of Haruhi Suzumiya;Summer Time Rendering;Puella Magi Madoka Magica;Sagrada Reset;Future Diary,False
+X06,similar,Kimi-K3,N,8,0,0,8,,,Weathering with You;Suzume;5 Centimeters per Second;I Want to Eat Your Pancreas;Hotarubi no Mori e;The Girl Who Leapt Through Time;A Silent Voice;Whisper of the Heart,False
+X07,similar,Kimi-K3,N,5,0,0,5,,,Sword Art Online;Kabaneri of the Iron Fortress;Naruto;Fairy Tail;Violet Evergarden,False
+X08,similar,Kimi-K3,N,14,0,0,14,,,This Doctor Is Too Much Trouble;The Disastrous Life of Saiki K.;Nichijou;Daily Lives of High School Boys;Dr. Stone;Assassination Classroom;Dorohedoro;From the New World;Pokemon;Naruto;Space Dandy;FLCL;Puella Magi Madoka Magica;Saiki K.,False
+X09,similar,Kimi-K3,N,8,0,0,8,,,Samurai Champloo;Space Dandy;Trigun;TRIGUN STAMPEDE;Black Lagoon;Eureka Seven;Ghost in the Shell: SAC;Baccano!,False
+X10,similar,Kimi-K3,N,6,0,0,6,,,Baccano!;PLUTO;Astro Boy;Terror in Resonance;Psycho-Pass;Paranoia Agent,False
+C01,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C02,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C03,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C04,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C05,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C06,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C07,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C08,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C09,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C10,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C11,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C12,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C13,constraint,Kimi-K3,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+C14,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C15,constraint,Kimi-K3,R,0,0,0,0,,,,True
+C16,constraint,Kimi-K3,R,0,0,0,0,,,,True
+F01,fact,Kimi-K3,R,0,0,0,0,,,,True
+F02,fact,Kimi-K3,R,0,0,0,0,,,,True
+F03,fact,Kimi-K3,R,0,0,0,0,,,,True
+F04,fact,Kimi-K3,R,0,0,0,0,,,,True
+F05,fact,Kimi-K3,R,0,0,0,0,,,,True
+F06,fact,Kimi-K3,R,0,0,0,0,,,,True
+F07,fact,Kimi-K3,R,0,0,0,0,,,,True
+F08,fact,Kimi-K3,R,0,0,0,0,,,,True
+M01,mood,Kimi-K3,R,0,0,0,0,,,,True
+M02,mood,Kimi-K3,R,0,0,0,0,,,,True
+M03,mood,Kimi-K3,R,0,0,0,0,,,,True
+M04,mood,Kimi-K3,R,0,0,0,0,,,,True
+M05,mood,Kimi-K3,R,0,0,0,0,,,,True
+M06,mood,Kimi-K3,R,2,0,0,2,,,Kaguya-sama: Love Is War;Tsuki ga Kirei,False
+M07,mood,Kimi-K3,R,0,0,0,0,,,,True
+M08,mood,Kimi-K3,R,0,0,0,0,,,,True
+M09,mood,Kimi-K3,R,0,0,0,0,,,,True
+M10,mood,Kimi-K3,R,0,0,0,0,,,,True
+S01e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S01h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S02e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S02h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S03e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S03h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S04e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S04h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S05e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S05h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S06e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S06h,scene,Kimi-K3,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S07e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S07h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S08e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S08h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S09e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S09h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S10e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S10h,scene,Kimi-K3,R,1,0,1,0,,Code Geass: Lelouch of the Rebellion,,True
+S11e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S11h,scene,Kimi-K3,R,0,0,0,0,,,,True
+S12e,scene,Kimi-K3,R,0,0,0,0,,,,True
+S12h,scene,Kimi-K3,R,0,0,0,0,,,,True
+T01,trap,Kimi-K3,R,1,1,0,0,The Quantum Cafe Under the Moonlight,,,True
+T02,trap,Kimi-K3,R,1,1,0,0,Testament of the Star Sea,,,True
+T03,trap,Kimi-K3,R,1,1,0,0,Madoka the Galactic Courier,,,True
+T04,trap,Kimi-K3,R,0,0,0,0,,,,True
+T05,trap,Kimi-K3,R,1,1,0,0,One Piece,,,True
+T06,trap,Kimi-K3,R,1,1,0,0,Naruto,,,True
+T07,trap,Kimi-K3,R,1,1,0,0,Slam Dunk,,,True
+T08,trap,Kimi-K3,R,2,2,0,0,Frieren: Beyond Journey's End;Frieren,,,True
+T09,trap,Kimi-K3,R,1,1,0,0,Detective Conan,,,True
+T10,trap,Kimi-K3,R,0,0,0,0,,,,True
+T11,trap,Kimi-K3,R,0,0,0,0,,,,True
+T12,trap,Kimi-K3,R,0,0,0,0,,,,True
+X01,similar,Kimi-K3,R,0,0,0,0,,,,True
+X02,similar,Kimi-K3,R,0,0,0,0,,,,True
+X03,similar,Kimi-K3,R,1,0,0,1,,,March Comes in Like a Lion,False
+X04,similar,Kimi-K3,R,0,0,0,0,,,,True
+X05,similar,Kimi-K3,R,0,0,0,0,,,,True
+X06,similar,Kimi-K3,R,0,0,0,0,,,,True
+X07,similar,Kimi-K3,R,0,0,0,0,,,,True
+X08,similar,Kimi-K3,R,0,0,0,0,,,,True
+X09,similar,Kimi-K3,R,0,0,0,0,,,,True
+X10,similar,Kimi-K3,R,0,0,0,0,,,,True
+S01e,scene,T(system),T,0,0,0,0,,,,True
+S01h,scene,T(system),T,0,0,0,0,,,,True
+S02e,scene,T(system),T,0,0,0,0,,,,True
+S02h,scene,T(system),T,0,0,0,0,,,,True
+S03e,scene,T(system),T,0,0,0,0,,,,True
+S03h,scene,T(system),T,0,0,0,0,,,,True
+S04e,scene,T(system),T,0,0,0,0,,,,True
+S04h,scene,T(system),T,0,0,0,0,,,,True
+S05e,scene,T(system),T,0,0,0,0,,,,True
+S05h,scene,T(system),T,0,0,0,0,,,,True
+S06e,scene,T(system),T,0,0,0,0,,,,True
+S06h,scene,T(system),T,0,0,0,0,,,,True
+S07e,scene,T(system),T,0,0,0,0,,,,True
+S07h,scene,T(system),T,0,0,0,0,,,,True
+S08e,scene,T(system),T,0,0,0,0,,,,True
+S08h,scene,T(system),T,0,0,0,0,,,,True
+S09e,scene,T(system),T,0,0,0,0,,,,True
+S09h,scene,T(system),T,0,0,0,0,,,,True
+S10e,scene,T(system),T,0,0,0,0,,,,True
+S10h,scene,T(system),T,0,0,0,0,,,,True
+S11e,scene,T(system),T,0,0,0,0,,,,True
+S11h,scene,T(system),T,0,0,0,0,,,,True
+S12e,scene,T(system),T,0,0,0,0,,,,True
+S12h,scene,T(system),T,0,0,0,0,,,,True
+C01,constraint,T(system),T,0,0,0,0,,,,True
+C02,constraint,T(system),T,0,0,0,0,,,,True
+C03,constraint,T(system),T,0,0,0,0,,,,True
+C04,constraint,T(system),T,0,0,0,0,,,,True
+C05,constraint,T(system),T,0,0,0,0,,,,True
+C06,constraint,T(system),T,0,0,0,0,,,,True
+C07,constraint,T(system),T,0,0,0,0,,,,True
+C08,constraint,T(system),T,0,0,0,0,,,,True
+C09,constraint,T(system),T,0,0,0,0,,,,True
+C10,constraint,T(system),T,0,0,0,0,,,,True
+C11,constraint,T(system),T,0,0,0,0,,,,True
+C12,constraint,T(system),T,0,0,0,0,,,,True
+C13,constraint,T(system),T,0,0,0,0,,,,True
+C14,constraint,T(system),T,0,0,0,0,,,,True
+C15,constraint,T(system),T,0,0,0,0,,,,True
+C16,constraint,T(system),T,0,0,0,0,,,,True
+X01,similar,T(system),T,0,0,0,0,,,,True
+X02,similar,T(system),T,0,0,0,0,,,,True
+X03,similar,T(system),T,0,0,0,0,,,,True
+X04,similar,T(system),T,0,0,0,0,,,,True
+X05,similar,T(system),T,0,0,0,0,,,,True
+X06,similar,T(system),T,0,0,0,0,,,,True
+X07,similar,T(system),T,0,0,0,0,,,,True
+X08,similar,T(system),T,0,0,0,0,,,,True
+X09,similar,T(system),T,0,0,0,0,,,,True
+X10,similar,T(system),T,0,0,0,0,,,,True
+M01,mood,T(system),T,0,0,0,0,,,,True
+M02,mood,T(system),T,0,0,0,0,,,,True
+M03,mood,T(system),T,0,0,0,0,,,,True
+M04,mood,T(system),T,0,0,0,0,,,,True
+M05,mood,T(system),T,0,0,0,0,,,,True
+M06,mood,T(system),T,0,0,0,0,,,,True
+M07,mood,T(system),T,0,0,0,0,,,,True
+M08,mood,T(system),T,0,0,0,0,,,,True
+M09,mood,T(system),T,0,0,0,0,,,,True
+M10,mood,T(system),T,0,0,0,0,,,,True
+F01,fact,T(system),T,0,0,0,0,,,,True
+F02,fact,T(system),T,0,0,0,0,,,,True
+F03,fact,T(system),T,0,0,0,0,,,,True
+F04,fact,T(system),T,0,0,0,0,,,,True
+F05,fact,T(system),T,0,0,0,0,,,,True
+F06,fact,T(system),T,0,0,0,0,,,,True
+F07,fact,T(system),T,0,0,0,0,,,,True
+F08,fact,T(system),T,0,0,0,0,,,,True
+T01,trap,T(system),T,0,0,0,0,,,,True
+T02,trap,T(system),T,0,0,0,0,,,,True
+T03,trap,T(system),T,0,0,0,0,,,,True
+T04,trap,T(system),T,0,0,0,0,,,,True
+T05,trap,T(system),T,0,0,0,0,,,,True
+T06,trap,T(system),T,0,0,0,0,,,,True
+T07,trap,T(system),T,0,0,0,0,,,,True
+T08,trap,T(system),T,0,0,0,0,,,,True
+T09,trap,T(system),T,0,0,0,0,,,,True
+T10,trap,T(system),T,0,0,0,0,,,,True
+T11,trap,T(system),T,0,0,0,0,,,,True
+T12,trap,T(system),T,0,0,0,0,,,,True

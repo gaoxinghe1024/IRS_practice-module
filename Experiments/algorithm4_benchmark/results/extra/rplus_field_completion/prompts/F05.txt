@@ -1,0 +1,10 @@
+You are an anime-savvy recommendation assistant. Based on the knowledge base content below, answer the user naturally in Chinese; do not invent works that are not in the knowledge base.
+
+Knowledge base:
+Fullmetal Alchemist: Brotherhood Format:TV Studio:Bones Premiere:2009 Genres:Action,Adventure,Drama,Fantasy Themes:Character growth,Brotherhood,Equivalent exchange Episodes:64 Rating:9.09 Synopsis:To revive their dead mother, the brothers break alchemy's ultimate taboo: Edward loses his left arm and right leg, and his brother Alphonse loses his whole body. To get their bodies back they set out to find the Philosopher's Stone, and gradually uncover a vast conspiracy behind the state.
+Demon Slayer (Kimetsu no Yaiba) Format:TV Studio:ufotable Premiere:2019 Genres:Action,Fantasy,Adventure Themes:Revenge,Sibling bonds,Character growth Episodes:26 Rating:8.44 Synopsis:His family is slaughtered by demons and his sister Nezuko is turned into one. To make her human again and to kill the demon who murdered his family, Tanjiro joins the Demon Slayer Corps and sets out on the path of the sword.
+Attack on Titan (Shingeki no Kyojin) Format:TV Studio:WIT Studio Premiere:2013 Genres:Action,Drama,Fantasy Themes:Post-apocalypse,Character growth,Revenge,Dystopia Episodes:25 Rating:8.56 Synopsis:Humanity survives, barely, huddled inside enormous walls while man-eating Titans roam outside. After the boy Eren watches a Titan devour his mother, he joins the Survey Corps and swears to drive out every Titan. In battles of blood and fire, the truth of the world is peeled back layer by layer.
+Famous scene [Shingeki no Kyojin Ep. 22]: The Female Titan pursuit: the Survey Corps relays through the giant forest one after another, and Levi cuts down the Female Titan in a high-speed fight.
+Famous scene [Steins;Gate Ep. 12]: Okabe goes back again and again but can never prevent Mayuri's death — the peak of the time loop's despair.
+
+User: Which studio produced Jujutsu Kaisen?

@@ -1,0 +1,17 @@
+﻿qid,model,group,marker,head
+X04,Hy3,N,.codebuddy,"Gintama’s whole “deadpan nonsense delivered with a straight face” + rapid-fire snark + the occasional jab of real sentiment really does get its hooks into you, but 300-plus episodes in, your back gives out (lol). If you want the same kind of laughs in a lighter package, these hit the spot:⏎⏎*"
+C01,Deepseek-V4.1-Flash,N,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+C06,Deepseek-V4.1-Flash,N,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+M03,Deepseek-V4.1-Flash,N,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+M05,Deepseek-V4.1-Flash,N,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+X01,Deepseek-V4.1-Flash,N,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+X02,Deepseek-V4.1-Flash,N,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+T07,Deepseek-V4.1-Flash,R,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+X05,Deepseek-V4.1-Flash,R,DSML,"<｜｜DSML｜｜ calls>⏎<｜｜DSML｜｜ invoke name=""Write"">⏎<｜｜DSML｜｜ parameter name=""file_p"
+M01,GLM-5.3,N,<tool_call>,(Let me jot down your preference first~)<tool_call>Write⏎<path><profile>\.codebuddy\projects\<workspace>
+X04,GLM-5.3,R,.codebuddy,Write(file_path): <profile>\.codebuddy\projects\<workspace>\memor
+C10,MiniMax-M3,N,<tool_call>,"Here we go~ Feature films rated above 8 — I know this one backwards! Let me sort them by style, just pick whatever catches your eye👇⏎⏎## 🌿 Healing / Ghibli (Miyazaki & Takahata)⏎⏎Essential viewing, every one a classic:⏎⏎- **《"
+S04h,MiniMax-M3,N,<tool_call>,"Sounds like a famous scene from Season 3 of Attack on Titan, the “Retaking Shiganshina” arc; the characters involved should be:⏎⏎- **the talking Titan** → the Beast Titan (Zeke"
+S09h,MiniMax-M3,N,.codebuddy,"Let me note down some of the user's details first, then answer the question.<WriteTool>⏎<parameter name=""file_path""><profile>\."
+C03,MiniMax-M3,R,<tool_call>,"From the knowledge base you provided, I couldn’t find anything that fully matches “sci-fi + under 24 episodes + rating above 9”. The three titles in the knowledge base break down as follows:⏎⏎- **Vinland Sa"
+X10,MiniMax-M3,R,<tool_call>,"Since you mentioned a taste for that **cold, oppressive, battle-of-wits** kind of thing in Monster, the shortest entry in the knowledge base with the most fitting psychological angle is this one:⏎⏎🎬 **L: The Last 23 Days** — 1 episode (ser"

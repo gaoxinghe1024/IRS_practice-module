@@ -1,0 +1,69 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+
+# === Shipped state ===
+# The repository carries everything needed to serve exactly what the authors serve: the raw Kaggle files, the
+# active processed version, its trained artifacts and both activated business databases (large files in Git LFS,
+# see .gitattributes). Only the active version of each mode is shipped; retraining writes new version
+# directories, which stay local until they are activated and listed here.
+
+# === Local databases: only the two activated business databases are committed ===
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+var/*
+!var/real/
+!var/synthetic/
+var/real/*
+var/synthetic/*
+!var/real/anilogic.sqlite3
+!var/synthetic/anilogic.sqlite3
+
+# === Data: raw Kaggle files, Jikan cache and synthetic world are committed; processed data only for the active version ===
+data/processed/*/*
+!data/processed/*/latest.json
+!data/processed/real/validation_report.json
+!data/processed/real/real-034ebd6a74/
+!data/processed/synthetic/synthetic-7a7d5d6a74/
+!data/**/README.md
+!data/**/.gitkeep
+
+# === Trained models / indexes: only the active version of each mode is committed ===
+artifacts/*/*
+!artifacts/*/active.json
+!artifacts/real/real-034ebd6a74/
+!artifacts/synthetic/synthetic-7a7d5d6a74/
+# The serving subset of the algorithm-2 frozen run (5 files, 3.9 MB) is committed so that this
+# folder starts without the Experiments/ tree next to it. See its README.md for provenance.
+!artifacts/real/algorithm2-run/
+
+# === Evaluation: large per-case files stay local; reports and metrics are committed ===
+evaluation/runs/**/predictions.csv
+evaluation/runs/**/per_case.jsonl
+# Algorithm-2 runs: features, sampled pairs, per-pass predictions and logs are regenerable and stay local.
+# The experiment folders now sit outside this directory, so that rule lives in ../.gitignore.
+
+# === Browser test output ===
+test-results/
+playwright-report/
+
+# === System / editor ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# === Environment variables (secrets) ===
+.env
+.env.*
+!.env.example
+

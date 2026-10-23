@@ -1,0 +1,11 @@
+﻿qid,model,residual_title,category,disclosed,evidence
+C03,Deepseek-V4.1-Flash,L,short_form_of_in_kb_title,n/a,short form of in-KB L: Change the World
+S04h,Deepseek-V4.1-Flash,The Hero,episode_title,yes,episode title; reply cites own knowledge
+X03,GLM-5.3,Violet Evergarden,kb_gap_suggestion,yes,named as a title to add; KB gap stated
+S04h,GLM-5.3-Flash,Iron Hammer,episode_title,yes,episode title; reply cites own knowledge
+M05,MiniMax-M3,Sugar Deficiency,song_title,n/a,"song title, not a work"
+X02,MiniMax-M3,L,short_form_of_in_kb_title,n/a,short form of in-KB L: Change the World
+X03,MiniMax-M3,Hakumei and Mikochi;Nagi-Asu: A Lull in the Sea;Is the Order a Rabbit?;Non Non Biyori,kb_gap_suggestion,yes,4 titles to add; KB gap stated
+X10,MiniMax-M3,L,short_form_of_in_kb_title,n/a,short form of in-KB L: Change the World
+M06,Kimi-K3,Kaguya-sama: Love Is War;Tsuki ga Kirei,kb_gap_suggestion,yes,2 titles to add; KB gap stated
+X03,Kimi-K3,March Comes in Like a Lion,kb_gap_suggestion,yes,named as not in KB; asks before lookup

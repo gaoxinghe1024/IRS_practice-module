@@ -1,0 +1,10 @@
+endpoint,p50,p95,n
+search,3.0,4.7,30
+detail,4.1,5.4,30
+similar_cold,6.2,7.2,30
+similar_warm,2.6,3.1,30
+home_cold,36.9,40.3,30
+home_warm,3.3,4.1,30
+collection_recs,6.8,9.0,30
+chat_local,6.0,38.8,30
+plan_preview,187.7,196.5,30

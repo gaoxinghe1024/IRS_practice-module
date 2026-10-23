@@ -1,0 +1,7 @@
+source,scorer,hits@8,ndcg@8,auc_full_pool,auc_sampled50,cases
+proxy_liked_history:val,manual_slides_v0,0.01661,0.0086,0.86928,0.8674,1445
+proxy_liked_history:val,collection_profile_v1,0.00554,0.00369,0.82665,0.82763,1445
+proxy_liked_history:val,gradient_boosting_v1_proxy,0.11142,0.066,0.9692,0.96941,1445
+proxy_liked_history:test,manual_slides_v0,0.02351,0.0139,0.86063,0.8616,1446
+proxy_liked_history:test,collection_profile_v1,0.00899,0.00398,0.82182,0.82201,1446
+proxy_liked_history:test,gradient_boosting_v1_proxy,0.11549,0.07236,0.96701,0.96697,1446

@@ -1,0 +1,19 @@
+﻿slice,model,N_ok,R_ok,Rplus_ok,n_questions
+missing-field 5q,Hy3,5,1,1,5
+missing-field 5q,Deepseek-V4.1-Flash,5,1,1,5
+missing-field 5q,GLM-5.3,5,0,1,5
+missing-field 5q,GLM-5.3-Flash,5,1,1,5
+missing-field 5q,MiniMax-M3,5,1,1,5
+missing-field 5q,Kimi-K3,5,2,2,5
+episodes 3q,Hy3,3,2,2,3
+episodes 3q,Deepseek-V4.1-Flash,3,2,2,3
+episodes 3q,GLM-5.3,3,2,2,3
+episodes 3q,GLM-5.3-Flash,3,2,2,3
+episodes 3q,MiniMax-M3,3,2,2,3
+episodes 3q,Kimi-K3,3,2,2,3
+all 8q,Hy3,8,3,3,8
+all 8q,Deepseek-V4.1-Flash,8,3,3,8
+all 8q,GLM-5.3,8,2,3,8
+all 8q,GLM-5.3-Flash,8,3,3,8
+all 8q,MiniMax-M3,8,3,3,8
+all 8q,Kimi-K3,8,4,4,8

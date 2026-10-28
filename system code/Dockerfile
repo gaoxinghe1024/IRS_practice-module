@@ -4,7 +4,7 @@ FROM python:3.12-slim AS base
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 UV_SYSTEM_PYTHON=1
 WORKDIR /srv/anilogic
 RUN pip install uv==0.12.5
-COPY pyproject.toml uv.lock ./
+COPY pyproject.toml uv.lock SYSTEM_OVERVIEW.md ./
 COPY app ./app
 COPY pipelines ./pipelines
 COPY evaluation ./evaluation
